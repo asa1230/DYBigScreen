@@ -1,0 +1,265 @@
+.screen_container{
+    width: 100%;
+    height:100%;
+    background: url(../../../img/bg_07.png) no-repeat;
+    background-size: cover;
+    padding: 40px 60px;
+}
+@font-face{
+    font-family: "newFont";
+    src: url('../digifacewide(1).ttf');
+    /*src: url('../SingleMalta.ttf');*/
+}
+.screen_header{
+    height:98px;
+    width: 100%;
+    background: url(../../images/headerbg1.png) no-repeat;
+    background-size: contain;
+    padding:20px 40px;
+    line-height: 48px;
+}
+.header_icon{
+    vertical-align: middle;
+    width: 60px;
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+.header_title{
+    height: 52px;
+    font-family: PingFangSC-Medium;
+    font-size: 54px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #fefefe;
+    margin-left: 46px;
+}
+.header_eng{
+    height: 52px;
+    font-family: Helvetica;
+    font-size: 36px;
+    font-weight: normal;
+    line-height: 52px;
+    letter-spacing: 0px;
+    color: rgba(0, 201, 252, 0.5);
+    float: right;
+}
+.detile_header{
+	height:60px;
+	width:100%;
+	margin:30px 0;
+	line-height: 60px;
+}
+.detile_title{
+    height:60px;
+    font-size: 30px;
+    color: #fff;
+    line-height: 60px;
+}
+.res_ongoing{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-color: #3192f6;
+    border-radius: 50%!important;
+    margin-right: 18px;
+    position: relative;
+    top: -2px;
+}
+.res_complete{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-color: #00e4ef;
+    border-radius: 50%!important;
+    margin-right: 18px;
+    position: relative;
+    top: -2px;
+}
+.res_shutdown{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background-color: #ff3346;;
+    border-radius: 50%!important;
+    margin-right: 18px;
+    position: relative;
+    top: -2px;
+}
+.detile_status{
+	float:left;
+}
+.detile_img{
+	float:right;
+}
+.detile_img>img{
+	display:inline-block;
+	margin-left:20px!important;
+}
+.detile_left{
+	float:left;
+	width:1190px;
+}
+.detile_right{
+	float:right;
+	width:570px;
+}
+
+.res_top{
+	/* display:block;
+	width:100%;
+	font-family: PingFangSC-Medium;
+	font-size: 50px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+    overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap; */
+	width:100%;
+	font-family: PingFangSC-Medium;
+	font-size: 50px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #ffffff;
+	word-break: break-all;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+}
+.res_bottom ul{
+   margin-top:29px;
+}
+.res_bottom ul li{
+    float: left;
+    margin-right: 36px;
+}
+.res_bottom ul li:last-child{
+    margin-right: 0;
+}
+.res_author,.res_column,.res_time,.res_site{
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.6);
+    vertical-align: middle;
+    margin-left: 16px;
+}
+.res_site{
+	display:inline-block;
+	width:480px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.detile_cont{
+	padding-top:5px;
+	clear: both;
+}
+.detile_select{
+	width:232px;
+	height:58px;
+	background: url("../../images/subhead.png") no-repeat;
+	line-height: 58px;
+	color:#fff;
+	font-size: 36px;
+	text-align: center;
+}
+.detile_matter{
+	width:1190px;
+	height:313px;
+	background: url("../../images/detile1.png") no-repeat;
+	background-size: contain;
+	margin-top:20px;
+}
+.detaile_word{
+	font-size:26px;
+	color:#fff;
+	padding-top:25px;
+	margin:0 30px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 7;
+	overflow: hidden;
+}
+.detile_report{
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+.detile_idae{
+
+	height:128px;
+	background: url("../../images/detile2.png") no-repeat;
+	background-size: contain;
+	margin-top:20px;
+}
+.detile_bottom{
+	padding:0;
+	margin-top:25px;
+}
+.detile_maust{
+	margin-top:-12px;
+}
+.detile_name{
+	height:298px;
+	margin-top:20px;
+	background: url("../../images/detule3.png") no-repeat;
+	background-size: contain;
+}
+.detile_list{
+	padding-top:30px;
+}
+.detile_list li{
+	margin:0 28px;
+	height:53px;
+	border-bottom:2px solid rgba(255,255,255,.3);
+	line-height: 53px;
+}
+.detile_list li>span{
+	font-size:24px;
+	color:#fff;
+}
+.detile_cha{
+	float:left;
+	margin-left:10px;
+	width:45%;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.detile_source{
+	float:right;
+	margin-right:60px;
+}
+.detile_cre{
+	color:#00c5ff!important;
+}
+.detile_task{
+	margin-top:20px;
+}
+.detile_type,.detile_duty{
+	display:inline-block;
+	width:30%;
+	float:left;
+	margin-left:10px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.detile_duty{
+	width:15%;
+	float:left;
+	margin-left:100px;
+	
+}
+.detile_state{
+	display:inline-block;
+	width:15%;
+	margin-right:5%;
+	float:right;
+}

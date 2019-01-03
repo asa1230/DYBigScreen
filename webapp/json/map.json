@@ -1,0 +1,124 @@
+{
+	"maps": [
+		{
+			"id": "RY10001",
+			"type": "people",
+			"point": "116.404282,39.903835",
+			"title": "王琼方",
+			"tel": "18611854584",
+			"mevents": "采访烤鸭店经理了解如何将传统烤鸭与现代奥运相结合",
+			"mtype": "采访任务",
+			"selectTitle": "老北京风味菜击鼓烤鸭看奥运",
+			"place": "北京全聚德烤鸭前门店",
+			"icon": "../../dataImg/1.jpg"
+		},
+		{
+			"id": "RY10002",
+			"type": "people",
+			"point": "116.595769,40.051673",
+			"title": "郭美娟",
+			"tel": "18611234584",
+			"mevents": "获取自助通关系统采用生物识别技术的简要介绍",
+			"mtype": "采访任务",
+			"selectTitle": "出境游客都能自助通关？北京边检称须满足两个条件",
+			"place": "中国边检小天竺一街21号",
+			"icon": "../../dataImg/2.jpg"
+		},
+		{
+			"id": "RY10003",
+			"type": "people",
+			"point": "116.486833,39.902588",
+			"title": "王建勋",
+			"tel": "18611231289",
+			"mevents": "采访目击群众获取宋喆回京视频",
+			"mtype": "采访任务",
+			"selectTitle": "宋喆独自现身北京",
+			"place": "北京首府别墅",
+			"icon": "../../dataImg/3.jpg"
+		},
+		{
+			"id": "SB10001",
+			"type": "device",
+			"point": "116.449021,39.96729",
+			"title": "SONY高清摄像机",
+			"num": "NO.152",
+			"user": "季兰峰",
+			"mevents": "拍摄BIRTV展会现场情况",
+			"place": "北京市朝阳区国家展览中心",
+			"useTime": "500小时",
+			"useFrequency": "50次",
+			"icon": "../../dataImg/camera.jpg"
+		},
+		{
+			"id": "SB10002",
+			"type": "device",
+			"point": "116.300272,40.056755",
+			"title": "台式非编",
+			"num": "NO.882",
+			"user": "胡传奎",
+			"mevents": "制作BIRTV展会宣传视频",
+			"place": "北京市海淀区中关村软件园11号楼大洋大厦",
+			"useTime": "300小时",
+			"useFrequency": "20次",
+			"icon": "../../dataImg/DYeditor.jpg"
+		},
+		{
+			"id": "CL10001",
+			"type": "car",
+			"point": "116.457604,39.93039",
+			"title": "采访车辆",
+			"num": "京A35600",
+			"driver": "高程",
+			"tel": "18638745254",
+			"mevents": "拉记者前往北京市民政局采访",
+			"place": "北京市民政局",
+			"mileage": "736公里",
+			"useFrequency": "20次",
+			"icon": "../../dataImg/caifangche.jpg"
+		},
+		{
+			"id": "CL10002",
+			"type": "car",
+			"point": "116.459021,39.97729",
+			"title": "转播车辆",
+			"num": "京A22323",
+			"driver": "邹凯",
+			"tel": "13238745224",
+			"mevents": "转播2016BIRTV现场报道情况",
+			"place": "北京市朝阳区国家展览中心",
+			"mileage": "346公里",
+			"useFrequency": "3次",
+			"icon": "../../dataImg/caifangche.jpg"
+		},
+		{
+			"id": "XS10001",
+			"type": "clue",
+			"point": "116.349516,39.919801",
+			"title": "北京房价持续上涨",
+			"blPeople": "田晶晶",
+			"place": "国家统计局",
+			"content": "国家统计局昨天发布7月份70个大中城市住宅销售价格统计数据，北京新房环比上涨1.7%，二手房环比上涨1.6%",
+			"file": "../../dataImg/xs2.jpg"
+		},
+		{
+			"id": "XS10002",
+			"type": "clue",
+			"title": "严格遏制商改住项目",
+			"point": "116.436892,39.965243",
+			"blPeople": "张晓芳",
+			"place": "北京市国土资源和城乡规划委员会",
+			"content": "北京市国土资源和城乡规划委员会和北京市住房和城乡建设委员会召开了商住房专题会议，严格遏制商改住项目",
+			"file": "../../dataImg/xs1.jpg"
+		},
+		{
+			"id": "XS10003",
+			"type": "clue",
+			"point": "116.431356,39.964232",
+			"title": "北京拟实行积分落户",
+			"blPeople": "赵奕然",
+			"place": "北京市社会保障部",
+			"content": "《北京市积分落户管理办法（试行）》正式发布，规定合法稳定就业、合法稳定住所、教育背景、职住区域、创新创业、纳税、年龄、荣誉表彰、守法记录等九大指标构成积分落户体系。",
+			"file": "../../dataImg/xs3.jpg"
+		}
+	]
+}

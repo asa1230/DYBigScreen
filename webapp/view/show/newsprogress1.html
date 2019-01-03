@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>稿件生产</title>
+<link rel="stylesheet" href="../../static/plugins/css/bootstrap.min.css" />
+<link rel="stylesheet"
+	href="../../static/plugins/css/bootstrap-switch.min.css" />
+<link rel="stylesheet" href="../../static/plugins/css/components.min.css" />
+<link rel="stylesheet" href="../../static/plugins/css/custom.min.css" />
+<link rel="stylesheet" href="../../static/plugins/css/darkblue.min.css" />
+<link rel="stylesheet" href="../../static/css/common.css" />
+<link rel="stylesheet" href="../../static/css/news.css" />
+<link href="../../ccbn/css/ccbnMap_newadd.css" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-sidebar-fixed" >
+	<div style="position: relative;width: 1920px;height: 1080px;">
+        <div class="container cont screen_container">
+			<div class="screen_header">
+	            <span class="header_icon"><img src="../../static/images/icon_new.png"></span>
+	            <span class="header_title">稿件生产</span>
+	            <span class="header_eng">Production Monitoring</span>
+	        </div>
+	        
+	        <div class="news_content" id="news_content">
+	        	<div style="position: relative;width: 100%;height:100%;top:32px;">
+           			<div class="news_cont" id="news_cont">
+					</div>
+				</div>
+			</div>
+			
+			<div id="tipsshow" style="height: 20px; font-family: PingFangSC-Medium; font-size: 20px;font-weight: normal;font-stretch: normal; letter-spacing: 0px;color: #fefefe;margin-left: 46px;">
+				
+			</div>
+		</div>
+	</div>
+	
+	<script id="manuscript_script" type="text/html">
+		{{each list as res index}}
+			
+				<div class="news_center">
+							<div class="news_left">
+								<h3 class="news_h3">{{res.mainHeader}}</h3>
+								<div>
+									<span>
+										<img src="../../static/images/icon_wd.png" alt=""	class="news_img" />
+										<span class="news_time news_user">{{res.mainCreateUserName}}</span>
+									</span> 
+									<span class="news_sps">
+										<img src="../../static/images/icon_sj.png" alt="" class="news_img" />
+										<span class="news_time">{{res.mainCreateTime}}</span>
+									</span>
+									<span class="news_sps">
+										<img src="../../static/images/icon_lm.png" alt="" class="news_img" />
+										<span class="news_time news_hour" style="width:160px;">{{res.mainColumnName}}</span>
+                                    </span> 
+                                    <span class="news_sps" style=" margin-left: 3px;">
+										<img src="../../static/images/icon_lb.png" alt="" class="news_img" />
+                                        <span class="news_time news_hour">{{res.manuscripttype}}</span>
+                                    </span>
+								</div>
+							</div>
+							<div class="news_right" style="padding-left: 100px;" >
+								<div class="row">
+									<div class="col-md-12">
+										<div class="portlet light portlet-fit bordered">
+											<div class="portlet-body">
+												<div class="mt-element-step">
+													<div class="row step-line">
+														<div class="col-md-3 mt-step-col first done">
+															<div class="mt-step-number bg-white">
+																<img src="../../static/images/icon_tg.png" alt="" />
+															</div>
+															<div class="mt-step-title uppercase font-grey-cascade">稿件编辑</div>
+														</div>
+														<div class="col-md-3 mt-step-col done">
+															<div class="mt-step-number bg-white">
+															{{if res.mainStatus == 0}}
+																<img src="../../static/images/icon_k.png" alt="" />
+															{{else}}
+																<img src="../../static/images/icon_tg.png" alt="" />
+															{{/if}}
+															</div>
+															<div class="mt-step-title uppercase font-grey-cascade">稿件送审</div>
+														</div>
+														<div class="col-md-3 mt-step-col active">														
+															<div class="mt-step-number bg-white">
+															{{if res.mainStatus == 3}}
+																<img src="../../static/images/icon_th.png" alt="" />
+															{{else if res.mainStatus == 2 }}
+																<img src="../../static/images/icon_tg.png" alt="" />
+															{{else if res.mainStatus == 0 || res.mainStatus == 1}}
+																<img src="../../static/images/icon_k.png" alt="" />
+															{{/if}}
+															</div>
+															<div class="mt-step-title uppercase font-grey-cascade">审核完成</div>
+														</div>                                                        
+														<div class="col-md-3 mt-step-col last">
+															<div class="mt-step-number bg-white">
+															{{if res.mainStatus == 3}}
+																<img src="../../static/images/icon_tg.png" alt="" />
+															{{else}}
+																<img src="../../static/images/icon_k.png" alt="" />
+															{{/if}}
+															</div>
+															<div class="mt-step-title uppercase font-grey-cascade">稿件发布</div>
+														</div>
+                                                        
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+		{{/each}}
+	</script>
+	
+	
+	<script id="manuscript_deatail_script" type="text/html">
+		
+			
+				<div class="news_center" id="{{mainGuid}}" type="{{mainType}}">
+							<div class="news_left">
+								<h3 class="news_h3">{{mainHeader}}</h3>
+								<div>
+									<span>
+										<img src="../../static/images/icon_wd.png" alt=""	class="news_img" />
+										<span class="news_time news_user">{{mainCreateUserName}}</span>
+									</span> 
+									<span class="news_sps">
+										<img src="../../static/images/icon_sj.png" alt="" class="news_img" />
+										<span class="news_time">{{mainCreateTime}}</span>
+									</span>
+									<span class="news_sps">
+										<img src="../../static/images/icon_lm.png" alt="" class="news_img" />
+										<span class="news_time news_hour" style="width:160px;">{{mainColumnName}}</span>
+                                    </span> 
+                                    <span class="news_sps" style=" margin-left: 3px;">
+										<img src="../../static/images/icon_lb.png" alt="" class="news_img" />
+                                        <span class="news_time news_hour">{{manuscripttype}}</span>
+                                    </span>
+								</div>
+							</div>
+							<div class="news_right" style="padding-left: 100px;" >
+								<div class="row">
+									<div class="col-md-12">
+										<div class="portlet light portlet-fit bordered">
+											<div class="portlet-body">
+												<div class="mt-element-step">
+													<div class="row step-line">
+														<div class="col-md-3 mt-step-col first done">
+															<div class="mt-step-number bg-white">
+																<img src="../../static/images/icon_tg.png" alt="" />
+															</div>
+															<div class="mt-step-title uppercase font-grey-cascade">稿件编辑</div>
+														</div>
+														<div class="col-md-3 mt-step-col done">
+															<div class="mt-step-number bg-white">
+															{{if mainStatus == 0}}
+																<img src="../../static/images/icon_k.png" alt="" />
+															{{else}}
+																<img src="../../static/images/icon_tg.png" alt="" />
+															{{/if}}
+															</div>
+															<div class="mt-step-title uppercase font-grey-cascade">稿件送审</div>
+														</div>
+														<div class="col-md-3 mt-step-col active">														
+															<div class="mt-step-number bg-white">
+															{{if mainStatus == 3}}
+																<img src="../../static/images/icon_th.png" alt="" />
+															{{else if mainStatus == 2 }}
+																<img src="../../static/images/icon_tg.png" alt="" />
+															{{else if mainStatus == 0 || mainStatus == 1}}
+																<img src="../../static/images/icon_k.png" alt="" />
+															{{/if}}
+															</div>
+															<div class="mt-step-title uppercase font-grey-cascade">审核完成</div>
+														</div>                                                        
+														<div class="col-md-3 mt-step-col last">
+															<div class="mt-step-number bg-white">
+															{{if mainStatus == 3}}
+																<img src="../../static/images/icon_tg.png" alt="" />
+															{{else}}
+																<img src="../../static/images/icon_k.png" alt="" />
+															{{/if}}
+															</div>
+															<div class="mt-step-title uppercase font-grey-cascade">稿件发布</div>
+														</div>
+                                                        
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+		
+	</script>
+	
+	<script type="text/javascript" src="../../static/plugins/js/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="../../static/plugins/js/bootstrap.min.js"></script>
+	<script type="text/javascript"
+		src="../../static/plugins/js/echarts.min.js"></script>
+	<script type="text/javascript"
+		src="../../static/plugins/js/js.cookie.min.js"></script>
+	<script type="text/javascript"
+		src="../../static/plugins/js/jquery.slimscroll.min.js"></script>
+	<script type="text/javascript"
+		src="../../static/plugins/js/jquery.blockui.min.js"></script>
+	<script type="text/javascript"
+		src="../../static/plugins/js/bootstrap-switch.min.js"></script>
+	<!-- END CORE PLUGINS -->
+	<!-- BEGIN PAGE LEVEL PLUGINS -->
+	<script type="text/javascript"
+		src="../../static/plugins/js/jquery.pulsate.min.js"></script>
+	<script type="text/javascript"
+		src="../../static/plugins/js/jquery.bootpag.min.js"></script>
+	<script type="text/javascript" src="../../static/plugins/js/holder.js"></script>
+	<!-- END PAGE LEVEL PLUGINS -->
+	<!-- BEGIN THEME GLOBAL SCRIPTS -->
+	<script type="text/javascript" src="../../static/plugins/js/app.min.js"></script>
+	<!-- END THEME GLOBAL SCRIPTS -->
+	<!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<script type="text/javascript"
+		src="../../static/plugins/js/ui-general.min.js"></script>
+	<!-- END PAGE LEVEL SCRIPTS -->
+	<!-- BEGIN THEME LAYOUT SCRIPTS -->
+	<script type="text/javascript" src="../../static/plugins/js/layout.min.js"></script>
+	<script type="text/javascript" src="../../static/plugins/js/demo.min.js"></script>
+	<script type="text/javascript"
+		src="../../static/plugins/js/quick-sidebar.min.js"></script>
+	<script type="text/javascript"
+		src="../../static/plugins/js/quick-nav.min.js"></script>
+	<script type="text/javascript"
+		src="../../static/plugins/aui-artTemplate/template.js"></script>
+	<!-- 自定义相关JS -->
+	<script src="../../static/scripts/util/utils.js" type="text/javascript"></script>
+	<script src="../../static/scripts/common/global.js" type="text/javascript"></script>
+	<script src="../../static/scripts/show/newsprogress1.js" type="text/javascript"></script>
+
+</body>
+</html>

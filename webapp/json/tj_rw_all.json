@@ -1,0 +1,141 @@
+{
+	"column": [
+		{
+			"value": 63,
+			"name": "苏州新闻",
+			"itemStyle": {
+				"normal": {
+					"color": "#172C3C"
+				}
+			}
+		},
+		{
+			"value": 91,
+			"name": "新闻夜班车",
+			"itemStyle": {
+				"normal": {
+					"color": "#274862"
+				}
+			}
+		},
+		{
+			"value": 49,
+			"name": "苏州今朝",
+			"itemStyle": {
+				"normal": {
+					"color": "#995054"
+				}
+			}
+		}
+	],
+	"type": [
+		{
+			"value": 9,
+			"name": "未领用1",
+			"itemStyle": {
+				"normal": {
+					"color": "#ffff33"
+				}
+			}
+		},
+		{
+			"value": 42,
+			"name": "进行中1",
+			"itemStyle": {
+				"normal": {
+					"color": "#ff9900"
+				}
+			}
+		},
+		{
+			"value": 10,
+			"name": "已完成1",
+			"itemStyle": {
+				"normal": {
+					"color": "#ff6600"
+				}
+			}
+		},
+		{
+			"value": 2,
+			"name": "终止1",
+			"itemStyle": {
+				"normal": {
+					"color": "#ff0000"
+				}
+			}
+		},
+		{
+			"value": 13,
+			"name": "未领用2",
+			"itemStyle": {
+				"normal": {
+					"color": "#ffff33"
+				}
+			}
+		},
+		{
+			"value": 60,
+			"name": "进行中2",
+			"itemStyle": {
+				"normal": {
+					"color": "#ff9900"
+				}
+			}
+		},
+		{
+			"value": 18,
+			"name": "已完成2",
+			"itemStyle": {
+				"normal": {
+					"color": "#ff6600"
+				}
+			}
+		},
+		{
+			"value": 0,
+			"name": "终止2",
+			"itemStyle": {
+				"normal": {
+					"color": "#ff0000"
+				}
+			}
+		},
+		{
+			"value": 7,
+			"name": "未领用3",
+			"itemStyle": {
+				"normal": {
+					"color": "#ffff33"
+				}
+			}
+		},
+		{
+			"value": 30,
+			"name": "进行中3",
+			"itemStyle": {
+				"normal": {
+					"color": "#ff9900"
+				}
+			}
+		},
+		{
+			"value": 11,
+			"name": "已完成3",
+			"itemStyle": {
+				"normal": {
+					"color": "#ff6600"
+				}
+			}
+		},
+		{
+			"value": 1,
+			"name": "终止3",
+			"itemStyle": {
+				"normal": {
+					"color": "#ff0000"
+				}
+			}
+		}
+	]
+}

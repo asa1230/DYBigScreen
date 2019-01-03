@@ -1,0 +1,146 @@
+
+
+{
+	"page_info": {
+        "current_page": 1,
+        "page_num": 1,
+        "total_num": 16,
+        "total_page": 1
+    },
+  "records" : [
+    {
+      "id": "1",
+      "title": "记者:张三1",
+      "state": "空闲",
+      "stateType":"1",
+      "Longitude": "116.37216",
+      "Lantitude": "39.889536",
+      "imgUrl":"/newsCommand/ccbn/images/news1.jpg",
+      "phone":"13234665432",
+      "curTask":"进行中的任务标题1",
+      "curSelect":"进行中的选题标题1"
+    },{
+      "id": "2",
+      "title": "记者:张三2",
+      "state": "忙碌",
+      "stateType":"2",
+      "Longitude": "116.30088390748081",
+      "Lantitude": "40.05704468994807",
+      "imgUrl":"/newsCommand/ccbn/images/news1.jpg",
+      "phone":"15234688432",
+      "curTask":"进行中的任务标题2",
+      "curSelect":"进行中的选题标题2"
+    },{
+      "id": "3",
+      "title": "记者:张三3",
+      "state": "空闲",
+      "stateType":"1",
+      "Longitude": "116.30688390748081",
+      "Lantitude": "40.05704428994807",
+      "imgUrl":"/newsCommand/ccbn/images/photo1.jpg",
+      "phone":"17734677232",
+      "curTask":"进行中的任务标题3",
+      "curSelect":"进行中的选题标题3"
+    },{
+      "id": "4",
+      "title": "记者:张三4",
+      "state": "离线",
+      "stateType":"4",
+      "Longitude": "116.432526",
+      "Lantitude": "39.961247",
+      "imgUrl":"/newsCommand/ccbn/images/photo1.jpg",
+      "phone":"222222222",
+      "curTask":"进行中的任务标题4",
+      "curSelect":"进行中的选题标题4"
+    },{
+      "id": "5",
+      "title": "责编:李四1",
+      "state": "空闲",
+      "stateType":"1",
+      "Longitude": "116.307852",
+      "Lantitude": "40.057031",
+      "imgUrl":"/newsCommand/ccbn/images/photo1.jpg",
+      "phone":"13556653432",
+      "curTask":"进行中的任务标题5",
+      "curSelect":"进行中的选题标题5"
+    },{
+      "id": "6",
+      "title": "责编:李四2",
+      "state": "忙碌",
+      "stateType":"2",
+      "Longitude": "116.328749",
+      "Lantitude": "40.026922",
+      "imgUrl":"/newsCommand/ccbn/images/photo1.jpg",
+      "phone":"13556653432",
+      "curTask":"进行中的任务标题6",
+      "curSelect":"进行中的选题标题6"
+    },{
+      "id": "7",
+      "title": "责编:李四3",
+      "state": "空闲",
+      "stateType":"1",
+      "Longitude": "116.316163",
+      "Lantitude": "39.997753",
+      "imgUrl":"/newsCommand/ccbn/images/news1.jpg",
+      "phone":"13556653432",
+      "curTask":"进行中的任务标题7",
+      "curSelect":"进行中的选题标题7"
+    },{
+      "id": "8",
+      "title": "责编:李四4",
+      "state": "离线",
+      "stateType":"4",
+      "Longitude": "116.403472",
+      "Lantitude": "39.999411",
+      "imgUrl":"/newsCommand/ccbn/images/photo1.jpg",
+      "phone":"13556653432",
+      "curTask":"进行中的任务标题8",
+      "curSelect":"进行中的选题标题8"
+    },{
+      "id": "9",
+      "title": "责编:李四5",
+      "state": "空闲",
+      "stateType":"1",
+      "Longitude": "116.327852",
+      "Lantitude": "40.157031",
+      "imgUrl":"/newsCommand/ccbn/images/photo1.jpg",
+      "phone":"13556653432",
+      "curTask":"进行中的任务标题5",
+      "curSelect":"进行中的选题标题5"
+    },{
+      "id": "10",
+      "title": "责编:李四6",
+      "state": "忙碌",
+      "stateType":"2",
+      "Longitude": "116.328229",
+      "Lantitude": "40.024922",
+      "imgUrl":"/newsCommand/ccbn/images/photo1.jpg",
+      "phone":"13556653432",
+      "curTask":"进行中的任务标题6",
+      "curSelect":"进行中的选题标题6"
+    },{
+      "id": "11",
+      "title": "责编:李四7",
+      "state": "空闲",
+      "stateType":"1",
+      "Longitude": "116.345163",
+      "Lantitude": "39.597753",
+      "imgUrl":"/newsCommand/ccbn/images/news1.jpg",
+      "phone":"13556653432",
+      "curTask":"进行中的任务标题7",
+      "curSelect":"进行中的选题标题7"
+    },{
+      "id": "12",
+      "title": "责编:李四8",
+      "state": "离线",
+      "stateType":"4",
+      "Longitude": "116.413472",
+      "Lantitude": "39.922411",
+      "imgUrl":"/newsCommand/ccbn/images/photo1.jpg",
+      "phone":"13556653432",
+      "curTask":"进行中的任务标题8",
+      "curSelect":"进行中的选题标题8"
+    }
+  ]
+
+}

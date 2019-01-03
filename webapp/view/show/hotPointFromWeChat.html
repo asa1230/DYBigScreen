@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="icon" href="../../img/dayang.ico" type="image/x-icon"/>  
+<title>全网微信热点</title>
+<link href="../../css/css.css" type="text/css" rel="stylesheet" />
+<link href="../../css/jquery.jqflip.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.jqflip.js"></script>
+<meta name="referrer" content="never"/>
+<style type="text/css">
+body{ background:url(../../img/bg_02.jpg);}
+.repoterName{
+font-family: PingFang SC Medium;
+font-size: 24px;
+color: #fff;
+float: left;
+}
+
+.eachNews{
+background:url(../../img/iconbg.png);
+width: 1840px;
+height: 140px;
+margin-top: 16px;
+margin-bottom:0px;
+padding-left: 10px;
+overflow: hidden;
+}
+.titlePic{
+height:66px;
+margin-bottom: 0px;
+}
+#select1{
+height:918px;
+padding-top: 15px;
+}
+#select2{
+padding-top: 40px;
+}
+
+.firstpart{
+float: left;
+height: 100%;
+width:250px;
+}
+.picture{
+width: 248px;
+height: 100%;
+vertical-align: middle;
+}
+
+.secondpart{
+padding-top:40px;
+padding-left:10px;
+float: left;
+height: 100%;
+width: 1200px;
+}
+ .eachTitle{
+ list-style:none;
+font-size:	48px;
+left: 5px;
+color: #1DB0B8;
+overflow: hidden;
+}
+.eachContent{
+list-style:none;
+font-size:	27px;
+left: 5px;
+color: #ffffff;
+overflow: hidden;
+}
+
+.thirdpart{
+float: left;
+height: 100%;
+width:300px;
+}
+.eachCreatedTime{
+margin-top:20px;
+list-style:none;
+text-align:center;
+font-size:	30px;
+color: #96CDCD;
+}
+.eachAuthor{
+list-style:none;
+text-align:center;
+font-size:	30px;
+color: #FFEB3B;
+}
+.page{
+text-decoration: none;
+font-size:48px;
+left: 5px;
+color: #1DB0B8;
+overflow: hidden;
+display:block;
+}
+</style>
+</head>
+
+<body style="overflow: hidden">
+	<div class="content">
+		<div class="titlePic">
+			<img src="../../img/logo22.png" style="height: 100%;" />
+		</div>
+		<div id="select1" ></div>
+		<div id="select2" style="margin-top:500px"></div>
+	</div>
+</body>
+<script src="../../plugin/aui-artTemplate/template.js"></script>
+<!-- 报题列表 -->
+<script id="select1-list-item" type="text/html">
+{{each records as record i}}
+<div class="jqflip-parent " id="one_{{i}}">
+   <div class="jqflip-front jqflip-item" >
+		<div class="eachNews">
+			<div class="firstpart" >
+					<img class="picture" src="{{record.attachFileOne}}" onerror="javascript:this.src='../../img/default_weixin.png'">
+			</div>
+			<div class="secondpart" >
+					<li class="eachTitle"><a class="page" target="_blank" href="{{record.resourceOriginAddress}}">{{record.title}}</a></li></br>
+			</div>
+			<div class="thirdpart" >
+					<li class="eachCreatedTime">{{record.createdTime}}</li></br>
+					<li class="eachAuthor">{{record.author}}</li></br>
+			</div>
+		</div>
+   </div>
+</div>
+{{/each}}
+</script>
+<script id="select2-list-item" type="text/html">
+{{each records as record i}}
+<div class="jqflip-parent" id="two_{{i}}">
+   <div class="jqflip-back jqflip-item">
+		<div class="eachNews">
+			<div class="firstpart" >
+					<img class="picture" src="{{record.attachFileOne}}" onerror="javascript:this.src='../../img/default_weixin.png'">
+			</div>
+			<div class="secondpart" >
+					<li class="eachTitle"><a class="page" target="_blank" href="{{record.resourceOriginAddress}}">{{record.title}}</a></li></br>
+			</div>
+			<div class="thirdpart" >
+					<li class="eachCreatedTime">{{record.createdTime}}</li></br>
+					<li class="eachAuthor">{{record.author}}</li></br>
+			</div>
+		</div>
+   </div>
+</div>
+{{/each}}
+</script>
+<!-- <script src="../../js/echarts.js" type="text/javascript"></script> -->
+<script type="text/javascript" src="../../static/scripts/util/utils.js"></script>
+<script type="text/javascript" src="../../static/scripts/show/hotPointFromWeChat.js"></script>
+</html>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dayang.newmedia.newscommand.db.dao.DBMetaDataMapper">
+    <select id="getCurrentTime" resultType="java.util.Date">
+        select
+        <if test="_databaseId == 'mysql'">
+            now() from DUAL
+        </if>
+        <if test="_databaseId == 'sqlserver'">
+            getdate()
+        </if>
+        <if test="_databaseId == 'oracle'">
+            sysdate from DUAL
+        </if>
+        <if test="_databaseId == 'postgresql'">
+            now()
+        </if>
+        <if test="_databaseId == 'derby'">
+            CURRENT_TIMESTAMP FROM SYSIBM.SYSDUMMY1
+        </if>
+
+    </select>
+
+
+    <update id="dropTable" parameterType="java.lang.String">
+        DROP TABLE
+        <if test="_databaseId == 'mysql'">
+            `${value}`
+        </if>
+        <if test="_databaseId == 'sqlserver' or _databaseId == 'oracle' or _databaseId == 'postgresql' or _databaseId == 'derby' ">
+            ${value}
+        </if>
+    </update>
+
+    <select id="queryTables" parameterType="java.lang.String" resultType="java.lang.String">
+        <if test="_databaseId == 'mysql'">
+            show tables like '${value}'
+        </if>
+        <if test="_databaseId == 'sqlserver'">
+            select name from sys.tables where name = #{value}
+        </if>
+        <if test="_databaseId == 'oracle'">
+            select table_name from all_tables where table_name = #{value} or table_name = upper(#{value})
+        </if>
+        <if test="_databaseId == 'postgresql'">
+            select b.relname from pg_catalog.pg_class b where lower(b.relname) = lower(#{value})
+        </if>
+        <if test="_databaseId == 'derby'">
+            select TABLENAME from sys.SYSTABLES where lower(TABLENAME) = lower(#{value})
+        </if>
+    </select>
+
+</mapper>

@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<html lang="zh-cn">
+    <head>
+        <meta charset="utf-8" />
+        <title>指挥调度-KPI考核</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <http-equivhttp-equiv="pragma" content="no-cache">    
+		<http-equivhttp-equiv="cache-control" content="no-cache">    
+		<http-equivhttp-equiv="expires" content="0">    
+		<http-equiv="pragma" content="no-cache">  
+		<http-equiv="cache-control" content="no-cache">  
+		<http-equiv="expires" content="0">
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <link href="../../assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/typeahead/typeahead.css" rel="stylesheet" type="text/css" />
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="../../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="../../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <link href="../../assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="../../assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../css/control-css.css" rel="stylesheet" type="text/css" />
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <link href="../../assets/global/plugins/jstree/dist/themes/default/style.min.css" rel="stylesheet" type="text/css" />
+	
+	
+		<!-- ios -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, minium-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes" /><!-- home screen app 全屏 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 状态栏 black-translucent为透明状态栏 -->
+		<meta name="apple-mobile-web-app-title" content="控制端测试" >
+		<meta name="apple-touch-fullscreen" content="yes">  
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no"><!-- 禁用电话号码自动识别 -->
+
+		<!-- Retina iPad 152px -->
+		<link rel="apple-touch-icon" href="icon152.png" sizes="152x152">
+		<!-- Android 启动图标 -->
+		<link rel="shortcut icon" sizes="128x128" href="icon128.png">
+		<!-- iOS 启动画面 -->
+		<!-- iPad 竖屏 1536x2008（Retina） -->
+		<link rel="apple-touch-startup-image" sizes="1536x2008" href="splash-screen-1536x2008.png" />
+		<!-- iPad 横屏 2048x1496（Retina） -->
+		<link rel="apple-touch-startup-image" sizes="2048x1496" href="splash-screen-2048x1496.png" />
+        </head>
+    <!-- END HEAD -->
+
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner ">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo">
+                    <a href="#">
+                        <img src="../../images/logo.png" alt="logo"  width="35" height="35" style="margin-top:5px;"/> </a><div id="sysTitle" style="float:left; color:#FFF; font-size:22px;  height:45px; line-height:45px; margin-left:15px;"></div>
+                </div>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <!-- END USER LOGIN DROPDOWN -->
+                        <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                        <li class="dropdown dropdown-user">
+                              <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="line-height:inherit">
+                                <i class="icon-logout"></i>
+                                <span style="color:#c6cfda;"> 退出 </span>
+                        </a>
+                        </li>
+                        <!-- END QUICK SIDEBAR TOGGLER -->
+                    </ul>
+            </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+            <!-- END HEADER INNER -->
+        </div>
+        <!-- END HEADER -->
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+            <div class="page-sidebar-wrapper">
+                <!-- BEGIN SIDEBAR -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <div class="page-sidebar navbar-collapse collapse">
+                    <!-- BEGIN SIDEBAR MENU -->
+                    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                    <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                        <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                       <li class="nav-item ">
+                          <a href="../../view/control/control_huijuClue.html" >
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px"><span class="fa fa-rss page-style-bar-1"></span></td><td class="page-style-bar-2">热点线索</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                        <li  class="nav-item  ">
+                        <a href="../../view/control/control_subject.html" >
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px"><span class="fa fa-newspaper-o page-style-bar-1"></span></td><td class="page-style-bar-2">新闻专题</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                        <li  class="nav-item  ">
+                        <a href="../../view/control/control_selectProgress.html" >
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px"><span class="fa fa-list page-style-bar-1"></span></td><td class="page-style-bar-2">选题进展</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                        <li  class="nav-item  ">
+                        <a href="../../view/control/control_map.html" >
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px"><span class="fa fa-globe page-style-bar-1"></span></td><td class="page-style-bar-2">资源地图</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                        <li  class="nav-item   active open">
+                        <a href="../../view/control/control_tj.html" >
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px"  style="border-bottom:1px #455467 solid"><span class="fa fa-pie-chart page-style-bar-1-2"></span></td><td class="page-style-bar-2">数据统计</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                        <li  class="nav-item  ">
+                        <a href="../../view/control/control_publish.html" >
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px"><span class="fa fa-line-chart page-style-bar-1"></span></td><td class="page-style-bar-2">发布效果评估</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                        <li  class="nav-item  ">
+                        <a href="../../view/control/control_setting.html" >
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px"><span class="fa fa-cog page-style-bar-1"></span></td><td class="page-style-bar-2">系统设置</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                    </ul>
+                    <!-- END SIDEBAR MENU -->
+                    <!-- END SIDEBAR MENU -->
+</div>
+                <!-- END SIDEBAR -->
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                <div class="tabbable-custom nav-justified">
+                                        
+                                    <div class="huiju0ss24"><a href="../../view/control/control_tj.html"><i class="fa fa-arrow-circle-left huiju0ss" style="font-size:30px; margin-right:15px"></i></a>KPI考核</div>   
+                                                 <div class="row">
+                                                     <div style="float:left; width:330px">
+                                                     <div class="portlet light">
+                                                     <div class="portlet-title">
+                                    <div class="caption">
+                                        <span class="caption-subject bold uppercase"> 人员组织结构树状图</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                <div class="scroller" style="height:500px" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+                                <div id="demo"> </div>
+                                
+                                </div>
+                                                      </div>
+                                                      </div>
+                                                     </div>
+                                                     <div style="float:left; width:80px; margin-top:220px; text-align:center">
+                                                     <button type="button" class="btn btn-info" style="margin-bottom:15px">添加</button><br><button type="button" class="btn btn-danger">删除</button>
+                                                     </div>
+                                                     <div style="float:left; width:330px">
+                                                     <div class="portlet light">
+                                <div class="portlet-title">
+                                    <div class="caption">
+                                        <span class="caption-subject bold uppercase"> 选定人员列表</span>
+                                    </div>
+                                </div>
+                                <div class="portlet-body">
+                                    <div class="scroller" style="height:500px" data-rail-visible="1" data-rail-color="yellow" data-handle-color="#a1b2bd">
+                                       <table width="90%" height="400px" align="center">
+                                             <tr><td  valign="top">
+                                             <p style="border-bottom:1px #ddd solid; height:35px; line-height:35px; margin:0px"><input name="" type="checkbox" value="">李颖</p>
+                                             <p style="border-bottom:1px #ddd solid;height:35px; line-height:35px;margin:0px"><input name="" type="checkbox" value="">王旭</p>
+                                             <p style="border-bottom:1px #ddd solid;height:35px; line-height:35px;margin:0px"><input name="" type="checkbox" value="">刘畅</p>
+                                             </td></tr>
+                                       </table>
+                                    </div>
+                                </div>
+                            </div>
+                                                     </div>
+                                                     </div>
+                            </div>
+                                            
+                                          
+                                        </div>
+                                    </div>
+                
+          <!-- BEGIN PAGE BAR --></div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR --><!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+       
+        <!-- END FOOTER -->
+        <!--[if lt IE 9]>
+<script src="../../assets/global/plugins/respond.min.js"></script>
+<script src="../../assets/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="../../assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="../../assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
+        <script src="../../assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
+        <script src="../../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+        <script src="../../assets/pages/scripts/components-bootstrap-tagsinput.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap-tagsinput/bootstrap-tagsinput.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/typeahead/handlebars.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/typeahead/typeahead.bundle.min.js" type="text/javascript"></script>
+         <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script src="../../assets/global/plugins/bootstrap-select/js/bootstrap-select.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/select2/js/select2.full.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        
+		      <script src="../../assets/global/plugins/jstree/dist/jstree.min.js" type="text/javascript"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script src="../../assets/pages/scripts/ui-tree.min.js" type="text/javascript"></script>
+		<script src="../../assets/pages/scripts/components-multi-select.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="../../js/fixWebAppBugs4iOS.js"></script>
+    </body>
+<script type="text/javascript">
+	$('#demo').jstree({
+		'core' : {
+			'data' : [
+			      	{
+			    		"id": 1,
+			    		"text": "苏州台",
+			    		"level": 1,
+			    		"orderNum": 2,
+			    		"state": {
+			    			"opened": true
+			    		},
+			    		"children": [
+			    			{
+			    				"id": 11,
+			    				"itemGuid": "0003",
+			    				"text": "苏州新闻",
+			    				"level": 1,
+			    				"orderNum": 0,
+			    				"state": {
+			    					"opened": true
+			    				},
+			    				"children": [
+			    					{
+			    						"id": 32323,
+			    						"itemGuid": "12223232",
+			    						"text": "王琳",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 343234,
+			    						"itemGuid": "154531546131",
+			    						"text": "王锐",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 1256,
+			    						"itemGuid": "212121",
+			    						"text": "陈子昊",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 1326,
+			    						"itemGuid": "212121",
+			    						"text": "周文佳",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 1226,
+			    						"itemGuid": "212121",
+			    						"text": "李木子源",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					}
+			    				]
+			    			},
+			    			{
+			    				"id": 22,
+			    				"itemGuid": "21321jklikl",
+			    				"text": "联播苏州",
+			    				"level": 1,
+			    				"orderNum": 0,
+			    				"state": {
+			    					"opened": false
+			    				},
+			    				"children": [
+			    					{
+			    						"id": 201,
+			    						"itemGuid": "33343",
+			    						"text": "李彦龙",
+			    						"level": 0,
+			    						"orderNum": 1,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 202,
+			    						"itemGuid": "432154",
+			    						"text": "李文萱",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 203,
+			    						"itemGuid": "432154",
+			    						"text": "王旭",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 204,
+			    						"itemGuid": "432154",
+			    						"text": "王潇潇",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					}
+			    				]
+			    			},
+			    			{
+			    				"id": 33,
+			    				"itemGuid": "21321jklikl",
+			    				"text": "苏州今朝",
+			    				"level": 1,
+			    				"orderNum": 0,
+			    				"state": {
+			    					"opened": false
+			    				},
+			    				"children": [
+			    					{
+			    						"id": 301,
+			    						"itemGuid": "33343",
+			    						"text": "陈宇",
+			    						"level": 0,
+			    						"orderNum": 1,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 302,
+			    						"itemGuid": "432154",
+			    						"text": "陈硕",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 303,
+			    						"itemGuid": "432154",
+			    						"text": "梁永楠",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 304,
+			    						"itemGuid": "432154",
+			    						"text": "田雨茉",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 305,
+			    						"itemGuid": "432154",
+			    						"text": "马欣悦",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					}
+			    				]
+			    			},
+			    			{
+			    				"id": 44,
+			    				"itemGuid": "21321jklikl",
+			    				"text": "看看十二点",
+			    				"level": 1,
+			    				"orderNum": 0,
+			    				"state": {
+			    					"opened": false
+			    				},
+			    				"children": [
+			    					{
+			    						"id": 401,
+			    						"itemGuid": "33343",
+			    						"text": "刘泽林",
+			    						"level": 0,
+			    						"orderNum": 1,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 402,
+			    						"itemGuid": "432154",
+			    						"text": "刘昊",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 403,
+			    						"itemGuid": "432154",
+			    						"text": "刘昊",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 404,
+			    						"itemGuid": "432154",
+			    						"text": "刘昊",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 405,
+			    						"itemGuid": "432154",
+			    						"text": "何思雨",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					}
+			    				]
+			    			},
+			    			{
+			    				"id": 55,
+			    				"itemGuid": "21321jklikl",
+			    				"text": "乐活六点档",
+			    				"level": 1,
+			    				"orderNum": 0,
+			    				"state": {
+			    					"opened": false
+			    				},
+			    				"children": [
+			    					{
+			    						"id": 501,
+			    						"itemGuid": "33343",
+			    						"text": "张一凡",
+			    						"level": 0,
+			    						"orderNum": 1,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 502,
+			    						"itemGuid": "432154",
+			    						"text": "张浩然",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 503,
+			    						"itemGuid": "432154",
+			    						"text": "曹燕",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 504,
+			    						"itemGuid": "432154",
+			    						"text": "刘畅",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					}
+			    				]
+			    			},
+			    			{
+			    				"id": 77,
+			    				"itemGuid": "21321jklikl",
+			    				"text": "谈天说地",
+			    				"level": 1,
+			    				"orderNum": 0,
+			    				"state": {
+			    					"opened": false
+			    				},
+			    				"children": [
+			    					{
+			    						"id": 701,
+			    						"itemGuid": "33343",
+			    						"text": "赵佳雨",
+			    						"level": 0,
+			    						"orderNum": 1,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 702,
+			    						"itemGuid": "432154",
+			    						"text": "赵腾飞",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 703,
+			    						"itemGuid": "432154",
+			    						"text": "高伟鹏",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 704,
+			    						"itemGuid": "432154",
+			    						"text": "赵玉婷",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 705,
+			    						"itemGuid": "432154",
+			    						"text": "赵玉婷",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					}
+			    				]
+			    			},
+			    			{
+			    				"id": 88,
+			    				"itemGuid": "21321jklikl",
+			    				"text": "施斌聊斋",
+			    				"level": 1,
+			    				"orderNum": 0,
+			    				"state": {
+			    					"opened": false
+			    				},
+			    				"children": [
+			    					{
+			    						"id": 801,
+			    						"itemGuid": "33343",
+			    						"text": "吴涵宇",
+			    						"level": 0,
+			    						"orderNum": 1,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 802,
+			    						"itemGuid": "432154",
+			    						"text": "吴涵宇",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 803,
+			    						"itemGuid": "432154",
+			    						"text": "董雨情",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					},
+			    					{
+			    						"id": 804,
+			    						"itemGuid": "432154",
+			    						"text": "纪静",
+			    						"level": 0,
+			    						"orderNum": 0,
+			    						"state": {
+			    							"opened": true
+			    						}
+			    					}
+			    				]
+			    			}
+			    		]
+			    	}
+			    ]
+		}
+	});
+</script>
+</html>

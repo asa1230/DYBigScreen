@@ -1,0 +1,46 @@
+
+
+{
+   "page_info": {
+        "current_page": 2,
+        "page_num": 8,
+        "total_num": 16,
+        "total_page": 2
+    },
+  "records" : [
+    {
+      "id": "d9",
+      "title": "摄像：Sun摄像机",
+      "deviceType":"2",
+      "state": "空闲",
+      "stateType":"1",
+      "Longitude": "116.371114",
+      "Lantitude": "39.922222"
+    },{
+      "id": "d10",
+      "title": "车辆：京B-74120",
+      "deviceType":"1",
+      "state": "忙碌",
+      "stateType":"2",
+      "Longitude": "116.232497",
+      "Lantitude": "39.932348"
+    },{
+      "id": "d11",
+      "title": "车辆：京J-77631",
+      "deviceType":"1",
+      "state": "忙碌",
+      "stateType":"2",
+      "Longitude": "116.383333",
+      "Lantitude": "39.924254"
+    },{
+      "id": "d12",
+      "title": "摄像：Waa摄像机",
+      "deviceType":"2",
+      "state": "离线",
+      "stateType":"4",
+      "Longitude": "116.515279",
+      "Lantitude": "39.863323"
+    }
+  ]
+
+}

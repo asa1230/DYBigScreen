@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<title>公共库资源</title>
+		
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta content="width=device-width, initial-scale=1" name="viewport" />
+	    <meta content="Preview page of Metronic Admin Theme #1 for fixed sidebar option" name="description" />
+	    <meta content="" name="author" />
+	    
+	    <link rel="icon" href="../../img/dayang.ico" type="image/x-icon"/>  
+	    <link href="../../static/plugins/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+	    <link href="../../static/plugins/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+	    <link href="../../static/plugins/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+		
+		<!--<link rel="stylesheet" href="../。。/static/plugins/css/bootstrap.min.css" />	-->
+		
+     
+		<link href="../../static/plugins/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../static/plugins/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="../../static/plugins/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../static/plugins/css/layout.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../static/plugins/css/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="../../static/plugins/css/custom.min.css" rel="stylesheet" type="text/css" />
+		
+		<link rel="stylesheet" href="../../static/css/common.css" />
+		<link rel="stylesheet" href="../../static/css/publicResource.css" />
+	</head>
+	
+	<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-sidebar-fixed" style="overflow-y: hidden">
+	<div style="position: relative;width: 1920px;height: 1080px;">
+		<div class="public_box">
+		
+			<div class="public_head">
+				<span class="header_icon"><img src="../../static/images/icon_publicresource.png"></span>
+        		<span class="header_title">公共库资源</span>
+        		<span class="header_eng">Public Resource</span>
+				<!--  <h3 class="public_title"><img src="../static/images/title4.png" alt="" /></h3> -->
+			</div>
+			
+			<div class="public_content">
+				<div class="public_left">
+					<h3 class="public_h3"><img src="../../static/images/icon_zylb.png" alt="" class="public_icon"/><span class="public_clue">资源列表</span></h3>
+					<div class="public_unify">
+						<dl class="public_dls">
+							<dt class="public_tire">累计资源</dt>
+							<dd>
+								<span class="public_num" id="totalCount">0</span>
+								<span class="public_word">个</span>
+							</dd>
+						</dl>
+						<dl class="public_day">
+							<dt class="public_tire">今日上传</dt>
+							<dd>
+								<span class="public_num" id="todayCount">0</span>
+								<span class="public_word">个</span>
+							</dd>
+						</dl>
+					</div>
+					<!-- 左侧资源列表 -->
+					<div class="public_rank">
+						<ul class="public_list" id="public_list">
+						</ul>
+					</div>
+					
+				</div>
+				<div class="public_right">
+					<div class="public_top">
+						<h3 class="public_h3"><img src="../../static/images/icon_zxxy.png" alt="" class="public_icon"/><span class="public_clue">最新上传</span></h3>
+						<div class="public_img">
+							<div id="imageTodayDiv" class="img_left">
+							</div>
+							<div id="videoTodayDiv" class="img_right">
+								
+							</div>
+						</div>
+					</div>
+					<div class="public_bot">
+						<div class="bot_left">
+							<h3 class="public_h3"><img src="../../static/images/icon_sc.png" alt="" class="public_icon"/><span class="public_clue">上传数量统计</span></h3>
+							<div class="public_line" id="public_line" style="width:100%; height:335px;"></div>
+						</div>
+						<div class="bot_right">
+							<h3 class="public_h3"><img src="../../static/images/icon_gc.png" alt="" class="public_icon"/><span class="public_clue">资源构成统计</span></h3>
+							<div class="public_pie" id="public_pie" style="width:50%; height:335px;">
+								
+							</div>
+							<span class="public_all">100%</span>
+							<!-- 上传类型比例百分比-->
+							<div id="fileTypeRatioProgress" style="float:right; width:40%; margin-right:35px; margin-top:5%;">
+								
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+		<!-- 左侧资源列表模板 -->
+		<script id="resourceList_script" type="text/html">
+		{{each data.list as res index}}
+			<li class="{{index%2 == 0 ?'public_odd':''}}">
+				<span class="public_news">{{res.virtualfileName}}</span>
+				<span class="public_time">{{dateFormat(res.updateDatetime,'yyyy-MM-dd')}}</span>
+				<span class="public_writer">{{res.lastMemberName}}</span>
+			</li>
+		{{/each}}		
+		</script>
+		<!-- 饼图右侧上传比例进度条模板 -->
+		<script id="fileTypeRatioProgress_script" type="text/html">
+		{{each list as fileType index}}
+			<div>
+				<p style="margin-bottom: 12px; line-height: 27px;">
+					<span class="public_centum">{{fileType.ratio}}</span><span class="public_rule">{{fileType.name}}</span>
+				</p>
+				<div class="progress">
+					<div class="progress-bar progress-bar-success" style="background: {{fileType.color}};width: {{fileType.ratio}};" role="progressbar"
+						aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+						<span class="sr-only"></span>
+					</div>
+				</div>
+			</div>
+		{{/each}}
+		</script>
+
+		<!-- 今日上传图片类文件 模板-->
+		<script id="imageToday_script" type="text/html">
+		<h3 class="img_line">24小时内上传图片</h3>
+		{{each data.list as res index}}
+		<dl class="img_slice {{index != 0 ?'img_water':''}}">
+			<dt>
+				<img src="{{data.extraParam["STORAGE_ADDRESS"]}}{{res.realfilePath}}/{{res.realfileName}}" onerror="javascript:this.src='../../static/images/image.png'" class="img_piece" />
+			</dt>
+			<dd>
+				<p class="img_given">{{res.virtualfileName}}</p>
+				<p class="public_p">
+					<img src="../../static/images/icon_tx.png" class="public_header"/>
+					<span class="img_name">{{res.createMemberName}}</span>
+				</p>
+			</dd>
+		</dl>
+		{{/each}}
+		</script>
+		<!-- 今日上传视频类文件 模板-->
+		<script id="videoToday_script" type="text/html">
+		<h3 class="img_line">24小时内上传视频</h3>
+		{{each data.list as res index}}
+		<dl class="img_slice {{index != 0 ?'img_water':''}}">
+			<dt>
+				<video src="{{data.extraParam["STORAGE_ADDRESS"]}}/{{res.realfilePath}}/{{res.realfileName}}" autoplay="autoplay" loop="loop" class="img_piece" />
+			</dt>
+			<dd>
+				<p class="img_given">{{res.virtualfileName}}</p>
+				<p class="public_p">
+					<img src="../../static/images/icon_tx.png" class="public_header"/>
+					<span class="img_name">{{res.createMemberName}}</span>
+				</p>
+			</dd>
+		</dl>
+		{{/each}}
+		</script>
+
+	<script type="text/javascript" src="../../static/plugins/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../static/plugins/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="../../static/plugins/js/echarts.min.js"></script>
+		<script type="text/javascript" src="../../static/plugins/js/js.cookie.min.js"></script>
+        <script type="text/javascript" src="../../static/plugins/js/jquery.slimscroll.min.js"></script>
+        <script type="text/javascript" src="../../static/plugins/js/jquery.blockui.min.js"></script>
+        <script type="text/javascript" src="../../static/plugins/js/bootstrap-switch.min.js"></script>
+        <!-- END CORE PLUGINS -->
+       
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+        <script type="text/javascript" src="../../static/plugins/js/jquery.pulsate.min.js"></script>
+        <script type="text/javascript" src="../../static/plugins/js/jquery.bootpag.min.js"></script>
+        <script type="text/javascript" src="../../static/plugins/js/holder.js"></script>
+        <!-- END PAGE LEVEL PLUGINS -->
+        
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script type="text/javascript" src="../../static/plugins/js/app.min.js"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        
+        <!-- BEGIN PAGE LEVEL SCRIPTS -->
+        <script type="text/javascript" src="../../static/plugins/js/ui-general.min.js"></script>
+        <script type="text/javascript" src="../../static/plugins/js/neatshow.min.js"></script>
+        <!-- END PAGE LEVEL SCRIPTS -->
+        
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script type="text/javascript" src="../../static/plugins/js/layout.min.js"></script>
+        <script type="text/javascript" src="../../static/plugins/js/demo.min.js"></script>
+        <script type="text/javascript" src="../../static/plugins/js/quick-sidebar.min.js"></script>
+        <script type="text/javascript" src="../../static/plugins/js/quick-nav.min.js"></script>
+        <script type="text/javascript" src="../../static/plugins/aui-artTemplate/template.js" ></script>
+        
+		<!-- 自定义相关JS -->
+		<script src="../../static/scripts/util/utils.js" type="text/javascript"></script>
+		<script src="../../static/scripts/common/global.js" type="text/javascript"></script>
+        <script src="../../static/scripts/show/publicResource.js" type="text/javascript"></script>
+        
+		
+	</body>
+</html>

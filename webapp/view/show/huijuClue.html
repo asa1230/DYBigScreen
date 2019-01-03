@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="referrer" content="never"/> 
+<link rel="icon" href="../../img/dayang.ico" type="image/x-icon"/>  
+<title>汇聚线索</title>
+<link rel="stylesheet" href="../../css/css.css" />
+<link href="../../css/jquery.jqflip.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.jqflip.js"></script>
+<style type="text/css">
+body{ background:url(../../img/bg_01.jpg);}
+.huijucontent {
+ word-break:break-all;
+ text-overflow:ellipsis;
+ display:-webkit-box;
+ -webkit-box-orient:vertical;
+ -webkit-line-clamp:2;
+ overflow:hidden;
+ padding-right:25px;
+}
+</style>
+</head>
+
+<body style="overflow-y:hidden">
+<div class="content">
+<table width="100%">
+       <tr>
+            <td valign="top" width="260px">
+              <div align="center"><img src="../../img/logo1.png" /></div>
+              <div id="BOXID-1">
+               <div class="left-menu">
+                 <div id="wangye" data-number="0" class="left-lb left-menustyle renmen-font-style font-style1"  style="-moz-border-radius: 10px 10px 0px 0px;-khtml-border-radius: 10px 10px 0px 0px;-webkit-border-radius: 10px 10px 0px 0px;border-radius: 10px 10px 0px 0px;"><img src="../../img/icon1-2.png" />互联网</div>
+                 <div id="weibo"  data-number="1" class="left-lb left-menustyle renmen-font-style font-style1" ><img src="../../img/icon2-2.png" />微博</div>
+<!--                  <div id="weixin" data-number="2" class="left-lb left-menustyle renmen-font-style font-style1" ><img src="../../img/icon3-2.png" />微信</div> -->
+                 <div id="weixin" data-number="2" class="left-lb left-menustyle renmen-font-style font-style1"  style="-moz-border-radius:  0px 0px 11px 11px;-khtml-border-radius: 0px 0px 11px 11px;-webkit-border-radius: 0px 0px 11px 11px;border-radius: 0px 0px 11px 11px; border-bottom:0px;"><img src="../../img/icon3-2.png" />微信</div>
+<!--                  <div id="ugc" data-number="3" class="left-menustyle renmen-font-style font-style1" ><img src="../../img/icon4-2.png" />UGC</div> -->
+<!--                  <div id="pgc" data-number="4" class="left-menustyle renmen-font-style font-style1" ><img src="../../img/icon5-2.png" />PGC</div> -->
+<!--                  <div id="shoulu" data-number="5" class="left-menustyle renmen-font-style font-style1" ><img src="../../img/icon6-2.png" />收录</div> -->
+<!--                  <div id="youtai" data-number="6" class="left-menustyle renmen-font-style font-style1" ><img src="../../img/icon7-2.png" />友台</div> -->
+<!--                  <div id="tongxueshe" data-number="7" class="left-menustyle renmen-font-style font-style1"  style="-moz-border-radius:  0px 0px 11px 11px;-khtml-border-radius: 0px 0px 11px 11px;-webkit-border-radius: 0px 0px 11px 11px;border-radius: 0px 0px 11px 11px; border-bottom:0px;"><img src="../../img/icon8-2.png" />通讯社</div> -->
+               </div>
+              </div>
+            </td>
+            <td valign="top" width="1230px">
+            <div id="clue1" class="content1" style="position:fixed;"></div>
+            <div id="clue2" class="content1" style="position:fixed;margin-top:1300px"></div>
+            </td>
+            <!-- <td width="270px">
+                 <div class="rightstyle" align="center">
+                      <p class="font-style1 m-style">渠道来源</p>
+                      <p class="font-style1 m-style">36</p>
+                 </div>
+                 <div class="rightstyle" align="center">
+                      <p class="font-style1 m-style">全部线索</p>
+                      <p class="font-style1 m-style">15.8万</p>
+                 </div>
+                 <div class="rightstyle" align="center">
+                      <p class="font-style1 m-style">当日新增</p>
+                      <p class="font-style1 m-style">2,562</p>
+                 </div>
+            </td> -->
+       </tr>
+</table>
+</div>
+</body>
+<script src="../../plugin/aui-artTemplate/template.js"></script>
+<script id="clue1-list-item" type="text/html">
+{{each records as record i}}
+<div class="jqflip-parent">
+<div class="jqflip-front jqflip-item content1style" id="one_{{i}}">
+     <table width="100%">
+            <tr>
+				 <!-- 有图片附件则显示，没有就不显示 -->
+				 {{if record.attachFileOne != null}} 
+					<td style="padding:15px 0px;"><img src="{{record.attachFileOne}}"  
+						 {{if record.resourceOriginTypeName == '网页'}}  
+							onerror="javascript:this.src='../../img/icon_hlw.png'"
+						 {{/if}}
+						 {{if record.resourceOriginTypeName == '微博'}}  
+							onerror="javascript:this.src='../../img/icon_wb.png'"
+						 {{/if}}
+						 {{if record.resourceOriginTypeName == '微信'}}  
+							onerror="javascript:this.src='../../img/icon_wx.png'"
+						 {{/if}}
+					/></td>
+				 {{/if}}
+                 <td style="padding:15px 0px;">
+                 	 <p class="font-style3" style="margin-bottom:15px">{{record.title}}</p>
+                     <p class="font-style4" ><span style="word-break: break-all;text-overflow: ellipsis;display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; padding-right: 25px; color: rgb(85,85,85);">{{record.content}}</p>
+                 </td>
+                 <td class="font-style4" width="200px" align="right">
+				     <p>&nbsp</p>
+                     <p> {{record.author}}</p>
+                     <p> {{record.createdTime}}<p> 
+					 <p>&nbsp</p>
+                 </td>
+            </tr>
+      </table>
+</div>
+</div>
+{{/each}}
+</script>
+<script id="clue2-list-item" type="text/html">
+{{each records as record i}}
+<div class="jqflip-parent">
+<div class="jqflip-front jqflip-item content1style" id="two_{{i}}">
+     <table width="100%">
+            <tr>
+				 <!-- 有图片附件则显示，没有就不显示 -->
+				 {{if record.attachFileOne != null}} 
+					<td style="padding:15px 0px;"><img src="{{record.attachFileOne}}" 
+						 {{if record.resourceOriginTypeName == '网页'}}  
+							onerror="javascript:this.src='../../img/icon_hlw.png'"
+						 {{/if}}
+						 {{if record.resourceOriginTypeName == '微博'}}  
+							onerror="javascript:this.src='../../img/icon_wb.png'"
+						 {{/if}}
+						 {{if record.resourceOriginTypeName == '微信'}}  
+							onerror="javascript:this.src='../../img/icon_wx.png'"
+						 {{/if}}
+					/></td>
+				 {{/if}}
+                 <td style="padding:15px 0px;">
+                 	 <p class="font-style3" style="margin-bottom:15px">{{record.title}}</p>
+                     <p class="font-style4"><span style="word-break: break-all;text-overflow: ellipsis;display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; padding-right: 25px; color: rgb(85,85,85);">{{record.content}}</span></p>
+                 </td>
+                 <td class="font-style4" width="200px" align="right">
+					 <p>&nbsp</p>
+                     <p> {{record.author}}</p>
+                     <p> {{record.createdTime}}<p> 
+					 <p>&nbsp</p>
+                 </td>
+            </tr>
+      </table>
+</div>
+</div>
+{{/each}}
+</script>
+
+<script type="text/javascript" src="../../static/scripts/util/utils.js"></script>
+<!--使用线索云接口获取页面展示资源的时候  打开clueCloud.js  会在js文件中 调用 cluecloudcontroller里的方法 并从接口获取数据 -->
+<!-- <script type="text/javascript" src="../../static/scripts/show/huijuClue.js"></script> -->
+ <script type="text/javascript" src="../../static/scripts/show/clueCloud.js"></script>
+
+</html>

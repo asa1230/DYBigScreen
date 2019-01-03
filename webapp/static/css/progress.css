@@ -1,0 +1,252 @@
+.progress_box{
+    width:100%;
+    height:100%;
+    background: url(../../img/bg_07.png) no-repeat;
+    background-size: cover;
+    padding: 40px 60px;
+}
+.progress_head{
+    height:98px;
+    width: 100%;
+    background: url(../images/headerbg1.png) no-repeat;
+    background-size: contain;
+    padding:20px 40px;
+    line-height: 48px;
+}
+.progress_title{
+    height:104px;
+    background:url("../images/headerbg1.png") no-repeat;
+    margin:66px 0 22px 58px;
+}
+
+.header_icon{
+    vertical-align: middle;
+    width: 60px;
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+.header_title{
+    height: 52px;
+    font-family: PingFangSC-Medium;
+    font-size: 54px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #fefefe;
+    margin-left: 46px;
+}
+.header_eng{
+    height: 52px;
+    font-family: Helvetica;
+    font-size: 36px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 52px;
+    letter-spacing: 0px;
+    color: rgba(0, 201, 252, 0.5);
+    float: right;
+}
+
+.progress_cont{    
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    padding:178px 60px 40px;
+}
+.progress_left{
+    width:1001px;
+    height:832px;
+    background:url("../images/bg_1.1.png") no-repeat;
+    float:left;
+}
+.progress_right{
+    width:742px;
+    height:860px;
+    float:right;
+    margin-right:50px;
+    overflow:hidden;
+    position: relative;
+}
+.progress_news,.progress_march{
+    height:172px;
+    background:url("../images/bg_1.2.png") no-repeat;
+}
+.progress_march{
+	background:url("../images/bg_1.3.png") no-repeat;
+}
+.progress_h3{
+    margin:75px 80px 0  80px;
+}
+.progress_gress{
+	width:100%;
+	position: absolute;
+    right: 0px;
+    z-index: 9999;
+}
+.progress_summit{
+    font-size:44px;
+    color:#fff;
+    font-weight: bold;
+    float:left;
+    display:inline-block;
+    width:75%;
+    overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+    
+}
+.progress_conduct{
+    float:right;
+    width:142px;
+    height:56px;
+    background: #015fc1;
+    color:#fff;
+    text-align: center;
+    line-height: 56px;
+    font-size:24px;
+    font-weight: normal;
+    margin-bottom:17px;
+    cursor: pointer;
+}
+.progress_icon{
+	clear: both;
+	margin-left:80px;
+}
+.progress_tu{
+	float:left;
+}
+.progress_topic{
+	font-size:22px;
+	color:#c7d7fb;
+	float:left;
+	margin-left:10px;
+	display:block;
+	width:150px;
+	height:30px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+
+.progress_suzhou{
+	display:inline-block;
+	width:130px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.progress_small{
+	display:inline-block;
+	margin-left:60px;
+}
+.progress_content{
+	margin:35px 80px 40px 80px;
+	height:210px;
+}
+.progress_section{
+	font-size:26px;
+	color:#fff;
+	text-indent: 2em;
+	line-height: 36px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 6;
+	overflow: hidden;
+}
+.progress_bottom{
+	margin:0 80px;
+}
+
+.progress_file{
+	float:left;
+}
+.progress_show{
+	float:left;
+	font-size:26px;
+	font-weight: bold;
+	color: #feffff;
+	margin-left:15px;
+	line-height: 35px;
+}
+.progress_uls{
+	clear: both;
+	padding-top:30px;
+}
+.progress_uls>li{
+	height:64px;
+	line-height: 64px;
+	padding:0 40px;
+}
+.progress_singular{
+	background: rgba(28, 50, 90, 0.3);
+	border-radius: 5px;
+}
+.progress_meet{
+	display:inline-block;
+	width:85%;
+	font-size:24px;
+	color:#fff;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	float:left;
+}
+.progress_clue{
+	float:right;
+	font-size:24px;
+	color:#fff;
+}
+.progress_subject{
+	padding:25px 26px 0 26px;
+	margin-top: 0px;
+    margin-bottom: 0px;
+}
+.progress_top{
+	font-size:34px;
+	font-weight: bold;
+	color:#fff;
+	display:inline-block;
+	width:82%;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	line-height: 36px;
+	float:left;
+}
+.progress_btn{
+	display:inline-block;
+	width:108px;
+	height:36px;
+	background:#015fc1;
+	font-size:22px;
+	color:#fff;
+	float:right;
+	text-align: center;
+	line-height: 36px;
+	font-weight: normal;
+	cursor: pointer;
+}
+.progress_detail{
+	clear: both;
+	padding-top:16px;
+	margin:0 26px;
+	font-size:22px;
+	color: #c7d7fb;
+	line-height: 32px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	overflow: hidden;
+}
+.progress_end{
+	background:#ff4268;
+}
+.progress_word{
+	font-size:30px;
+}
+.progress_finish{
+	background:#3acafc;
+}

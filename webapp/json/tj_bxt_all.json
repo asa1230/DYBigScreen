@@ -1,0 +1,104 @@
+{
+	"column": [
+		{
+			"value": "苏州新闻",
+			"textStyle": {
+				"fontSize": 25,
+				"color": "#fff"
+			}
+		},
+		{
+			"value": "新闻夜班车",
+			"textStyle": {
+				"fontSize": 25,
+				"color": "#fff"
+			}
+		},
+		{
+			"value": "苏州今朝",
+			"textStyle": {
+				"fontSize": 25,
+				"color": "#fff"
+			}
+		},
+		{
+			"value": "看看十二点",
+			"textStyle": {
+				"fontSize": 25,
+				"color": "#fff"
+			}
+		},
+		{
+			"value": "社会传真",
+			"textStyle": {
+				"fontSize": 25,
+				"color": "#fff"
+			}
+		},
+		{
+			"value": "乐活6点档",
+			"textStyle": {
+				"fontSize": 25,
+				"color": "#fff"
+			}
+		},
+		{
+			"value": "联播苏州",
+			"textStyle": {
+				"fontSize": 25,
+				"color": "#fff"
+			}
+		},
+		{
+			"value": "新闻一锅鲜",
+			"textStyle": {
+				"fontSize": 25,
+				"color": "#fff"
+			}
+		}
+	],
+	"type": [
+		{
+			"name": "报题未选用",
+			"color": "#c10f0f",
+			"nums": [
+				20,
+				32,
+				21,
+				34,
+				25,
+				23,
+				21,
+				12
+			]
+		},
+		{
+			"name": "报题选用",
+			"color": "#ffc000",
+			"nums": [
+				320,
+				282,
+				221,
+				274,
+				290,
+				330,
+				310,
+				208
+			]
+		},
+		{
+			"name": "直接指派",
+			"color": "#ff7300",
+			"nums": [
+				298,
+				232,
+				251,
+				254,
+				190,
+				240,
+				210,
+				114
+			]
+		}
+	]
+}

@@ -1,0 +1,42 @@
+
+
+{
+   "page_info": {
+         "current_page": 2,
+        "page_num": 8,
+        "total_num": 12,
+        "total_page": 2
+    },
+  "records" : [
+    {
+      "id": "r9",
+      "title": "报题标题9",
+      "state": "已提交",
+      "stateType":"4",
+      "Longitude": "123.92432645428915",
+      "Lantitude": "41.845345315045346"
+    },{
+      "id": "r10",
+      "title": "报题标题10",
+      "state": "全部选用",
+      "stateType":"1",
+      "Longitude": "123.92414445428915",
+      "Lantitude": "41.8655515045346"
+    },{
+      "id": "r11",
+      "title": "报题标题11",
+      "state": "部分选用",
+      "stateType":"2",
+      "Longitude": "123.92417775428915",
+      "Lantitude": "41.862695322045346"
+    },{
+      "id": "r12",
+      "title": "报题标题12",
+      "state": "退回",
+      "stateType":"5",
+      "Longitude": "123.93318645428915",
+      "Lantitude": "41.842695315045346"
+    }
+  ]
+
+}

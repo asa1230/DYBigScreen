@@ -1,0 +1,1232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dayang.newmedia.newscommand.db.dao.NewsTaskMapper">
+	<resultMap id="BaseResultMap"
+		type="com.dayang.newmedia.newscommand.db.model.NewsTask">
+		<id column="TaskGuid" property="taskguid" jdbcType="NVARCHAR" />
+		<result column="Creater" property="creater" jdbcType="NVARCHAR" />
+		<result column="ResourceGuid" property="resourceguid" jdbcType="NVARCHAR" />
+		<result column="CreaterGuid" property="createrguid" jdbcType="NVARCHAR" />
+		<result column="OwnColumn" property="owncolumn" jdbcType="NVARCHAR" />
+		<result column="CreateTime" property="createtime" jdbcType="TIMESTAMP" />
+		<result column="ModifyTime" property="modifytime" jdbcType="TIMESTAMP" />
+		<result column="TaskTitle" property="tasktitle" jdbcType="NVARCHAR" />
+		<result column="TaskPlace" property="taskplace" jdbcType="NVARCHAR" />
+		<result column="TaskRemark" property="taskremark" jdbcType="NVARCHAR" />
+		<result column="TaskKeyWork" property="taskkeywork" jdbcType="NVARCHAR" />
+		<result column="TaskState" property="taskstate" jdbcType="INTEGER" />
+		<result column="TaskType" property="tasktype" jdbcType="NVARCHAR" />
+		<result column="TaskLevel" property="tasklevel" jdbcType="NVARCHAR" />
+		<result column="ProgramCode" property="programcode" jdbcType="NVARCHAR" />
+		<result column="ProgramName" property="programname" jdbcType="NVARCHAR" />
+		<result column="IsSpecial" property="isspecial" jdbcType="INTEGER" />
+		<result column="SourceType" property="sourcetype" jdbcType="NVARCHAR" />
+		<result column="Passer" property="passer" jdbcType="NVARCHAR" />
+		<result column="Passadvice" property="passadvice" jdbcType="NVARCHAR" />
+		<result column="EndTime" property="endtime" jdbcType="TIMESTAMP" />
+		<result column="ChargeMan" property="chargeman" jdbcType="NVARCHAR" />
+		<result column="IsCaifang" property="iscaifang" jdbcType="INTEGER" />
+		<result column="Reporter" property="reporter" jdbcType="NVARCHAR" />
+		<result column="Linkguid" property="linkguid" jdbcType="NVARCHAR" />
+		<result column="LinkTitle" property="linktitle" jdbcType="NVARCHAR" />
+		<result column="CaifangRemark" property="caifangremark"
+			jdbcType="NVARCHAR" />
+		<result column="IsOpen" property="isopen" jdbcType="INTEGER" />
+		<result column="DeviceIDs" property="deviceids" jdbcType="NVARCHAR" />
+		<result column="BANMIANTYPE" property="banmiantype" jdbcType="VARCHAR" />
+		<result column="BANMIANGUID" property="banmianguid" jdbcType="VARCHAR" />
+		<result column="INPEOPLE" property="inpeople" jdbcType="VARCHAR" />
+		<result column="ALLINPEOPLE" property="allinpeople" jdbcType="VARCHAR" />
+		<result column="USECOLUMN" property="usecolumn" jdbcType="VARCHAR" />
+		<result column="XUANTISTATE" property="xuantistate" jdbcType="NUMERIC" />
+		<result column="ISLOCKED" property="islocked" jdbcType="NUMERIC" />
+		<result column="LOCKER" property="locker" jdbcType="VARCHAR" />
+		<result column="LOCKTIME" property="locktime" jdbcType="TIMESTAMP" />
+		<result column="PLANPUBLISH" property="planpublish" jdbcType="VARCHAR" />
+	</resultMap>
+	<resultMap id="ResultMapWithBLOBs"
+		type="com.dayang.newmedia.newscommand.db.model.NewsTaskWithBLOBs"
+		extends="BaseResultMap">
+		<result column="TaskContent" property="taskcontent" jdbcType="CLOB" />
+		<result column="ContentRTF2" property="contentrtf2" jdbcType="CLOB" />
+		<result column="MappingRequirement" property="mappingrequirement"
+			jdbcType="CLOB" />
+	</resultMap>
+	<sql id="Example_Where_Clause">
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause">
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria"
+				separator="or">
+				<if test="criteria.valid">
+					<trim prefix="(" suffix=")" prefixOverrides="and">
+						<foreach collection="criteria.criteria" item="criterion">
+							<choose>
+								<when test="criterion.noValue">
+									and ${criterion.condition}
+								</when>
+								<when test="criterion.singleValue">
+									and ${criterion.condition} #{criterion.value}
+								</when>
+								<when test="criterion.betweenValue">
+									and ${criterion.condition} #{criterion.value} and
+									#{criterion.secondValue}
+								</when>
+								<when test="criterion.listValue">
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem"
+										open="(" close=")" separator=",">
+										#{listItem}
+									</foreach>
+								</when>
+							</choose>
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Base_Column_List">
+		TaskGuid, Creater, ResourceGuid, CreaterGuid, OwnColumn, CreateTime,
+		ModifyTime,
+		TaskTitle, TaskPlace, TaskRemark, TaskKeyWork, TaskState, TaskType, TaskLevel,
+		ProgramCode,
+		ProgramName, IsSpecial, SourceType, Passer, Passadvice, EndTime, ChargeMan,
+		IsCaifang,
+		Reporter, Linkguid, LinkTitle, CaifangRemark, IsOpen, DeviceIDs, BANMIANTYPE,
+		BANMIANGUID,
+		INPEOPLE, ALLINPEOPLE, USECOLUMN, XUANTISTATE, ISLOCKED, LOCKER, LOCKTIME,PLANPUBLISH
+	</sql>
+	<sql id="Blob_Column_List">
+		TaskContent, ContentRTF2, MappingRequirement
+	</sql>
+	<select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs"
+		parameterType="com.dayang.newmedia.newscommand.db.model.NewsTaskQuery">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		'false' as QUERYID,
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from NewsTask
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectByExample" resultMap="BaseResultMap"
+		parameterType="com.dayang.newmedia.newscommand.db.model.NewsTaskQuery">
+		select
+		<if test="distinct">
+			distinct
+		</if>
+		'false' as QUERYID,
+		<include refid="Base_Column_List" />
+		from NewsTask
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null">
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		,
+		<include refid="Blob_Column_List" />
+		from NewsTask
+		where TaskGuid = #{taskguid,jdbcType=NVARCHAR}
+	</select>
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from NewsTask
+		where TaskGuid = #{taskguid,jdbcType=NVARCHAR}
+	</delete>
+	<delete id="deleteByExample"
+		parameterType="com.dayang.newmedia.newscommand.db.model.NewsTaskQuery">
+		delete from NewsTask
+		<if test="_parameter != null">
+			<include refid="Example_Where_Clause" />
+		</if>
+	</delete>
+	<insert id="insert"
+		parameterType="com.dayang.newmedia.newscommand.db.model.NewsTaskWithBLOBs">
+		insert into NewsTask (TaskGuid, Creater, ResourceGuid,
+		CreaterGuid, OwnColumn, CreateTime,
+		ModifyTime, TaskTitle, TaskPlace,
+		TaskRemark, TaskKeyWork, TaskState,
+		TaskType, TaskLevel, ProgramCode,
+		ProgramName, IsSpecial, SourceType,
+		Passer, Passadvice, EndTime,
+		ChargeMan, IsCaifang, Reporter,
+		Linkguid, LinkTitle, CaifangRemark,
+		IsOpen, DeviceIDs, BANMIANTYPE,
+		BANMIANGUID, INPEOPLE, ALLINPEOPLE,
+		USECOLUMN, XUANTISTATE, ISLOCKED,
+		LOCKER,PLANPUBLISH, LOCKTIME, TaskContent,
+		ContentRTF2, MappingRequirement)
+		values (#{taskguid,jdbcType=NVARCHAR}, #{creater,jdbcType=NVARCHAR},
+		#{resourceguid,jdbcType=NVARCHAR},
+		#{createrguid,jdbcType=NVARCHAR}, #{owncolumn,jdbcType=NVARCHAR}, #{createtime,jdbcType=TIMESTAMP},
+		#{modifytime,jdbcType=TIMESTAMP}, #{tasktitle,jdbcType=NVARCHAR},
+		#{taskplace,jdbcType=NVARCHAR},
+		#{taskremark,jdbcType=NVARCHAR}, #{taskkeywork,jdbcType=NVARCHAR}, #{taskstate,jdbcType=INTEGER},
+		#{tasktype,jdbcType=NVARCHAR}, #{tasklevel,jdbcType=NVARCHAR},
+		#{programcode,jdbcType=NVARCHAR},
+		#{programname,jdbcType=NVARCHAR}, #{isspecial,jdbcType=INTEGER}, #{sourcetype,jdbcType=NVARCHAR},
+		#{passer,jdbcType=NVARCHAR}, #{passadvice,jdbcType=NVARCHAR},
+		#{endtime,jdbcType=TIMESTAMP},
+		#{chargeman,jdbcType=NVARCHAR}, #{iscaifang,jdbcType=INTEGER}, #{reporter,jdbcType=NVARCHAR},
+		#{linkguid,jdbcType=NVARCHAR}, #{linktitle,jdbcType=NVARCHAR},
+		#{caifangremark,jdbcType=NVARCHAR},
+		#{isopen,jdbcType=INTEGER}, #{deviceids,jdbcType=NVARCHAR}, #{banmiantype,jdbcType=VARCHAR},
+		#{banmianguid,jdbcType=VARCHAR}, #{inpeople,jdbcType=VARCHAR},
+		#{allinpeople,jdbcType=VARCHAR},
+		#{usecolumn,jdbcType=VARCHAR}, #{xuantistate,jdbcType=NUMERIC}, #{islocked,jdbcType=NUMERIC},
+		#{locker,jdbcType=VARCHAR},#{planpublish,jdbcType=VARCHAR}, #{locktime,jdbcType=TIMESTAMP},
+		#{taskcontent,jdbcType=CLOB},
+		#{ContentRTF2,jdbcType=CLOB}, #{mappingrequirement,jdbcType=CLOB})
+	</insert>
+	<insert id="insertSelective"
+		parameterType="com.dayang.newmedia.newscommand.db.model.NewsTaskWithBLOBs">
+		insert into NewsTask
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="taskguid != null">
+				TaskGuid,
+			</if>
+			<if test="creater != null">
+				Creater,
+			</if>
+			<if test="resourceguid != null">
+				ResourceGuid,
+			</if>
+			<if test="createrguid != null">
+				CreaterGuid,
+			</if>
+			<if test="owncolumn != null">
+				OwnColumn,
+			</if>
+			<if test="createtime != null">
+				CreateTime,
+			</if>
+			<if test="modifytime != null">
+				ModifyTime,
+			</if>
+			<if test="tasktitle != null">
+				TaskTitle,
+			</if>
+			<if test="taskplace != null">
+				TaskPlace,
+			</if>
+			<if test="taskremark != null">
+				TaskRemark,
+			</if>
+			<if test="taskkeywork != null">
+				TaskKeyWork,
+			</if>
+			<if test="taskstate != null">
+				TaskState,
+			</if>
+			<if test="tasktype != null">
+				TaskType,
+			</if>
+			<if test="tasklevel != null">
+				TaskLevel,
+			</if>
+			<if test="programcode != null">
+				ProgramCode,
+			</if>
+			<if test="programname != null">
+				ProgramName,
+			</if>
+			<if test="isspecial != null">
+				IsSpecial,
+			</if>
+			<if test="sourcetype != null">
+				SourceType,
+			</if>
+			<if test="passer != null">
+				Passer,
+			</if>
+			<if test="passadvice != null">
+				Passadvice,
+			</if>
+			<if test="endtime != null">
+				EndTime,
+			</if>
+			<if test="chargeman != null">
+				ChargeMan,
+			</if>
+			<if test="iscaifang != null">
+				IsCaifang,
+			</if>
+			<if test="reporter != null">
+				Reporter,
+			</if>
+			<if test="linkguid != null">
+				Linkguid,
+			</if>
+			<if test="linktitle != null">
+				LinkTitle,
+			</if>
+			<if test="caifangremark != null">
+				CaifangRemark,
+			</if>
+			<if test="isopen != null">
+				IsOpen,
+			</if>
+			<if test="deviceids != null">
+				DeviceIDs,
+			</if>
+			<if test="banmiantype != null">
+				BANMIANTYPE,
+			</if>
+			<if test="banmianguid != null">
+				BANMIANGUID,
+			</if>
+			<if test="inpeople != null">
+				INPEOPLE,
+			</if>
+			<if test="allinpeople != null">
+				ALLINPEOPLE,
+			</if>
+			<if test="usecolumn != null">
+				USECOLUMN,
+			</if>
+			<if test="xuantistate != null">
+				XUANTISTATE,
+			</if>
+			<if test="islocked != null">
+				ISLOCKED,
+			</if>
+			<if test="locker != null">
+				LOCKER,
+			</if>
+			<if test="planpublish != null">
+				PLANPUBLISH,
+			</if>
+			<if test="locktime != null">
+				LOCKTIME,
+			</if>
+			<if test="taskcontent != null">
+				TaskContent,
+			</if>
+			<if test="ContentRTF2 != null">
+				ContentRTF2,
+			</if>
+			<if test="mappingrequirement != null">
+				MappingRequirement,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="taskguid != null">
+				#{taskguid,jdbcType=NVARCHAR},
+			</if>
+			<if test="creater != null">
+				#{creater,jdbcType=NVARCHAR},
+			</if>
+			<if test="resourceguid != null">
+				#{resourceguid,jdbcType=NVARCHAR},
+			</if>
+			<if test="createrguid != null">
+				#{createrguid,jdbcType=NVARCHAR},
+			</if>
+			<if test="owncolumn != null">
+				#{owncolumn,jdbcType=NVARCHAR},
+			</if>
+			<if test="createtime != null">
+				#{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifytime != null">
+				#{modifytime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="tasktitle != null">
+				#{tasktitle,jdbcType=NVARCHAR},
+			</if>
+			<if test="taskplace != null">
+				#{taskplace,jdbcType=NVARCHAR},
+			</if>
+			<if test="taskremark != null">
+				#{taskremark,jdbcType=NVARCHAR},
+			</if>
+			<if test="taskkeywork != null">
+				#{taskkeywork,jdbcType=NVARCHAR},
+			</if>
+			<if test="taskstate != null">
+				#{taskstate,jdbcType=INTEGER},
+			</if>
+			<if test="tasktype != null">
+				#{tasktype,jdbcType=NVARCHAR},
+			</if>
+			<if test="tasklevel != null">
+				#{tasklevel,jdbcType=NVARCHAR},
+			</if>
+			<if test="programcode != null">
+				#{programcode,jdbcType=NVARCHAR},
+			</if>
+			<if test="programname != null">
+				#{programname,jdbcType=NVARCHAR},
+			</if>
+			<if test="isspecial != null">
+				#{isspecial,jdbcType=INTEGER},
+			</if>
+			<if test="sourcetype != null">
+				#{sourcetype,jdbcType=NVARCHAR},
+			</if>
+			<if test="passer != null">
+				#{passer,jdbcType=NVARCHAR},
+			</if>
+			<if test="passadvice != null">
+				#{passadvice,jdbcType=NVARCHAR},
+			</if>
+			<if test="endtime != null">
+				#{endtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="chargeman != null">
+				#{chargeman,jdbcType=NVARCHAR},
+			</if>
+			<if test="iscaifang != null">
+				#{iscaifang,jdbcType=INTEGER},
+			</if>
+			<if test="reporter != null">
+				#{reporter,jdbcType=NVARCHAR},
+			</if>
+			<if test="linkguid != null">
+				#{linkguid,jdbcType=NVARCHAR},
+			</if>
+			<if test="linktitle != null">
+				#{linktitle,jdbcType=NVARCHAR},
+			</if>
+			<if test="caifangremark != null">
+				#{caifangremark,jdbcType=NVARCHAR},
+			</if>
+			<if test="isopen != null">
+				#{isopen,jdbcType=INTEGER},
+			</if>
+			<if test="deviceids != null">
+				#{deviceids,jdbcType=NVARCHAR},
+			</if>
+			<if test="banmiantype != null">
+				#{banmiantype,jdbcType=VARCHAR},
+			</if>
+			<if test="banmianguid != null">
+				#{banmianguid,jdbcType=VARCHAR},
+			</if>
+			<if test="inpeople != null">
+				#{inpeople,jdbcType=VARCHAR},
+			</if>
+			<if test="allinpeople != null">
+				#{allinpeople,jdbcType=VARCHAR},
+			</if>
+			<if test="usecolumn != null">
+				#{usecolumn,jdbcType=VARCHAR},
+			</if>
+			<if test="xuantistate != null">
+				#{xuantistate,jdbcType=NUMERIC},
+			</if>
+			<if test="islocked != null">
+				#{islocked,jdbcType=NUMERIC},
+			</if>
+			<if test="locker != null">
+				#{locker,jdbcType=VARCHAR},
+			</if>
+			<if test="planpublish != null">
+				#{planpublish,jdbcType=VARCHAR},
+			</if>
+			<if test="locktime != null">
+				#{locktime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="taskcontent != null">
+				#{taskcontent,jdbcType=CLOB},
+			</if>
+			<if test="ContentRTF2 != null">
+				#{ContentRTF2,jdbcType=CLOB},
+			</if>
+			<if test="mappingrequirement != null">
+				#{mappingrequirement,jdbcType=CLOB},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByExampleSelective" parameterType="map">
+		update NewsTask
+		<set>
+			<if test="record.taskguid != null">
+				TaskGuid = #{record.taskguid,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.creater != null">
+				Creater = #{record.creater,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.resourceguid != null">
+				ResourceGuid = #{record.resourceguid,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.createrguid != null">
+				CreaterGuid = #{record.createrguid,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.owncolumn != null">
+				OwnColumn = #{record.owncolumn,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.createtime != null">
+				CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.modifytime != null">
+				ModifyTime = #{record.modifytime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.tasktitle != null">
+				TaskTitle = #{record.tasktitle,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.taskplace != null">
+				TaskPlace = #{record.taskplace,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.taskremark != null">
+				TaskRemark = #{record.taskremark,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.taskkeywork != null">
+				TaskKeyWork = #{record.taskkeywork,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.taskstate != null">
+				TaskState = #{record.taskstate,jdbcType=INTEGER},
+			</if>
+			<if test="record.tasktype != null">
+				TaskType = #{record.tasktype,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.tasklevel != null">
+				TaskLevel = #{record.tasklevel,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.programcode != null">
+				ProgramCode = #{record.programcode,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.programname != null">
+				ProgramName = #{record.programname,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.isspecial != null">
+				IsSpecial = #{record.isspecial,jdbcType=INTEGER},
+			</if>
+			<if test="record.sourcetype != null">
+				SourceType = #{record.sourcetype,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.passer != null">
+				Passer = #{record.passer,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.passadvice != null">
+				Passadvice = #{record.passadvice,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.endtime != null">
+				EndTime = #{record.endtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.chargeman != null">
+				ChargeMan = #{record.chargeman,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.iscaifang != null">
+				IsCaifang = #{record.iscaifang,jdbcType=INTEGER},
+			</if>
+			<if test="record.reporter != null">
+				Reporter = #{record.reporter,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.linkguid != null">
+				Linkguid = #{record.linkguid,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.linktitle != null">
+				LinkTitle = #{record.linktitle,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.caifangremark != null">
+				CaifangRemark = #{record.caifangremark,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.isopen != null">
+				IsOpen = #{record.isopen,jdbcType=INTEGER},
+			</if>
+			<if test="record.deviceids != null">
+				DeviceIDs = #{record.deviceids,jdbcType=NVARCHAR},
+			</if>
+			<if test="record.banmiantype != null">
+				BANMIANTYPE = #{record.banmiantype,jdbcType=VARCHAR},
+			</if>
+			<if test="record.banmianguid != null">
+				BANMIANGUID = #{record.banmianguid,jdbcType=VARCHAR},
+			</if>
+			<if test="record.inpeople != null">
+				INPEOPLE = #{record.inpeople,jdbcType=VARCHAR},
+			</if>
+			<if test="record.allinpeople != null">
+				ALLINPEOPLE = #{record.allinpeople,jdbcType=VARCHAR},
+			</if>
+			<if test="record.usecolumn != null">
+				USECOLUMN = #{record.usecolumn,jdbcType=VARCHAR},
+			</if>
+			<if test="record.xuantistate != null">
+				XUANTISTATE = #{record.xuantistate,jdbcType=NUMERIC},
+			</if>
+			<if test="record.islocked != null">
+				ISLOCKED = #{record.islocked,jdbcType=NUMERIC},
+			</if>
+			<if test="record.locker != null">
+				LOCKER = #{record.locker,jdbcType=VARCHAR},
+			</if>
+			<if test="record.planpublish != null">
+				planpublish = #{record.planpublish,jdbcType=VARCHAR},
+			</if>
+			<if test="record.locktime != null">
+				LOCKTIME = #{record.locktime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="record.taskcontent != null">
+				TaskContent = #{record.taskcontent,jdbcType=CLOB},
+			</if>
+			<if test="record.ContentRTF2 != null">
+				ContentRTF2 = #{record.ContentRTF2,jdbcType=CLOB},
+			</if>
+			<if test="record.mappingrequirement != null">
+				MappingRequirement = #{record.mappingrequirement,jdbcType=CLOB},
+			</if>
+		</set>
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExampleWithBLOBs" parameterType="map">
+		update NewsTask
+		set TaskGuid = #{record.taskguid,jdbcType=NVARCHAR},
+		Creater = #{record.creater,jdbcType=NVARCHAR},
+		ResourceGuid = #{record.resourceguid,jdbcType=NVARCHAR},
+		CreaterGuid = #{record.createrguid,jdbcType=NVARCHAR},
+		OwnColumn = #{record.owncolumn,jdbcType=NVARCHAR},
+		CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
+		ModifyTime = #{record.modifytime,jdbcType=TIMESTAMP},
+		TaskTitle = #{record.tasktitle,jdbcType=NVARCHAR},
+		TaskPlace = #{record.taskplace,jdbcType=NVARCHAR},
+		TaskRemark = #{record.taskremark,jdbcType=NVARCHAR},
+		TaskKeyWork = #{record.taskkeywork,jdbcType=NVARCHAR},
+		TaskState = #{record.taskstate,jdbcType=INTEGER},
+		TaskType = #{record.tasktype,jdbcType=NVARCHAR},
+		TaskLevel = #{record.tasklevel,jdbcType=NVARCHAR},
+		ProgramCode = #{record.programcode,jdbcType=NVARCHAR},
+		ProgramName = #{record.programname,jdbcType=NVARCHAR},
+		IsSpecial = #{record.isspecial,jdbcType=INTEGER},
+		SourceType = #{record.sourcetype,jdbcType=NVARCHAR},
+		Passer = #{record.passer,jdbcType=NVARCHAR},
+		Passadvice = #{record.passadvice,jdbcType=NVARCHAR},
+		EndTime = #{record.endtime,jdbcType=TIMESTAMP},
+		ChargeMan = #{record.chargeman,jdbcType=NVARCHAR},
+		IsCaifang = #{record.iscaifang,jdbcType=INTEGER},
+		Reporter = #{record.reporter,jdbcType=NVARCHAR},
+		Linkguid = #{record.linkguid,jdbcType=NVARCHAR},
+		LinkTitle = #{record.linktitle,jdbcType=NVARCHAR},
+		CaifangRemark = #{record.caifangremark,jdbcType=NVARCHAR},
+		IsOpen = #{record.isopen,jdbcType=INTEGER},
+		DeviceIDs = #{record.deviceids,jdbcType=NVARCHAR},
+		BANMIANTYPE = #{record.banmiantype,jdbcType=VARCHAR},
+		BANMIANGUID = #{record.banmianguid,jdbcType=VARCHAR},
+		INPEOPLE = #{record.inpeople,jdbcType=VARCHAR},
+		ALLINPEOPLE = #{record.allinpeople,jdbcType=VARCHAR},
+		USECOLUMN = #{record.usecolumn,jdbcType=VARCHAR},
+		XUANTISTATE = #{record.xuantistate,jdbcType=NUMERIC},
+		ISLOCKED = #{record.islocked,jdbcType=NUMERIC},
+		LOCKER = #{record.locker,jdbcType=VARCHAR},
+		PLANPUBLISH = #{record.planpublish,jdbcType=VARCHAR},
+		LOCKTIME = #{record.locktime,jdbcType=TIMESTAMP},
+		TaskContent = #{record.taskcontent,jdbcType=CLOB},
+		ContentRTF2 = #{record.ContentRTF2,jdbcType=CLOB},
+		MappingRequirement = #{record.mappingrequirement,jdbcType=CLOB}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExample" parameterType="map">
+		update NewsTask
+		set TaskGuid = #{record.taskguid,jdbcType=NVARCHAR},
+		Creater = #{record.creater,jdbcType=NVARCHAR},
+		ResourceGuid = #{record.resourceguid,jdbcType=NVARCHAR},
+		CreaterGuid = #{record.createrguid,jdbcType=NVARCHAR},
+		OwnColumn = #{record.owncolumn,jdbcType=NVARCHAR},
+		CreateTime = #{record.createtime,jdbcType=TIMESTAMP},
+		ModifyTime = #{record.modifytime,jdbcType=TIMESTAMP},
+		TaskTitle = #{record.tasktitle,jdbcType=NVARCHAR},
+		TaskPlace = #{record.taskplace,jdbcType=NVARCHAR},
+		TaskRemark = #{record.taskremark,jdbcType=NVARCHAR},
+		TaskKeyWork = #{record.taskkeywork,jdbcType=NVARCHAR},
+		TaskState = #{record.taskstate,jdbcType=INTEGER},
+		TaskType = #{record.tasktype,jdbcType=NVARCHAR},
+		TaskLevel = #{record.tasklevel,jdbcType=NVARCHAR},
+		ProgramCode = #{record.programcode,jdbcType=NVARCHAR},
+		ProgramName = #{record.programname,jdbcType=NVARCHAR},
+		IsSpecial = #{record.isspecial,jdbcType=INTEGER},
+		SourceType = #{record.sourcetype,jdbcType=NVARCHAR},
+		Passer = #{record.passer,jdbcType=NVARCHAR},
+		Passadvice = #{record.passadvice,jdbcType=NVARCHAR},
+		EndTime = #{record.endtime,jdbcType=TIMESTAMP},
+		ChargeMan = #{record.chargeman,jdbcType=NVARCHAR},
+		IsCaifang = #{record.iscaifang,jdbcType=INTEGER},
+		Reporter = #{record.reporter,jdbcType=NVARCHAR},
+		Linkguid = #{record.linkguid,jdbcType=NVARCHAR},
+		LinkTitle = #{record.linktitle,jdbcType=NVARCHAR},
+		CaifangRemark = #{record.caifangremark,jdbcType=NVARCHAR},
+		IsOpen = #{record.isopen,jdbcType=INTEGER},
+		DeviceIDs = #{record.deviceids,jdbcType=NVARCHAR},
+		BANMIANTYPE = #{record.banmiantype,jdbcType=VARCHAR},
+		BANMIANGUID = #{record.banmianguid,jdbcType=VARCHAR},
+		INPEOPLE = #{record.inpeople,jdbcType=VARCHAR},
+		ALLINPEOPLE = #{record.allinpeople,jdbcType=VARCHAR},
+		USECOLUMN = #{record.usecolumn,jdbcType=VARCHAR},
+		XUANTISTATE = #{record.xuantistate,jdbcType=NUMERIC},
+		ISLOCKED = #{record.islocked,jdbcType=NUMERIC},
+		LOCKER = #{record.locker,jdbcType=VARCHAR},
+		PLANPUBLISH = #{record.planpublish,jdbcType=VARCHAR},
+		LOCKTIME = #{record.locktime,jdbcType=TIMESTAMP}
+		<if test="_parameter != null">
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.dayang.newmedia.newscommand.db.model.NewsTaskWithBLOBs">
+		update NewsTask
+		<set>
+			<if test="creater != null">
+				Creater = #{creater,jdbcType=NVARCHAR},
+			</if>
+			<if test="resourceguid != null">
+				ResourceGuid = #{resourceguid,jdbcType=NVARCHAR},
+			</if>
+			<if test="createrguid != null">
+				CreaterGuid = #{createrguid,jdbcType=NVARCHAR},
+			</if>
+			<if test="owncolumn != null">
+				OwnColumn = #{owncolumn,jdbcType=NVARCHAR},
+			</if>
+			<if test="createtime != null">
+				CreateTime = #{createtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="modifytime != null">
+				ModifyTime = #{modifytime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="tasktitle != null">
+				TaskTitle = #{tasktitle,jdbcType=NVARCHAR},
+			</if>
+			<if test="taskplace != null">
+				TaskPlace = #{taskplace,jdbcType=NVARCHAR},
+			</if>
+			<if test="taskremark != null">
+				TaskRemark = #{taskremark,jdbcType=NVARCHAR},
+			</if>
+			<if test="taskkeywork != null">
+				TaskKeyWork = #{taskkeywork,jdbcType=NVARCHAR},
+			</if>
+			<if test="taskstate != null">
+				TaskState = #{taskstate,jdbcType=INTEGER},
+			</if>
+			<if test="tasktype != null">
+				TaskType = #{tasktype,jdbcType=NVARCHAR},
+			</if>
+			<if test="tasklevel != null">
+				TaskLevel = #{tasklevel,jdbcType=NVARCHAR},
+			</if>
+			<if test="programcode != null">
+				ProgramCode = #{programcode,jdbcType=NVARCHAR},
+			</if>
+			<if test="programname != null">
+				ProgramName = #{programname,jdbcType=NVARCHAR},
+			</if>
+			<if test="isspecial != null">
+				IsSpecial = #{isspecial,jdbcType=INTEGER},
+			</if>
+			<if test="sourcetype != null">
+				SourceType = #{sourcetype,jdbcType=NVARCHAR},
+			</if>
+			<if test="passer != null">
+				Passer = #{passer,jdbcType=NVARCHAR},
+			</if>
+			<if test="passadvice != null">
+				Passadvice = #{passadvice,jdbcType=NVARCHAR},
+			</if>
+			<if test="endtime != null">
+				EndTime = #{endtime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="chargeman != null">
+				ChargeMan = #{chargeman,jdbcType=NVARCHAR},
+			</if>
+			<if test="iscaifang != null">
+				IsCaifang = #{iscaifang,jdbcType=INTEGER},
+			</if>
+			<if test="reporter != null">
+				Reporter = #{reporter,jdbcType=NVARCHAR},
+			</if>
+			<if test="linkguid != null">
+				Linkguid = #{linkguid,jdbcType=NVARCHAR},
+			</if>
+			<if test="linktitle != null">
+				LinkTitle = #{linktitle,jdbcType=NVARCHAR},
+			</if>
+			<if test="caifangremark != null">
+				CaifangRemark = #{caifangremark,jdbcType=NVARCHAR},
+			</if>
+			<if test="isopen != null">
+				IsOpen = #{isopen,jdbcType=INTEGER},
+			</if>
+			<if test="deviceids != null">
+				DeviceIDs = #{deviceids,jdbcType=NVARCHAR},
+			</if>
+			<if test="banmiantype != null">
+				BANMIANTYPE = #{banmiantype,jdbcType=VARCHAR},
+			</if>
+			<if test="banmianguid != null">
+				BANMIANGUID = #{banmianguid,jdbcType=VARCHAR},
+			</if>
+			<if test="inpeople != null">
+				INPEOPLE = #{inpeople,jdbcType=VARCHAR},
+			</if>
+			<if test="allinpeople != null">
+				ALLINPEOPLE = #{allinpeople,jdbcType=VARCHAR},
+			</if>
+			<if test="usecolumn != null">
+				USECOLUMN = #{usecolumn,jdbcType=VARCHAR},
+			</if>
+			<if test="xuantistate != null">
+				XUANTISTATE = #{xuantistate,jdbcType=NUMERIC},
+			</if>
+			<if test="islocked != null">
+				ISLOCKED = #{islocked,jdbcType=NUMERIC},
+			</if>
+			<if test="locker != null">
+				LOCKER = #{locker,jdbcType=VARCHAR},
+			</if>
+			<if test="planpublish != null">
+				PLANPUBLISH = #{planpublish,jdbcType=VARCHAR},
+			</if>
+			<if test="locktime != null">
+				LOCKTIME = #{locktime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="taskcontent != null">
+				TaskContent = #{taskcontent,jdbcType=CLOB},
+			</if>
+			<if test="ContentRTF2 != null">
+				ContentRTF2 = #{ContentRTF2,jdbcType=CLOB},
+			</if>
+			<if test="mappingrequirement != null">
+				MappingRequirement = #{mappingrequirement,jdbcType=CLOB},
+			</if>
+		</set>
+		where TaskGuid = #{taskguid,jdbcType=NVARCHAR}
+	</update>
+	<update id="updateByPrimaryKeyWithBLOBs"
+		parameterType="com.dayang.newmedia.newscommand.db.model.NewsTaskWithBLOBs">
+		update NewsTask
+		set Creater = #{creater,jdbcType=NVARCHAR},
+		ResourceGuid = #{resourceguid,jdbcType=NVARCHAR},
+		CreaterGuid = #{createrguid,jdbcType=NVARCHAR},
+		OwnColumn = #{owncolumn,jdbcType=NVARCHAR},
+		CreateTime = #{createtime,jdbcType=TIMESTAMP},
+		ModifyTime = #{modifytime,jdbcType=TIMESTAMP},
+		TaskTitle = #{tasktitle,jdbcType=NVARCHAR},
+		TaskPlace = #{taskplace,jdbcType=NVARCHAR},
+		TaskRemark = #{taskremark,jdbcType=NVARCHAR},
+		TaskKeyWork = #{taskkeywork,jdbcType=NVARCHAR},
+		TaskState = #{taskstate,jdbcType=INTEGER},
+		TaskType = #{tasktype,jdbcType=NVARCHAR},
+		TaskLevel = #{tasklevel,jdbcType=NVARCHAR},
+		ProgramCode = #{programcode,jdbcType=NVARCHAR},
+		ProgramName = #{programname,jdbcType=NVARCHAR},
+		IsSpecial = #{isspecial,jdbcType=INTEGER},
+		SourceType = #{sourcetype,jdbcType=NVARCHAR},
+		Passer = #{passer,jdbcType=NVARCHAR},
+		Passadvice = #{passadvice,jdbcType=NVARCHAR},
+		EndTime = #{endtime,jdbcType=TIMESTAMP},
+		ChargeMan = #{chargeman,jdbcType=NVARCHAR},
+		IsCaifang = #{iscaifang,jdbcType=INTEGER},
+		Reporter = #{reporter,jdbcType=NVARCHAR},
+		Linkguid = #{linkguid,jdbcType=NVARCHAR},
+		LinkTitle = #{linktitle,jdbcType=NVARCHAR},
+		CaifangRemark = #{caifangremark,jdbcType=NVARCHAR},
+		IsOpen = #{isopen,jdbcType=INTEGER},
+		DeviceIDs = #{deviceids,jdbcType=NVARCHAR},
+		BANMIANTYPE = #{banmiantype,jdbcType=VARCHAR},
+		BANMIANGUID = #{banmianguid,jdbcType=VARCHAR},
+		INPEOPLE = #{inpeople,jdbcType=VARCHAR},
+		ALLINPEOPLE = #{allinpeople,jdbcType=VARCHAR},
+		USECOLUMN = #{usecolumn,jdbcType=VARCHAR},
+		XUANTISTATE = #{xuantistate,jdbcType=NUMERIC},
+		ISLOCKED = #{islocked,jdbcType=NUMERIC},
+		LOCKER = #{locker,jdbcType=VARCHAR},
+		PLANPUBLISH = #{planpublish,jdbcType=VARCHAR},
+		LOCKTIME = #{locktime,jdbcType=TIMESTAMP},
+		TaskContent = #{taskcontent,jdbcType=CLOB},
+		ContentRTF2 = #{ContentRTF2,jdbcType=CLOB},
+		MappingRequirement = #{mappingrequirement,jdbcType=CLOB}
+		where TaskGuid = #{taskguid,jdbcType=NVARCHAR}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.dayang.newmedia.newscommand.db.model.NewsTask">
+		update NewsTask
+		set Creater = #{creater,jdbcType=NVARCHAR},
+		ResourceGuid = #{resourceguid,jdbcType=NVARCHAR},
+		CreaterGuid = #{createrguid,jdbcType=NVARCHAR},
+		OwnColumn = #{owncolumn,jdbcType=NVARCHAR},
+		CreateTime = #{createtime,jdbcType=TIMESTAMP},
+		ModifyTime = #{modifytime,jdbcType=TIMESTAMP},
+		TaskTitle = #{tasktitle,jdbcType=NVARCHAR},
+		TaskPlace = #{taskplace,jdbcType=NVARCHAR},
+		TaskRemark = #{taskremark,jdbcType=NVARCHAR},
+		TaskKeyWork = #{taskkeywork,jdbcType=NVARCHAR},
+		TaskState = #{taskstate,jdbcType=INTEGER},
+		TaskType = #{tasktype,jdbcType=NVARCHAR},
+		TaskLevel = #{tasklevel,jdbcType=NVARCHAR},
+		ProgramCode = #{programcode,jdbcType=NVARCHAR},
+		ProgramName = #{programname,jdbcType=NVARCHAR},
+		IsSpecial = #{isspecial,jdbcType=INTEGER},
+		SourceType = #{sourcetype,jdbcType=NVARCHAR},
+		Passer = #{passer,jdbcType=NVARCHAR},
+		Passadvice = #{passadvice,jdbcType=NVARCHAR},
+		EndTime = #{endtime,jdbcType=TIMESTAMP},
+		ChargeMan = #{chargeman,jdbcType=NVARCHAR},
+		IsCaifang = #{iscaifang,jdbcType=INTEGER},
+		Reporter = #{reporter,jdbcType=NVARCHAR},
+		Linkguid = #{linkguid,jdbcType=NVARCHAR},
+		LinkTitle = #{linktitle,jdbcType=NVARCHAR},
+		CaifangRemark = #{caifangremark,jdbcType=NVARCHAR},
+		IsOpen = #{isopen,jdbcType=INTEGER},
+		DeviceIDs = #{deviceids,jdbcType=NVARCHAR},
+		BANMIANTYPE = #{banmiantype,jdbcType=VARCHAR},
+		BANMIANGUID = #{banmianguid,jdbcType=VARCHAR},
+		INPEOPLE = #{inpeople,jdbcType=VARCHAR},
+		ALLINPEOPLE = #{allinpeople,jdbcType=VARCHAR},
+		USECOLUMN = #{usecolumn,jdbcType=VARCHAR},
+		XUANTISTATE = #{xuantistate,jdbcType=NUMERIC},
+		ISLOCKED = #{islocked,jdbcType=NUMERIC},
+		LOCKER = #{locker,jdbcType=VARCHAR},
+		PLANPUBLISH = #{planpublish,jdbcType=VARCHAR},
+		LOCKTIME = #{locktime,jdbcType=TIMESTAMP}
+		where TaskGuid = #{taskguid,jdbcType=NVARCHAR}
+	</update>
+
+	<!-- 根据查询条件获取选题总数 -->
+	<select id="getNewsTaskTotal" resultType="int"
+		parameterType="com.dayang.newmedia.newscommand.db.model.TaskSearchPara">
+		<include refid="SELECT_COUNT" />
+		from NewsTask t
+		<include refid="ALLXUANTIWHERE" />
+	</select>
+	<!-- 分页查询 -->
+	<sql id="SELECT_COUNT">
+		SELECT COUNT(1) as value
+	</sql>
+
+	<!-- 查询我的选题条件 -->
+	<sql id="MYXUANTIWHERE">
+		<where>
+			<trim prefixOverrides="and">
+				(
+				(
+				<!-- 任务状态 -->
+				<if test="xuanTiStateList!=null and xuanTiStateList.size()>0">
+					t.XUANTISTATE in
+					<foreach collection="xuanTiStateList" item="xuanTiState"
+						open="(" separator="," close=")">
+						#{xuanTiState}
+					</foreach>
+				</if>
+				and (
+				<!-- 负责人 -->
+				<if test="chargetMan!=null">
+					t.ChargeMan = #{chargetMan}
+				</if>
+				<!-- 参与人 -->
+				<if test="inPeople!=null">
+					or t.INPEOPLE like #{inPeople}
+				</if>
+				)
+				)
+				or
+				(t.Creater=#{creater})
+				)
+				<!-- 任务类型 -->
+				<if test="taskStateList!=null and taskStateList.size()>0">
+					and t.TaskState in
+					<foreach collection="taskStateList" item="taskState" open="("
+						separator="," close=")">
+						#{taskState}
+					</foreach>
+				</if>
+				<!-- 搜索内容 -->
+				<if test="searchContent!=null">
+					and (t.TaskTitle like #{searchContent} or t.TaskContent like #{searchContent})
+				</if>
+			</trim>
+		</where>
+	</sql>
+	<!-- 查询全部选题条件 -->
+	<sql id="ALLXUANTIWHERE">
+		<where>
+			<trim prefixOverrides="and">
+				<!-- 创建人 -->
+				<if test="creater!=null">
+					and t.Creater=#{creater}
+				</if>
+				<!-- 负责人 -->
+				<if test="chargetMan!=null">
+					and t.ChargeMan = #{chargetMan}
+				</if>
+				<!-- 参与人 -->
+				<if test="inPeople!=null">
+					and t.INPEOPLE like #{inPeople}
+				</if>
+				<!-- 标题 -->
+				<if test="taskTitle!=null">
+					and (t.TaskTitle like #{taskTitle} or t.TaskContent like #{taskTitle})
+				</if>
+				<!-- 内容 -->
+				<if test="taskContent!=null">
+					and t.TaskContent like #{taskContent}
+				</if>
+				<!-- 所属栏目  -->
+				<if test="columnList!=null and columnList.size()>0">
+					and t.OwnColumn in
+					<foreach collection="columnList" item="column" open="("
+						separator="," close=")">
+						#{column}
+					</foreach>
+				</if>
+				<!-- 选题状态 -->
+				<if test="xuanTiStateList!=null and xuanTiStateList.size()>0">
+					and t.XUANTISTATE in
+					<foreach collection="xuanTiStateList" item="xuanTiState"
+						open="(" separator="," close=")">
+						#{xuanTiState}
+					</foreach>
+				</if>
+				<!-- 选题类型 -->
+				<if test="taskStateList!=null and taskStateList.size()>0">
+					and t.TaskState in
+					<foreach collection="taskStateList" item="taskState" open="(" separator="," close=")">
+							#{taskState}
+					</foreach>
+				</if>
+			</trim>
+		</where>
+	</sql>
+
+	<!-- 查询选题 -->
+	<select id="getNewsTaskInfos" resultMap="ResultMapWithBLOBs" parameterType="com.dayang.newmedia.newscommand.db.model.TaskSearchPara">
+		<include refid="PAGE_HEAD" />
+		<include refid="TASKINFO_COLUMNLIST" />
+		from NewsTask t
+		<include refid="ALLXUANTIWHERE" />
+		<include refid="PAGE_TAIL" />
+	</select>
+
+	<sql id="TASKINFO_COLUMNLIST">
+		select t.*
+	</sql>
+	<sql id="PAGE_HEAD">
+		select * from(
+		<if test="_databaseId == 'sqlserver'">
+			select a.* ,ROW_NUMBER() OVER (
+			<include refid="BASE_ORDERBY" />
+			) as num
+		</if>
+		<if test="_databaseId == 'oracle'">
+			select a.* ,ROWNUM as num
+		</if>
+		<if test="_databaseId == 'mysql'">
+			select a.*
+		</if>
+		from (
+	</sql>
+
+	<sql id="PAGE_TAIL">
+		<if test="_databaseId != 'sqlserver'">
+			<include refid="BASE_ORDERBY" />
+		</if>
+		) a
+		)b
+		<if test="_databaseId == 'mysql'">
+			limit
+			<if test="start == 0">
+				${start} ,#{limit}
+			</if>
+			<if test="start != 0">
+				${start-1} ,#{limit}
+			</if>
+		</if>
+		<where>
+			<if test="_databaseId != 'mysql'">
+				num between #{start} and #{end}
+			</if>
+		</where>
+	</sql>
+
+	<sql id="BASE_ORDERBY">
+		<if test="sortColumn!=null and sortColumn!=''">
+			order by ${sortColumn}
+			${direction}
+		</if>
+		<if test="sortColumn==null or sortColumn==''">
+			order by ModifyTime desc
+		</if>
+	</sql>
+
+<!-- 报题部分    -->
+<select id="getBaoTiNewsTaskTotal" resultType="int" parameterType="com.dayang.newmedia.newscommand.db.model.TaskSearchPara">
+	<include refid="SELECT_COUNT" />
+	  from NewsTask t
+	<if test="queryModel==0">
+		<include refid="ALLBAOTIWHERE" />
+	</if>
+	<if test="queryModel==1">
+		<include refid="MYBAOTIWHERE" />
+	</if>
+</select>
+
+
+<!-- 标准服务分页查询条目 -->
+    <select id="getBaoTiNewsTaskInfos" resultMap="ResultMapWithBLOBs" parameterType="com.dayang.newmedia.newscommand.db.model.TaskSearchPara">
+        <include refid="PAGE_HEAD" />
+        <include refid="TASKINFO_COLUMNLIST" />
+        from NewsTask t
+        <if test="queryModel==0">
+            <include refid="ALLBAOTIWHERE" />
+        </if>
+        <if test="queryModel==1">
+            <include refid="MYBAOTIWHERE" />
+        </if>
+        <include refid="PAGE_TAIL" />
+    </select>
+
+<!-- 查询我的报题 -->
+<sql id="MYBAOTIWHERE">
+        <where>
+            <trim prefixOverrides="and">
+                t.Creater=#{creater}
+                <!-- 任务类型 -->
+                <if test="taskStateList!=null and taskStateList.size()>0">
+                    and t.TaskState in
+                    <foreach collection="taskStateList" item="taskState" open="("
+                        separator="," close=")">
+                        #{taskState}
+                    </foreach>
+                </if>
+                <!-- 搜索内容 -->
+				<if test="searchContent!=null">
+					and (t.TaskTitle like #{searchContent} or t.TaskContent like #{searchContent})
+				</if>
+            </trim>
+        </where>
+</sql>
+
+<!-- 查询全部报题条件 -->
+<sql id="ALLBAOTIWHERE">
+    <where>
+        <trim prefixOverrides="and">
+            (
+            	(
+            		(
+	            		<!-- 栏目 -->
+			            <if test="columnList!=null and columnList.size()>0">
+			               
+			                <foreach collection="columnList" item="column" open=""
+			                    separator="or" close="">
+			                 t.OwnColumn like #{column}  
+			                </foreach>
+			            </if>
+	            	)
+	            	and t.Creater != #{creater}
+	            	<!-- 任务类型 -->
+		            <if test="taskStateList!=null and taskStateList.size()>0">
+		                and t.TaskState in
+		                <foreach collection="taskStateList" item="taskState" open="("
+		                    separator="," close=")">
+		                    #{taskState}
+		                </foreach>
+		            </if>
+	            )
+	            or t.Creater=#{creater}
+            )
+            and t.TaskState !=2 
+             <!-- 搜索内容 -->
+				<if test="searchContent!=null">
+					and (t.TaskTitle like #{searchContent} or t.TaskContent like #{searchContent})
+				</if>
+        </trim>
+    </where>
+</sql>
+
+
+<select id="getXuanTiForTaskMission" resultMap="ResultMapWithBLOBs" parameterType="com.dayang.newmedia.newscommand.db.model.TaskSearchPara" >
+    select * from  NewsTask t
+    <where>
+        <trim prefixOverrides="and">
+            (
+            	(
+            		t.ChargeMan=#{chargetMan}  or t.INPEOPLE like #{inPeople}
+            		<if test="creater!=null">
+						or t.Creater=#{creater}
+					</if>
+            	)
+            	<if test="columnList!=null">
+	            	or
+	            	(
+	            		t.XUANTISTATE!=104 and 
+	            		t.OwnColumn in
+	            		<foreach collection="columnList" item="column" open="("
+										separator="," close=")">
+										#{column}
+						</foreach>
+	            	)
+            	</if>
+            )
+            
+            and t.XUANTISTATE!=8
+             
+        </trim>
+    </where>
+</select>
+<!-- 获取重复的选题 -->
+<select id="getRepeatedXuanTiNewsTasks" resultMap="ResultMapWithBLOBs" parameterType="com.dayang.newmedia.newscommand.db.model.TaskSearchPara">
+	select * from  NewsTask t
+    <where>
+        <trim prefixOverrides="and">
+          (
+          	  <!-- 栏目 -->
+	          <if test="columnList!=null and columnList.size()>0">
+	          	<foreach collection="columnList" item="column" open="" separator="or" close="">
+	          		t.OwnColumn = #{column}  
+				</foreach>
+			  </if>
+		  )
+		  <if test="searchContent!=null">
+		  	and t.TaskTitle = #{searchContent}
+		  </if>
+            and t.XUANTISTATE!=8
+        </trim>
+    </where>
+</select>
+
+</mapper>

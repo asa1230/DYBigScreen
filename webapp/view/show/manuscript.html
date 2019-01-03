@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<html lang="zh-cn">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="../../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../../css/manuscript.css">	
+</head>
+<script type="text/javascript" src="../../plugin/js/jquery.min.js"></script>
+<script type="text/javascript" src="../../plugin/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../plugin/js/echarts.min.js"></script>
+<script type="text/javascript" src="../../static/scripts/show/mabuscript.js"></script>
+<script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
+<script type="text/javascript" src="../../js/jquery.jqflip.js"></script>
+<body class="manuscript_content">
+	<div class="manuscript_body">
+		<div >
+			<div class="manuscript_logo" id="manuscript_logo" >
+				<img src="../../images/count.png" alt="" class="manuscript_sort">
+			</div>
+			<div class="manuscript_title" id="manuscript_title">
+				<span>收视率</span>
+			</div>			
+			<div class="manuscript_chart" id="manuscript_chart" style="width:1900px; height:900px;"></div>			
+		</div>
+	</div>
+
+
+
+<script type="text/javascript">
+	
+	var titH=$("#manuscript_title").outerHeight(true);
+	var logoH=$("#manuscript_logo").outerHeight(true);
+	var chartH=($(window).height())-titH-logoH;
+	$('#manuscript_chart').css({'height':chartH+'px'})
+	
+	
+	var col=['#ff0a00','#e0362f','#ed6c67','#67bef4','#8ece3a','#44a40d','#fab953','#f79307','#2597de','#0f62e2','#17ced5','#898c94','#ff0a00','#e0362f','#ed6c67','#67bef4','#8ece3a','#44a40d','#fab953','#f79307','#2597de','#0f62e2','#17ced5','#898c94'];
+	var hue=['rgb(255,10,0)','rgb(224,54,47)','rgb(237,108,103)','rgb(103,190,244)','rgb(142,206,58)','rgb(68,164,13)','rgb(250,185,83)','rgb(247,147,7)','rgb(37,151,222)','rgb(15,98,226)','rgb(23,206,213)','rgb(137,140,148)','rgb(255,10,0)','rgb(224,54,47)','rgb(237,108,103)','rgb(103,190,244)','rgb(142,206,58)','rgb(68,164,13)','rgb(250,185,83)','rgb(247,147,7)','rgb(37,151,222)','rgb(15,98,226)','rgb(23,206,213)','rgb(137,140,148)'];
+	
+	var url = window.localStorage.getItem("zhihuidiaoduURL");
+	//构建JSON数据信息
+	var programRatingDate = "";
+	var arrName = []; 
+	var arrValue = [];
+	$.ajax({
+		    type : 'POST',
+	     	async : false,
+	     	dataType : 'json',
+		 	url : '../../api/queryProgramRatingShow',
+	     	contentType : "application/json;charset=UTF-8",
+	     	success : function(data) {
+	     	if (data.commonResponse.success == true) {
+	     		programRatingDate = data.programRatingDate;
+	     		for(var m=0;m<data.records.length;m++){
+	     			arrName.push(data.records[m].ratingkey);
+	     			arrValue.push(data.records[m].ratingvalue);
+	     		}
+				} else {
+					alert(data.commonResponse.errorDesc);
+				}
+	     }
+	     });
+	  bar("manuscript_chart",arrName,arrValue,arrValue,col,hue,programRatingDate);
+
+</script>
+</body>
+</html>

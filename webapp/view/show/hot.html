@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>热门专题</title>
+<link href="../../css/css.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
+<style type="text/css">
+body{ background:url(../../img/2.jpg);}
+</style>
+</head>
+
+<script language="javascript">
+
+</script>
+
+<body style="overflow:hidden;">
+<div class="content">
+<div class="remen-style1">
+     <div style="width:100%; height:80px; margin-bottom:20px"><img src="../../img/logo2.png" /></div>
+     <div id="hot" style="width:100%; position:relative;overflow:hidden;bottom:0px;">
+	
+	</div>
+</div>
+<div  class="remen-style2">
+	<div id="comment"></div>
+</div>
+</div>
+</body>
+<script src="../../plugin/aui-artTemplate/template.js"></script>
+<!-- 热点内容 -->
+<script id="hot-list-item" type="text/html">
+{{each records as record i}}
+<table>
+	<tr>
+		<td width="150px" align="right" valign="top">
+			<p class="font-style3 m-style">{{record.date}}</p>
+			<p class="font-style2 m-style">{{record.time}}</p>
+		</td>
+		<td class="remen-style3" valign="top">
+				{{if record.type == "web"}} 
+					<img src="../../img/icon10.png" />
+				{{else if record.type == "img"}}
+					<img src="../../img/icon9.png" />
+				{{else if record.type == "video"}}
+					<img src="../../img/icon11.png" />
+				{{/if}}
+		</td>
+		<td>
+			<div class="remen-style4"></div>
+			<div class="remen-style4-2">
+				<div class="m-style2">
+					<img src="{{record.signIcon}}" /><font class="font-style2">{{record.title}}</font>
+				</div>
+				<div class="font-style3 remen-style5">
+					<div>
+ 					{{if record.resourceIcon1 != null}} 
+						<img src="{{record.resourceIcon1}}" />
+				 	{{/if}}
+					{{if record.resourceIcon2 != null}}
+						<img src="{{record.resourceIcon2}}" />
+				 	{{/if}}
+					{{if record.resourceIcon3 != null}}
+						<img src="{{record.resourceIcon3}}" />
+				 	{{/if}}
+					{{if record.resourceIcon4 != null}}
+						<img src="{{record.resourceIcon4}}" />
+				 	{{/if}}
+					</div>
+					<div class="font-color-style">{{record.content}}</div>
+				</div>
+			</div>
+			<div class="remen-style4-3"></div>
+		</td>
+	</tr>
+</table>
+{{/each}}
+</script>
+<!-- 热点内容评论 -->
+<script id="comment-list-item" type="text/html">
+{{each comments as comment i}}
+<div class="remen-style7">
+	<div class="remen-style6"></div>
+	<div class="remen-style6-2">
+		<div><img src="{{comment.headIcon}}" class="remen-touxiang" /></div>
+		<table width="94%" class="remen-touxiang2" align="center">
+			<tr>
+				<td width="50px" height="50px"></td>
+				<td class="font-style4">{{comment.author}}</td>
+				<td class="font-style4" align="center" width="100px">{{comment.time}}</td>
+			</tr>
+			<tr>
+				<td class="font-style3 font-color-style" colspan="3">
+				{{if comment.contentIcon != null}} 
+					<img src="{{comment.contentIcon}}" width="300px" style="margin: 10px auto;" /><br />
+				{{/if}}
+				{{comment.content}}
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="remen-style6-3"></div>
+</div>
+{{/each}}
+</script>
+<script type="text/javascript" src="../../static/scripts/util/utils.js"></script>
+<script type="text/javascript" src="../../static/scripts/show/hot.js"></script>
+</html>

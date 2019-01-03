@@ -1,0 +1,119 @@
+body{
+	background:url("../images/bg_07.png") no-repeat;
+}
+.news_box{
+	width:100%;
+	height:100%;
+}
+.news_title{
+	margin:66px 0 30px 58px;
+}
+.news_content{
+	margin-left:50px;
+	height:880px;
+/*	background:url("../images/bg_.png") no-repeat;*/
+	overflow:hidden;
+}
+.news_center{
+	height:164px;
+	background:url("../images/bg_3.2.png") no-repeat;
+	padding:0 61px 0 54px;
+}
+/* .news_center:first-child{
+	background:url("../images/bg_3.2.png") no-repeat;
+}
+.news_center:last-child{
+	background:url("../images/bg_3.3.png") no-repeat;
+} */
+.news_left{
+	width:55%;
+	float:left;
+	margin-top:31px;
+}
+.news_h3{
+	width:97%;
+	font-size:38px;
+	color:#fff;
+	margin-bottom:17px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.news_img{
+	float:left;
+	margin-top:3px;
+}
+.news_time{
+	float:left;
+	margin-left:12px;
+	font-size:22px;
+	color: #c7d7fb;
+}
+.news_user{
+	width:20%;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.news_hour{
+	width:240px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.news_sps{
+	display:inline-block;
+	margin-left:70px;
+}
+.news_right{
+	width:40%;
+	float:right;
+}
+.portlet.light.portlet-fit>.portlet-body,.portlet.light .portlet-body,.portlet.light.bordered,.portlet{
+	padding:0;
+	margin:0;
+}
+.portlet.light{
+	background: none;
+}
+.portlet.light.bordered{
+	border:none!important;
+}
+.portlet.light,.portlet.bordered{
+	border:none;
+}
+.portlet{
+	margin:0;
+	padding:0;
+}
+.mt-element-step .step-line .mt-step-number{
+	border:none;
+	padding:10px;
+}
+.bg-white{
+	background:none!important;
+}
+.mt-element-step .step-line .done .mt-step-title:after, .mt-element-step .step-line .done .mt-step-title:before{
+	background:rgba(255,255,255,.3);
+}
+.mt-element-step .step-line .active .mt-step-title:after, .mt-element-step .step-line .active .mt-step-title:before{
+	background:rgba(255,255,255,.3);
+}
+.mt-element-step .step-line .mt-step-title:after, .mt-element-step .step-line .mt-step-title:before{
+	background:rgba(255,255,255,.3);
+}
+.mt-element-step .step-line .done .mt-step-content, .mt-element-step .step-line .done .mt-step-title{
+	font-size:22px;
+	letter-spacing: 1px;
+	color: #fffefe!important;
+}
+.mt-element-step .step-line .active .mt-step-content, .mt-element-step .step-line .active .mt-step-title{
+	font-size:22px;
+	letter-spacing: 1px;
+	color: #fffefe!important;
+}
+.font-grey-cascade{
+	font-size:22px;
+	letter-spacing: 1px;
+	color: #fffefe!important;
+}

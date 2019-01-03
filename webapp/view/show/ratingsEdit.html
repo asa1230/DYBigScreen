@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>收视率录入</title>
+<link rel="stylesheet" href="../../css/css.css" />
+<link href="../../css/jquery.jqflip.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript" src="../../js/echarts.js"></script>
+<script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
+<style type="text/css">
+body{
+   	background: url("../../img/bg_03.jpg");
+   } 
+#editPart{
+	float:left;
+	height: 894px;
+	width: 280px;
+	border: 3px solid #d47809;
+}
+.repoterName{
+font-family: PingFang SC Medium;
+font-size: 24px;
+color: #fff;
+float: left;
+}
+
+.eachNews{
+background:url(../../img/iconbg.png);
+width: 1230px;
+height: 60px;
+margin-top: 16px;
+margin-bottom:0px;
+padding-left: 10px;
+overflow: hidden;
+}
+.titlePic{
+margin-bottom: 0px;
+}
+#select1{
+height:918px;
+padding-left: 16px;
+padding-right: 46px;
+padding-top: 15px;
+}
+#select2{
+padding-left: 16px;
+padding-right: 46px;
+padding-top: 40px;
+}
+
+.firstpart{
+float: left;
+height: 100%;
+width:300px;
+}
+.picture{
+width: 100%;
+height: 100%;
+vertical-align: middle;
+}
+
+.secondpart{
+float: left;
+height: 100%;
+width: 800px;
+}
+.eachTitle{
+font-size:	20px;
+left: 5px;
+color: #ffffff;
+}
+
+.thirdpart{
+float: left;
+height: 100%;
+width:300px;
+}
+.eachCreater_user{
+text-align:center;
+font-size:	30px;
+color: #96CDCD;
+}
+
+.forthpart{
+float: left;
+height: 100%;
+width: 400px;
+}
+.columnNameClass{
+height: 60px;
+width:250px;
+background-color: #0b0b0c;
+font-size:	30px;
+color: #96CDCD;
+box-shadow: 6px 6px 2px #3d5161;
+text-align:center ;
+}
+.columnValueClass{
+margin-top:20px;
+height: 60px;
+width:250px;
+background-color: #0b0b0c;
+font-size:	30px;
+color: #96CDCD;
+box-shadow: 6px 6px 2px #3d5161;
+text-align:center ;
+}
+#putRating{
+text-align:center ;
+margin-top: 20px;
+width: 250px;
+height:40px;
+font-size: 20px;
+color:#3fa8cd;
+box-shadow: 6px 6px 2px #3d5161;
+background-color:#151725; 
+}
+#cleanRatings{
+text-align:center ;
+margin-top: 20px;
+width: 250px;
+height:40px;
+font-size: 20px;
+color:#3fa8cd;
+box-shadow: 6px 6px 2px #3d5161;
+background-color:#151725; 
+}
+</style>
+<script type="text/javascript">
+/* var columns=[];
+var ratings=[];
+var count=1; */
+
+
+function getData(){
+	 $.ajax({
+		  type:'GET',
+		  contentType: "application/json", 
+		  url:"/DYBigScreen/HZInterfaceSet/getRatingData.do",
+		  dataType : "json",//跨域必须这个
+		  success : function(result){
+			 /*  $.each(result, function(i) {
+				  columns.push(i);
+				    ratings.push(result[i]);
+				}); */
+				splitPage(result);
+		  }
+		  });
+	
+	
+}
+$(document).ready(function(){
+	getData();
+})
+
+
+function splitPage(data){
+		var dataInfo1 = {};
+	    dataInfo1.records = [];
+	    var dataInfo2 = {};
+	    dataInfo2.records = [];
+	    //var blankNum = 8-data.records.length;
+	    //遍历查询数据，将查出的数据分为两部分，放入缓存
+	    $.each(data.records,function(i,item){
+	    	if(i<16 && item){
+	    	   dataInfo1.records.push(item);
+	    	}
+		});
+		
+	    //加载首页
+		var html1 = template('select1-list-item', dataInfo1);
+		document.getElementById('show').innerHTML = html1;
+		
+	
+	}
+	
+function putRating(){
+	var columnName=$("#columnNameId").val();	
+	var columnValue=$("#columnValueId").val();
+	var params={
+			"columnRatingName":columnName,
+			  "columnRatingValue":columnValue
+	}
+	 $.ajax({
+		  type:'post',
+		  contentType: "application/json", 
+		  data:JSON.stringify(params),
+		  url:"/DYBigScreen/HZInterfaceSet/putRating.do",
+		  dataType : "json",//跨域必须这个
+		  success : function(result){
+			  getData();
+			  location.reload();	
+		  }
+	  });
+}
+//清除配置文件全部内容的方法
+function cleanRatings(){
+	$.ajax({
+		  type:'get',
+		  contentType: "application/json", 
+		  url:"/DYBigScreen/HZInterfaceSet/cleanRatings.do",
+		 /*  dataType : "json", *///跨域必须这个
+		  success : function(result){
+			  alert(result);
+			 location.reload();
+			 alert("目前数据为空 ,请添加数据");
+		  }
+	  });
+}
+//在js中if条件为null/undefined/0/NaN/""表达式时，统统被解释为false,此外均为true .
+//为空判断函数
+function isNull(arg1)
+{
+return !arg1 && arg1!==0 && typeof arg1!=="boolean"?true:false;
+}
+
+</script>
+</head>
+<body>
+
+<div id="content" style=" width:1920px;height:980px;">
+	<div class="titlePic">
+			<img src="../../img/logo13.png"  />
+	</div>
+	<!-- 收视率列表 -->
+	<div id="show" style=" width:1400px;height:900px;margin-top: 50px;float: left">
+	</div>
+	<!-- 收视率录入 -->
+	<div id="edit" style=" width:180px;height:230px;margin-top: 50px;float: left;">
+	
+	<input type="text" class="columnNameClass"  onfocus="javascript:if(this.value=='输入栏目名称')this.value='';"  
+	onblur="javascript:if(isNull(this.value))alert('栏目名称不能为空');"
+	value="输入栏目名称" id="columnNameId"/>
+	<input type="text" class="columnValueClass"  onfocus="javascript:if(this.value=='输入栏目收视率')this.value='';"
+	onblur="javascript:if(isNaN(this.value))alert('请输入正确的数值');javascript:if(isNull(this.value))alert('请输入正确的数值');"  
+	value="输入栏目收视率" id="columnValueId" />
+	<button id="putRating" onclick="putRating()"  value="提交" >提交数据</button>
+	<button id="cleanRatings" onclick="cleanRatings()" value="清空" >清空数据</button>
+	</div>
+</div>
+</body>
+<script src="../../plugin/aui-artTemplate/template.js"></script>
+<!--收视率列表  -->
+<script id="select1-list-item" type="text/html">
+{{each records as record i}}
+<div class="jqflip-parent " id="one_{{i}}">
+   <div class="jqflip-front jqflip-item" >
+		<div class="eachNews">
+			<div class="firstpart" >
+					<ul class="eachTitle">{{record.columnName}}</ul></br>
+			</div>
+			<div class="secondpart" >
+					<ul class="eachTitle">{{record.columnValue}}</ul></br>
+			</div>
+			<div class="thirdpart" >
+					<ul class="eachCreater_user"></ul></br>
+			</div>
+			<div class="forthpart" >
+					<ul class="eachPublish_time"></ul></br>
+			</div>
+		</div>
+   </div>
+</div>
+{{/each}}
+</script>
+</html>

@@ -1,0 +1,289 @@
+.public_box{
+	width:100%;
+	height:100%;
+	background: url(../../img/bg_07.png) no-repeat;
+    background-size: cover;
+    padding: 40px 60px;
+}
+.public_head{
+    height:98px;
+    width: 100%;
+    background: url(../images/headerbg1.png) no-repeat;
+    background-size: contain;
+    padding:20px 40px;
+    line-height: 48px;
+}
+
+.public_title{
+	margin:66px 0 30px 58px;
+}
+
+.header_icon{
+    vertical-align: middle;
+    width: 60px;
+    height: 100%;
+    display: inline-block;
+    float: left;
+}
+.header_title{
+    height: 52px;
+    font-family: PingFangSC-Medium;
+    font-size: 54px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #fefefe;
+    margin-left: 46px;
+}
+.header_eng{
+    height: 52px;
+    font-family: Helvetica;
+    font-size: 36px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 52px;
+    letter-spacing: 0px;
+    color: rgba(0, 201, 252, 0.5);
+    float: right;
+}
+
+.public_content{    
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    padding:178px 60px 40px;
+}
+
+.public_left{
+	width:529px;
+	height:843px;
+	background:url("../images/bg_4.1.png") no-repeat;
+	float:left;
+}
+
+.public_right{
+	float:right;
+}
+.public_top{
+	width:1258px;
+	height:395px;
+	background:url("../images/bg_4.2.png") no-repeat;
+}
+.public_bot{
+	margin-top:24px;
+}
+.bot_left{
+	width:705px;
+	height:426px;
+	background:url("../images/bg_4.3.png") no-repeat;
+	float:left;
+}
+.bot_right{
+	width:536px;
+	height:426px;
+	background: url("../images/bg_4.4.png") no-repeat;
+	float:right;
+	position: relative;
+}
+.public_h3{
+	height:81px;
+	line-height: 96px;
+}
+.public_icon{
+	margin-left:35px;
+}
+.public_clue{
+	font-size:20px;
+	font-weight: bold;
+	color:#fff;
+	margin-left:20px;
+}
+.public_unify{
+	margin:31px 61px 49px 51px;
+}
+.public_dls{
+	float:left;
+}
+.public_tire,.public_word{
+	font-size:18px;
+	color:#fff;
+	font-weight: normal;
+}
+.public_dls>dd,.public_day>dd{
+	margin-top:33px;
+}
+.public_num{
+	font-family: "Helvetica";
+	font-size: 72px;
+	font-weight: bold;
+	color: #f7a825;
+}
+.public_day{
+	float:right;
+}
+.public_rank{
+	clear: both;
+	height:540px;
+	overflow:hidden;
+}
+.public_list>li{
+	height:60px;
+	line-height: 60px;
+	margin:0 10px;
+}
+.public_list>li>span{
+	font-size:18px;
+	color:#fff;
+}
+.public_odd{
+	background:rgba(28,50,90,.3);
+}
+.public_news{
+	display:inline-block;
+	width:40%;
+	float:left;
+	margin-left:20px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.public_time{
+	float:left;
+	margin-left:73px;
+}
+.public_writer{
+	display:inline-block;
+	width:12%;
+	text-align: center;
+	float:right;
+	margin-right:20px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.public_img{
+	margin:40px 96px 0 100px;
+}
+.img_left{
+	float:left;
+	width:50%;
+}
+.img_right{
+	float:right;
+}
+.img_line{
+	font-size:16px;
+	color:#dbdbdb;
+	font-weight: normal;
+	position: relative;
+}
+.img_line:before{
+	content:" ";
+	display:inline-block;
+	width:1px;
+	height:18px;
+	background:#dbdbdb;
+	position: absolute;
+	top:-2px;
+	left:-10px;
+}
+.img_slice{
+	margin-top:39px;
+	float:left;
+}
+.img_piece{
+	display:inline-block;
+	width:193px;
+	height:126px;
+}
+.img_slice>dd{
+	margin-top:8px;
+}
+.img_given{
+	float:left;
+	width:193px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+    display: inline-block;
+}
+.img_given,.img_name{
+	float:left;
+	font-size:12px;
+	color:#fff;
+}
+.public_header{
+	float:left;
+}
+.img_name{
+	float:left;
+	margin-left:8px;
+	width:180px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+    
+}
+.public_p{
+	padding-top:12px;
+}
+.img_water{
+	float:left;
+	margin-left:88px;
+}
+.public_pie{
+	float:left;
+}
+.progress{
+	clear: both;
+	height:6px;
+	background:rgba(255,255,255,.2);
+	border-radius: 5px!important;
+	margin-bottom:0;
+}
+.progress-bar-success{
+	background:#3acafc;
+}
+.public_centum{
+	font-size:14px;
+	color:rgba(255,255,255,.5);
+	float:left;
+	font-weight: normal;
+}
+.public_rule{
+	font-size:16px;
+	color:#fff;
+	float:right;
+}
+.pulic_plan{
+	background:#ff4268;
+}
+.pulic_plan{
+	background:#f7a825;
+}
+.pulic_nine{
+	background:#7e54c4;
+}
+.pulic_seven{
+	background:#06bd87;
+}
+.pulic_six{
+	background:#367eac;
+}
+.public_pie{
+	
+}
+.public_all{
+	position: absolute;
+	font-family: "Helvetica";
+	font-weight: bold;
+	font-size:40px;
+	color:#b1d1fc;
+	top:52%;
+	left:16%;
+	z-index: 9999;
+}
+
+

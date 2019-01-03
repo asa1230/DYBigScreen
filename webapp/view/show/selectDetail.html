@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>选题详情</title>
+<link href="../../css/css.css" type="text/css" rel="stylesheet" />
+
+<script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
+<style type="text/css">
+body{ background:url(../../img/bg_07.png);}
+</style>
+</head>
+
+<body>
+<div class="content">
+	<!-- 1、选题内容第一部分 -->
+	<div id="select-1" style="width: 100%; height: 100px; line-height: 100px;">
+
+	</div>
+	<!-- 2、选题内容第二部分 -->
+	<div id="select-2" class="font-style6 jinzhanstyle2" style="height: 60px;">
+
+	</div>
+
+ <div>
+ 	<!-- 3、选题内容第三部分 -->
+	<div id="select-3" class="xiangqingstyle2">
+
+	</div>
+	
+	<div class="xiangqingstyle2-2">
+		<!-- 4、选题内容第四部分 -->
+		<div id="select-4" class="xiangqingstyle5" style="overflow:hidden;">
+
+		</div>
+		<!-- 5、选题内容第五部分 -->
+		<div id="select-5" class="xiangqingstyle5" style="overflow:hidden;">
+
+		</div>
+	</div>
+	
+</div>
+</div>
+</body>
+<script src="../../plugin/aui-artTemplate/template.js"></script>
+<!-- 选题内容-1 -->
+<script id="select1-list-item" type="text/html">
+		<div class="left font-style1 xiangqingstyle1">{{title}}
+			<!-- 显示资源选用类型 -->
+			<!-- 1、电视类型 -->
+			{{if ziyuan01 == 1}} 
+				<img src="../../img/icon25.png" width="58px" height="58px" />
+			{{else}}
+				<img src="../../img/icon25-2.png" width="58px" height="58px" />
+			{{/if}}
+			<!-- 2、网页类型 -->
+			{{if ziyuan02 == 1}} 
+				<img src="../../img/icon26.png" width="58px" height="58px" />
+			{{else}}
+				<img src="../../img/icon26-2.png" width="58px" height="58px" />
+			{{/if}}
+			<!-- 3、微博类型 -->
+			{{if ziyuan03 == 1}} 
+				<img src="../../img/icon27.png" width="58px" height="58px" />
+			{{else}}
+				<img src="../../img/icon27-2.png" width="58px" height="58px" />
+			{{/if}}	
+			<!-- 4、微信类型 -->
+			{{if ziyuan04 == 1}} 
+				<img src="../../img/icon28.png" width="58px" height="58px" />
+			{{else}}
+				<img src="../../img/icon28-2.png" width="58px" height="58px" />
+			{{/if}}	
+			<!-- 5、其他类型 -->
+			{{if ziyuan05 == 1}} 
+				<img src="../../img/icon29.png" width="58px" height="58px" />
+			{{else}}
+				<img src="../../img/icon29-2.png" width="58px" height="58px" />
+			{{/if}}		
+		</div>
+		<div class="right">
+			<img src="../../img/logo4.png" />
+		</div>
+</script>
+<!-- 选题内容-2 -->
+<script id="select2-list-item" type="text/html">
+<!-- 显示选题状态 -->
+        <!--
+		{{if status == 0}} 
+			<span class="xiangqingcolor-y">进行中</span>
+		{{else if status == 1}}
+			<span class="xiangqingcolor-g">已完成</span>
+		{{else if status == 2}}
+			<span class="xiangqingcolor-r">终止</span>
+		{{else if status == 104}}
+			<span class="xiangqingcolor-b">未指派</span>
+		{{/if}}
+        -->
+		{{if status == 0}} 
+			<span class="xiangqingcolor-y">
+		{{else if status == 1}}
+			<span class="xiangqingcolor-b">
+		{{else if status == 2}}
+			<span class="xiangqingcolor-b">
+		{{else if status == 3}}
+			<span class="xiangqingcolor-b">
+		{{else if status == 4}}
+			<span class="xiangqingcolor-y">
+		{{else if status == 5}}
+			<span class="xiangqingcolor-b">
+		{{else if status == 6}}
+			<span class="xiangqingcolor-r">
+		{{else if status == 7}}
+			<span class="xiangqingcolor-r">
+		{{else if status == 8}}
+			<span class="xiangqingcolor-g">		
+		{{/if}}
+        {{statusdesp}}</span>
+			
+		<img src="../../img/icon21.png" />负责人：{{chargeMan}}&nbsp;&nbsp;
+		<span>成员：{{inPeople}}</span>
+		<img src="../../img/icon22.png" />{{ownColumn}}
+		<img src="../../img/icon23.png" />{{createTime}}
+</script>
+<!-- 选题内容-3 -->
+<script id="select3-list-item" type="text/html">
+		<div class="xiangqingstyle3 font-style3">
+			<p class="m-style" style="color: #F90">选题内容：</p>
+			<p class="m-style">
+			<marquee direction="up" behavior="alternate" scrollamount="1" scrolldelay="1000" loop="-1">
+				{{content}}
+			</marquee>
+			</p>
+		</div>
+		<div class="xiangqingstyle4 font-style3">
+			<p class="m-style" style="color: #F90">报道意见：</p>
+			<p class="m-style">{{passadvice}}</p>
+		</div>
+</script>
+
+<!-- 选题内容-4 -->
+<script id="select4-list-item" type="text/html">
+<table width="100%" cellpadding="0" cellspacing="0">
+	<tr class="font-style3">
+		<td width="80%" height="65" align="center" class="xiangqingstyle6 "><div id="zyNum" class="xiangqingstyle7">0</div>资源名称</td>
+		<td width="20%" align="center" class="xiangqingstyle6 ">来源</td>
+	</tr>
+</table>
+<table id="ziyuan" width="100%" cellpadding="0" cellspacing="0">
+{{each resourceList as resource i}}
+	<tr class="font-style3">
+		<td width="80%" height="55" align="left" class="xiangqingstyle6 ">{{resource.title}}</td>
+		<td width="20%" align="center" class="xiangqingstyle6 ">CRE
+			{{if resource.resourceSourcetype == "CRE"}} 
+				CRE
+			{{else if resource.resourceSourcetype == "WEB"}}
+				外部链接
+			{{else if resource.resourceSourcetype == "FILE_RE"}}
+				资源库
+			{{else if resource.resourceSourcetype == "CLUE_CLOUD"}}
+				线索云
+			{{/if}}
+
+		</td>
+	</tr>
+{{/each}}
+</table>
+</script>
+
+<script id="select100-list-item" type="text/html">
+<table width="100%" cellpadding="0" cellspacing="0">
+	<tr class="font-style3">
+		<td width="80%" height="65" align="center" class="xiangqingstyle6 "><div id="zyNum" class="xiangqingstyle7">0</div>资源名称</td>
+		<td width="20%" align="center" class="xiangqingstyle6 ">来源</td>
+	</tr>
+</table>
+<table id="ziyuan" width="100%" cellpadding="0" cellspacing="0">
+{{each records as resource i}}
+	<tr class="font-style3">
+		<td width="80%" height="55" align="left" class="xiangqingstyle6 ">{{resource.title}}</td>
+		<td width="20%" align="center" class="xiangqingstyle6 ">CRE</td>
+	</tr>
+{{/each}}
+</table>
+</script>
+
+<!-- 选题内容-5 -->
+<script id="select5-list-item" type="text/html">
+<table width="100%" cellpadding="0" cellspacing="0">
+		<tr class="font-style3">
+			<td width="40%" height="65" align="center" class="xiangqingstyle6 ">
+				{{if missonNum == 0 || missonNum==null }}
+				<div class="xiangqingstyle8" >无任务</div>任务名称
+				{{else if status==2}}
+				<div class="xiangqingstyle8" style = "background:#ae1b07;">终止</div>任务名称
+				{{else}}
+				<div class="xiangqingstyle8" style = "background:#29ff01;">{{finishMissonNum | renwuPercent: missonNum}}</div>任务名称
+				{{/if}}
+			</td>
+			<td width="40%" align="center" class="xiangqingstyle6 ">负责人</td>
+			<td width="20%" align="center" class="xiangqingstyle6 ">状态</td>
+		</tr>
+</table>
+<table id="mission" width="100%" cellpadding="0" cellspacing="0">
+{{each taskModelList as task i}}
+		<tr class="font-style3 scroll">
+			<td height="55" width="40%"  align="left" class="xiangqingstyle6 ">{{task.rwTitle}}</td>
+			<td width="40%"  align="center" class="xiangqingstyle6 ">{{task.rwUserNmae}}</td>
+			{{if task.rwStatus == 4}} 
+				<td width="20%" align="center" class="xiangqingstyle6 font-color-r">终止</td>
+			{{else if task.rwStatus == 2}}
+				<td width="20%" align="center" class="xiangqingstyle6 font-color-y">进行中</td>
+			{{else if task.rwStatus == 1}}
+				<td width="20%" align="center" class="xiangqingstyle6 font-color-b">未领用</td>
+			{{else if task.rwStatus == 3}}
+				<td width="20%" align="center" class="xiangqingstyle6 font-color-g">已完成</td>
+			{{/if}}
+		</tr>
+{{/each}}
+</table>
+</script>
+<script type="text/javascript" src="../../static/scripts/util/utils.js"></script>
+<!--接口版本的选题详情 使用selectDetail1 这个js文件，在此文件中，通过调用接口的形式获取选题详情~而不是直接去数据库查询。  -->
+<!-- <script type="text/javascript" src="../../static/scripts/show/selectDetail.js"></script> -->
+<script type="text/javascript" src="../../static/scripts/show/selectDetail1.js"></script>
+</html>

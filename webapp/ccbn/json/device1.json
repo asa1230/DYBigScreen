@@ -1,0 +1,78 @@
+
+
+{
+   "page_info": {
+        "current_page": 1,
+        "page_num": 8,
+        "total_num": 16,
+        "total_page": 2
+    },
+  "records" : [
+    {
+      "id": "d1",
+      "title": "摄像：Sony摄像机",
+      "deviceType":"2",
+      "state": "空闲",
+      "stateType":"1",
+      "Longitude": "116.328759",
+      "Lantitude": "40.036923"
+    },{
+      "id": "d2",
+      "title": "车辆：京H-74220",
+      "deviceType":"1",
+      "state": "空闲",
+      "stateType":"1",
+       "Longitude": "116.339965",
+      "Lantitude": "39.863844"
+    },{
+      "id": "d3",
+      "title": "车辆：京J-66631",
+      "deviceType":"1",
+      "state": "忙碌",
+      "stateType":"2",
+       "Longitude": "116.342839",
+      "Lantitude": "39.860742"
+    },{
+      "id": "d4",
+      "title": "摄像：Canno摄像机",
+      "deviceType":"2",
+      "state": "离线",
+      "stateType":"4",
+      "Longitude": "116.517039",
+      "Lantitude": "40.013875"
+    },{
+      "id": "d5",
+      "title": "摄像：Sun摄像机",
+      "deviceType":"2",
+      "state": "空闲",
+      "stateType":"1",
+      "Longitude": "116.378484",
+      "Lantitude": "39.922302"
+    },{
+      "id": "d6",
+      "title": "车辆：京B-74120",
+      "deviceType":"1",
+      "state": "忙碌",
+      "stateType":"2",
+      "Longitude": "116.291097",
+      "Lantitude": "39.933368"
+    },{
+      "id": "d7",
+      "title": "车辆：京J-77631",
+      "deviceType":"1",
+      "state": "忙碌",
+      "stateType":"2",
+      "Longitude": "116.384233",
+      "Lantitude": "39.934254"
+    },{
+      "id": "d8",
+      "title": "摄像：Waa摄像机",
+      "deviceType":"2",
+      "state": "离线",
+      "stateType":"4",
+      "Longitude": "116.415279",
+      "Lantitude": "39.843903"
+    }
+  ]
+
+}

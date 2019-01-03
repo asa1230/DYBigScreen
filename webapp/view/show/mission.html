@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+<META HTTP-EQUIV="Expires" CONTENT="0"> 
+<title>任务</title>
+<link type="text/css" href="../../css/css.css" rel="stylesheet" />
+<style type="text/css">body{ background:#000}</style>
+<script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
+<style type="text/css">
+body{ background:url(../../img/6.jpg);}
+</style>
+</head>
+
+<body style="overflow: hidden">
+	<div class="content">
+		<div style="height: 100px; width: 100%;">
+			<img src="../../img/logo8.png" /><span
+				style="color: #fff; float: right; font-size: 30px; height: 100px; line-height: 100px;">数据来源于:&nbsp;&nbsp;<span id="time"></span></span>
+		</div>
+		<div class="P-style-left">
+			<div style="height: 950px; margin-top: 50px;">
+				<div id="container" style="height: 85%;"></div>
+				<script src="../../js/echarts.js" type="text/javascript"></script>
+
+			</div>
+		</div>
+		<div class="P-style-right">
+			<div style="margin-top: 130px">
+				<table width="90%" align="left">
+
+					<tr>
+						<td width="58"><div
+								style="height: 100px; width: 15px; background: #3C0"></div></td>
+						<td width="223" height="120" class="font-style3 font-color-g1">任务总数</td>
+						<td id="all" width="261" height="120" align="right" class="font-style7">0</td>
+					</tr>
+					<tr>
+						<td width="58"><div
+								style="height: 100px; width: 15px; background: #ffff33"></div></td>
+						<td width="223" height="120" class="font-style3  font-color-g1">未领用任务总数</td>
+						<td id="wly" width="261" height="120" align="right" class="font-style7">0</td>
+					</tr>
+					<tr>
+						<td width="58"><div
+								style="height: 100px; width: 15px; background: #ff9900"></div></td>
+						<td width="223" height="120" class="font-style3  font-color-g1">进行中任务总数</td>
+						<td id="jxz" width="261" height="120" align="right" class="font-style7">0</td>
+					</tr>
+					<tr>
+						<td width="58"><div
+								style="height: 100px; width: 15px; background: #ff6600"></div></td>
+						<td width="223" height="120" class="font-style3  font-color-g1">已完成任务总数</td>
+						<td id="ywc" width="261" height="120" align="right" class="font-style7">0</td>
+					</tr>
+					<tr>
+						<td width="58"><div
+								style="height: 100px; width: 15px; background: #ff0000"></div></td>
+						<td width="223" height="120" class="font-style3  font-color-g1">已终止任务总数</td>
+						<td id="zz" width="261" height="120" align="right" class="font-style7">0</td>
+					</tr>
+				</table>
+
+			</div>
+
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="../../static/scripts/util/utils.js"></script>
+<script type="text/javascript" src="../../static/scripts/show/tjMission.js"></script>
+</html>

@@ -1,0 +1,70 @@
+
+
+{
+   "page_info": {
+        "current_page": 1,
+        "page_num": 8,
+        "total_num": 16,
+        "total_page": 2
+    },
+  "records" : [
+    {
+      "id": "c1",
+      "title": "民间借贷降息潮已至，你准..",
+      "state": "已选用",
+      "stateType":"1",
+      "Longitude": "116.348589",
+      "Lantitude": "39.927172"
+    },{
+      "id": "c2",
+      "title": "线索标题2",
+      "state": "未选用",
+      "stateType":"4",
+      "Longitude": "116.316163",
+      "Lantitude": "39.987753"
+    },{
+      "id": "c3",
+      "title": "线索标题3",
+      "state": "已选用",
+      "stateType":"1",
+      "Longitude": "116.514739",
+      "Lantitude": "39.856311"
+    },{
+      "id": "c4",
+      "title": "线索标题4",
+      "state": "未选用",
+      "stateType":"4",
+      "Longitude": "116.328749",
+      "Lantitude": "40.036922"
+    },  {
+      "id": "c5",
+      "title": "线索标题5",
+      "state": "已选用",
+      "stateType":"1",
+     "Longitude": "116.424477",
+      "Lantitude": "40.017854"
+    },{
+      "id": "c6",
+      "title": "线索标题6",
+      "state": "未选用",
+      "stateType":"4",
+       "Longitude": "116.34054",
+      "Lantitude": "39.936024"
+    },{
+      "id": "c7",
+      "title": "线索标题7",
+      "state": "已选用",
+      "stateType":"1",
+       "Longitude": "116.34254",
+      "Lantitude": "39.936114"
+    },{
+      "id": "c8",
+      "title": "线索标题8",
+      "state": "未选用",
+      "stateType":"4",
+       "Longitude": "116.342839",
+      "Lantitude": "39.880235"
+    }
+  ]
+
+}

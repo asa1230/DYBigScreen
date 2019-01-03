@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dayang.newmedia.newscommand.db.dao.SwichSettingsMapper" >
+  <resultMap id="BaseResultMap" type="com.dayang.newmedia.newscommand.db.model.SwichSettings" >
+    <id column="SWICHGUID" property="swichguid" jdbcType="VARCHAR" />
+    <result column="SWICHNAME" property="swichname" jdbcType="VARCHAR" />
+    <result column="SWICHVALUE" property="swichvalue" jdbcType="INTEGER" />
+    <result column="SWICHTYPE" property="swichtype" jdbcType="INTEGER" />
+    <result column="SWICHPARAM" property="swichparam" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    SWICHGUID, SWICHNAME, SWICHVALUE, SWICHTYPE, SWICHPARAM
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dayang.newmedia.newscommand.db.model.SwichSettingsQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from SWICHSETTINGS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from SWICHSETTINGS
+    where SWICHGUID = #{swichguid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from SWICHSETTINGS
+    where SWICHGUID = #{swichguid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dayang.newmedia.newscommand.db.model.SwichSettingsQuery" >
+    delete from SWICHSETTINGS
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dayang.newmedia.newscommand.db.model.SwichSettings" >
+    insert into SWICHSETTINGS (SWICHGUID, SWICHNAME, SWICHVALUE, 
+      SWICHTYPE, SWICHPARAM)
+    values (#{swichguid,jdbcType=VARCHAR}, #{swichname,jdbcType=VARCHAR}, #{swichvalue,jdbcType=INTEGER}, 
+      #{swichtype,jdbcType=INTEGER}, #{swichparam,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dayang.newmedia.newscommand.db.model.SwichSettings" >
+    insert into SWICHSETTINGS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="swichguid != null" >
+        SWICHGUID,
+      </if>
+      <if test="swichname != null" >
+        SWICHNAME,
+      </if>
+      <if test="swichvalue != null" >
+        SWICHVALUE,
+      </if>
+      <if test="swichtype != null" >
+        SWICHTYPE,
+      </if>
+      <if test="swichparam != null" >
+        SWICHPARAM,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="swichguid != null" >
+        #{swichguid,jdbcType=VARCHAR},
+      </if>
+      <if test="swichname != null" >
+        #{swichname,jdbcType=VARCHAR},
+      </if>
+      <if test="swichvalue != null" >
+        #{swichvalue,jdbcType=INTEGER},
+      </if>
+      <if test="swichtype != null" >
+        #{swichtype,jdbcType=INTEGER},
+      </if>
+      <if test="swichparam != null" >
+        #{swichparam,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update SWICHSETTINGS
+    <set >
+      <if test="record.swichguid != null" >
+        SWICHGUID = #{record.swichguid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.swichname != null" >
+        SWICHNAME = #{record.swichname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.swichvalue != null" >
+        SWICHVALUE = #{record.swichvalue,jdbcType=INTEGER},
+      </if>
+      <if test="record.swichtype != null" >
+        SWICHTYPE = #{record.swichtype,jdbcType=INTEGER},
+      </if>
+      <if test="record.swichparam != null" >
+        SWICHPARAM = #{record.swichparam,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update SWICHSETTINGS
+    set SWICHGUID = #{record.swichguid,jdbcType=VARCHAR},
+      SWICHNAME = #{record.swichname,jdbcType=VARCHAR},
+      SWICHVALUE = #{record.swichvalue,jdbcType=INTEGER},
+      SWICHTYPE = #{record.swichtype,jdbcType=INTEGER},
+      SWICHPARAM = #{record.swichparam,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dayang.newmedia.newscommand.db.model.SwichSettings" >
+    update SWICHSETTINGS
+    <set >
+      <if test="swichname != null" >
+        SWICHNAME = #{swichname,jdbcType=VARCHAR},
+      </if>
+      <if test="swichvalue != null" >
+        SWICHVALUE = #{swichvalue,jdbcType=INTEGER},
+      </if>
+      <if test="swichtype != null" >
+        SWICHTYPE = #{swichtype,jdbcType=INTEGER},
+      </if>
+      <if test="swichparam != null" >
+        SWICHPARAM = #{swichparam,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where SWICHGUID = #{swichguid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dayang.newmedia.newscommand.db.model.SwichSettings" >
+    update SWICHSETTINGS
+    set SWICHNAME = #{swichname,jdbcType=VARCHAR},
+      SWICHVALUE = #{swichvalue,jdbcType=INTEGER},
+      SWICHTYPE = #{swichtype,jdbcType=INTEGER},
+      SWICHPARAM = #{swichparam,jdbcType=VARCHAR}
+    where SWICHGUID = #{swichguid,jdbcType=VARCHAR}
+  </update>
+</mapper>

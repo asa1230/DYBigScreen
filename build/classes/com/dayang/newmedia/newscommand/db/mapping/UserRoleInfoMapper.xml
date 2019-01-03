@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dayang.newmedia.newscommand.db.dao.UserRoleInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dayang.newmedia.newscommand.db.model.UserRoleInfo" >
+    <id column="userroleguid" property="userroleguid" jdbcType="NVARCHAR" />
+    <result column="username" property="username" jdbcType="NVARCHAR" />
+    <result column="userguid" property="userguid" jdbcType="NVARCHAR" />
+    <result column="roleguid" property="roleguid" jdbcType="NVARCHAR" />
+    <result column="canuse" property="canuse" jdbcType="INTEGER" />
+    <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    userroleguid, username, userguid, roleguid, canuse, addtime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dayang.newmedia.newscommand.db.model.UserRoleInfoQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from userroleinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from userroleinfo
+    where userroleguid = #{userroleguid,jdbcType=NVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from userroleinfo
+    where userroleguid = #{userroleguid,jdbcType=NVARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dayang.newmedia.newscommand.db.model.UserRoleInfoQuery" >
+    delete from userroleinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dayang.newmedia.newscommand.db.model.UserRoleInfo" >
+    insert into userroleinfo (userroleguid, username, userguid, 
+      roleguid, canuse, addtime
+      )
+    values (#{userroleguid,jdbcType=NVARCHAR}, #{username,jdbcType=NVARCHAR}, #{userguid,jdbcType=NVARCHAR}, 
+      #{roleguid,jdbcType=NVARCHAR}, #{canuse,jdbcType=INTEGER}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dayang.newmedia.newscommand.db.model.UserRoleInfo" >
+    insert into userroleinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userroleguid != null" >
+        userroleguid,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="userguid != null" >
+        userguid,
+      </if>
+      <if test="roleguid != null" >
+        roleguid,
+      </if>
+      <if test="canuse != null" >
+        canuse,
+      </if>
+      <if test="addtime != null" >
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userroleguid != null" >
+        #{userroleguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=NVARCHAR},
+      </if>
+      <if test="userguid != null" >
+        #{userguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="roleguid != null" >
+        #{roleguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="canuse != null" >
+        #{canuse,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null" >
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update userroleinfo
+    <set >
+      <if test="record.userroleguid != null" >
+        userroleguid = #{record.userroleguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.username != null" >
+        username = #{record.username,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.userguid != null" >
+        userguid = #{record.userguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.roleguid != null" >
+        roleguid = #{record.roleguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.canuse != null" >
+        canuse = #{record.canuse,jdbcType=INTEGER},
+      </if>
+      <if test="record.addtime != null" >
+        addtime = #{record.addtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update userroleinfo
+    set userroleguid = #{record.userroleguid,jdbcType=NVARCHAR},
+      username = #{record.username,jdbcType=NVARCHAR},
+      userguid = #{record.userguid,jdbcType=NVARCHAR},
+      roleguid = #{record.roleguid,jdbcType=NVARCHAR},
+      canuse = #{record.canuse,jdbcType=INTEGER},
+      addtime = #{record.addtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dayang.newmedia.newscommand.db.model.UserRoleInfo" >
+    update userroleinfo
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=NVARCHAR},
+      </if>
+      <if test="userguid != null" >
+        userguid = #{userguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="roleguid != null" >
+        roleguid = #{roleguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="canuse != null" >
+        canuse = #{canuse,jdbcType=INTEGER},
+      </if>
+      <if test="addtime != null" >
+        addtime = #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where userroleguid = #{userroleguid,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dayang.newmedia.newscommand.db.model.UserRoleInfo" >
+    update userroleinfo
+    set username = #{username,jdbcType=NVARCHAR},
+      userguid = #{userguid,jdbcType=NVARCHAR},
+      roleguid = #{roleguid,jdbcType=NVARCHAR},
+      canuse = #{canuse,jdbcType=INTEGER},
+      addtime = #{addtime,jdbcType=TIMESTAMP}
+    where userroleguid = #{userroleguid,jdbcType=NVARCHAR}
+  </update>
+</mapper>

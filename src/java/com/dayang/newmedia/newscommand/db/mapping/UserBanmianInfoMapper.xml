@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dayang.newmedia.newscommand.db.dao.UserBanmianInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dayang.newmedia.newscommand.db.model.UserBanmianInfo" >
+    <id column="ubguid" property="ubguid" jdbcType="NVARCHAR" />
+    <result column="userguid" property="userguid" jdbcType="NVARCHAR" />
+    <result column="uguid" property="uguid" jdbcType="NVARCHAR" />
+    <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+    <result column="USERNAME" property="username" jdbcType="VARCHAR" />
+    <result column="BGUID" property="bguid" jdbcType="VARCHAR" />
+    <result column="BNAME" property="bname" jdbcType="VARCHAR" />
+    <result column="btype" property="btype" jdbcType="VARCHAR" />
+    <result column="COLUMNGUID" property="columnguid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ubguid, userguid, uguid, addtime, USERNAME, BGUID, BNAME, btype, COLUMNGUID
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dayang.newmedia.newscommand.db.model.UserBanmianInfoQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from userbanmianinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from userbanmianinfo
+    where ubguid = #{ubguid,jdbcType=NVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from userbanmianinfo
+    where ubguid = #{ubguid,jdbcType=NVARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dayang.newmedia.newscommand.db.model.UserBanmianInfoQuery" >
+    delete from userbanmianinfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dayang.newmedia.newscommand.db.model.UserBanmianInfo" >
+    insert into userbanmianinfo (ubguid, userguid, uguid, 
+      addtime, USERNAME, BGUID, 
+      BNAME, btype, COLUMNGUID
+      )
+    values (#{ubguid,jdbcType=NVARCHAR}, #{userguid,jdbcType=NVARCHAR}, #{uguid,jdbcType=NVARCHAR}, 
+      #{addtime,jdbcType=TIMESTAMP}, #{username,jdbcType=VARCHAR}, #{bguid,jdbcType=VARCHAR}, 
+      #{bname,jdbcType=VARCHAR}, #{btype,jdbcType=VARCHAR}, #{columnguid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dayang.newmedia.newscommand.db.model.UserBanmianInfo" >
+    insert into userbanmianinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ubguid != null" >
+        ubguid,
+      </if>
+      <if test="userguid != null" >
+        userguid,
+      </if>
+      <if test="uguid != null" >
+        uguid,
+      </if>
+      <if test="addtime != null" >
+        addtime,
+      </if>
+      <if test="username != null" >
+        USERNAME,
+      </if>
+      <if test="bguid != null" >
+        BGUID,
+      </if>
+      <if test="bname != null" >
+        BNAME,
+      </if>
+      <if test="btype != null" >
+        btype,
+      </if>
+      <if test="columnguid != null" >
+        COLUMNGUID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ubguid != null" >
+        #{ubguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="userguid != null" >
+        #{userguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="uguid != null" >
+        #{uguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="addtime != null" >
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="bguid != null" >
+        #{bguid,jdbcType=VARCHAR},
+      </if>
+      <if test="bname != null" >
+        #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="btype != null" >
+        #{btype,jdbcType=VARCHAR},
+      </if>
+      <if test="columnguid != null" >
+        #{columnguid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update userbanmianinfo
+    <set >
+      <if test="record.ubguid != null" >
+        ubguid = #{record.ubguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.userguid != null" >
+        userguid = #{record.userguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.uguid != null" >
+        uguid = #{record.uguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.addtime != null" >
+        addtime = #{record.addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.username != null" >
+        USERNAME = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bguid != null" >
+        BGUID = #{record.bguid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bname != null" >
+        BNAME = #{record.bname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.btype != null" >
+        btype = #{record.btype,jdbcType=VARCHAR},
+      </if>
+      <if test="record.columnguid != null" >
+        COLUMNGUID = #{record.columnguid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update userbanmianinfo
+    set ubguid = #{record.ubguid,jdbcType=NVARCHAR},
+      userguid = #{record.userguid,jdbcType=NVARCHAR},
+      uguid = #{record.uguid,jdbcType=NVARCHAR},
+      addtime = #{record.addtime,jdbcType=TIMESTAMP},
+      USERNAME = #{record.username,jdbcType=VARCHAR},
+      BGUID = #{record.bguid,jdbcType=VARCHAR},
+      BNAME = #{record.bname,jdbcType=VARCHAR},
+      btype = #{record.btype,jdbcType=VARCHAR},
+      COLUMNGUID = #{record.columnguid,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dayang.newmedia.newscommand.db.model.UserBanmianInfo" >
+    update userbanmianinfo
+    <set >
+      <if test="userguid != null" >
+        userguid = #{userguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="uguid != null" >
+        uguid = #{uguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="addtime != null" >
+        addtime = #{addtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="username != null" >
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="bguid != null" >
+        BGUID = #{bguid,jdbcType=VARCHAR},
+      </if>
+      <if test="bname != null" >
+        BNAME = #{bname,jdbcType=VARCHAR},
+      </if>
+      <if test="btype != null" >
+        btype = #{btype,jdbcType=VARCHAR},
+      </if>
+      <if test="columnguid != null" >
+        COLUMNGUID = #{columnguid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ubguid = #{ubguid,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dayang.newmedia.newscommand.db.model.UserBanmianInfo" >
+    update userbanmianinfo
+    set userguid = #{userguid,jdbcType=NVARCHAR},
+      uguid = #{uguid,jdbcType=NVARCHAR},
+      addtime = #{addtime,jdbcType=TIMESTAMP},
+      USERNAME = #{username,jdbcType=VARCHAR},
+      BGUID = #{bguid,jdbcType=VARCHAR},
+      BNAME = #{bname,jdbcType=VARCHAR},
+      btype = #{btype,jdbcType=VARCHAR},
+      COLUMNGUID = #{columnguid,jdbcType=VARCHAR}
+    where ubguid = #{ubguid,jdbcType=NVARCHAR}
+  </update>
+</mapper>

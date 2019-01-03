@@ -1,0 +1,98 @@
+
+
+{
+	"page_info": {
+        "current_page": 1,
+        "page_num": 1,
+        "total_num": 16,
+        "total_page": 1
+    },
+  "records" : [
+    {
+      "id": "s1",
+      "title": "选题标题1",
+      "state": "已完成",
+      "stateType":"1",
+       "Longitude": "116.366986",
+      "Lantitude": "39.866059"
+    },{
+      "id": "s2",
+      "title": "选题标题2",
+      "state": "进行中",
+      "stateType":"2",
+       "Longitude": "116.322749",
+      "Lantitude": "40.036782"
+    },{
+      "id": "s3",
+      "title": "选题标题3",
+      "state": "已终止",
+      "stateType":"4",
+       "Longitude": "116.426202",
+      "Lantitude": "39.95992"
+    },{
+      "id": "s4",
+      "title": "选题标题4",
+      "state": "未指派",
+      "stateType":"3",
+       "Longitude": "116.338749",
+      "Lantitude": "40.036912"
+    },{
+      "id": "s5",
+      "title": "选题标题5",
+      "state": "已提交",
+      "stateType":"4",
+      "Longitude": "123.92518645428915",
+      "Lantitude": "41.882695315045346"
+    },{
+      "id": "s6",
+      "title": "选题标题6",
+       "state": "进行中",
+      "stateType":"2",
+      "Longitude": "123.92418645428915",
+      "Lantitude": "41.862695315045346"
+    },{
+      "id": "s7",
+      "title": "选题标题7",
+      "state": "已终止",
+      "stateType":"4",
+      "Longitude": "123.92418645428915",
+      "Lantitude": "41.862695315045346"
+    },{
+      "id": "s8",
+      "title": "选题标题8",
+       "state": "未指派",
+      "stateType":"3",
+      "Longitude": "123.92418645428915",
+      "Lantitude": "41.862695315045346"
+    },{
+      "id": "s9",
+      "title": "选题标题9",
+      "state": "已提交",
+      "stateType":"4",
+      "Longitude": "123.93454645428915",
+      "Lantitude": "41.88233315045346"
+    },{
+      "id": "s10",
+      "title": "选题标题10",
+       "state": "进行中",
+      "stateType":"2",
+      "Longitude": "123.232418645428915",
+      "Lantitude": "41.444695315045346"
+    },{
+      "id": "s11",
+      "title": "选题标题11",
+      "state": "已终止",
+      "stateType":"4",
+      "Longitude": "121.93418645428915",
+      "Lantitude": "42.861695315045346"
+    },{
+      "id": "s12",
+      "title": "选题标题12",
+       "state": "未指派",
+      "stateType":"3",
+      "Longitude": "123.94445645428915",
+      "Lantitude": "41.862654315045346"
+    }
+  ]
+
+}

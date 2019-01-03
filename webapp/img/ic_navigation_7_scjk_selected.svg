@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>ic_navigation_7_scjk_selected</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Pad控制端" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02媒体榜单" transform="translate(-15.000000, -331.000000)">
+            <g id="左侧导航" transform="translate(0.000000, 72.000000)">
+                <g id="ic_navigation_7_scjk_selected" transform="translate(15.000000, 259.000000)">
+                    <rect id="bg" x="0" y="0" width="16" height="16" rx="1"></rect>
+                    <path d="M4,14 C5.2842785,14.6451397 6.61059987,15.0322314 8,15 C9.38957361,15.0322314 10.7158757,14.6451397 12,14 L13,14 L14,16 L2,16 L3,14 L4,14 Z M8,10 C7.43747139,10 7,9.56248569 7,9 C7,8.43751431 7.43747139,8 8,8 C8.56252861,8 9,8.43751431 9,9 C9,9.56248569 8.56245231,10 8,10 Z M8,5 C5.77785959,5 4,6.52728403 4,8 C4,10.4090565 5.77785959,12 8,12 C10.2222179,12 12,10.4726966 12,8 C12,6.59094352 10.2222179,5 8,5 Z M8,14 C4.11819559,14 1,10.8675331 1,7 C1,3.19633901 4.1181179,0 8,0 C11.8818044,0 15,3.13238882 15,7 C15,10.8035829 11.8818044,14 8,14 Z" id="Fill-1" fill="#2E9DED"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

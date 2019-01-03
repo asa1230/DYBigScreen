@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;}
+</style>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=R1B5GItfQnY5LUjnArs1XbvA"></script>
+<title>地图控制</title>
+</head>
+<body>
+<div id="allmap"></div>
+</body>
+</html>
+<script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+
+<script type="text/javascript">
+$(function() {
+	//停止拖拽地图时触发。
+	map.addEventListener("dragend", function(){
+		var mtype = map.getMapType();
+		var center = map.getCenter();
+		var msg = '{"MAP":[{"LNG":"'+center.lng+'"},{"LAT":"'+center.lat+'"},{"ZOOM":"'+this.getZoom()+'"},{"TYPE":"'+mtype.af+'"}]}';
+		send(msg);
+		});
+	//地图更改缩放级别结束时触发触发此事件。
+	map.addEventListener("zoomend", function(){
+		var mtype = map.getMapType();
+		var center = map.getCenter();
+		var msg = '{"MAP":[{"LNG":"'+center.lng+'"},{"LAT":"'+center.lat+'"},{"ZOOM":"'+this.getZoom()+'"},{"TYPE":"'+mtype.af+'"}]}';
+		send(msg);
+		});
+});
+</script>
+
+
+<script type="text/javascript">
+// 百度地图API功能
+var map = new BMap.Map("allmap"); // 创建Map实例
+map.centerAndZoom(new BMap.Point(116.404, 39.915), 11); // 初始化地图,设置中心点坐标和地图级别
+map.addControl(new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP ]})); //添加地图类型控件，去掉三维地图
+map.setCurrentCity("北京"); // 设置地图显示的城市 此项是必须设置的
+map.enableScrollWheelZoom(true); //开启鼠标滚轮缩放
+</script>
+
+
+<script type="text/javascript">
+var websocket = null;
+var pageId = "map";
+//判断当前浏览器是否支持WebSocket
+if('WebSocket' in window){
+    websocket = new WebSocket("ws://localhost:8888/DYBigScreen/websocket/"+pageId);
+}
+else{
+    alert('Not support websocket')
+}
+//连接发生错误的回调方法
+websocket.onerror = function(){
+    alert("error");
+};
+ 
+//连接成功建立的回调方法
+websocket.onopen = function(event){
+    console.info("open");
+}
+//连接关闭的回调方法
+websocket.onclose = function(){
+    console.info("close");
+}
+//监听窗口关闭事件，当窗口关闭时，主动去关闭websocket连接，防止连接还没断开就关闭窗口，server端会抛异常。
+window.onbeforeunload = function(){
+    websocket.close();
+}
+//关闭连接
+function closeWebSocket(){
+    websocket.close();
+}
+
+//发送消息
+function send(message){
+    websocket.send(message);
+}
+</script>

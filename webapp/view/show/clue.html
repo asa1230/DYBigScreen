@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<html lang="zh-cn">
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>云线索</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #1 for fixed sidebar option" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <!--<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />--><!--谷歌字体样式-->
+    <link rel="icon" href="../../img/dayang.ico" type="image/x-icon"/>  
+    <link href="../../static/plugins/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" /><!--字体图标样式 http://fontawesome.dashgame.com/-->
+    <link href="../../static/plugins/assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" /><!--字体图标样式 例：data-icon="&#xe095;" https://pagellapolitica.it/static/plugins/line-icons/-->
+    <link href="../../static/plugins/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" /><!--bootstrap CSS-->
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="../../static/plugins/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/clockface/css/clockface.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/select2/css/select2.css" rel="stylesheet" type="text/css"/>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="../../static/plugins/assets/global/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="../../static/plugins/assets/global/plugins/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="../../static/plugins/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" /><!--基本样式-->
+    <link href="../../static/plugins/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" /><!--基本插件样式-->
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <link href="../../static/plugins/assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" /><!--插件公共部分 宽高 样式-->
+    <link href="../../static/plugins/assets/layouts/layout3/css/themes/default.min.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="../../static/plugins/assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" /><!--针对浏览器样式-->
+    <!-- END THEME LAYOUT STYLES -->
+    <link href="../../static/css/ccbnCommon.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/clue/clue.css" rel="stylesheet" type="text/css">
+    
+    <link href="../../css/css.css" type="text/css" rel="stylesheet" />
+    <link href="../../css/jquery.jqflip.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery.jqflip.js"></script>
+</head>
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-sidebar-fixed">
+<div style="position: relative;width: 1920px;height: 1080px;overflow:hidden;">
+    <div class="screen_container">
+        <div class="screen_header">
+            <span class="header_icon"><img src="../../static/images/icon_clue.png"></span>
+            <span class="header_title">云线索</span>
+            <span class="header_eng">Cloud Clues</span>
+        </div>
+        <div class="screen_content">
+            <div style="position: relative;width: 100%;height:100%;">
+                <div class="screen_left">
+                    <div class="leftTab">
+                        <span class="clueleft_tab">渠道来源(个)</span>
+                        <span class="clueleft_num" id="sourceCount"></span>
+                    </div>
+                    <div class="leftTab">
+                        <span class="clueleft_tab">全部线索(条)</span>
+                        <span class="clueleft_num" id="clueCount"></span>
+                    </div>
+                    <div class="leftTab">
+                        <span class="clueleft_tab">当日新增(条)</span>
+                        <span class="clueleft_num" id="newCount"></span>
+                    </div>
+                </div>
+                <div class="screen_right">
+                    <div id="BOXID-1" class="screen_tabs">
+                        <div class="tabbable-line">
+                            <ul class="nav nav-tabs ">
+                                <li id="wangye" data-number="0" class="active">
+                                    <a href="#tab_1" data-toggle="tab"> 互联网 </a>
+                                </li>
+                                <li id="weibo" data-number="1">
+                                    <a href="#tab_2" data-toggle="tab"> 微博 </a>
+                                </li>
+                                <li id="weixin" data-number="2">
+                                    <a href="#tab_3" data-toggle="tab"> 微信 </a>
+                                </li>
+                                <li id="ugc" data-number="3">
+                                    <a href="#tab_4" data-toggle="tab"> UGC </a>
+                                </li>
+                                <li id="pgc" data-number="4">
+                                    <a href="#tab_5" data-toggle="tab"> PGC </a>
+                                </li>
+                                <li id="shoulu" data-number="5">
+                                    <a href="#tab_6" data-toggle="tab"> 收录 </a>
+                                </li>
+                                <li id="youtai" data-number="6">
+                                    <a href="#tab_7" data-toggle="tab"> 友台 </a>
+                                </li>
+                                <li id="tongxueshe" data-number="7">
+                                    <a href="#tab_8" data-toggle="tab"> 通讯社 </a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="clue1">
+                                </div>
+                                <div class="tab-pane active" id="clue2" style="margin-top:1300px">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="../../plugin/aui-artTemplate/template.js"></script>
+<script id="clue1-list-item" type="text/html">
+{{each records as record i}}
+<div class="jqflip-parent">
+<div class="jqflip-front jqflip-item" id="one_{{i}}">
+									<ul class="resOne">
+										{{if record.attachFileOne != null}} 
+											{{if record.type == 'weixin'}}
+											<li class="res_img"><img src="../../images/weixin.png" ></li>
+											{{else}} 
+                                        	<li class="res_img"><img src="{{record.attachFileOne}}" onerror='this.src="../../images/def_{{record.type}}.png"'></li>
+											{{/if}}
+										{{/if}}
+                                        <li class="res_detail">
+                                            <div class="detailCont">
+                                                <div class="detail_top">
+                                                    <span class="detail_title">{{record.title}}</span>
+                                                    <div class="detail_tright">
+                                                        <span class="detail_column">{{record.author}}</span>
+                                                        <span class="detail_time">{{record.createdTime}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="detail_bottom">{{record.content}}</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+</div>
+</div>
+{{/each}}
+</script>
+<script id="clue2-list-item" type="text/html">
+{{each records as record i}}
+<div class="jqflip-parent">
+<div class="jqflip-front jqflip-item" id="two_{{i}}">
+									<ul class="resOne">
+										{{if record.type == 'weixin'}}
+											<li class="res_img"><img src="../../images/weixin.png" ></li>
+										{{else}} 
+                                        	<li class="res_img"><img src="{{record.attachFileOne}}" onerror='this.src="../../images/def_{{record.type}}.png"'></li>
+										{{/if}}
+                                        <li class="res_detail">
+                                            <div class="detailCont">
+                                                <div class="detail_top">
+                                                    <span class="detail_title">{{record.title}}</span>
+                                                    <div class="detail_tright">
+                                                        <span class="detail_column">{{record.author}}</span>
+                                                        <span class="detail_time">{{record.createdTime}}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="detail_bottom">{{record.content}}</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+</div>
+</div>
+{{/each}}
+</script>
+
+<script type="text/javascript" src="../../static/scripts/util/utils.js"></script>
+<!--使用线索云接口获取页面展示资源的时候  打开clueCloud.js  会在js文件中 调用 cluecloudcontroller里的方法 并从接口获取数据 -->
+<!-- <script type="text/javascript" src="../../static/scripts/show/huijuClue.js"></script> -->
+ <script type="text/javascript" src="../../static/scripts/show/clue.js"></script>
+
+
+
+</html>

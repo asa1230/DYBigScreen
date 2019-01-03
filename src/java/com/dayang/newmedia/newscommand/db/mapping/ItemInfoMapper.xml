@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dayang.newmedia.newscommand.db.dao.ItemInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dayang.newmedia.newscommand.db.model.ItemInfo" >
+    <id column="itemguid" property="itemguid" jdbcType="NVARCHAR" />
+    <result column="itemname" property="itemname" jdbcType="NVARCHAR" />
+    <result column="parentguid" property="parentguid" jdbcType="NVARCHAR" />
+    <result column="itemurl" property="itemurl" jdbcType="NVARCHAR" />
+    <result column="itemtarget" property="itemtarget" jdbcType="NVARCHAR" />
+    <result column="addtime" property="addtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    itemguid, itemname, parentguid, itemurl, itemtarget, addtime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dayang.newmedia.newscommand.db.model.ItemInfoQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from iteminfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from iteminfo
+    where itemguid = #{itemguid,jdbcType=NVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from iteminfo
+    where itemguid = #{itemguid,jdbcType=NVARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dayang.newmedia.newscommand.db.model.ItemInfoQuery" >
+    delete from iteminfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dayang.newmedia.newscommand.db.model.ItemInfo" >
+    insert into iteminfo (itemguid, itemname, parentguid, 
+      itemurl, itemtarget, addtime
+      )
+    values (#{itemguid,jdbcType=NVARCHAR}, #{itemname,jdbcType=NVARCHAR}, #{parentguid,jdbcType=NVARCHAR}, 
+      #{itemurl,jdbcType=NVARCHAR}, #{itemtarget,jdbcType=NVARCHAR}, #{addtime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dayang.newmedia.newscommand.db.model.ItemInfo" >
+    insert into iteminfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="itemguid != null" >
+        itemguid,
+      </if>
+      <if test="itemname != null" >
+        itemname,
+      </if>
+      <if test="parentguid != null" >
+        parentguid,
+      </if>
+      <if test="itemurl != null" >
+        itemurl,
+      </if>
+      <if test="itemtarget != null" >
+        itemtarget,
+      </if>
+      <if test="addtime != null" >
+        addtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="itemguid != null" >
+        #{itemguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="itemname != null" >
+        #{itemname,jdbcType=NVARCHAR},
+      </if>
+      <if test="parentguid != null" >
+        #{parentguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="itemurl != null" >
+        #{itemurl,jdbcType=NVARCHAR},
+      </if>
+      <if test="itemtarget != null" >
+        #{itemtarget,jdbcType=NVARCHAR},
+      </if>
+      <if test="addtime != null" >
+        #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update iteminfo
+    <set >
+      <if test="record.itemguid != null" >
+        itemguid = #{record.itemguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.itemname != null" >
+        itemname = #{record.itemname,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.parentguid != null" >
+        parentguid = #{record.parentguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.itemurl != null" >
+        itemurl = #{record.itemurl,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.itemtarget != null" >
+        itemtarget = #{record.itemtarget,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.addtime != null" >
+        addtime = #{record.addtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update iteminfo
+    set itemguid = #{record.itemguid,jdbcType=NVARCHAR},
+      itemname = #{record.itemname,jdbcType=NVARCHAR},
+      parentguid = #{record.parentguid,jdbcType=NVARCHAR},
+      itemurl = #{record.itemurl,jdbcType=NVARCHAR},
+      itemtarget = #{record.itemtarget,jdbcType=NVARCHAR},
+      addtime = #{record.addtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dayang.newmedia.newscommand.db.model.ItemInfo" >
+    update iteminfo
+    <set >
+      <if test="itemname != null" >
+        itemname = #{itemname,jdbcType=NVARCHAR},
+      </if>
+      <if test="parentguid != null" >
+        parentguid = #{parentguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="itemurl != null" >
+        itemurl = #{itemurl,jdbcType=NVARCHAR},
+      </if>
+      <if test="itemtarget != null" >
+        itemtarget = #{itemtarget,jdbcType=NVARCHAR},
+      </if>
+      <if test="addtime != null" >
+        addtime = #{addtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where itemguid = #{itemguid,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dayang.newmedia.newscommand.db.model.ItemInfo" >
+    update iteminfo
+    set itemname = #{itemname,jdbcType=NVARCHAR},
+      parentguid = #{parentguid,jdbcType=NVARCHAR},
+      itemurl = #{itemurl,jdbcType=NVARCHAR},
+      itemtarget = #{itemtarget,jdbcType=NVARCHAR},
+      addtime = #{addtime,jdbcType=TIMESTAMP}
+    where itemguid = #{itemguid,jdbcType=NVARCHAR}
+  </update>
+  
+  <!-- 根据角色ID获取权限信息 -->
+  <select id="getItemInfosByRoleGuids" parameterType="java.util.Map" resultMap="BaseResultMap">
+  	select
+    <include refid="Base_Column_List" />
+    from iteminfo where itemguid in (select r.itemguid from roleiteminfo r 
+    <where>
+    	<trim prefixOverrides="and">
+    		r.roleguid in
+    		<if test="roleGuids!=null ">
+    			<foreach collection="roleGuids" index="index" item="roleGuid" open="(" separator="," close=")">
+                   #{roleGuid}
+                </foreach>
+    		</if>
+    	</trim>
+    </where>
+    )
+  </select>
+</mapper>

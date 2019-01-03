@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<html lang="zh-cn">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>电视稿件控制端</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link rel="icon" href="../../img/dayang.ico" type="image/x-icon"/> 
+        <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="../../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="../../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <link href="../../assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="../../assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
+        
+		<!-- ios -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, minium-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes" /><!-- home screen app 全屏 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 状态栏 black-translucent为透明状态栏 -->
+		<meta name="apple-mobile-web-app-title" content="控制端测试" >
+		<meta name="apple-touch-fullscreen" content="yes">  
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no"><!-- 禁用电话号码自动识别 -->
+
+		<!-- Retina iPad 152px -->
+		<link rel="apple-touch-icon" href="icon152.png" sizes="152x152">
+		<!-- Android 启动图标 -->
+		<link rel="shortcut icon" sizes="128x128" href="icon128.png">
+		<!-- iOS 启动画面 -->
+		<!-- iPad 竖屏 1536x2008（Retina） -->
+		<link rel="apple-touch-startup-image" sizes="1536x2008" href="splash-screen-1536x2008.png" />
+		<!-- iPad 横屏 2048x1496（Retina） -->
+		<link rel="apple-touch-startup-image" sizes="2048x1496" href="splash-screen-2048x1496.png" />
+		
+		<style type="text/css">
+	        .page-content1{
+	        	margin-left: 0px;
+	        	margin-top: 0;
+			    min-height: 900px;
+			    padding: 15px;
+			    height:100%;
+			    background-color: #eef2fb;			
+			}
+		</style>
+		
+        </head>
+    <!-- END HEAD -->
+
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white" style="overflow:hidden; margin-top:20px;">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner ">                
+                <div class="page-logo">
+                    <a href="#">
+                        <!-- <img src="../../images/logo.png" alt="logo"  width="35" height="35" style="margin-top:5px;"/> --> 
+                    </a>
+                    <div id="sysTitle_controlxuanti" style="float:left; color:#FFF; font-size:22px;  height:45px; line-height:45px; margin-left:15px;">电视稿件控制端</div>
+                </div>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                        <!-- END USER LOGIN DROPDOWN -->
+                        <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                        
+                        <!-- zhy 注释掉
+                        <li class="dropdown dropdown-user">
+                              <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="line-height:inherit">
+                                <i class="icon-logout"></i>
+                                <span style="color:#c6cfda;"> 退出 </span>
+                        </a>
+                        </li>
+                         -->
+                        <!-- END QUICK SIDEBAR TOGGLER -->
+                    </ul>
+            </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+            <!-- END HEADER INNER -->
+        </div>
+        
+        
+        <!-- END HEADER -->
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+        
+            
+            <!-- BEGIN SIDEBAR -->
+            <!--  
+            <div class="page-sidebar-wrapper">               
+                <div class="page-sidebar navbar-collapse collapse">                  
+                    <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">                       
+                          <li class="nav-item ">                          
+                          <a href="../../view/control/control_newsXiansuo.html">
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px" align="center"><img src="../../img/ic_navigation_1_xwxs_selected.svg" /></td><td class="page-style-bar-2">线索汇聚</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                        <li class="nav-item ">
+                          <a href="../../view/control/control_map20.html">
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px" align="center"><img src="../../img/ic_navigation_2_zydt_selected.svg" /></td><td class="page-style-bar-2">资源地图</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                        <li class="nav-item ">                          
+                          <a href="../../view/control/control_hotMap.html">
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px" align="center"><img src="../../img/ic_navigation_3_rddt_selected.svg" /></td><td class="page-style-bar-2">热点地图</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                         <li  class="nav-item    active open">
+                        <a href="../../view/control/control_selectProgress.html">
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr>
+                                 	<td width="45px" height="48px" style="border-bottom:1px #455467 solid" align="center"><img src="../../img/ic_navigation_4_zxxt_selected.svg" /></td>
+                                 	<td class="page-style-bar-2">今日选题</td><td width="10px"  style="border-bottom:1px #455467 solid" align="right"><img src="../../img/left.png" /></td>
+                                 </tr>
+                          </table>
+                          </a>
+                        </li>
+                        <li class="nav-item ">                          
+                          <a href="../../view/control/control_hotMedia.html">
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px" align="center"><img src="../../img/ic_navigation_5_mtbd_selected.svg" /></td><td class="page-style-bar-2">媒体榜单</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                        <li class="nav-item ">                         
+                          <a href="../../view/control/control_chuanbo.html">
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px" align="center"><img src="../../img/ic_navigation_6_cbfx_selected.svg" /></td><td class="page-style-bar-2">传播分析</td></tr>
+                          </table>
+                          </a>
+                        </li>                       
+                        
+                    </ul>
+                    
+				</div>
+				 --> 
+                
+            </div>
+            <!-- END SIDEBAR -->
+            
+            
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content1">
+                <div>
+					<table width="100%">
+						<tr>
+							<td width="390px" height="50px">
+								<div class="input-group">
+									<input id="newssearchContent" type="text" class="form-control" placeholder="搜索内容">
+									<span onclick="loadnewsList();" class="input-group-addon"> <i class="fa fa-search"></i></span>
+								</div>
+							</td>
+							<td>
+							</td>
+							<td align="right" width="100px">
+								轮播频率(秒)&nbsp;&nbsp;								
+							</td>
+							<td align="right" width="100px">
+								<input id="newslunbopinlv" type="text" class="form-control" placeholder="60" width="100px" >																
+							</td>
+							<td align="right" width="10px">
+							</td>
+							<td align="right" width="80px">
+								<button type="button" id="newslunbopinlvchangebtn" onclick="newsSwitchfrequncychange()" style="width:80px;">设置</button>															
+							</td>							
+						</tr>
+					</table>
+					<table  width="100%">
+                        <td width="105px">筛选条件：</td>						
+						<td width="170px">
+							<select id="newsstatus" class="form-control  input-small select" name="select">							
+							</select>
+						</td>
+						<td width="170px">
+							<select id="newscreateMan" class="form-control  input-small select" name="select">
+							</select>
+						</td>						
+						<td>
+						</td>
+						<td width="100px" align="right">
+							 <button type="button" id="newsclearprojectbtn" onclick="newsclearproject()" style="width:100px;">清空投屏</button>	
+						</td>
+
+						</tr>
+                </table>
+
+		<div class="table-scrollable">
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th width="609">标题</th>
+						<th width="249">所属栏目</th>
+						<th width="203">创建人</th>
+						<th width="180">状态</th>
+						<th width="317">创建时间</th>
+						<th width="70">投屏</th>
+					</tr>
+				</thead>
+				<tbody id="tvnews">
+				</tbody>
+			</table>
+		</div>
+		
+		
+		<div id="projectdesp" style="float:left;display:inline;font-size: 20px;font-weight: normal;">			
+		</div>
+		<div style="float:right; display:inline">
+				<ul id="newspagination" style="visibility: visible;" class="pagination">
+				</ul>
+		</div>
+		
+		
+		
+
+
+                <!-- BEGIN PAGE BAR -->
+                </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR --><!-- END QUICK SIDEBAR -->
+    </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <!-- END FOOTER -->
+        <!-- BEGIN CORE PLUGINS -->
+        <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="../../assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="../../assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
+        <script src="../../assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
+        <script src="../../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+    </body>
+<script src="../../plugin/aui-artTemplate/template.js"></script>
+<!-- 选题列表 -->
+<script id="tvnews-list-item" type="text/html">
+{{each shownewslist as record i}}
+<tr>
+	<td id="type_{{record.mainGuid}}" >{{record.mainHeader}}</td>
+	<td>{{record.mainColumnName}}</td>
+	<td>{{record.mainCreateUserName}}</td>
+	<td>{{record.statedesp}}</td>    
+	<td>{{record.mainCreateTime}}</td>
+	<td align="center"  onclick="toNewsProgressSelShow('{{record.mainGuid}}',this)" ><img id="img_{{record.mainGuid}}" src="../../images/icon1.png"></td>
+</tr>
+{{/each}}
+</script>
+<script type="text/javascript" src="../../js/fixWebAppBugs4iOS.js"></script>
+<script type="text/javascript" src="../../static/scripts/util/utils.js"></script> 
+<script type="text/javascript" src="../../static/scripts/control/control_newstv.js"></script>
+</html>

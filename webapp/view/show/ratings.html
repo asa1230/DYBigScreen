@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>收视率录入</title>
+<link rel="stylesheet" href="../../css/css.css" />
+<script type="text/javascript" src="../../js/echarts.js"></script>
+<script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
+<style type="text/css">
+body{
+   	background: url("../../img/bg_03.jpg");
+   } 
+#editPart{
+	float:left;
+	height: 894px;
+	width: 280px;
+	border: 3px solid #d47809;
+}
+.titlePic{
+height:66px;
+margin-bottom: 0px;
+}
+/* 
+.eachColumn{
+	float:left;
+	border: 2px solid red;
+	width: 90%;
+	height: 70px;
+}
+ #choosePart{
+	float: left;
+	height: 894px;
+	width: 180px;
+	border: 3px solid #d47809;
+} */
+</style>
+<script type="text/javascript">
+var columns=[];
+var ratings=[];
+var count=1;
+
+
+function getData(){
+	 $.ajax({
+		  type:'GET',
+		  contentType: "application/json", 
+		  url:"/DYBigScreen/HZInterfaceSet/getRatingData.do",
+		  dataType : "json",//跨域必须这个
+		  success : function(result){
+			  $.each(result.records,function(i,record){
+				  columns.push(record.columnName);
+				    ratings.push(record.columnValue);
+				});
+			  var myChart = echarts.init(document.getElementById('main'));
+			  option = {
+					  
+					    color: ['#ffd285', '#ff733f'],
+
+					    title: {
+					       /*  backgroundColor: '#fff',
+					        show:true,
+					        left: '45%',
+					        top: '6%',
+					        textStyle: {
+					            color: '#ffd285'
+					        } */
+					    },
+					    tooltip: {
+					    }/* ,
+					    legend: {
+					        x: '50%',
+					        bottom: '1%',
+					        textStyle: {
+					            color: '#ffd285',
+					        },
+					        //data: ['郑州', '永城', '新乡']
+					        data: [{
+					            name: '内存',
+					            icon: 'circle',
+					            textStyle: {color: 'red'},
+					        },{
+					            name: '收视率',
+					            icon: 'circle',
+					            textStyle: {color: 'red'},
+					        }],
+					        backgroundColor:'#fff'
+					    } */,
+					  
+					    grid: {
+					        //show:true,
+					        left: '5%',
+					        right: '5%',
+					        top: '10%',
+					        bottom: '10%',
+					        containLabel: true
+					    },
+					    toolbox: {
+					        "show": false,
+					        feature: {
+					            saveAsImage: {}
+					        }
+					    },
+					    xAxis: {
+					        //show:false,
+					        type: 'category',
+					        axisLine: {
+					            //show:false,
+					            onZero: false,
+					            lineStyle: {
+					                color: '#fff'
+					            }
+					        },
+					        axisTick: {
+					            "show": true,
+					           // length: 15,
+					        },
+					        axisLabel: {
+					            //show:false,
+					            //rotate:45,
+					            textStyle: {
+					                color: '#ffd285'
+					            }
+					        },
+					        splitArea:{
+					            show:true
+					        },
+					        boundaryGap: true, //false时X轴从0开始
+					        data: columns
+					    },
+					    yAxis: {
+					        //show:false,
+					        "axisLine": {
+					            //show:false,
+					            lineStyle: {
+					                color: '#c0576d'
+					            }
+					        },
+					        splitLine: {
+					            show: true,
+					            lineStyle: {
+					                color: '#c0576d'
+					            }
+					        },
+					        "axisTick": {
+					            show: true
+					        },
+					        axisLabel: {
+					            //show:false,
+					            textStyle: {
+					                color: '#ffd285'
+					            }
+					        },
+					        type: 'value'
+					    },
+					    dataZoom:[
+					        {
+					            type: 'slider',
+					            show: true,
+					            xAxisIndex: [0],
+					            //start: 0,
+					            end: 100,
+					            bottom:'6%',
+					            startValue:columns[0]
+					        },
+					        {
+					            type: 'slider',
+					            show: true,
+					            yAxisIndex: [0],
+					            textStyle: {
+					                color:'#ff6600'
+					            },
+					            left: '96%',
+					            start: 0,
+					            end: 100
+					        },
+					        {
+					            type: 'inside',
+					            xAxisIndex: [0],
+					            start: 0,
+					            end: 100
+					        },
+					        {
+					            type: 'inside',
+					            yAxisIndex: [0],
+					            start: 0,
+					            end: 100
+					        }
+					    ],
+					    series: [ {
+					            name: '收视率',
+					            smooth: true,
+					            type: 'bar',
+					            symbolSize: 8,
+					            //symbol: 'circle',
+					             itemStyle:{
+					            	 normal:{
+                                  		 // color:'#4ad2ff'  //======此处修改柱状图的颜色 柱子颜色单一
+                                  		 	//以下 为颜色渐变   1的位置 代表方向  
+                                	color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [{
+                                        offset: 0,
+                                        color: 'rgba(17, 168,171, 1)'
+                                    }, {
+                                        offset: 1,
+                                        color: 'rgba(240,255,255, 0.1)'
+                                    }])
+                                }
+                                },
+					            data: ratings
+					        }
+					    ]
+					};//option end
+			   // 使用刚指定的配置项和数据显示图表。
+			   myChart.setOption(option);
+		  }
+		  });
+	
+	
+}
+$(document).ready(function(){
+	getData();
+})
+function putRating(){
+	var columnName=$("#columnNameId").val();	
+	var columnValue=$("#columnValueId").val();
+	var params={
+			"columnRatingName":columnName,
+			  "columnRatingValue":columnValue
+	}
+	 $.ajax({
+		  type:'post',
+		  contentType: "application/json", 
+		  data:JSON.stringify(params),
+		  url:"/DYBigScreen/HZInterfaceSet/putRating.do",
+		  dataType : "json",//跨域必须这个
+		  success : function(result){
+			  getData();
+			  location.reload();	
+		  }
+	  });
+}
+function cleanRatings(){
+	$.ajax({
+		  type:'get',
+		  contentType: "application/json", 
+		  url:"/DYBigScreen/HZInterfaceSet/cleanRatings.do",
+		 /*  dataType : "json", *///跨域必须这个
+		  success : function(result){
+			  alert(result);
+			 location.reload();
+			 alert("目前数据为空 ,请添加数据");
+		  }
+	  });
+}
+
+
+</script>
+</head>
+<body>
+
+<div class="content">
+		<div class="titlePic">
+			<img src="../../img/logo13.png" style="height:100%;" />
+		</div>
+	<div id="main" style="height:918px;padding-left: 16px;padding-right: 46px;padding-top: 15px;"></div>
+</div>
+</body>
+
+</html>

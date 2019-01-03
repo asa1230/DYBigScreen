@@ -1,0 +1,42 @@
+
+
+{
+   "page_info": {
+     "current_page": 2,
+        "page_num": 8,
+        "total_num": 12,
+        "total_page": 2
+    },
+  "records" : [
+    {
+      "id": "s9",
+      "title": "选题标题9",
+      "state": "已提交",
+      "stateType":"4",
+      "Longitude": "123.93454645428915",
+      "Lantitude": "41.88233315045346"
+    },{
+      "id": "s10",
+      "title": "选题标题10",
+       "state": "进行中",
+      "stateType":"2",
+      "Longitude": "123.232418645428915",
+      "Lantitude": "41.444695315045346"
+    },{
+      "id": "s11",
+      "title": "选题标题11",
+      "state": "已终止",
+      "stateType":"4",
+      "Longitude": "121.93418645428915",
+      "Lantitude": "42.861695315045346"
+    },{
+      "id": "s12",
+      "title": "选题标题12",
+       "state": "未指派",
+      "stateType":"3",
+      "Longitude": "123.94445645428915",
+      "Lantitude": "41.862654315045346"
+    }
+  ]
+
+}

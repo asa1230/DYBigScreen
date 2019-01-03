@@ -1,0 +1,70 @@
+
+
+{
+   "page_info": {
+        "current_page": 1,
+        "page_num": 8,
+        "total_num": 12,
+        "total_page": 2
+    },
+  "records" : [
+    {
+      "id": "s1",
+      "title": "选题标题1",
+      "state": "已完成",
+      "stateType":"1",
+       "Longitude": "116.212908",
+      "Lantitude": "39.91212"
+    },{
+      "id": "s2",
+      "title": "选题标题2",
+      "state": "进行中",
+      "stateType":"2",
+       "Longitude": "116.322749",
+      "Lantitude": "40.036782"
+    },{
+      "id": "s3",
+      "title": "选题标题3",
+      "state": "已终止",
+      "stateType":"4",
+       "Longitude": "116.426202",
+      "Lantitude": "39.95992"
+    },{
+      "id": "s4",
+      "title": "选题标题4",
+      "state": "未指派",
+      "stateType":"3",
+       "Longitude": "116.621099",
+      "Lantitude": "40.060278"
+    }, {
+      "id": "s5",
+      "title": "选题标题5",
+      "state": "已提交",
+      "stateType":"4",
+      "Longitude": "123.92518645428915",
+      "Lantitude": "41.882695315045346"
+    },{
+      "id": "s6",
+      "title": "选题标题6",
+       "state": "进行中",
+      "stateType":"2",
+      "Longitude": "123.92418645428915",
+      "Lantitude": "41.862695315045346"
+    },{
+      "id": "s7",
+      "title": "选题标题7",
+      "state": "已终止",
+      "stateType":"4",
+      "Longitude": "123.92418645428915",
+      "Lantitude": "41.862695315045346"
+    },{
+      "id": "s8",
+      "title": "选题标题8",
+       "state": "未指派",
+      "stateType":"3",
+      "Longitude": "123.92418645428915",
+      "Lantitude": "41.862695315045346"
+    }
+  ]
+
+}

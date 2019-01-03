@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<html lang="zh-cn">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>指挥调度-发布效果评估</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="../../assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/simple-line-icons/simple-line-icons.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
+        <!-- END GLOBAL MANDATORY STYLES -->
+        <!-- BEGIN THEME GLOBAL STYLES -->
+        <link href="../../assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+        <link href="../../assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+        <!-- END THEME GLOBAL STYLES -->
+        <!-- BEGIN THEME LAYOUT STYLES -->
+        <link href="../../assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+        <link href="../../assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
+        <link href="../../assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
+        
+		<!-- ios -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, minium-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes" /><!-- home screen app 全屏 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" /><!-- 状态栏 black-translucent为透明状态栏 -->
+		<meta name="apple-mobile-web-app-title" content="控制端测试" >
+		<meta name="apple-touch-fullscreen" content="yes">  
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="format-detection" content="telephone=no"><!-- 禁用电话号码自动识别 -->
+
+		<!-- Retina iPad 152px -->
+		<link rel="apple-touch-icon" href="icon152.png" sizes="152x152">
+		<!-- Android 启动图标 -->
+		<link rel="shortcut icon" sizes="128x128" href="icon128.png">
+		<!-- iOS 启动画面 -->
+		<!-- iPad 竖屏 1536x2008（Retina） -->
+		<link rel="apple-touch-startup-image" sizes="1536x2008" href="splash-screen-1536x2008.png" />
+		<!-- iPad 横屏 2048x1496（Retina） -->
+		<link rel="apple-touch-startup-image" sizes="2048x1496" href="splash-screen-2048x1496.png" />
+        </head>
+    <!-- END HEAD -->
+
+    <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white" style="margin-top:20px">
+        <!-- BEGIN HEADER -->
+        <div class="page-header navbar navbar-fixed-top">
+            <!-- BEGIN HEADER INNER -->
+            <div class="page-header-inner ">
+                <!-- BEGIN LOGO -->
+                <div class="page-logo">
+                    <a href="#">
+                        <img src="../../images/logo.png" alt="logo"  width="35" height="35" style="margin-top:5px;"/> </a><div id="sysTitle" style="float:left; color:#FFF; font-size:22px;  height:45px; line-height:45px; margin-left:15px;"></div>
+                </div>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse" data-target=".navbar-collapse"> </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <!-- BEGIN TOP NAVIGATION MENU -->
+                <div class="top-menu">
+                    <ul class="nav navbar-nav pull-right">
+                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                        <!-- END USER LOGIN DROPDOWN -->
+                        <!-- BEGIN QUICK SIDEBAR TOGGLER -->
+                        <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                        <li class="dropdown dropdown-user">
+                              <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" style="line-height:inherit">
+                                <i class="icon-logout"></i>
+                                <span style="color:#c6cfda;"> 退出 </span>
+                        </a>
+                        </li>
+                        <!-- END QUICK SIDEBAR TOGGLER -->
+                    </ul>
+            </div>
+                <!-- END TOP NAVIGATION MENU -->
+            </div>
+            <!-- END HEADER INNER -->
+        </div>
+        <!-- END HEADER -->
+        <!-- BEGIN HEADER & CONTENT DIVIDER -->
+        <div class="clearfix"> </div>
+        <!-- END HEADER & CONTENT DIVIDER -->
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            <!-- BEGIN SIDEBAR -->
+            <div class="page-sidebar-wrapper">
+                <!-- BEGIN SIDEBAR -->
+                <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                <!-- DOC: Change data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                <div class="page-sidebar navbar-collapse collapse">
+                    <!-- BEGIN SIDEBAR MENU -->
+                    <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+                    <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+                    <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+                    <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+                    <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+                    <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+                    <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                        <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+                  <li class="nav-item">
+                          <a href="../../view/control/control_huijuClue.html" >
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px" ><span class="fa fa-rss page-style-bar-1"></span></td><td class="page-style-bar-2">热点线索</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                       <!--  <li  class="nav-item  ">
+                        <a href="../../view/control/control_subject.html" >
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px"><span class="fa fa-newspaper-o page-style-bar-1"></span></td><td class="page-style-bar-2">新闻专题</td></tr>
+                          </table>
+                          </a>
+                        </li> -->
+                        <li  class="nav-item  ">
+                        <a href="../../view/control/control_selectProgress.html" >
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px"><span class="fa fa-list page-style-bar-1"></span></td><td class="page-style-bar-2">选题进展</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                        <li  class="nav-item  ">
+                              <a href="../../view/control/control_ccbnMap.html" target="_top">
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px"><span class="fa fa-globe page-style-bar-1"></span></td><td class="page-style-bar-2">资源地图</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                       <!--  <li  class="nav-item  ">
+                        <a href="../../view/control/control_tj.html" >
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px"><span class="fa fa-pie-chart page-style-bar-1"></span></td><td class="page-style-bar-2">数据统计</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                        <li  class="nav-item    active open">
+                        <a href="../../view/control/control_publish.html" >
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px" style="border-bottom:1px #455467 solid"><span class="fa fa-line-chart page-style-bar-1-2"></span></td><td class="page-style-bar-2">发布效果评估</td></tr>
+                          </table>
+                          </a>
+                        </li>
+                        <li  class="nav-item  ">
+                        <a href="../../view/control/control_setting.html" >
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                                 <tr><td width="45px" height="48px"><span class="fa fa-cog page-style-bar-1"></span></td><td class="page-style-bar-2">系统设置</td></tr>
+                          </table>
+                          </a>
+                        </li> -->
+                       
+                    </ul>
+                    <!-- END SIDEBAR MENU -->
+                    <!-- END SIDEBAR MENU -->
+</div>
+                <!-- END SIDEBAR -->
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN CONTENT -->
+            <div class="page-content-wrapper">
+                <!-- BEGIN CONTENT BODY -->
+                <div class="page-content">
+                
+                <div class="col-md-12" align="right" style="margin:50px auto 15px;">
+                <span class="font-lg"> 轮播</span>
+               		 <input id="my-checkbox" type="checkbox" name="my-checkbox" checked>
+                </div>
+              <!-- BEGIN PAGE BAR -->
+              <div id="publshType">
+             		 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat blue" onclick="selectType('publishType1','pub1_1','0');">
+                                <div class="visual">
+                                    <i class="fa fa-line-chart"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup" data-value="1349">发布渠道</span>
+                                    </div>
+                                    <div class="desc"> fubuqudao </div>
+                                </div>
+                                <a class="more" href="javascript:;" style="height:25px"> 
+                                     <i class="fa fa-check-circle-o m-icon-white" style="font-size:18px"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat grey" onclick="selectType('publishType1','pub1_2','1');">
+                                <div class="visual">
+                                    <i class="fa fa-line-chart"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup" data-value="1349">收视分析</span>
+                                    </div>
+                                    <div class="desc"> rate </div>
+                                </div>
+                                <a class="more" href="javascript:;" style="height:25px"> 
+                                     <i class="fa fa-check-circle-o m-icon-white" style="font-size:18px"></i>
+                                </a>
+                            </div>
+                        </div>
+             		 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat grey" onclick="selectType('publishType2','pub2_1','2');">
+                                <div class="visual">
+                                    <i class="fa fa-users"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup" data-value="1349">受众人群分析</span>
+                                    </div>
+                                    <div class="desc"> people </div>
+                                </div>
+                                <a class="more" href="javascript:;" style="height:25px"> 
+                                    <i class="fa fa-check-circle-o m-icon-white" style="font-size:18px"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                            <div class="dashboard-stat grey" onclick="selectType('publishType2','pub2_2','3');">
+                                <div class="visual">
+                                    <i class="fa fa-comments"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="number">
+                                        <span data-counter="counterup" data-value="1349">两微一端运营</span>
+                                    </div>
+                                    <div class="desc"> weixin,weibo,APP </div>
+                                </div>
+                                <a class="more" href="javascript:;" style="height:25px"> 
+                                     <i class="fa fa-check-circle-o m-icon-white" style="font-size:18px"></i>
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                        
+              </div>
+                <!-- END CONTENT BODY -->
+            </div>
+            <!-- END CONTENT -->
+            <!-- BEGIN QUICK SIDEBAR --><!-- END QUICK SIDEBAR -->
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER --><!-- END FOOTER -->
+        <!--[if lt IE 9]>
+<script src="../../assets/global/plugins/respond.min.js"></script>
+<script src="../../assets/global/plugins/excanvas.min.js"></script> 
+<![endif]-->
+        <!-- BEGIN CORE PLUGINS -->
+    <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/js.cookie.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+        <script src="../../assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js" type="text/javascript"></script>
+        <!-- END CORE PLUGINS -->
+        <!-- END PAGE LEVEL PLUGINS -->
+        <!-- BEGIN THEME GLOBAL SCRIPTS -->
+        <script src="../../assets/global/scripts/app.min.js" type="text/javascript"></script>
+        <!-- END THEME GLOBAL SCRIPTS -->
+        <!-- BEGIN THEME LAYOUT SCRIPTS -->
+        <script src="../../assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
+        <script src="../../assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
+        <script src="../../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+        <!-- END THEME LAYOUT SCRIPTS -->
+    </body>
+
+<script type="text/javascript" src="../../js/fixWebAppBugs4iOS.js"></script>
+<script type="text/javascript" src="../../static/scripts/util/utils.js"></script>
+<script type="text/javascript" src="../../static/scripts/control/controlPublish.js"></script>
+</html>

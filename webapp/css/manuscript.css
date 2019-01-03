@@ -1,0 +1,43 @@
+*{
+	margin:0;
+	padding:0;
+}
+body{
+	font-family:"Microsoft YaHei";
+	font-size: 14px;
+	color: #333;
+}
+ul,ol{
+	list-style:none;
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight:none;
+}
+a:hover{
+    text-decoration: none;
+}
+li:hover{
+    cursor: pointer;
+}
+i{
+	font-style: normal;
+}
+.manuscript_content{
+	width: 100%;
+	height: 100%;
+	background: url("../images/bg1.jpg") no-repeat;
+}
+.manuscript_logo{
+	padding-top:52px;
+	margin:0 0 27px 54px;
+}
+.manuscript_title{
+	width: 100px;
+	height:40px;
+	position: absolute;
+	left:44px;
+	top:142px;
+	color:#fffefe;
+	font-size: 30px;
+	line-height:40px;
+}
