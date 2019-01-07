@@ -52,7 +52,7 @@ html,body{
     width:255px;
     height:100%;
     padding-top:46px;
-    position: relative;
+    position: absolute;
 
 }
 
@@ -117,6 +117,8 @@ ul.subMenu {
 .subMenu>li>a {
     padding-left: 10px;
 }
+/* ----------------箭头--------------------- */
+
 /* 所有a */
 a.arrow:after {
     display: block;
@@ -129,7 +131,7 @@ a.arrow:after {
     text-shadow: none;
     padding-right:12px;
 }
-/* 所有li>a */
+/* 所有li.active的子元素*/
 li.active>a.arrow:after {
     display: block;
     float: right;
@@ -140,6 +142,56 @@ li.active>a.arrow:after {
     font-weight: 300;
     text-shadow: none;
 }
+/* 汇总列表 去掉箭头*/
+li#summary>a.arrow:after {
+    display: block;
+    float: right;
+    font-size: 14px;
+    line-height: 48px;
+    font-family: FontAwesome;
+    content: "";
+    font-weight: 300;
+    text-shadow: none;
+}
+/* 其它大屏 去掉箭头*/
+li#others>a.arrow:after {
+    display: block;
+    float: right;
+    font-size: 14px;
+    line-height: 48px;
+    font-family: FontAwesome;
+    content: "";
+    font-weight: 300;
+    text-shadow: none;
+}
+/* 运营管理 去掉箭头*/
+li#operationManage>a.arrow:after {
+    display: block;
+    float: right;
+    font-size: 14px;
+    line-height: 48px;
+    font-family: FontAwesome;
+    content: "";
+    font-weight: 300;
+    text-shadow: none;
+}
+
+/* 全局设置 去掉箭头*/
+li#globalSetting>a.arrow:after {
+    display: block;
+    float: right;
+    font-size: 14px;
+    line-height: 48px;
+    font-family: FontAwesome;
+    content: "";
+    font-weight: 300;
+    text-shadow: none;
+}
+
+
+
+/* ------------------------------------- */
+
 /* 第一级li 前面有图标*/
 .navMenu>li>a:before {
     display: block;
@@ -251,3 +303,16 @@ li.active>a.arrow:after {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
     background-color: #555;
 }
+
+.rightContentForIframe{
+    width:100%;
+    height:100%;
+    padding-left:255px;
+    padding-top: 46px;
+    background:rebeccapurple;
+}
+.rightContentForIframe iframe{
+    width:100%;
+    height:100%;
+    vertical-align:top 
+} 
