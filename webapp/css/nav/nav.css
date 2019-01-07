@@ -1,0 +1,228 @@
+html,body{
+    height:100%;
+    width:100%;
+    background:#eef2fa;
+} 
+.logoTitle{
+    float:left;
+    color:#FFF;
+    font-size:22px;
+    height:45px;
+    line-height:45px;
+    margin-left:15px;
+}
+
+.new-page-header.navbar {
+    background-color: #4c76b2 ;
+    margin:0px;
+    width:100%;
+    position: fixed;
+    top:0px;
+    left:0px;
+    min-height:45px;
+    height:45px;
+    border:none;
+    z-index: 1000;
+}
+.navbar-nav {
+    margin: 0px 10px;
+}
+.navbar-nav>li>a{
+    padding:0;
+    line-height:45px !important;
+
+}
+.dropdown-toggle{
+    background-color: #4c76b2 !important;
+}
+.dropdown-toggle:hover{
+    background-color: #3f67a0 !important;
+}
+.dropdown-toggle:visited{
+    background-color: #3f67a0 !important;
+}
+.icon-logout{
+    color:#9eafc9;
+}
+/*----------------------- 左侧导航开始------------------ */
+/*添加背景色和滚动条*/
+.navMenuBox {
+    background-color: #334155;
+    overflow: auto;
+    width:255px;
+    height:100%;
+    padding-top:46px;
+    position: relative;
+}
+
+/*去掉默认样式*/
+.navMenuBox ul,
+.navMenuBox li {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+}
+.navMenuTop{
+    height:100%;
+    width: 100%;
+}
+.navMenuBottom{
+   position: absolute;
+   bottom:0;
+   width:100%;
+}
+.navMenu>li>a {
+    display: block;
+    line-height: 48px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+    border-bottom :1px solid #424F66;
+}
+.navMenu>li::before{
+
+}
+
+.navMenu>li.active>a,
+.navMenu>li>a:hover,
+.subMenu>li.active>a,
+.subMenu>li>a:hover {
+    color: #FFF;
+    background: #253345;
+}
+
+.subMenu>li>a {
+    display: block;
+    line-height: 48px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #ABB1B7;
+}
+
+ul.subMenu {
+    background:#2E3C50;
+
+}
+
+.subMenu>li>a {
+    padding-left: 60px;
+}
+/* 所有a */
+a.arrow:after {
+    display: block;
+    float: right;
+    font-size: 14px;
+    line-height: 48px;
+    font-family: FontAwesome;
+    content: "\f105";
+    font-weight: 300;
+    text-shadow: none;
+    padding-right:12px;
+}
+/* 所有li>a */
+li.active>a.arrow:after {
+    display: block;
+    float: right;
+    font-size: 14px;
+    line-height: 48px;
+    font-family: FontAwesome;
+    content: "\f107";
+    font-weight: 300;
+    text-shadow: none;
+}
+/* 第一级li 前面有图标*/
+.navMenu>li>a:before {
+    display: block;
+    float: left;
+    font-size: 16px;
+    line-height: 48px;
+    font-family: iconfont;
+    content: '\e68a';
+    font-weight: 300;
+    text-shadow: none;
+    border-bottom :1px solid #334155;
+    padding: 0 12px 0 16px;
+}
+.navMenu>#summary>a:before {
+    display: block;
+    float: left;
+    font-size: 16px;
+    line-height: 48px;
+    font-family: iconfont;
+    content: '\e694';
+    font-weight: 300;
+    text-shadow: none;
+    border-bottom :1px solid #334155;
+}
+.navMenu>#command>a:before {
+    display: block;
+    float: left;
+    font-size: 16px;
+    line-height: 48px;
+    font-family: iconfont;
+    content: '\e69b';
+    font-weight: 300;
+    text-shadow: none;
+    border-bottom :1px solid #334155;
+}
+.navMenu>#manuscript>a:before {
+    display: block;
+    float: left;
+    font-size: 16px;
+    line-height: 48px;
+    font-family: iconfont;
+    content: '\e696';
+    font-weight: 300;
+    text-shadow: none;
+    border-bottom :1px solid #334155;
+}
+.navMenu>#intergragtingCloud>a:before {
+    display: block;
+    float: left;
+    font-size: 16px;
+    line-height: 48px;
+    font-family: iconfont;
+    content: '\e698';
+    font-weight: 300;
+    text-shadow: none;
+    border-bottom :1px solid #334155;
+}
+.navMenu>#others>a:before {
+    display: block;
+    float: left;
+    font-size: 16px;
+    line-height: 48px;
+    font-family: iconfont;
+    content: '\e68c';
+    font-weight: 300;
+    text-shadow: none;
+    border-bottom :1px solid #334155;
+
+}
+.navMenu>#operationManage>a:before {
+    display: block;
+    float: left;
+    font-size: 16px;
+    line-height: 48px;
+    font-family: iconfont;
+    content: '\e68b';
+    font-weight: 300;
+    text-shadow: none;
+    border-bottom :1px solid #334155;
+}
+.navMenu>#globalSetting>a:before {
+    display: block;
+    float: left;
+    font-size: 16px;
+    line-height: 48px;
+    font-family: iconfont;
+    content: '\e68f';
+    font-weight: 300;
+    text-shadow: none;
+    border-bottom :1px solid #334155;
+}
+
+
+
+/*------------------------- 左侧导航结束----------------- */
+
