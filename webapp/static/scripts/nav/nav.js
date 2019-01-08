@@ -10,14 +10,15 @@ NavObj = (function ($, window, document) {
         init: function () {
             c = this;
             c.intNavView();
-            c.initUserInfo();
+            // c.initUserInfo();
         },
         intNavView: function () {
             //初始化
             $('.subMenu').hide();
             $('li.active>.subMenu').show();
             //给菜单项添加事件
-            $('.navMenu a').click(function () {
+            $('.navMenu a').click(function (e) {
+                c.changgeIframe(e);
                 //获取所属列表ul
                 var $subMenuElement = $(this).next();
                 var $liElement = $(this).parent();
@@ -42,6 +43,23 @@ NavObj = (function ($, window, document) {
 
                 }
             });
+        },
+        changgeIframe: function (e) {
+            if ($(e.currentTarget).parent().parent().hasClass("navMenu")) {
+                var id = $(e.currentTarget).parent().attr("id");
+                if (id == "summary") {
+                } else if (id == "command") {
+                } else if (id == "manuscript") {
+                } else if (id == "intergragtingCloud") {
+                } else if (id == "others") {
+                    window.location.href="./nav.html"
+                    // $("#iframeForChange").attr('src',"../control/control_otherbigscreen.html");
+                } else if (id == "operationManage") {
+                } else if (id == "globalSetting") {
+                } else {
+
+                }
+            }
         }
 
     };

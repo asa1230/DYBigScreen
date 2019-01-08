@@ -20,7 +20,7 @@ function init(){
 	var htmlStatus2 = '<option value="">全部状态</option> ' + htmlStatus1;
 	document.getElementById('status').innerHTML = htmlStatus2;
 	
-	$("#lunbopinlv").val(todaySelectSwitchFrequncy);
+	// $("#lunbopinlv").val(todaySelectSwitchFrequncy);
 	
 	/////////////////////////////////////////////////////////
 	
@@ -354,7 +354,7 @@ function loadServerUrl(){
 
 function switchfrequncychange(){
 	
-	var swtichrequncy = $("#lunbopinlv").val();//搜索内容
+	// var swtichrequncy = $("#lunbopinlv").val();//搜索内容
 	if(null==swtichrequncy || ""==swtichrequncy)
 		return;
 	var correctVal = parseInt(swtichrequncy);
@@ -383,7 +383,7 @@ function switchfrequncychange(){
 			if (data.state == 0) {
 				var sysSwtichrequncy = data.todaySelectSwiperFrequcy;
 				todaySelectSwitchFrequncy = sysSwtichrequncy;
-				$("#lunbopinlv").val(sysSwtichrequncy);				
+				// $("#lunbopinlv").val(sysSwtichrequncy);				
 				alert("设置参数成功！");	
 				
 				var msg = {};
@@ -394,7 +394,7 @@ function switchfrequncychange(){
 			} else {
 				alert("设置参数失败！");
 				var orgSysSwtichrequncy = data.todaySelectSwiperFrequcy;				
-				$("#lunbopinlv").val(orgSysSwtichrequncy);
+				// $("#lunbopinlv").val(orgSysSwtichrequncy);
 			}
 		}
 	});
