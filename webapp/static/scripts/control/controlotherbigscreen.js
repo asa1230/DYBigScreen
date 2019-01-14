@@ -305,7 +305,7 @@ function queryUser() {
 //投屏到选题详情页面
 function toSelectDetail(id,target){
 	//判断是否是投屏状态
-	var img = $(target).find("img");
+	var img = $(target);
 	if(img.is(".projective")){
 		//取消投屏 判断取消的是否是第一个选题,若不是才能取消投屏，取消投屏跳转到默认的第一条选题
 		if(firstTaskGuid!=id){

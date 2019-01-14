@@ -14,8 +14,8 @@
     <link href="../../assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css" rel="stylesheet" type="text/css" />
 
-    <link rel="stylesheet" href="../../css/nav/navIcon/iconfont.css">
-    <link rel="stylesheet" href="../../css/nav/nav.css">
+    <link rel="stylesheet" href="../../static/css/nav/navIcon/iconfont.css">
+    <link rel="stylesheet" href="../../static/css/nav/nav.css">
 
     <!-- ios -->
     <meta name="viewport" content="width=device-width, initial-scale=1, minium-scale=1, user-scalable=no">
@@ -121,35 +121,26 @@
                 <a href="javascript:;" class="arrow">融云大屏</a>
             </li>
             <li id="others">
-                <a href="javascript:;" class="arrow">其它大屏</a>
+                <a href="#/others" class="arrow">其它大屏</a>
             </li>
-        </ul>
-        <ul class="navMenu navMenuBottom">
-            <!--菜单项-->
             <li id="operationManage">
-                <a href="javascript:;" class="arrow">运营管理</a>
+                <a href="#/operationManage" class="arrow">运营管理</a>
             </li>
             <li id="globalSetting">
-                <a href="javascript:;" class="arrow">全局设置</a>
-                <!-- <ul class="subMenu">
-                    <li><a href="javascript:;">网站设置</a></li>
-                    <li><a href="javascript:;">友情链接</a></li>
-                    <li><a href="javascript:;">分类管理</a></li>
-                    <li>
-                        <a href="javascript:;" class="arrow">系统日志</a>
-                        <ul class="subMenu">
-                            <li><a href="javascript:;">网站设置</a></li>
-                            <li><a href="javascript:;">友情链接</a></li>
-                            <li><a href="javascript:;">分类管理</a></li>
-                            <li><a href="javascript:;">系统日志</a></li>
-                        </ul>
-                    </li>
-                </ul> -->
+                <a href="#/globalSetting" class="arrow">全局设置</a>
             </li>
         </ul>
+        <!-- <ul class="navMenu navMenuBottom">
+            <li id="operationManage">
+                <a href="#/operationManage" class="arrow">运营管理</a>
+            </li>
+            <li id="globalSetting">
+                <a href="#/globalSetting" class="arrow">全局设置</a>
+            </li>
+        </ul> -->
     </div>
     <div class="rightContentForIframe">
-            <iframe id="iframeForChange"  frameborder="0" scrolling="no" frameborder="0" ></iframe>
+        <iframe id="iframeForChange" frameborder="0" scrolling="no" frameborder="0"></iframe>
     </div>
     <script src="../../assets/global/plugins/jquery.min.js" type="text/javascript"></script>
     <script src="../../assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
@@ -166,6 +157,7 @@
     <script src="../../assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
     <script src="../../assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
     <script src="../../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+    <script src="../../static/scripts/nav/router.js"></script>
     <script src="../../static/scripts/nav/nav.js"></script>
     <script>
 

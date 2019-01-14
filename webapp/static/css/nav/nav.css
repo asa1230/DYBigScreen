@@ -186,6 +186,8 @@ li#globalSetting>a.arrow:after {
     content: "";
     font-weight: 300;
     text-shadow: none;
+    
+
 }
 
 
@@ -283,8 +285,18 @@ li#globalSetting>a.arrow:after {
     text-shadow: none;
     
 }
-
-
+li#operationManage{
+    /* 定位到下面 */
+    position: absolute;
+    bottom:49px;
+    width:100%;
+}
+li#globalSetting{
+      /* 定位到下面 */
+      position: absolute;
+      bottom:0px;
+      width:100%;  
+}
 
 /*------------------------- 左侧导航结束----------------- */
 
