@@ -1,3 +1,4 @@
+// -----------------定义路由------------------
 function RouterForIframe() {
     this.routes = {};
     this.currentUrl = '';
@@ -16,9 +17,28 @@ RouterForIframe.prototype.init = function () {
 window.RouterForIframe = new RouterForIframe();
 window.RouterForIframe.init();
 
+//------------- 配置路由-------------------
+// 其它大屏
+RouterForIframe.route('/summary', function () {
+    changgeIframe('summary');
+});
+// 其它大屏
+RouterForIframe.route('/others', function () {
+    changgeIframe('others');
+});
+// 运营管理
+RouterForIframe.route('/operationManage', function () {
+    changgeIframe('operationManage');
+});
+// 全局设置
+RouterForIframe.route('/globalSetting', function () {
+    changgeIframe('globalSetting');
+});
+//------------- 路由回调--------------------
 
 var changgeIframe = function (router) {
     if (router == "summary") {
+        $("#iframeForChange").attr('src', "../control/control_summary.html");
     } else if (router == "command") {
     } else if (router == "manuscript") {
     } else if (router == "intergragtingCloud") {
@@ -33,18 +53,3 @@ var changgeIframe = function (router) {
 
     }
 }
-
-
-
-// 其它大屏
-RouterForIframe.route('/others', function () {
-    changgeIframe('others');
-});
-// 运营管理
-RouterForIframe.route('/operationManage', function () {
-    changgeIframe('operationManage');
-});
-// 全局设置
-RouterForIframe.route('/globalSetting', function () {
-    changgeIframe('globalSetting');
-});

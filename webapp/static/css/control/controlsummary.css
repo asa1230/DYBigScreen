@@ -1,0 +1,91 @@
+.summaryContainer{
+    padding:22px 16px 16px 16px;
+    width:100%;
+    height: 100%;
+}
+#myTab.nav-tabs>li>a {
+    font-size: 16px;
+    color: #232E3B;
+    border:none;
+    padding:0  3px;
+    line-height: 45px;
+    margin-left:8px;
+    margin-right:40px;
+}
+
+#myTab.nav-tabs{
+    border-bottom: 1px solid #D4DEF1;
+}
+
+#myTab.nav-tabs>li {
+    margin-bottom:0px;
+}
+#myTab.nav-tabs>li.active>a, #myTab.nav-tabs>li.active>a:focus, #myTab.nav-tabs>li.active>a:hover {
+    border-bottom:3px solid #5576AD;
+}
+.summaryContainer .tab-content .container-fluid{
+    padding:0;
+}
+.summaryContainer .tab-content .itemForList{
+    margin:15px 0 15px 0;
+    height:178px;
+    padding:0;
+}
+.summaryContainer .tab-content .itemForList .containerForItem{
+  width:100%;
+  height:100%;
+  padding:6px 6px 0 6px;
+
+  background: #F5F8FF;
+    border: 1px solid #CDD6E7;
+}
+.summaryContainer .tab-content .itemForList{
+    padding-left:16px ;
+}
+.summaryContainer .tab-content .itemForList:nth-of-type(4n+1){
+    padding-left:0px ;
+}
+
+.containerForItem .top{
+    width:100%;
+    height:126px;
+}
+.containerForItem .top img{
+    width:100%;
+    height:126px;
+    cursor: pointer;
+}
+.containerForItem .top img:hover{
+    opacity: 0.3;
+}
+
+
+.containerForItem .bottom{
+    width:100%; 
+   display:flex;
+   justify-content: space-between;
+}
+
+.containerForItem .bottom .left{
+   flex:auto;
+   font-size: 14px;
+   color: #232E3B;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+    line-height: 40px;
+}
+
+.containerForItem .bottom .right:hover{
+    text-decoration: underline;
+ }
+.containerForItem .bottom .right{
+    width: 90px;
+    font-size: 14px;
+    color: #4F9CE6;
+    line-height: 40px;
+    flex:none;
+    cursor: pointer;
+   cursor: pointer;
+
+}
