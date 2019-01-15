@@ -144,3 +144,38 @@
     color: #fff;
 }
 /* --------------------------------修改checkbox样式end 结束----------------------- */
+
+
+
+/*全局设置样式 */
+.globalSettingContainer .top{
+    font-size: 16px;
+    color: #99AABD;
+    height:60px;
+    display:flex;
+    align-items:center;
+}
+.globalSettingContainer .top .left{
+    font-size: 16px;
+    color: #99AABD;
+    width:65px;
+    padding-left:5px;
+    padding-right:26px;
+}
+.globalSettingContainer .top .right{
+    font-size: 16px;
+    color: #99AABD;
+    flex:auto;
+    height:0;
+    border:1px  solid #D1DAE4;
+}
+.bottom .input-group{
+    width:100%;
+}
+.bottom .input-group label{
+    float: left;
+    width:130px;
+}
+.bottom .input-group input{
+    float: left;
+}
