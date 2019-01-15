@@ -46,9 +46,10 @@ var changgeIframe = function (router) {
         // window.location.href="./nav.html"
         $("#iframeForChange").attr('src', "../control/control_otherbigscreen.html");
     } else if (router == "operationManage") {
-        $("#iframeForChange").attr('src', "../control/operationManage.html");
+        $("#iframeForChange").attr('src', "../control/control_operationManage.html");
     } else if (router == "globalSetting") {
-        $("#iframeForChange").attr('src', "../control/globalSetting.html");
+        // 按按键设置
+        $("#iframeForChange").attr('src', "../control/control_globalSetting.html");
     } else {
 
     }

@@ -1,7 +1,12 @@
+html,body{
+    width:100%;
+    height:100%;
+}
 .summaryContainer{
     padding:22px 16px 16px 16px;
     width:100%;
     height: 100%;
+    background:#eef2fa;
 }
 #myTab.nav-tabs>li>a {
     font-size: 16px;
@@ -12,7 +17,10 @@
     margin-left:8px;
     margin-right:40px;
 }
-
+.nav>li>a:focus, .nav>li>a:hover {
+    background:#eef2fa;
+    color:#4F9CE6 !important;
+}
 #myTab.nav-tabs{
     border-bottom: 1px solid #D4DEF1;
 }
@@ -22,6 +30,7 @@
 }
 #myTab.nav-tabs>li.active>a, #myTab.nav-tabs>li.active>a:focus, #myTab.nav-tabs>li.active>a:hover {
     border-bottom:3px solid #5576AD;
+    background:#eef2fa;
 }
 .summaryContainer .tab-content .container-fluid{
     padding:0;
