@@ -329,3 +329,356 @@ li#globalSetting{
     height:100%;
     vertical-align:top 
 } 
+
+/* 模态框 */
+/*删除 模态框 */
+#deleteModal.modal .modal-dialog{
+    color:#354151;
+    width:410px;
+    height:195px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#deleteModal.modal .close{
+    font-weight: normal;
+    font-size: 30px;
+    height: 25px;
+    line-height: 25px;
+}
+#deleteModal.modal .modal-content{
+    width:410px;
+    height:195px;
+    padding:0 15px;
+
+}
+
+#deleteModal.modal .modal-header {
+    border-bottom: none;
+    height:45px;
+    padding:15px 0 0 0;
+    line-height: 45px;
+}
+#deleteModal.modal .modal-body {
+    border-bottom: none;
+    padding:0;
+    height:90px;
+}
+#deleteModal.modal .modal-body .div1{
+   height:35px;
+   line-height:35px;
+   font-size: 16px;
+    color: #354151;
+    text-align: center;
+}
+#deleteModal.modal .modal-body .div2{
+   height:35px;
+   line-height:35px;
+   font-size: 14px;
+    color: #939393;
+    text-align: center;
+}
+#deleteModal.modal .modal-footer {
+    border-top: 1px solid #E2E2E2;
+        display:flex;
+        justify-content: center;
+        padding: 10px 0;
+        
+}
+#deleteModal.modal .btn-primary{
+    background:#5576ad;
+    width: 60px;
+
+}
+#deleteModal.modal .btn-primary:hover{
+    background:#284678;
+    width: 60px;
+
+}
+/* 机构配置模态框 */
+
+#organizationConfigModal.modal .modal-dialog{
+    color:#354151;
+    width:650px;
+    height:470px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#organizationConfigModal.modal .modal-content{
+    width:650px;
+    height:470px;
+    padding:0 8px;
+    font-size: 14px;
+
+}
+#organizationConfigModal.modal .modal-header {
+    height:45px;
+    padding:15px 0 0 0;
+    line-height: 45px;
+}
+#organizationConfigModal.modal  .modal-header h4{
+    font-size: 14px;
+    padding-left:10px;
+}
+#organizationConfigModal.modal  h4{
+    font-size: 14px;
+}
+#organizationConfigModal.modal .close{
+    font-weight: normal;
+    font-size: 30px;
+    height: 25px;
+    line-height: 25px;
+}
+#organizationConfigModal.modal .modal-body {
+    border-bottom: none;
+    padding:10px 10px 0px 10px;
+    height:366px;
+    
+}
+#organizationConfigModal.modal .modal-footer {
+    border-top: 1px solid #E2E2E2;
+        display:flex;
+        justify-content: center;
+        padding: 10px 0;
+        
+}
+/* 新建大屏模态框 */
+
+#ceateBigScreenModal.modal .modal-dialog{
+    color:#354151;
+    /* 此处应该是偶数 */
+    width:526px;
+    height:326px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#ceateBigScreenModal.modal .modal-content{
+    width:525px;
+    height:325px;
+    padding:0 8px;
+    font-size: 14px;
+
+}
+#ceateBigScreenModal.modal .modal-header {
+    height:45px;
+    padding:15px 0 0 0;
+    line-height: 45px;
+}
+#ceateBigScreenModal.modal  .modal-header h4{
+    font-size: 14px;
+    padding-left:10px;
+}
+#ceateBigScreenModal.modal  h4{
+    font-size: 14px;
+}
+#ceateBigScreenModal.modal .close{
+    font-weight: normal;
+    font-size: 30px;
+    height: 25px;
+    line-height: 25px;
+}
+#ceateBigScreenModal.modal .modal-body {
+    border-bottom: none;
+    padding:19px;
+}
+#ceateBigScreenModal.modal .modal-footer {
+    border-top: 1px solid #E2E2E2;
+        display:flex;
+        justify-content: center;
+        padding: 10px 0;
+        
+}
+#ceateBigScreenModal .organizationName{
+    display:inline-block;
+    width:270px;
+    margin-right:50px;
+}
+#ceateBigScreenModal .div2{
+    margin-top:22px;
+    display: flex;
+    align-items: flex-start;
+}
+#ceateBigScreenModal .div1 input{
+    padding:0 10px;
+}
+#ceateBigScreenModal .div1 input::-webkit-input-placeholder {
+    font-size: 14px;
+color: #B4B4B4;
+}
+#ceateBigScreenModal .div2 textarea{
+    width:370px;
+    height:130px;
+    border: 1px solid #C3CAD6;
+    border-radius: 4px;
+    resize: none;
+    padding:10px;
+
+}
+#ceateBigScreenModal .div2 textarea::-webkit-input-placeholder {
+    font-size: 14px;
+    color: #B4B4B4;
+}
+
+/* 弹框按钮 */
+button.btn-cancle:hover{
+    background: #F0F6FF;
+    border: 1px solid #5576AD;
+    border-radius: 6px;
+}
+button.btn-cancle{
+    font-size: 14px;
+    width: 60px;
+    height: 34px;
+    color: #5576AD;
+    background: #FFFFFF;
+    border: 1px solid #5576AD;
+    border-radius: 6px;
+    margin-left:16px !important;
+}
+
+.icon-warning{
+    color: #FCC700;
+    padding-right:14px;
+}
+#organizationConfigModal .organizationName{
+    display:inline-block;
+    width:270px;
+    margin-right:50px;
+}
+#organizationConfigModal .div2{
+    padding-top:13px;
+}
+#organizationConfigModal .div2>div{
+    height:68px;
+    width:100%;
+    border-top: 1px dashed #CECECE;
+}
+#organizationConfigModal .div2>div>.left{
+    width:120px;
+    float: left;
+    /* background:rebeccapurple; */
+    height: 100%;
+}
+#organizationConfigModal .div2>div>.right{
+    padding-left:125px;
+    width:100%;
+    height: 100%;
+
+}
+
+.left .checkboxItem{
+    float:left;
+    height: 33px;
+    display: flex;
+    align-items: center;
+}
+.right .checkboxItem{
+    float:left;
+    height: 33px;
+    display: flex;
+    align-items: center;
+    padding-left:13px;
+}
+
+
+
+/* --------------------------------修改checkbox样式start--将input隐藏，label:before做为边框，label:after:作为勾选的对勾--------------------- */
+.checkbox-lyy {
+    position: relative;
+    padding: 0 15px 0 2px;
+    margin-top: 0;
+   display:inline-block;
+    width:25px;
+}
+/*
+将初始的checkbox的样式改变
+*/
+.checkbox-lyy input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+    width:15px !important;
+    height:15px !important;
+    z-index: 2;
+}
+/*
+设计新的checkbox，位置  选框的样式
+*/
+.checkbox-lyy label:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -9px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    background: #FFFFFF;
+    border: 1px solid #C3CAD6;
+    border-radius: 2px;
+}
+
+.checkbox-lyy  input[type="checkbox"]:checked +label:before {
+    border: none;
+    background: #5576AD;
+}
+/*
+点击初始的checkbox，将新的checkbox关联起来 选中时候的样式
+*/
+.checkbox-lyy input[type="checkbox"]:checked +label:after {
+    position: absolute;
+    display: inline-block;
+    font-family: 'iconfont';
+    content: "\e615";
+    top:3px;
+    font-size: 11px;
+    line-height: 1;
+    width: 16px;
+    height: 16px;
+    color: #fff;
+}
+/*左侧 未选择状态特殊处理 */
+.left .checkbox-lyy  input[type="checkbox"] +label:before {
+    border: none;
+    background: #5576AD;
+}
+.left .checkbox-lyy input[type="checkbox"] +label:after {
+    position: absolute;
+    display: inline-block;
+    font-family: 'iconfont';
+    content: "\e7ae";
+    top:3px;
+    font-size: 11px;
+    line-height: 1;
+    width: 16px;
+    height: 16px;
+    color: #fff;
+}
+.left .checkbox-lyy  input[type="checkbox"]:checked +label:before {
+    border: none;
+    background: #5576AD;
+}
+.left .checkbox-lyy input[type="checkbox"]:checked +label:after {
+    position: absolute;
+    display: inline-block;
+    font-family: 'iconfont';
+    content: "\e615";
+    top:3px;
+    font-size: 11px;
+    line-height: 1;
+    width: 16px;
+    height: 16px;
+    color: #fff;
+}
+/* --------------------------------end--------------------- */
+
+
+.modal-header .close:focus{
+    height:25px;
+}

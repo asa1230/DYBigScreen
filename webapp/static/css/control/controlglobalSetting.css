@@ -181,7 +181,7 @@
 }
 .bottom .input-group label{
     float: left;
-    width:150px;
+    width:156px;
     height:34px;
     line-height:34px;
     margin:0;
@@ -199,3 +199,5 @@
 .globalSettingContainer .bottom  input{
     width:195px;
 }
+
+

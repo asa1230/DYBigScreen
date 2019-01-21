@@ -144,3 +144,56 @@
     color: #fff;
 }
 /* --------------------------------修改checkbox样式end 结束----------------------- */
+
+
+.infoForList{
+    width:100%;
+    height:36px;
+    background: #F1F5FC;
+    border: 1px solid #D1DAE4;
+    line-height:36px;
+    font-size: 12px;
+
+}
+.infoForList label{
+    font-size: 12px;
+    color: #41A6ED;
+    padding:0 5px;
+}
+.infoForList span{
+    padding:0 10px;
+}
+.infoForList .clear{
+   cursor: pointer;
+}
+
+tbody .list-item>.operation>span{
+    display: inline-block;
+    width:33%;
+    text-align: center;
+    color:#41A6ED ;
+}
+tbody .list-item>.operation>span+span{
+    border-left: 1px solid #D0D0D0;
+}
+
+
+tbody .status .normal{
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+    background: #7ED321 ;
+    margin-right:12px;
+    margin-bottom:2px;
+
+}
+tbody .status .forbidden{
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 6px;
+    background: #F90F0F;
+    margin-right:12px;
+    margin-bottom:2px;
+}
