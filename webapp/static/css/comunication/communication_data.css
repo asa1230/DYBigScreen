@@ -1,0 +1,117 @@
+.res_header {
+    height: 40px;
+    font-size: 30px;
+    color: #fff;
+    line-height: 38px;
+    margin-bottom: 54px;
+}
+
+.detile_title {
+    padding: 27px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+}
+
+.detail-content-box {
+    padding: 10px 0;
+    height: calc(100% - 144px);
+}
+
+.detail-content-box p {
+    font-size: 24px;
+    color: #FFFFFF;
+    line-height: 38px;
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    /*! autoprefixer: off */
+}
+
+.communi_left {
+    height: 100%;
+    margin-right: 20px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.communi_right {
+    width: calc(100% - 420px);
+    background: rgba(0, 197, 255, 0.1);
+    height: 100%;
+    padding-top: 25px;
+}
+
+.total-list-box {
+    height: 200px;
+    background: rgba(0, 197, 255, 0.1);
+    padding: 0 20px;
+}
+
+.total-list-box p {
+    font-size: 24px;
+    color: #A6C9F1;
+    height: 50%;
+    width: 100%;
+    margin: 0;
+    line-height: 100px;
+}
+
+.total-list-box p:first-child {
+    justify-content: space-between;
+}
+
+.total-list-box p:first-child>span:nth-child(2) {
+    color: #FFFFFF;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.total-list-box .total-data {
+    color: #FFFFFF;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.total-list-box p:first-child {
+    border-bottom: 2px dashed #023778;
+}
+
+.blue-circle,
+.yellow-circle {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%!important;
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.blue-circle {
+    background: #00C9FC;
+}
+
+.yellow-circle {
+    background: #F5A623;
+}
+
+.echarts-header-box {
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+    color: #fff;
+    padding: 0 30px;
+}
+
+.echarts-header-box p {
+    margin: 0;
+}
+
+.echarts-container {
+    height: calc(100% - 40px);
+}

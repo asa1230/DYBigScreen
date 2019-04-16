@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dayang.newmedia.newscommand.db.dao.ProgramratingMapper" >
+  <resultMap id="BaseResultMap" type="com.dayang.newmedia.newscommand.db.model.Programrating" >
+    <id column="ratingid" property="ratingid" jdbcType="VARCHAR" />
+    <result column="ratingcode" property="ratingcode" jdbcType="VARCHAR" />
+    <result column="ratingkey" property="ratingkey" jdbcType="VARCHAR" />
+    <result column="orderby" property="orderby" jdbcType="VARCHAR" />
+    <result column="ratingvalue" property="ratingvalue" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    ratingid, ratingcode, ratingkey, orderby, ratingvalue
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dayang.newmedia.newscommand.db.model.ProgramratingQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from programrating
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from programrating
+    where ratingid = #{ratingid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from programrating
+    where ratingid = #{ratingid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dayang.newmedia.newscommand.db.model.ProgramratingQuery" >
+    delete from programrating
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dayang.newmedia.newscommand.db.model.Programrating" >
+    insert into programrating (ratingid, ratingcode, ratingkey, 
+      orderby, ratingvalue)
+    values (#{ratingid,jdbcType=VARCHAR}, #{ratingcode,jdbcType=VARCHAR}, #{ratingkey,jdbcType=VARCHAR}, 
+      #{orderby,jdbcType=VARCHAR}, #{ratingvalue,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dayang.newmedia.newscommand.db.model.Programrating" >
+    insert into programrating
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="ratingid != null" >
+        ratingid,
+      </if>
+      <if test="ratingcode != null" >
+        ratingcode,
+      </if>
+      <if test="ratingkey != null" >
+        ratingkey,
+      </if>
+      <if test="orderby != null" >
+        orderby,
+      </if>
+      <if test="ratingvalue != null" >
+        ratingvalue,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="ratingid != null" >
+        #{ratingid,jdbcType=VARCHAR},
+      </if>
+      <if test="ratingcode != null" >
+        #{ratingcode,jdbcType=VARCHAR},
+      </if>
+      <if test="ratingkey != null" >
+        #{ratingkey,jdbcType=VARCHAR},
+      </if>
+      <if test="orderby != null" >
+        #{orderby,jdbcType=VARCHAR},
+      </if>
+      <if test="ratingvalue != null" >
+        #{ratingvalue,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update programrating
+    <set >
+      <if test="record.ratingid != null" >
+        ratingid = #{record.ratingid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ratingcode != null" >
+        ratingcode = #{record.ratingcode,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ratingkey != null" >
+        ratingkey = #{record.ratingkey,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderby != null" >
+        orderby = #{record.orderby,jdbcType=VARCHAR},
+      </if>
+      <if test="record.ratingvalue != null" >
+        ratingvalue = #{record.ratingvalue,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update programrating
+    set ratingid = #{record.ratingid,jdbcType=VARCHAR},
+      ratingcode = #{record.ratingcode,jdbcType=VARCHAR},
+      ratingkey = #{record.ratingkey,jdbcType=VARCHAR},
+      orderby = #{record.orderby,jdbcType=VARCHAR},
+      ratingvalue = #{record.ratingvalue,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dayang.newmedia.newscommand.db.model.Programrating" >
+    update programrating
+    <set >
+      <if test="ratingcode != null" >
+        ratingcode = #{ratingcode,jdbcType=VARCHAR},
+      </if>
+      <if test="ratingkey != null" >
+        ratingkey = #{ratingkey,jdbcType=VARCHAR},
+      </if>
+      <if test="orderby != null" >
+        orderby = #{orderby,jdbcType=VARCHAR},
+      </if>
+      <if test="ratingvalue != null" >
+        ratingvalue = #{ratingvalue,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ratingid = #{ratingid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dayang.newmedia.newscommand.db.model.Programrating" >
+    update programrating
+    set ratingcode = #{ratingcode,jdbcType=VARCHAR},
+      ratingkey = #{ratingkey,jdbcType=VARCHAR},
+      orderby = #{orderby,jdbcType=VARCHAR},
+      ratingvalue = #{ratingvalue,jdbcType=VARCHAR}
+    where ratingid = #{ratingid,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="listProgramrating" resultMap="BaseResultMap"  resultType="com.dayang.newmedia.newscommand.db.model.Programrating" parameterType="java.lang.String" >
+    	select 
+    	<include refid="Base_Column_List" /> 
+    	from programrating where ratingcode = #{ratingcode,jdbcType=VARCHAR} order by  orderby
+  </select>  
+</mapper>

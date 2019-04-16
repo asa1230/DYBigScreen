@@ -17,6 +17,10 @@ dp.News = (function($, window, document) {
 			thisContext.initViewStyle();
 			thisContext.initData();
 			thisContext.initEvent();
+			// 定时刷新页面
+			window.setInterval(function(){ 
+				window.location.reload();
+			}, 600000); 
 		},
 		/**
 		 * 初始化页面视图
@@ -83,7 +87,7 @@ dp.News = (function($, window, document) {
 										&& typeof (data.data) != "undefined"
 										&& data.data.length > 0) {
 									// $('#news_cont').html("");
-									// console.log(JSON.stringify(data))
+									 console.log(JSON.stringify(data))
 									for (var a = 0; a < data.data.length; a++) {
 										var type = data.data[a].manuscripttype;
 										if (type == "0") {

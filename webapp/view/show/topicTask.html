@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<html lang="zh-cn">
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>蜂鸟任务</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #1 for fixed sidebar option" name="description" />
+    <meta content="" name="author" />
+
+    <link rel="icon" href="../../img/dayang.ico" type="image/x-icon" />
+    <link href="../../static/plugins/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--bootstrap CSS-->
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <link href="../../static/plugins/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/clockface/css/clockface.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/select2/css/select2.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="../../static/plugins/assets/global/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="../../static/plugins/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <!--基本样式-->
+    <link href="../../static/plugins/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <!--基本插件样式-->
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <link href="../../static/plugins/assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <!--插件公共部分 宽高 样式-->
+    <!-- END THEME LAYOUT STYLES -->
+    <link href="../../static/css/ccbnCommon.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/comunication/iconfont.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/comunication/index.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/topictask/topictask.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-sidebar-fixed">
+    <div style="position: relative;width: 100%;height: 1080px;">
+        <div class="screen_container">
+            <div class="screen_header">
+                <span class="header_icon"><img src="../../static/images/communication/Combined Shape.svg" width="58"></span>
+                <span class="header_title">蜂鸟任务</span>
+                <span class="header_eng">Topic Task</span>
+            </div>
+            <div class="screen_content">
+                <div class="task-top flex-box">
+                    <ul id="first_five">
+                        <li class="flex-box">
+                            <span class="circle-blue"></span>
+                            <span>未处理：</span>
+                            <span>150</span>
+                        </li>
+                        <li class="flex-box">
+                            <span class="circle-yellow"></span>
+                            <span>待确认：</span>
+                            <span>150</span>
+                        </li>
+                        <li class="flex-box">
+                            <span class="circle-green"></span>
+                            <span>已完成：</span>
+                            <span>150</span>
+                        </li>
+                    </ul>
+                    <div>
+                        当前展示(最近更新):
+                        <span>1/5</span>
+                    </div>
+                </div>
+                <div class="task-down">
+                    <ul class="list_container" id="tabs_ul">
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+</body>
+<script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
+<script src="../../plugin/aui-artTemplate/template.js"></script>
+<!-- 选题列表-->
+<script id="task-list-item" type="text/html">
+    {{each list as item index}}
+    <li class="list-items flex-box">
+        <div class="order-number">
+            <span>{{index+1}}</span>
+        </div>
+        <div class="class-content">
+            <p class="ellipsis">{{item.topicTitle}}</p>
+            <div class="flex-box">
+                <span class="detail-items ellipsis">所属选题：{{item.topic}}</span>
+                <span class="detail-items ellipsis">执行人：{{item.topicperson}} </span>
+            </div>
+        </div>
+        <div style="width: 215px;flex:none;">
+            <div class="flex-box" style='margin-bottom: 30px;margin-top: 20px;'>
+                <span class="rect-blue" style="border-radius: 6px 0 0 6px!important;"></span>
+                <span class="rect-yellow" style="margin: 0 3px;"></span>
+                <span class="rect-green" style="border-radius: 0 6px 6px 0!important;"></span>
+            </div>
+            <span class="detail-items" style="width: 100%;">{{item.deadLine}} 截止</span>
+        </div>
+    </li>
+    {{/each}}
+</script>
+
+<script type="text/javascript" src="../../static/scripts/util/utils.js"></script>
+<script type="text/javascript" src="../../static/scripts/common/global.js"></script>
+<!--通过调用接口的形式获取选题详情~而不是直接去数据库查询。  -->
+<script type="text/javascript" src="../../static/scripts/show/topictask.js"></script>
+
+</html>

@@ -51,6 +51,8 @@
     <link rel="stylesheet" href="../../static/css/nav/navIcon/iconfont.css">
     <link rel="stylesheet" href="../../static/css/control/controlotherbigscreen.css">
 
+	<link rel="stylesheet" href="../../static/css/nav/navIcon/iconfont.css">
+    <link rel="stylesheet" href="../../static/css/nav/nav.css">
 
 </head>
 <!-- END HEAD -->
@@ -65,49 +67,13 @@
             <div>
                 <div class="input-group leftSearch" style="float:left;width:390px;">
                     <input id="searchContent" type="txt" class="form-control" placeholder="搜索内容">
-                    <span onclick="loadSelectApiList();" class="input-group-addon"> <i class="fa fa-search"></i></span>
+                    <span onclick="loadSelectApiList();" class="input-group-addon" style="cursor:pointer;"> <i class="fa fa-search"></i></span>
                 </div>
                 <div class="buttonContainer" style="float:right;">
-                    <button type="button" class="btn btn-default">新建</button>
-                    <button type="button" class="btn btn-default">删除</button>
+                    <button type="button" class="btn btn-default" id="createBigscreen">新建</button>
+                    <button type="button" class="btn btn-default" id="deleteBigscreen">删除</button>
                 </div>
                 <div style="clear:both;"></div>
-                <table>
-                    <td width="105px">筛选条件：</td>
-                    <td width="170px">
-                        <select id="column" class="form-control  input-small select" name="select">
-                            <option value="">全部栏目</option>
-                            <option value="ccbnbdz">CCBN报道组</option>
-                            <option value="dyxw">大洋新闻</option>
-                            <option value="rmtgzs">融媒体工作室</option>
-                        </select>
-                    </td>
-                    <td width="170px">
-                        <select id="status" class="form-control  input-small select" name="select">
-                            <!--  zhy mod
-									<option value="">全部状态</option>									
-									<option value="0">已选</option>
-									<option value="1">保存</option>
-									<option value="2">待选</option>									
-									<option value="3">进行中</option>
-									<option value="4">审核中</option>
-									<option value="5">审核通过</option>
-									<option value="6">审核打回</option>
-									<option value="7">终止</option>
-									<option value="8">已发布</option>
-							-->
-                        </select>
-                    </td>
-                    <td width="170px">
-                        <select id="chargeMan" class="form-control  input-small select" name="select">
-                        </select>
-                    </td>
-                    <td width="170px">
-                        <!--  <a href="javascript:;" class="btn btn-default btn-sm" onclick="backSelectProcess()" style="font-size: 14px;height: 34px; color: #4d6b8a;display: block; font-weight: bolder; width: 132px;">
-                                  <i class="glyphicon glyphicon-share-alt"></i> 返回选题进展 </a> -->
-                    </td>
-                    </tr>
-                </table>
 
                 <div class="table-scrollable">
                     <table class="table table-striped table-hover" style="table-layout:fixed;">
@@ -115,14 +81,13 @@
                             <tr>
                                 <th style="width:40px;">
                                         <div class="checkbox-lyy checkbox-default">
-                                                <input type="checkbox" >
+                                                <input type="checkbox" id="tableBox" onchange="changeTableBox();">
                                                 <label ></label>
                                         </div>
                                 </th>
                                 <th width="118px">大屏名称</th>
-                                <th width="300px">链接地址</th>
-                                <th width="75px">是否启用</th>
-                                <th width="100px">大屏ID</th>
+                                <th width="240px">链接地址</th>
+                                <th width="240px">控制端地址</th>
                                 <th width="100px">创建人</th>
                                 <th width="160px">更新时间</th>
                                 <th  style="text-align:center;width:100px;">操作</th>
@@ -145,6 +110,108 @@
         <!-- BEGIN QUICK SIDEBAR -->
         <!-- END QUICK SIDEBAR -->
     </div>
+    
+    
+    <!-- 新建大屏 -->
+    <div class="modal fade" id="ceateBigScreenModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="">新建大屏</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="div1">
+                        大 屏 名 称：
+                        <input type="text" id="createBigscreenName" placeholder="最多10个字符，不含特殊符号" class="form-control organizationName">
+                    </div>
+                    <!--  -->
+                    <div class="div2">
+                        链 接 地 址：
+                        <textarea placeholder="请输入http://类型地址" id="createBigscreenUrl"></textarea>
+                    </div>
+                    <div class="div2">
+                        控制端地址：
+                        <textarea placeholder="请输入http://类型地址" id="createControlBigscreenUrl"></textarea>
+                    </div>
+                    <div class="div2">
+                        缩略图地址：
+                        <textarea placeholder="例如：/images/paper.jpg" id="createBigscreenImg"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="tosave()">确定</button>
+                    <button type="button" class="btn btn-cancle" data-dismiss="modal">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    
+    <!-- 编辑大屏 -->
+    <div class="modal fade" id="editBigScreenModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="">编辑大屏</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="div1">
+                        大 屏 名 称：
+                        <input type="text" id="editBigscreenName" placeholder="最多10个字符，不含特殊符号" class="form-control organizationName">
+                        <input type="hidden" id="hidBigscreenGuid" value="" />
+                    </div>
+                    <!--  -->
+                    <div class="div2">
+                        链 接 地 址：
+                        <textarea placeholder="请输入http://类型地址" id="editBigscreenUrl"></textarea>
+                    </div>
+                    <div class="div2">
+                        控制端地址：
+                        <textarea placeholder="请输入http://类型地址" id="editControlBigscreenUrl"></textarea>
+                    </div>
+                    <div class="div2">
+                        缩略图地址：
+                        <textarea placeholder="例如：/images/paper.jpg" id="editBigscreenImg"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="toedit()">确定</button>
+                    <button type="button" class="btn btn-cancle" data-dismiss="modal">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    
+    <!-- 删除 -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="div1">
+                        确定要删除所选的大屏吗？
+                    </div>
+                    <div class="div2">
+                        <span class="iconfont icon-warning"></span>删除后将无法还原
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="todelete()">确定</button>
+                    <button type="button" class="btn btn-cancle" data-dismiss="modal">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    
+    
+    
     <!-- END CONTAINER -->
     <!-- BEGIN FOOTER -->
     <!-- END FOOTER -->
@@ -170,20 +237,19 @@
 <!-- 选题列表 -->
 <script id="select-list-item" type="text/html">
 {{each records as record i}}
-<tr class="list-item">
+<tr class="list-item" id="{{record.screenguid}}">
     <td >
         <div class="checkbox-lyy checkbox-default">
-            <input type="checkbox" >
+            <input type="checkbox" name="tablecheckbox">
             <label ></label>
         </div>
     </td>
-	<td style="text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{record.title}}</td>
-	<td style="text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">https://blog.csdn.net/qq_35038331/article/details/70991107https://blog.csdn.net/qq_35038331/article/details/70991107https://blog.csdn.net/qq_35038331/article/details/70991107</td>
-	<td style="text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{record.chargeMan}}</td>
-    <td style="text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{record.statusdesp}}</td>
-    <td style="text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{record.statusdesp}}</td>
-	<td style="text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{record.createTime}}</td>
-	<td  style="cursor:pointer;display:flex;align-items:center;justify-content: center;"><span class="editIcon"></span><img id="img_{{record.taskGuid}}" src="../../images/icon1.png" onclick="toSelectDetail('{{record.taskGuid}}',this)"></td>
+	<td style="text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{record.screenname}}</td>
+	<td style="text-overflow: ellipsis; white-space: nowrap;overflow: hidden;"><a href="{{record.hrefscreenurl}}" target='_blank'>{{record.screenurl}}</a></td>
+	<td style="text-overflow: ellipsis; white-space: nowrap;overflow: hidden;"><a href="{{record.hrefcontrolscreenurl}}" target='_blank'>{{record.controlscreenurl}}</a></td>
+    <td style="text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{record.creater}}</td>
+    <td style="text-overflow: ellipsis; white-space: nowrap;overflow: hidden;">{{record.createtime}}</td>
+	<td  style="cursor:pointer;display:flex;align-items:center;justify-content: center;"><span class="editIcon"></span></td>
 </tr>
 {{/each}}
 </script>

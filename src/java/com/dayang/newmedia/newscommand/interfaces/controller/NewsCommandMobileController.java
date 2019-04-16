@@ -2,6 +2,9 @@ package com.dayang.newmedia.newscommand.interfaces.controller;
 
 import java.io.UnsupportedEncodingException;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +31,8 @@ public class NewsCommandMobileController {
 	
 	@Autowired
 	private NewsCommandMobileService newsCommandMobileService;
+	 @Autowired  
+	 HttpServletRequest request; 
 	
 	private MyConfigReader paramcfg = MyConfigReader.getParam();
 	/*
@@ -37,7 +42,7 @@ public class NewsCommandMobileController {
 	@ResponseBody
 	public String selectProgressList(@RequestBody NewsCommandMobileSelectListQueryCondition params) {
 		//log.debug("-- NewsCommandMobileController selectProgressList 所接收到的参数"+params.toString());
-		String result = newsCommandMobileService.selectProgressList(params);
+		String result = newsCommandMobileService.selectProgressList(params,request);
 		JSONObject uncookedResult = JSONObject.fromObject(result);
 		JSONObject finalResult = new JSONObject();
 		//设置返回响应状态
@@ -134,7 +139,7 @@ public class NewsCommandMobileController {
 				JSONObject jsonDetail = JSONObject.fromObject(uncookDetail);
 				JSONObject taskInfo = JSONObject.fromObject(jsonDetail.get("data"));
 				*/
-				String uncookDetail = newsCommandMobileService.getXuantiMissionByselectId(nc);  
+				String uncookDetail = newsCommandMobileService.getXuantiMissionByselectId(nc,request);  
 				JSONObject taskInfo = JSONObject.fromObject(uncookDetail);				
 				
 				if(taskInfo.get("missionList")!=null) {
@@ -175,7 +180,7 @@ public class NewsCommandMobileController {
 	@ResponseBody
 	public String selectProgressDetailes(@RequestBody NewsCommandMobileSelectQueryCondition nc){
 		log.debug("查询选题详情的条件信息:"+nc.toString());
-		String result = newsCommandMobileService.selectProgressByIdAndType(nc);
+		String result = newsCommandMobileService.selectProgressByIdAndType(nc,request);
 		log.debug( " news commandmobile   controller detail.do 获取到 的 "+result);
 		JSONObject uncookedResult = JSONObject.fromObject(result);
 		JSONObject finalResult = new JSONObject();
@@ -265,7 +270,7 @@ public class NewsCommandMobileController {
 				}
 				*/
 				log.debug("开始查询选题 " + taskInfo.get("topicTitle").toString() +" 对应任务信息");
-				String missionresult = newsCommandMobileService.getXuantiMissionByselectId(nc);
+				String missionresult = newsCommandMobileService.getXuantiMissionByselectId(nc,request);
 				JSONObject uncookedMissionResult = JSONObject.fromObject(missionresult);
 				if(uncookedMissionResult.get("missionList")!=null) {
 					log.debug("taskmissionlist 不为 null");
@@ -443,10 +448,10 @@ public class NewsCommandMobileController {
 			
 		}
 		if(querymodel==3) {
-			result = newsCommandMobileService.selectProgressList(params);
+			result = newsCommandMobileService.selectProgressList(params,request);
 		}
 		if(querymodel==4||querymodel==5) {
-			result = newsCommandMobileService.MapGpsInfoList(params);
+			result = newsCommandMobileService.MapGpsInfoList(params,request);
 			
 			JSONObject JSONResult = JSONObject.fromObject(result);
 			JSONArray listArrayRecords = new JSONArray();
@@ -495,7 +500,7 @@ public class NewsCommandMobileController {
 	public String onLineGo(@RequestBody NewsCommandMobileSelectListQueryCondition params) {
 		
 		String result = "";
-		result = newsCommandMobileService.onLineGo(params);
+		result = newsCommandMobileService.onLineGo(params,request);
 		
 		
 		log.debug( " news commandmobile controller 获取到的 "+result);
@@ -507,7 +512,7 @@ public class NewsCommandMobileController {
 	public String userList(@RequestBody NewsCommandMobileSelectListQueryCondition params) {
 		
 		String result = "";
-		result = newsCommandMobileService.allUserList(params);
+		result = newsCommandMobileService.allUserList(params,request);
 		
 		
 		log.debug( " news commandmobile controller 获取到的 "+result);
@@ -519,7 +524,7 @@ public class NewsCommandMobileController {
 	public String columnList(@RequestBody NewsCommandMobileSelectListQueryCondition params) {
 		
 		String result = "";
-		result = newsCommandMobileService.allColumnrList(params);
+		result = newsCommandMobileService.allColumnrList(params,request);
 		
 		
 		log.debug( " news commandmobile controller 获取到的 "+result);
@@ -676,7 +681,7 @@ public class NewsCommandMobileController {
 	public String newsDetailInfo(@RequestBody NewsCommandMobileSelectListQueryCondition params) {
 		
 		String result = "";
-		result = newsCommandMobileService.ManuscriptsProgressDetail(params);		
+		result = newsCommandMobileService.ManuscriptsProgressDetail(params,request);		
 		
 		log.debug( " newsDetail  controller 获取到的 "+result);
 		return result;

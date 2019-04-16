@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<html lang="zh-cn">
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>宣传管理</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #1 for fixed sidebar option" name="description" />
+    <meta content="" name="author" />
+
+    <link rel="icon" href="../../img/dayang.ico" type="image/x-icon" />
+    <link href="../../static/plugins/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--bootstrap CSS-->
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <link href="../../static/plugins/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/clockface/css/clockface.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/select2/css/select2.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="../../static/plugins/assets/global/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="../../static/plugins/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <!--基本样式-->
+    <link href="../../static/plugins/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <!--基本插件样式-->
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <link href="../../static/plugins/assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <!--插件公共部分 宽高 样式-->
+    <!-- END THEME LAYOUT STYLES -->
+    <link href="../../static/css/ccbnCommon.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/comunication/iconfont.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/comunication/index.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/propaganda/propaganda.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-sidebar-fixed">
+    <div style="position: relative;width: 100%;height: 1080px;overflow:hidden;display:block;">
+        <div class="screen_container">
+            <div class="screen_header">
+                <!--<span class="icon iconfont iconimg_upleft"></span>
+                <span class="icon iconfont iconimg_downleft"></span>
+                <span class="icon iconfont iconimg_downright"></span>
+                <span class="icon iconfont iconimg_upright"></span> -->
+                <span class="header_icon"><img src="../../static/images/communication/icon_xcgl.svg" width="58"></span>
+                <span class="header_title">宣传管理</span>
+                <span class="header_eng">Propaganda Management</span>
+            </div>
+            <div class="screen_content flex-box" style="align-items: flex-start;">
+                <div class="communi_left">
+                    <div class="flex-box" style="border: 2px solid #3A96FF;border-radius:4px!important;">
+                        <div class="rank_tab_active" id="rigion_ul" name="topic_report_dept">区域排名</div>
+                        <div class="rank_tab_unactive" name="topic_news_class" id="hot_ul">热门分类</div>
+                    </div>
+                    <ul id="first_five" style="height: calc(100% - 44px);overflow: hidden;">
+
+                    </ul>
+                </div>
+                <div class="communi_right">
+                    <div class="flex-box" style="justify-content:space-between;align-items: flex-start;">
+                        <div class="flex-box">
+                            <div class="tab_active communi_tabs" id="communication_ul" name="1" style="margin-right: 53px;">最新选题</div>
+                            <div class="tab_unactive communi_tabs" name="2" id="reply_ul">最新公告</div>
+                        </div>
+                        <div class="flex-box">
+                            <select id="management" class="form-control  input-small comu-select" name="select">
+                                                <option value="">全部单位</option>
+                                        </select>
+                            <select id="deadline" class="form-control  input-small comu-select" name="select">
+                                                <option value="">最近更新</option>
+                                            </select>
+                        </div>
+                    </div>
+                    <ul class="list_container" id="tabs_ul">
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+</body>
+<script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
+<script src="../../plugin/aui-artTemplate/template.js"></script>
+<!-- 选题列表-->
+<script id="communication-list-item" type="text/html">
+    {{each list as item index}}
+    <li class="reply-comment-list-items">
+        <p>{{item.topicTitle}}</p>
+        <div class="flex-box">
+            <span class="detail-items ellipsis">选题单位：{{item.topicPrerepColumn}}</span>
+            <span class="detail-items ellipsis">分类：{{item.topicNewsClass}} </span>
+            <span class="detail-items list-items">{{item.topicStatus}}</span>
+            <span class="detail-items">{{item.topicModifyTime}} 更新</span>
+        </div>
+    </li>
+    {{/each}}
+</script>
+<!-- 公告列表-->
+<script id="reply-list-item" type="text/html">
+    {{each list as item index}}
+    <li class="reply-comment-list-items">
+        <p>{{item.annouTitle}}</p>
+        <div class="flex-box">
+            <span class="detail-items ellipsis">接收单位：{{item.annouRangeName}} </span>
+            <span class="detail-items">附件：{{item.annouAttachNum}} </span> {{if item.annouStatus == 1}}
+            <span class="detail-items">已发</span> {{else if item.annouStatus == 2}}
+            <span class="detail-items">草稿</span>{{else if item.annouStatus == 3}}
+            <span class="detail-items">撤回</span> {{/if}}
+            <span class="detail-items">{{item.annouUpdateTime}} 更新</span>
+        </div>
+    </li>
+    {{/each}}
+</script>
+<!-- 区域排名 -->
+<script id="first-five-item" type="text/html">
+    {{each data as item index}}
+    <li class="five-items">
+        <div class="flex-box" style="justify-content: space-between;font-size: 24px;">
+            <span style="width:192px;">{{item.fieldName}}</span>
+            <span style="width:{{item.width}}px" class="color-bar-span"></span>
+        </div>
+        <p style="text-align:right;margin:0;font-size: 20px;color: #00C9FC;">{{item.count}}</p>
+    </li>
+    {{/each}}
+</script>
+
+<!-- <script src="../../js/echarts.min.js" type="text/javascript"></script> -->
+<script type="text/javascript" src="../../static/scripts/util/utils.js"></script>
+<script type="text/javascript" src="../../static/scripts/common/global.js"></script>
+<!--通过调用接口的形式获取选题详情~而不是直接去数据库查询。  -->
+<script type="text/javascript" src="../../static/scripts/show/propaganda.js"></script>
+
+</html>

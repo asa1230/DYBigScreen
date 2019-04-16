@@ -1,0 +1,112 @@
+.propa_top {
+    height: 222px;
+    font-size: 26px;
+    color: #A6C9F1;
+    padding: 25px 0 40px;
+}
+
+.top-items-box {
+    height: 100%;
+    border-right: 2px solid #01397F;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top-items-box:last-child {
+    border: none;
+}
+
+.top-items-box p {
+    text-align: center;
+    margin: 0;
+}
+
+.top-items-box p:first-child {
+    justify-content: center;
+    margin-top: -10px;
+}
+
+.top-items-box p:nth-child(2) {
+    font-size: 64px;
+    color: #FFFFFF;
+    font-weight: bold;
+    line-height: 100px;
+}
+
+.diamond {
+    width: 26px;
+    height: 26px;
+    display: inline-block;
+    background: url(../../images/propaganda/Rectangle\ 11.svg) no-repeat center;
+    margin-right: 15px;
+}
+
+.total-list-box {
+    height: 210px;
+    background: rgba(0, 197, 255, 0.1);
+    padding: 0 20px;
+}
+
+.total-list-box>p {
+    font-size: 55px;
+    color: #FFFFFF;
+    height: 50%;
+    width: 100%;
+    margin: 0;
+    line-height: 105px;
+    border-bottom: 2px dashed #023778;
+}
+
+.total-list-box>div {
+    height: 50%;
+    font-size: 24px;
+    color: #A6C9F1;
+    padding: 15px;
+}
+
+.total-list-box>div p {
+    margin: 0;
+}
+
+.total-list-box>div p:nth-child(2) {
+    font-size: 36px;
+    color: #FFFFFF;
+    text-align: right;
+}
+
+.propa_down {
+    height: calc(100% - 222px);
+    align-items: flex-start;
+}
+
+.propa_left {
+    height: 100%;
+    width: 356px;
+    margin-right: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.propa_left>div {
+    width: 100%;
+}
+
+.total-title {
+    height: 52px;
+    line-height: 52px;
+    width: 300px;
+    margin-bottom: 31px;
+    background: url(../../images/propaganda/Rectangle\ 10.svg) no-repeat center;
+    background-size: cover;
+    padding-left: 16px;
+    font-size: 26px;
+    color: #FFFFFF;
+}
+
+.echarts-container {
+    width: calc(100% - 376px);
+    padding: 25px;
+    background: rgba(0, 197, 255, 0.1);
+    height: 100%;
+}

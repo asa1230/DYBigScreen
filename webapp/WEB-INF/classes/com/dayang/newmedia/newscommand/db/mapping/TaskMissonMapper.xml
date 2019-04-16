@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dayang.newmedia.newscommand.db.dao.TaskMissonMapper" >
+  <resultMap id="BaseResultMap" type="com.dayang.newmedia.newscommand.db.model.TaskMisson" >
+    <id column="mguid" property="mguid" jdbcType="NVARCHAR" />
+    <result column="mtitle" property="mtitle" jdbcType="NVARCHAR" />
+    <result column="mplace" property="mplace" jdbcType="NVARCHAR" />
+    <result column="mcreater" property="mcreater" jdbcType="NVARCHAR" />
+    <result column="mcreaterguid" property="mcreaterguid" jdbcType="NVARCHAR" />
+    <result column="mchargeman" property="mchargeman" jdbcType="NVARCHAR" />
+    <result column="mpasser" property="mpasser" jdbcType="NVARCHAR" />
+    <result column="mpasseradvice" property="mpasseradvice" jdbcType="NVARCHAR" />
+    <result column="mstate" property="mstate" jdbcType="INTEGER" />
+    <result column="mowncolumn" property="mowncolumn" jdbcType="NVARCHAR" />
+    <result column="mrepoter" property="mrepoter" jdbcType="NVARCHAR" />
+    <result column="mtype" property="mtype" jdbcType="NVARCHAR" />
+    <result column="mfinishtime" property="mfinishtime" jdbcType="TIMESTAMP" />
+    <result column="mcreatetime" property="mcreatetime" jdbcType="TIMESTAMP" />
+    <result column="taskguid" property="taskguid" jdbcType="NVARCHAR" />
+    <result column="mremark" property="mremark" jdbcType="NVARCHAR" />
+    <result column="tasktitle" property="tasktitle" jdbcType="NVARCHAR" />
+    <result column="mlevel" property="mlevel" jdbcType="INTEGER" />
+    <result column="mid" property="mid" jdbcType="NVARCHAR" />
+    <result column="mname" property="mname" jdbcType="NVARCHAR" />
+    <result column="INPEOPLE" property="inpeople" jdbcType="VARCHAR" />
+    <result column="TASKCHANGEMAN" property="taskchangeman" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.dayang.newmedia.newscommand.db.model.TaskMissonWithBLOBs" extends="BaseResultMap" >
+    <result column="mevents" property="mevents" jdbcType="CLOB" />
+    <result column="meventsr" property="meventsr" jdbcType="CLOB" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBsAndNewsTask" type="com.dayang.newmedia.newscommand.db.model.TaskMissonWithBLOBs" extends="BaseResultMap" >
+    <result column="mevents" property="mevents" jdbcType="CLOB" />
+    <result column="meventsr" property="meventsr" jdbcType="CLOB" />
+    <association property="newsTask" column="taskguid" select="selectNewsTask"/>
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    mguid, mtitle, mplace, mcreater, mcreaterguid, mchargeman, mpasser, mpasseradvice, 
+    mstate, mowncolumn, mrepoter, mtype, mfinishtime, mcreatetime, taskguid, mremark, 
+    tasktitle, mlevel, mid, mname, INPEOPLE, TASKCHANGEMAN
+  </sql>
+  <sql id="Blob_Column_List" >
+    mevents, meventsr
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.dayang.newmedia.newscommand.db.model.TaskMissonQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from taskmisson
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dayang.newmedia.newscommand.db.model.TaskMissonQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from taskmisson
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from taskmisson
+    where mguid = #{mguid,jdbcType=NVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from taskmisson
+    where mguid = #{mguid,jdbcType=NVARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dayang.newmedia.newscommand.db.model.TaskMissonQuery" >
+    delete from taskmisson
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dayang.newmedia.newscommand.db.model.TaskMissonWithBLOBs" >
+    insert into taskmisson (mguid, mtitle, mplace, 
+      mcreater, mcreaterguid, mchargeman, 
+      mpasser, mpasseradvice, mstate, 
+      mowncolumn, mrepoter, mtype, 
+      mfinishtime, mcreatetime, taskguid, 
+      mremark, tasktitle, mlevel, 
+      mid, mname, INPEOPLE, 
+      TASKCHANGEMAN, mevents, meventsr
+      )
+    values (#{mguid,jdbcType=NVARCHAR}, #{mtitle,jdbcType=NVARCHAR}, #{mplace,jdbcType=NVARCHAR}, 
+      #{mcreater,jdbcType=NVARCHAR}, #{mcreaterguid,jdbcType=NVARCHAR}, #{mchargeman,jdbcType=NVARCHAR}, 
+      #{mpasser,jdbcType=NVARCHAR}, #{mpasseradvice,jdbcType=NVARCHAR}, #{mstate,jdbcType=INTEGER}, 
+      #{mowncolumn,jdbcType=NVARCHAR}, #{mrepoter,jdbcType=NVARCHAR}, #{mtype,jdbcType=NVARCHAR}, 
+      #{mfinishtime,jdbcType=TIMESTAMP}, #{mcreatetime,jdbcType=TIMESTAMP}, #{taskguid,jdbcType=NVARCHAR}, 
+      #{mremark,jdbcType=NVARCHAR}, #{tasktitle,jdbcType=NVARCHAR}, #{mlevel,jdbcType=INTEGER}, 
+      #{mid,jdbcType=NVARCHAR}, #{mname,jdbcType=NVARCHAR}, #{inpeople,jdbcType=VARCHAR}, 
+      #{taskchangeman,jdbcType=VARCHAR}, #{mevents,jdbcType=CLOB}, #{meventsr,jdbcType=CLOB}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dayang.newmedia.newscommand.db.model.TaskMissonWithBLOBs" >
+    insert into taskmisson
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="mguid != null" >
+        mguid,
+      </if>
+      <if test="mtitle != null" >
+        mtitle,
+      </if>
+      <if test="mplace != null" >
+        mplace,
+      </if>
+      <if test="mcreater != null" >
+        mcreater,
+      </if>
+      <if test="mcreaterguid != null" >
+        mcreaterguid,
+      </if>
+      <if test="mchargeman != null" >
+        mchargeman,
+      </if>
+      <if test="mpasser != null" >
+        mpasser,
+      </if>
+      <if test="mpasseradvice != null" >
+        mpasseradvice,
+      </if>
+      <if test="mstate != null" >
+        mstate,
+      </if>
+      <if test="mowncolumn != null" >
+        mowncolumn,
+      </if>
+      <if test="mrepoter != null" >
+        mrepoter,
+      </if>
+      <if test="mtype != null" >
+        mtype,
+      </if>
+      <if test="mfinishtime != null" >
+        mfinishtime,
+      </if>
+      <if test="mcreatetime != null" >
+        mcreatetime,
+      </if>
+      <if test="taskguid != null" >
+        taskguid,
+      </if>
+      <if test="mremark != null" >
+        mremark,
+      </if>
+      <if test="tasktitle != null" >
+        tasktitle,
+      </if>
+      <if test="mlevel != null" >
+        mlevel,
+      </if>
+      <if test="mid != null" >
+        mid,
+      </if>
+      <if test="mname != null" >
+        mname,
+      </if>
+      <if test="inpeople != null" >
+        INPEOPLE,
+      </if>
+      <if test="taskchangeman != null" >
+        TASKCHANGEMAN,
+      </if>
+      <if test="mevents != null" >
+        mevents,
+      </if>
+      <if test="meventsr != null" >
+        meventsr,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="mguid != null" >
+        #{mguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="mtitle != null" >
+        #{mtitle,jdbcType=NVARCHAR},
+      </if>
+      <if test="mplace != null" >
+        #{mplace,jdbcType=NVARCHAR},
+      </if>
+      <if test="mcreater != null" >
+        #{mcreater,jdbcType=NVARCHAR},
+      </if>
+      <if test="mcreaterguid != null" >
+        #{mcreaterguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="mchargeman != null" >
+        #{mchargeman,jdbcType=NVARCHAR},
+      </if>
+      <if test="mpasser != null" >
+        #{mpasser,jdbcType=NVARCHAR},
+      </if>
+      <if test="mpasseradvice != null" >
+        #{mpasseradvice,jdbcType=NVARCHAR},
+      </if>
+      <if test="mstate != null" >
+        #{mstate,jdbcType=INTEGER},
+      </if>
+      <if test="mowncolumn != null" >
+        #{mowncolumn,jdbcType=NVARCHAR},
+      </if>
+      <if test="mrepoter != null" >
+        #{mrepoter,jdbcType=NVARCHAR},
+      </if>
+      <if test="mtype != null" >
+        #{mtype,jdbcType=NVARCHAR},
+      </if>
+      <if test="mfinishtime != null" >
+        #{mfinishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mcreatetime != null" >
+        #{mcreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taskguid != null" >
+        #{taskguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="mremark != null" >
+        #{mremark,jdbcType=NVARCHAR},
+      </if>
+      <if test="tasktitle != null" >
+        #{tasktitle,jdbcType=NVARCHAR},
+      </if>
+      <if test="mlevel != null" >
+        #{mlevel,jdbcType=INTEGER},
+      </if>
+      <if test="mid != null" >
+        #{mid,jdbcType=NVARCHAR},
+      </if>
+      <if test="mname != null" >
+        #{mname,jdbcType=NVARCHAR},
+      </if>
+      <if test="inpeople != null" >
+        #{inpeople,jdbcType=VARCHAR},
+      </if>
+      <if test="taskchangeman != null" >
+        #{taskchangeman,jdbcType=VARCHAR},
+      </if>
+      <if test="mevents != null" >
+        #{mevents,jdbcType=CLOB},
+      </if>
+      <if test="meventsr != null" >
+        #{meventsr,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update taskmisson
+    <set >
+      <if test="record.mguid != null" >
+        mguid = #{record.mguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mtitle != null" >
+        mtitle = #{record.mtitle,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mplace != null" >
+        mplace = #{record.mplace,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mcreater != null" >
+        mcreater = #{record.mcreater,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mcreaterguid != null" >
+        mcreaterguid = #{record.mcreaterguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mchargeman != null" >
+        mchargeman = #{record.mchargeman,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mpasser != null" >
+        mpasser = #{record.mpasser,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mpasseradvice != null" >
+        mpasseradvice = #{record.mpasseradvice,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mstate != null" >
+        mstate = #{record.mstate,jdbcType=INTEGER},
+      </if>
+      <if test="record.mowncolumn != null" >
+        mowncolumn = #{record.mowncolumn,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mrepoter != null" >
+        mrepoter = #{record.mrepoter,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mtype != null" >
+        mtype = #{record.mtype,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mfinishtime != null" >
+        mfinishtime = #{record.mfinishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.mcreatetime != null" >
+        mcreatetime = #{record.mcreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.taskguid != null" >
+        taskguid = #{record.taskguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mremark != null" >
+        mremark = #{record.mremark,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.tasktitle != null" >
+        tasktitle = #{record.tasktitle,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mlevel != null" >
+        mlevel = #{record.mlevel,jdbcType=INTEGER},
+      </if>
+      <if test="record.mid != null" >
+        mid = #{record.mid,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.mname != null" >
+        mname = #{record.mname,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.inpeople != null" >
+        INPEOPLE = #{record.inpeople,jdbcType=VARCHAR},
+      </if>
+      <if test="record.taskchangeman != null" >
+        TASKCHANGEMAN = #{record.taskchangeman,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mevents != null" >
+        mevents = #{record.mevents,jdbcType=CLOB},
+      </if>
+      <if test="record.meventsr != null" >
+        meventsr = #{record.meventsr,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update taskmisson
+    set mguid = #{record.mguid,jdbcType=NVARCHAR},
+      mtitle = #{record.mtitle,jdbcType=NVARCHAR},
+      mplace = #{record.mplace,jdbcType=NVARCHAR},
+      mcreater = #{record.mcreater,jdbcType=NVARCHAR},
+      mcreaterguid = #{record.mcreaterguid,jdbcType=NVARCHAR},
+      mchargeman = #{record.mchargeman,jdbcType=NVARCHAR},
+      mpasser = #{record.mpasser,jdbcType=NVARCHAR},
+      mpasseradvice = #{record.mpasseradvice,jdbcType=NVARCHAR},
+      mstate = #{record.mstate,jdbcType=INTEGER},
+      mowncolumn = #{record.mowncolumn,jdbcType=NVARCHAR},
+      mrepoter = #{record.mrepoter,jdbcType=NVARCHAR},
+      mtype = #{record.mtype,jdbcType=NVARCHAR},
+      mfinishtime = #{record.mfinishtime,jdbcType=TIMESTAMP},
+      mcreatetime = #{record.mcreatetime,jdbcType=TIMESTAMP},
+      taskguid = #{record.taskguid,jdbcType=NVARCHAR},
+      mremark = #{record.mremark,jdbcType=NVARCHAR},
+      tasktitle = #{record.tasktitle,jdbcType=NVARCHAR},
+      mlevel = #{record.mlevel,jdbcType=INTEGER},
+      mid = #{record.mid,jdbcType=NVARCHAR},
+      mname = #{record.mname,jdbcType=NVARCHAR},
+      INPEOPLE = #{record.inpeople,jdbcType=VARCHAR},
+      TASKCHANGEMAN = #{record.taskchangeman,jdbcType=VARCHAR},
+      mevents = #{record.mevents,jdbcType=CLOB},
+      meventsr = #{record.meventsr,jdbcType=CLOB}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update taskmisson
+    set mguid = #{record.mguid,jdbcType=NVARCHAR},
+      mtitle = #{record.mtitle,jdbcType=NVARCHAR},
+      mplace = #{record.mplace,jdbcType=NVARCHAR},
+      mcreater = #{record.mcreater,jdbcType=NVARCHAR},
+      mcreaterguid = #{record.mcreaterguid,jdbcType=NVARCHAR},
+      mchargeman = #{record.mchargeman,jdbcType=NVARCHAR},
+      mpasser = #{record.mpasser,jdbcType=NVARCHAR},
+      mpasseradvice = #{record.mpasseradvice,jdbcType=NVARCHAR},
+      mstate = #{record.mstate,jdbcType=INTEGER},
+      mowncolumn = #{record.mowncolumn,jdbcType=NVARCHAR},
+      mrepoter = #{record.mrepoter,jdbcType=NVARCHAR},
+      mtype = #{record.mtype,jdbcType=NVARCHAR},
+      mfinishtime = #{record.mfinishtime,jdbcType=TIMESTAMP},
+      mcreatetime = #{record.mcreatetime,jdbcType=TIMESTAMP},
+      taskguid = #{record.taskguid,jdbcType=NVARCHAR},
+      mremark = #{record.mremark,jdbcType=NVARCHAR},
+      tasktitle = #{record.tasktitle,jdbcType=NVARCHAR},
+      mlevel = #{record.mlevel,jdbcType=INTEGER},
+      mid = #{record.mid,jdbcType=NVARCHAR},
+      mname = #{record.mname,jdbcType=NVARCHAR},
+      INPEOPLE = #{record.inpeople,jdbcType=VARCHAR},
+      TASKCHANGEMAN = #{record.taskchangeman,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dayang.newmedia.newscommand.db.model.TaskMissonWithBLOBs" >
+    update taskmisson
+    <set >
+      <if test="mtitle != null" >
+        mtitle = #{mtitle,jdbcType=NVARCHAR},
+      </if>
+      <if test="mplace != null" >
+        mplace = #{mplace,jdbcType=NVARCHAR},
+      </if>
+      <if test="mcreater != null" >
+        mcreater = #{mcreater,jdbcType=NVARCHAR},
+      </if>
+      <if test="mcreaterguid != null" >
+        mcreaterguid = #{mcreaterguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="mchargeman != null" >
+        mchargeman = #{mchargeman,jdbcType=NVARCHAR},
+      </if>
+      <if test="mpasser != null" >
+        mpasser = #{mpasser,jdbcType=NVARCHAR},
+      </if>
+      <if test="mpasseradvice != null" >
+        mpasseradvice = #{mpasseradvice,jdbcType=NVARCHAR},
+      </if>
+      <if test="mstate != null" >
+        mstate = #{mstate,jdbcType=INTEGER},
+      </if>
+      <if test="mowncolumn != null" >
+        mowncolumn = #{mowncolumn,jdbcType=NVARCHAR},
+      </if>
+      <if test="mrepoter != null" >
+        mrepoter = #{mrepoter,jdbcType=NVARCHAR},
+      </if>
+      <if test="mtype != null" >
+        mtype = #{mtype,jdbcType=NVARCHAR},
+      </if>
+      <if test="mfinishtime != null" >
+        mfinishtime = #{mfinishtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mcreatetime != null" >
+        mcreatetime = #{mcreatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="taskguid != null" >
+        taskguid = #{taskguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="mremark != null" >
+        mremark = #{mremark,jdbcType=NVARCHAR},
+      </if>
+      <if test="tasktitle != null" >
+        tasktitle = #{tasktitle,jdbcType=NVARCHAR},
+      </if>
+      <if test="mlevel != null" >
+        mlevel = #{mlevel,jdbcType=INTEGER},
+      </if>
+      <if test="mid != null" >
+        mid = #{mid,jdbcType=NVARCHAR},
+      </if>
+      <if test="mname != null" >
+        mname = #{mname,jdbcType=NVARCHAR},
+      </if>
+      <if test="inpeople != null" >
+        INPEOPLE = #{inpeople,jdbcType=VARCHAR},
+      </if>
+      <if test="taskchangeman != null" >
+        TASKCHANGEMAN = #{taskchangeman,jdbcType=VARCHAR},
+      </if>
+      <if test="mevents != null" >
+        mevents = #{mevents,jdbcType=CLOB},
+      </if>
+      <if test="meventsr != null" >
+        meventsr = #{meventsr,jdbcType=CLOB},
+      </if>
+    </set>
+    where mguid = #{mguid,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.dayang.newmedia.newscommand.db.model.TaskMissonWithBLOBs" >
+    update taskmisson
+    set mtitle = #{mtitle,jdbcType=NVARCHAR},
+      mplace = #{mplace,jdbcType=NVARCHAR},
+      mcreater = #{mcreater,jdbcType=NVARCHAR},
+      mcreaterguid = #{mcreaterguid,jdbcType=NVARCHAR},
+      mchargeman = #{mchargeman,jdbcType=NVARCHAR},
+      mpasser = #{mpasser,jdbcType=NVARCHAR},
+      mpasseradvice = #{mpasseradvice,jdbcType=NVARCHAR},
+      mstate = #{mstate,jdbcType=INTEGER},
+      mowncolumn = #{mowncolumn,jdbcType=NVARCHAR},
+      mrepoter = #{mrepoter,jdbcType=NVARCHAR},
+      mtype = #{mtype,jdbcType=NVARCHAR},
+      mfinishtime = #{mfinishtime,jdbcType=TIMESTAMP},
+      mcreatetime = #{mcreatetime,jdbcType=TIMESTAMP},
+      taskguid = #{taskguid,jdbcType=NVARCHAR},
+      mremark = #{mremark,jdbcType=NVARCHAR},
+      tasktitle = #{tasktitle,jdbcType=NVARCHAR},
+      mlevel = #{mlevel,jdbcType=INTEGER},
+      mid = #{mid,jdbcType=NVARCHAR},
+      mname = #{mname,jdbcType=NVARCHAR},
+      INPEOPLE = #{inpeople,jdbcType=VARCHAR},
+      TASKCHANGEMAN = #{taskchangeman,jdbcType=VARCHAR},
+      mevents = #{mevents,jdbcType=CLOB},
+      meventsr = #{meventsr,jdbcType=CLOB}
+    where mguid = #{mguid,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dayang.newmedia.newscommand.db.model.TaskMisson" >
+    update taskmisson
+    set mtitle = #{mtitle,jdbcType=NVARCHAR},
+      mplace = #{mplace,jdbcType=NVARCHAR},
+      mcreater = #{mcreater,jdbcType=NVARCHAR},
+      mcreaterguid = #{mcreaterguid,jdbcType=NVARCHAR},
+      mchargeman = #{mchargeman,jdbcType=NVARCHAR},
+      mpasser = #{mpasser,jdbcType=NVARCHAR},
+      mpasseradvice = #{mpasseradvice,jdbcType=NVARCHAR},
+      mstate = #{mstate,jdbcType=INTEGER},
+      mowncolumn = #{mowncolumn,jdbcType=NVARCHAR},
+      mrepoter = #{mrepoter,jdbcType=NVARCHAR},
+      mtype = #{mtype,jdbcType=NVARCHAR},
+      mfinishtime = #{mfinishtime,jdbcType=TIMESTAMP},
+      mcreatetime = #{mcreatetime,jdbcType=TIMESTAMP},
+      taskguid = #{taskguid,jdbcType=NVARCHAR},
+      mremark = #{mremark,jdbcType=NVARCHAR},
+      tasktitle = #{tasktitle,jdbcType=NVARCHAR},
+      mlevel = #{mlevel,jdbcType=INTEGER},
+      mid = #{mid,jdbcType=NVARCHAR},
+      mname = #{mname,jdbcType=NVARCHAR},
+      INPEOPLE = #{inpeople,jdbcType=VARCHAR},
+      TASKCHANGEMAN = #{taskchangeman,jdbcType=VARCHAR}
+    where mguid = #{mguid,jdbcType=NVARCHAR}
+  </update>
+  
+  
+  <!-- 分页查询 -->
+    <sql id="SELECT_COUNT">
+        SELECT COUNT(1) as value
+    </sql>
+  
+    <sql id="TASKINFO_COLUMNLIST">
+        select t.*
+    </sql>
+    <sql id="PAGE_HEAD">
+        select * from(
+        <if test="_databaseId == 'sqlserver'">
+            select a.* ,ROW_NUMBER() OVER (
+            <include refid="BASE_ORDERBY" />
+            ) as num
+        </if>
+        <if test="_databaseId == 'oracle'">
+            select a.* ,ROWNUM as num
+        </if>
+        <if test="_databaseId == 'mysql'">
+            select a.*
+        </if>
+        from (
+    </sql>
+
+    <sql id="PAGE_TAIL">
+        <if test="_databaseId != 'sqlserver'">
+            <include refid="BASE_ORDERBY" />
+        </if>
+        ) a
+        )b
+        <if test="_databaseId == 'mysql'">
+            limit
+            <if test="start == 0">
+                ${start} ,#{limit}
+            </if>
+            <if test="start != 0">
+                ${start-1} ,#{limit}
+            </if>
+        </if>
+        <where>
+            <if test="_databaseId != 'mysql'">
+                num between #{start} and #{end}
+            </if>
+        </where>
+    </sql>
+
+    <sql id="BASE_ORDERBY">
+        <if test="sortColumn!=null and sortColumn!=''">
+            order by ${sortColumn}
+            ${direction}
+        </if>
+        <if test="sortColumn==null or sortColumn==''">
+            order by mcreatetime desc
+        </if>
+    </sql>
+  
+
+<select id="getMissionTaskTotal" resultType="int" parameterType="com.dayang.newmedia.newscommand.db.model.TaskSearchPara">
+    <include refid="SELECT_COUNT" />
+      from taskmisson t
+    <if test="queryModel==0">
+        <include refid="ALLMISSIONWHERE" />
+    </if>
+    <if test="queryModel==1">
+        <include refid="MYMISSIONWHERE" />
+    </if>
+</select>
+
+
+<!-- 标准服务分页查询条目 -->
+    <select id="getMissionTaskInfos" resultMap="ResultMapWithBLOBs" parameterType="com.dayang.newmedia.newscommand.db.model.TaskSearchPara">
+        <include refid="PAGE_HEAD" />
+        <include refid="TASKINFO_COLUMNLIST" />
+        from taskmisson t
+        <if test="queryModel==0">
+            <include refid="ALLMISSIONWHERE" />
+        </if>
+        <if test="queryModel==1">
+            <include refid="MYMISSIONWHERE" />
+        </if>
+        <include refid="PAGE_TAIL" />
+    </select>
+
+<!-- 查询我的任务 -->
+<sql id="MYMISSIONWHERE">
+        <where>
+            <trim prefixOverrides="and">
+                t.mchargeman=#{chargetMan}
+             <if test="searchContent!=null and searchContent!=''">
+                 and ( t.tasktitle like #{searchContent}  or t.mevents like #{searchContent} )
+            </if>
+            </trim>
+        </where>
+</sql>
+
+<!-- 查询全部任务 -->
+<sql id="ALLMISSIONWHERE">
+    <where>
+        <trim prefixOverrides="and">
+            <!-- 任务类型 -->
+            <if test="aXuanTiGuids!=null and aXuanTiGuids.size()>0">
+                 t.taskguid in
+                <foreach collection="aXuanTiGuids" item="xuantiId" open="("
+                    separator="," close=")">
+                    #{xuantiId}
+                </foreach>
+            </if>
+            
+            <if test="searchContent!=null and searchContent!=''">
+                 and ( t.tasktitle like #{searchContent}  or t.mevents like #{searchContent} )
+            </if>
+        </trim>
+    </where>
+</sql>
+ <!-- 获取选题 -->
+ <select id="selectNewsTask" parameterType="string" resultMap="ResultMapWithBLOBsAndNewsTask">
+  	select * from NewsTask where taskguid = #{taskguid}
+  </select>
+</mapper>

@@ -1,0 +1,256 @@
+.res_header {
+    height: 40px;
+    font-size: 30px;
+    color: #fff;
+    line-height: 38px;
+    margin-bottom: 54px;
+}
+
+.detile_title {
+    padding: 0 0 27px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+}
+
+.res_title {
+    font-size: 28px;
+    /* color: #FFFFFF; */
+    margin-bottom: 30px;
+    height: 36px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+}
+
+.detile_left,
+.detile_right {
+    height: 100%;
+}
+
+.detile_left {
+    width: calc(100% - 540px);
+    background: rgba(0, 197, 255, 0.1);
+    padding: 30px;
+}
+
+.detile_right {
+    width: 520px;
+    margin-left: 20px;
+}
+
+.detile_up {
+    height: 254px;
+    margin-bottom: 20px;
+    background: rgb(0, 197, 255, 0.1);
+    padding: 22px 25px;
+    overflow: hidden;
+}
+
+.detile_down {
+    height: calc(100% - 274px);
+    background: rgb(0, 197, 255, 0.1);
+    padding: 15px 10px 10px 25px;
+    overflow: hidden;
+    /* display: flex; */
+}
+
+.detile_right .res_rigion_icon {
+    height: 28px;
+    display: inline-block;
+    width: 33px;
+    margin-right: 9px;
+    background: url(../../images/communication/icon_danwei.svg) no-repeat center;
+}
+
+.detile_right .rigion_box {
+    margin-bottom: 35px;
+}
+
+.detile_right .rigion_box span {
+    font-size: 24px;
+    color: #FFFFFF;
+}
+
+.rigion_list_items {
+    background: #2675C2;
+    padding: 15px;
+    font-size: 22px;
+    color: #FFFFFF;
+    height: 43px;
+    line-height: 13px;
+    width: auto;
+    display: inline-block;
+    margin-bottom: 25px;
+    margin-right: 25px;
+}
+
+.detile_right .detile_up .rigion_box {
+    margin-bottom: 20px;
+}
+
+.detile_up ul li {
+    font-size: 22px;
+    color: #A6C9F1;
+    border-bottom: 2px dashed #023778;
+    height: 52px;
+    line-height: 50px;
+}
+
+.res_mainStatus {
+    width: 94px;
+    height: 36px;
+    line-height: 32px;
+    text-align: center;
+    display: inline-block;
+    border: 2px solid #61CA74;
+    border-radius: 6px!important;
+    font-family: PingFangSC-Medium;
+    font-size: 22px;
+    color: #80E993;
+    margin-left: 15px;
+}
+
+.article-list-subtitle {
+    opacity: 0.7;
+    font-family: SourceHanSansSC-Normal;
+    font-size: 22px;
+    color: rgba(166, 201, 241, 0.7);
+}
+
+.article-list-subtitle .detail-items {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 30px;
+    border-left: 2px solid #043A7B;
+    width: auto;
+    display: inline-block;
+    text-align: center;
+}
+
+.article-list-subtitle .detail-items:first-child {
+    text-align: left;
+    border: none;
+    padding-left: 0;
+}
+
+.detail-content-box {
+    padding: 10px 0;
+    height: calc(100% - 144px);
+}
+
+.detail-content-box p {
+    font-size: 24px;
+    color: #FFFFFF;
+    line-height: 38px;
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    /*! autoprefixer: off */
+}
+
+.communi_left {
+    height: 100%;
+    margin-right: 20px;
+    width: 520px;
+    color: #FFFFFF;
+    background: rgba(0, 197, 255, 0.1);
+    padding: 30px;
+}
+
+.communi_right {
+    width: calc(100% - 540px);
+    padding: 25px 25px 25px 35px;
+    background: rgba(0, 197, 255, 0.1);
+    height: 100%;
+}
+
+.reply-comment-list-items {
+    height: 106px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+    padding: 15px 0;
+}
+
+.tab_active,
+.tab_unactive {
+    height: 48px;
+    font-size: 26px;
+    color: #FFFFFF;
+    line-height: 26px;
+    width: 104px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tab_active {
+    border-bottom: 5px solid #00C9FC;
+}
+
+.tab_unactive {
+    color: rgba(0, 201, 252, 0.5);
+}
+
+.rank_tab_active,
+.rank_tab_unactive {
+    height: 40px;
+    line-height: 40px;
+    font-size: 24px;
+    color: #FFFFFF;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.rank_tab_active {
+    background: #3A96FF;
+}
+
+.rank_tab_unactive {
+    border: 2px solid #3A96FF;
+    color: #3A96FF;
+    line-height: 36px;
+}
+
+.reply-comment-list-items p {
+    font-size: 26px;
+    color: #FFFFFF;
+    height: 26px;
+    width: 100%;
+    margin-top: 0;
+    line-height: 26px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.reply-comment-list-items>div {
+    justify-content: space-between;
+}
+
+.reply-comment-list-items .detail-items {
+    color: rgba(166, 201, 241, 0.7);
+    font-size: 22px;
+}
+
+.reply-comment-list-items .detail-items:first-child {
+    width: 484px;
+}
+
+.list-items {
+    width: 70px;
+    text-align: left;
+}
+
+.res_attach_icon {
+    height: 28px;
+    display: inline-block;
+    width: 33px;
+    margin-right: 9px;
+    background: url(../../images/communication/icon_fujian.svg) no-repeat center;
+}
+
+.rigion_list {
+    height: calc(100% - 95px);
+    overflow: hidden;
+}

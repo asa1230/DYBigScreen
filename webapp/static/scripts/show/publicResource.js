@@ -1,4 +1,4 @@
-;
+﻿;
 dp.PublicRespurce = (function($, window, document) {
 	var thisContext; // 当前上下文环境指针
 	var cfbServer; // 资源库后台服务地址
@@ -471,4 +471,12 @@ dp.PublicRespurce = (function($, window, document) {
 	return new PublicRespurceClass();
 })(jQuery, window, document);
 $(dp.PublicRespurce.init());
+
+window.onload = function () { 	
+	
+// 定时清理浏览器缓存	
+	window.setInterval(function(){ 
+		window.location.reload();
+	}, 600000); 
+};
 

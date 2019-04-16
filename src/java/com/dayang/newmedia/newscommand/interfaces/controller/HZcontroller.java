@@ -56,6 +56,8 @@ public class HZcontroller {
 	private HZservice hZservice;
 	@Autowired
 	private HzzService hzzservice;
+	@Autowired  
+	 HttpServletRequest request; 
 	
 	@Autowired
 	private NewsCommandMobileService newsCommandMobileService; 
@@ -206,7 +208,7 @@ public class HZcontroller {
 			nc.setUserId(userid);
 			nc.setLimit(Integer.parseInt(selectListLimit));//设置杭州台选题列表每次查询数量
 			nc.setStart(0);
-			String result = newsCommandMobileService.selectProgressList(nc);
+			String result = newsCommandMobileService.selectProgressList(nc,request);
 			JSONObject uncookedResult = JSONObject.fromObject(result);
 			
 			if(todaySelect!=null | uncookedResult.get("records")!=null) {
@@ -326,7 +328,7 @@ public class HZcontroller {
 			nc.setUserId(userid);
 			nc.setLimit(Integer.parseInt(selectListLimit));//设置杭州台选题列表每次查询数量
 			nc.setStart(0);
-			String result = newsCommandMobileService.selectProgressList(nc);
+			String result = newsCommandMobileService.selectProgressList(nc,request);
 			JSONObject uncookedResult = JSONObject.fromObject(result);
 			
 			if(uncookedResult.get("records")!=null) {

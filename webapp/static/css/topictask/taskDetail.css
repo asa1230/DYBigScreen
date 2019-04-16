@@ -1,0 +1,135 @@
+.task-detail-left {
+    width: calc(100% - 538px);
+    margin-right: 20px;
+    height: 100%;
+}
+
+.task-detail-right {
+    width: 518px;
+    height: 100%;
+    background: rgba(0, 197, 255, 0.1);
+    padding: 23px 23px 0 27px;
+}
+
+.task-detail-left h2 {
+    font-size: 36px;
+    color: #FFFFFF;
+    line-height: 56px;
+}
+
+.detail-items {
+    width: 50%;
+    height: 28px;
+    font-size: 22px;
+    color: rgba(166, 201, 241, 0.7);
+    margin-bottom: 20px;
+}
+
+.state-complete {
+    display: inline-block;
+    width: 94px;
+    height: 36px;
+    line-height: 32px;
+    text-align: center;
+    font-size: 22px;
+    color: #8BCE41;
+    border-radius: 6px!important;
+    margin-left: 18px;
+    border: 2px solid #8BCE41;
+}
+
+.task-content-title {
+    height: 52px;
+    line-height: 52px;
+    width: 196px;
+    margin-bottom: 20px;
+    margin-top: 15px;
+    background: url(../../images/propaganda/Rectangle\ 10.svg) no-repeat center;
+    background-size: cover;
+    padding-left: 18px;
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+.task-content {
+    width: 100%;
+    height: calc(100% - 325px);
+    background: rgba(0, 197, 255, 0.1);
+    padding: 30px;
+}
+
+.task-content p {
+    font-size: 24px;
+    color: #FFFFFF;
+    line-height: 36px;
+    margin: 0;
+}
+
+.detail-icon-person,
+.detail-icon-deadline,
+.detail-icon-create,
+.detail-icon-topic {
+    display: inline-block;
+    width: 27px;
+    height: 23px;
+    margin-right: 19px;
+}
+
+.detail-icon-topic {
+    background: url(../../images/propaganda/icon_ssxt.svg) no-repeat center;
+}
+
+.detail-icon-person {
+    background: url(../../images/propaganda/icon_zxr.svg) no-repeat center;
+}
+
+.detail-icon-deadline {
+    background: url(../../images/propaganda/icon_time.svg) no-repeat center;
+}
+
+.detail-icon-create {
+    background: url(../../images/propaganda/icon_cjr.svg) no-repeat center;
+}
+
+.trends-title {
+    font-size: 24px;
+    color: #FFFFFF;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.trends-icon {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    margin-right: 12px;
+    background: url(../../images/propaganda/icon_rwdt.svg) no-repeat center;
+}
+
+.list-items {
+    width: 100%;
+    height: 143px;
+    padding: 27px 0;
+    font-size: 22px;
+    color: rgba(166, 201, 241, 0.7);
+    justify-content: space-between;
+}
+
+.list-items:nth-child(2n+1) {
+    background: #01569F;
+}
+
+.list-items:nth-child(2n) {
+    background: #024F9B;
+}
+
+.class-content p {
+    font-size: 26px;
+    color: #FFFFFF;
+    margin-top: 0;
+}
+
+.class-content {
+    width: calc(100% - 325px);
+    padding: 0 22px;
+}

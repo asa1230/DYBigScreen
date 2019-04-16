@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dayang.newmedia.newscommand.db.dao.InterFacesetMapper" >
+  <resultMap id="BaseResultMap" type="com.dayang.newmedia.newscommand.db.model.InterFaceset" >
+    <id column="Guid" property="guid" jdbcType="VARCHAR" />
+    <result column="TenantID" property="tenantid" jdbcType="VARCHAR" />
+    <result column="InterfaceName" property="interfacename" jdbcType="VARCHAR" />
+    <result column="InterfaceToken" property="interfacetoken" jdbcType="VARCHAR" />
+    <result column="InterfaceUserID" property="interfaceuserid" jdbcType="VARCHAR" />
+    <result column="InterfaceSource" property="interfacesource" jdbcType="VARCHAR" />
+    <result column="Creater" property="creater" jdbcType="VARCHAR" />
+    <result column="CreateTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Guid, TenantID, InterfaceName, InterfaceToken, InterfaceUserID, InterfaceSource, 
+    Creater, CreateTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from interfaceset
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from interfaceset
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.dayang.newmedia.newscommand.db.model.InterFaceset" >
+    insert into interfaceset (Guid, TenantID, InterfaceName, 
+      InterfaceToken, InterfaceUserID, InterfaceSource, 
+      Creater, CreateTime)
+    values (#{guid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{interfacename,jdbcType=VARCHAR}, 
+      #{interfacetoken,jdbcType=VARCHAR}, #{interfaceuserid,jdbcType=VARCHAR}, #{interfacesource,jdbcType=VARCHAR}, 
+      #{creater,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dayang.newmedia.newscommand.db.model.InterFaceset" >
+    insert into interfaceset
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        Guid,
+      </if>
+      <if test="tenantid != null" >
+        TenantID,
+      </if>
+      <if test="interfacename != null" >
+        InterfaceName,
+      </if>
+      <if test="interfacetoken != null" >
+        InterfaceToken,
+      </if>
+      <if test="interfaceuserid != null" >
+        InterfaceUserID,
+      </if>
+      <if test="interfacesource != null" >
+        InterfaceSource,
+      </if>
+      <if test="creater != null" >
+        Creater,
+      </if>
+      <if test="createtime != null" >
+        CreateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="interfacename != null" >
+        #{interfacename,jdbcType=VARCHAR},
+      </if>
+      <if test="interfacetoken != null" >
+        #{interfacetoken,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceuserid != null" >
+        #{interfaceuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="interfacesource != null" >
+        #{interfacesource,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null" >
+        #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dayang.newmedia.newscommand.db.model.InterFaceset" >
+    update interfaceset
+    <set >
+      <if test="tenantid != null" >
+        TenantID = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="interfacename != null" >
+        InterfaceName = #{interfacename,jdbcType=VARCHAR},
+      </if>
+      <if test="interfacetoken != null" >
+        InterfaceToken = #{interfacetoken,jdbcType=VARCHAR},
+      </if>
+      <if test="interfaceuserid != null" >
+        InterfaceUserID = #{interfaceuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="interfacesource != null" >
+        InterfaceSource = #{interfacesource,jdbcType=VARCHAR},
+      </if>
+      <if test="creater != null" >
+        Creater = #{creater,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dayang.newmedia.newscommand.db.model.InterFaceset" >
+    update interfaceset
+    set TenantID = #{tenantid,jdbcType=VARCHAR},
+      InterfaceName = #{interfacename,jdbcType=VARCHAR},
+      InterfaceToken = #{interfacetoken,jdbcType=VARCHAR},
+      InterfaceUserID = #{interfaceuserid,jdbcType=VARCHAR},
+      InterfaceSource = #{interfacesource,jdbcType=VARCHAR},
+      Creater = #{creater,jdbcType=VARCHAR},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP}
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </update>
+</mapper>

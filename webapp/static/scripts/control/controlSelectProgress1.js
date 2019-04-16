@@ -200,11 +200,20 @@ function queryColumn() {
         }
         });
 	
+	ajaxRequest({
+		type : 'POST',
+		url : '../../api/queryProgramRatingShow/queryAll',
+		success : function(data) {
+			console.log(data);
+		}
+	})
+	
 	/*
 	ajaxRequest({
 		type : 'POST',
 		url : '../../api/queryColumn',
 		success : function(data) {
+			console.log(data);
 			if (data.commonResponse.success == true) {
 				// console.info(JSON.stringify(data));
 				var html2;
@@ -407,6 +416,7 @@ var websocket = null;
 var pageId = "selectProgress";
 //判断当前浏览器是否支持WebSocket
 if('WebSocket' in window){
+	console.log(baseUrl);
     websocket = new WebSocket("ws://"+baseUrl+"/DYBigScreen/websocket/"+pageId);
 }
 else{

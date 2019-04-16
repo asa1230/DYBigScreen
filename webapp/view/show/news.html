@@ -62,7 +62,7 @@
 															<div class="mt-step-number bg-white">
 																<img src="../../static/images/icon_tg.png" alt="" />
 															</div>
-															<div class="mt-step-title uppercase font-grey-cascade">稿件编辑</div>
+															<div class="mt-step-title uppercase font-grey-cascade">待提交</div>
 														</div>
 														<div class="col-md-3 mt-step-col done">
 															<div class="mt-step-number bg-white">
@@ -72,29 +72,27 @@
 																<img src="../../static/images/icon_tg.png" alt="" />
 															{{/if}}
 															</div>
-															<div class="mt-step-title uppercase font-grey-cascade">稿件送审</div>
+															<div class="mt-step-title uppercase font-grey-cascade">审核中</div>
 														</div>
 														<div class="col-md-3 mt-step-col active">														
 															<div class="mt-step-number bg-white">
-															{{if res.status == 4}}
-																<img src="../../static/images/icon_th.png" alt="" />
-															{{else if res.status == 2 || res.status == 3}}
-																<img src="../../static/images/icon_tg.png" alt="" />
-															{{else if res.status == 0 || res.status == 1}}
-																<img src="../../static/images/icon_k.png" alt="" />
-															{{/if}}
-															</div>
-															<div class="mt-step-title uppercase font-grey-cascade">审核完成</div>
-														</div>                                                        
-														<div class="col-md-3 mt-step-col last">
-															<div class="mt-step-number bg-white">
-															{{if res.status == 3}}
+															{{if res.status == 2}}
 																<img src="../../static/images/icon_tg.png" alt="" />
 															{{else}}
 																<img src="../../static/images/icon_k.png" alt="" />
 															{{/if}}
 															</div>
-															<div class="mt-step-title uppercase font-grey-cascade">稿件发布</div>
+															<div class="mt-step-title uppercase font-grey-cascade">审核通过</div>
+														</div>                                                        
+														<div class="col-md-3 mt-step-col last">
+															<div class="mt-step-number bg-white">
+															{{if res.status == 2 || res.isDistribute == 1}}
+																<img src="../../static/images/icon_tg.png" alt="" />
+															{{else}}
+																<img src="../../static/images/icon_k.png" alt="" />
+															{{/if}}
+															</div>
+															<div class="mt-step-title uppercase font-grey-cascade">签发</div>
 														</div>
                                                         
 													</div>

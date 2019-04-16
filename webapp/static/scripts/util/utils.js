@@ -19,10 +19,10 @@ $(function(){
 
 //var appServiceUrl = "http://58.87.82.233:9073/DYNewsCommandMobile/api/bs";//大屏项目需要的指挥调度 项目的路径
 //var appServiceUrl = "http://192.168.20.159:8080/DYNewsCommandMobile/api/bs";//大屏项目需要的指挥调度 项目的路径
-var appServiceUrl = "http://124.127.118.109:61001/newscommand";
-var clueCloudUrl = "http://192.168.5.239:8900/views/controller/controller.html";
-var defaultUserWorkNo = "8883";				//调用指挥调度所需的id
-var defaultUserId = "8883";					//调用指挥调度所需的id
+var appServiceUrl = "http://10.0.90.2:8080/newscommand";
+var clueCloudUrl = "http://10.0.90.13:8900/views/controller/controller.html";
+var defaultUserWorkNo = "admin";				//调用指挥调度所需的id
+var defaultUserId = "admin";					//调用指挥调度所需的id
 
 /////////////////////////////////////////////////////////////////////////
 //zhy add
@@ -34,9 +34,9 @@ if(wbsockectinitmode==1)
 var MapneedSetViewPort = true;                //取值为true是需要调整当前地图大小能显示所有当前类型列表当前页坐标mark点，设为false则不调整，保持当前页面中心点和大小比例不变，而且自动刷新列表数据时地图不移动
 
 
-var publicresourceurl = "http://fast.dayang.com/dycfbserver/";
+var publicresourceurl = "http://10.0.90.2:8080/dycfbserver/";
 
-var bigscreenversion  = "v2.0.4_bulid20181221";
+var bigscreenversion  = "v2.0.6_bulid20190409";
 console.info("大屏版本:"+bigscreenversion);
 
 var xuantiStatusDesp=["已选","保存","待选","进行中","审核中","审核通过","审核打回","终止","已发布"];

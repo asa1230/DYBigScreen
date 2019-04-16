@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- <html lang="en"> -->
+<html lang="zh-cn">
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>通联协作</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Preview page of Metronic Admin Theme #1 for fixed sidebar option" name="description" />
+    <meta content="" name="author" />
+
+    <link rel="icon" href="../../img/dayang.ico" type="image/x-icon" />
+    <link href="../../static/plugins/assets/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!--bootstrap CSS-->
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <link href="../../static/plugins/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/clockface/css/clockface.css" rel="stylesheet" type="text/css" />
+    <link href="../../static/plugins/assets/global/plugins/select2/css/select2.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="../../static/plugins/assets/global/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN THEME GLOBAL STYLES -->
+    <link href="../../static/plugins/assets/global/css/components.min.css" rel="stylesheet" id="style_components" type="text/css" />
+    <!--基本样式-->
+    <link href="../../static/plugins/assets/global/css/plugins.min.css" rel="stylesheet" type="text/css" />
+    <!--基本插件样式-->
+    <!-- END THEME GLOBAL STYLES -->
+    <!-- BEGIN THEME LAYOUT STYLES -->
+    <link href="../../static/plugins/assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
+    <!--插件公共部分 宽高 样式-->
+    <!-- END THEME LAYOUT STYLES -->
+    <link href="../../static/css/ccbnCommon.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/comunication/iconfont.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/comunication/index.css" rel="stylesheet" type="text/css">
+    <link href="../../static/css/comunication/communication.css" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
+</head>
+
+<body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white page-sidebar-fixed">
+    <div style="position: relative;width: 100%;height: 1080px;display:block;overflow:hidden;background-image:none;">
+        <div class="screen_container">
+            <div class="screen_header">
+                <!--<span class="icon iconfont iconimg_upleft"></span>
+                <span class="icon iconfont iconimg_downleft"></span>
+                <span class="icon iconfont iconimg_downright"></span>
+                <span class="icon iconfont iconimg_upright"></span> -->
+                <span class="header_icon"><img src="../../static/images/communication/xietongguanli.svg" width="58"></span>
+                <span class="header_title">通联协作</span>
+                <span class="header_eng">Collaborative Reporting</span>
+            </div>
+            <div class="screen_content flex-box" style="align-items: flex-start;">
+                <div class="communi_left">
+                    <div class="echarts-container flex-box">
+                        <div class="echarts-label">
+                            <div id="echarts_1" class="echarts-items"></div>
+                            <p>突发事件</p>
+                        </div>
+                        <div class="echarts-label">
+                            <div id="echarts_2" class="echarts-items"></div>
+                            <p>重大活动</p>
+                        </div>
+                        <div class="echarts-label">
+                            <div id="echarts_3" class="echarts-items"></div>
+                            <p>联合报道</p>
+                        </div>
+                    </div>
+                    <div class="bars-container">
+                        <p style="margin:0;">约稿量前5单位</p>
+                        <ul id="first_five">
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="communi_right">
+                    <div class="flex-box" style="justify-content:space-between;align-items: flex-start;">
+                        <div class="flex-box">
+                            <div class="tab_active communi_tabs" id="communication_ul" name="1" style="margin-right: 53px;">最新约稿</div>
+                            <div class="tab_unactive communi_tabs" name="2" id="reply_ul">最新供稿</div>
+                        </div>
+                        <div class="flex-box">
+                            <select id="management" class="form-control  input-small comu-select" name="select">
+                                        <option value="">全部机构</option>
+                                </select>
+                            <select id="sortField" class="form-control  input-small comu-select" name="select">
+                                        <option value="main_final_deadline">截止时间</option>
+                                        <option value="main_update_time">更新时间</option>
+                                        <option value="main_create_time">创建时间</option>
+                                    </select>
+                        </div>
+                    </div>
+                    <ul class="list_container" id="tabs_ul">
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+</body>
+<script src="../../plugin/aui-artTemplate/template.js"></script>
+
+<script id="detail1-list-item" type="text/html">
+    <div class="detile_title">
+        <div class="res_title">
+            <h2 style="margin:0;color:#fff;">{{mainSubtitle}}</h2>
+            {{if mainStatus == 0}}
+            <span class="res_mainStatus">草稿</span> {{else if mainStatus == 1}}
+            <span class="res_mainStatus">已发布</span> {{else if mainStatus == 2}}
+            <span class="res_mainStatus">已回复</span> {{/if}}
+        </div>
+        <div class="article-list-subtitle flex-box">
+            <span class="detail-items">发布：{{mainUserOrganizationName}}</span>
+            <span class="detail-items">发布人：{{mainCreateUserName}} </span>
+            <span class="detail-items">发布时间：{{mainPublishTime}}</span>
+            <span class="detail-items">截止时间：{{mainFinalDeadline}}</span>
+        </div>
+    </div>
+    <div class="detail-content-box">
+        <p>{{mainStrReserve1}}</p>
+    </div>
+</script>
+<!-- 约稿列表-->
+<script id="communication-list-item" type="text/html">
+    {{each list as item index}}
+    <li class="reply-comment-list-items">
+        <p>{{item.mainSubtitle}}</p>
+        <div class="flex-box">
+            <span class="detail-items ellipsis">发布单位：{{item.mainUserOrganizationName}}</span>
+            <span class="detail-items ellipsis">发布人：{{item.mainCreateUserName}} </span> {{if item.mainStatus==0}}
+            <span class="detail-items list-items">草稿</span> {{else if item.mainStatus==1}}
+            <span class="detail-items list-items">已发布</span> {{else if item.mainStatus==2}}
+            <span class="detail-items list-items">已回复</span> {{/if}}
+            <span class="detail-items">{{item.mainFinalDeadline}} 截止</span>
+        </div>
+    </li>
+    {{/each}}
+</script>
+<!-- 供稿列表-->
+<script id="reply-list-item" type="text/html">
+    {{each list as item index}}
+    <li class="reply-comment-list-items">
+        <p>{{item.replySubtitle}}</p>
+        <div class="flex-box">
+            <span class="detail-items">供稿单位：{{item.replyUserOrganizationName}} </span>
+            <span class="detail-items">供稿人：{{item.replyCreatUserName}}</span>
+            <span class="detail-items">{{item.replyCreatTime}} 更新</span>
+            <span class="detail-items">{{item.replyCreatTime}} 创建</span>
+        </div>
+    </li>
+    {{/each}}
+</script>
+<!-- 约稿量前五 -->
+<script id="first-five-item" type="text/html">
+    {{each data as item index}}
+    <li class="five-items">
+        <div class="flex-box" style="justify-content: space-between;">
+            <span>{{item.organizationName}}</span>
+            <span style="width:{{item.width}}px" class="color-bar-span"></span>
+        </div>
+        <p style="text-align:right;margin:0;font-size: 20px;color: #00C9FC;">{{item.sums}}</p>
+    </li>
+    {{/each}}
+</script>
+<script src="../../js/echarts.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../../static/scripts/util/utils.js"></script>
+<script type="text/javascript" src="../../static/scripts/common/global.js"></script>
+<!--通过调用接口的形式获取选题详情~而不是直接去数据库查询。  -->
+<script type="text/javascript" src="../../static/scripts/show/communication.js"></script>
+
+</html>

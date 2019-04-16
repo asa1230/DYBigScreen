@@ -1,0 +1,125 @@
+.task-top {
+    height: 60px;
+    margin-bottom: 40px;
+    color: #FFFFFF;
+    justify-content: space-between;
+}
+
+.task-down {
+    width: 100%;
+    /* background: rgba(0, 197, 255, 0.1); */
+    height: calc(100% - 130px);
+}
+
+.task-top ul li {
+    float: left;
+    font-size: 24px;
+    color: #A6C9F1;
+    height: 100%;
+    width: 306px;
+}
+
+.task-top ul li span:last-child {
+    font-size: 36px;
+    color: #FFFFFF;
+}
+
+.task-top>div {
+    font-size: 26px;
+    color: rgba(166, 201, 241, 0.7);
+    text-align: right;
+}
+
+.circle-blue,
+.circle-yellow,
+.circle-green {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%!important;
+    margin-right: 18px;
+}
+
+.circle-blue,
+.rect-blue {
+    background: #4AA9F1;
+}
+
+.circle-yellow,
+.rect-yellow {
+    background: #DCD24B;
+}
+
+.circle-green,
+.rect-green {
+    background: #8BCE41;
+}
+
+.rect-no {
+    background: #004284;
+}
+
+.rect-no,
+.rect-blue,
+.rect-yellow,
+.rect-green {
+    width: 54px;
+    height: 11px;
+    display: inline-block;
+}
+
+.order-number {
+    text-align: center;
+    width: 110px;
+    flex: none;
+    height: 88px;
+    line-height: 88px;
+    border-right: 1px solid #2274BB;
+}
+
+.order-number span {
+    background: #0090FE;
+    border-radius: 8px!important;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    font-family: Arial-Black;
+    font-size: 24px;
+    color: #FFFFFF;
+    vertical-align: middle;
+}
+
+.list-items {
+    width: 100%;
+    height: 143px;
+    padding: 27px 0;
+    font-size: 22px;
+    color: rgba(166, 201, 241, 0.7);
+    justify-content: space-between;
+}
+
+.list-items:nth-child(2n+1) {
+    background: #01569F;
+}
+
+.list-items:nth-child(2n) {
+    background: #024F9B;
+}
+
+.class-content p {
+    font-size: 26px;
+    color: #FFFFFF;
+    margin-top: 0;
+}
+
+.class-content {
+    width: calc(100% - 325px);
+    padding: 0 22px;
+}
+
+.detail-items {
+    display: inline-block;
+    width: 50%;
+    height: 28px;
+}

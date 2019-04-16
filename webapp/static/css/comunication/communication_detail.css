@@ -1,0 +1,237 @@
+.detile_up {
+    height: 310px;
+    margin-bottom: 20px;
+    background: rgb(0, 197, 255, 0.1);
+    padding: 0 25px;
+}
+
+.detile_down {
+    height: calc(100% - 330px);
+    display: flex;
+}
+
+.res_header {
+    height: 40px;
+    font-size: 30px;
+    color: #fff;
+    line-height: 38px;
+    margin-bottom: 54px;
+}
+
+.detile_title {
+    padding: 27px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+}
+
+.res_title {
+    font-size: 28px;
+    /* color: #FFFFFF; */
+    margin-bottom: 30px;
+    height: 36px;
+    line-height: 36px;
+    display: flex;
+    align-items: center;
+}
+
+.res_mainStatus {
+    width: 94px;
+    height: 36px;
+    line-height: 32px;
+    text-align: center;
+    display: inline-block;
+    border: 2px solid #61CA74;
+    border-radius: 6px!important;
+    font-family: PingFangSC-Medium;
+    font-size: 22px;
+    color: #80E993;
+    margin-left: 15px;
+}
+
+.article-list-subtitle {
+    opacity: 0.7;
+    font-family: SourceHanSansSC-Normal;
+    font-size: 22px;
+    color: rgba(166, 201, 241, 0.7);
+}
+
+.article-list-subtitle .detail-items {
+    height: 24px;
+    line-height: 24px;
+    padding: 0 30px;
+    border-left: 2px solid #043A7B;
+    width: auto;
+    display: inline-block;
+    text-align: center;
+}
+
+.article-list-subtitle .detail-items:first-child {
+    text-align: left;
+    border: none;
+    padding-left: 0;
+}
+
+.detail-content-box {
+    padding: 10px 0;
+    height: calc(100% - 144px);
+}
+
+.detail-content-box p {
+    font-size: 24px;
+    color: #FFFFFF;
+    line-height: 38px;
+    overflow: hidden;
+    /* text-overflow: ellipsis; */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    /*! autoprefixer: off */
+}
+
+.detile_left,
+.detile_right {
+    background: rgba(0, 197, 255, 0.1);
+    height: 100%;
+}
+
+.detile_left {
+    width: calc(100% - 540px);
+    padding: 25px 25px 25px 35px;
+}
+
+.detile_right {
+    width: 520px;
+    margin-left: 19px;
+    padding: 15px 35px 10px 25px;
+}
+
+.detile_right .res_rigion_icon {
+    height: 28px;
+    display: inline-block;
+    width: 33px;
+    margin-right: 9px;
+    background: url(../../images/communication/icon_danwei.svg) no-repeat center;
+}
+
+.detile_right>.rigion_box {
+    margin-bottom: 30px;
+}
+
+.detile_right>.rigion_box span {
+    font-size: 30px;
+    color: #FFFFFF;
+}
+
+.rigion_list {
+    height: calc(100% - 75px);
+    overflow: hidden;
+}
+
+.rigion_list_items {
+    background: #2675C2;
+    padding: 15px;
+    font-size: 22px;
+    color: #FFFFFF;
+    height: 43px;
+    line-height: 13px;
+    width: auto;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.reply-comment-list-items {
+    height: 106px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+    padding: 15px 0;
+}
+
+.tab_active,
+.tab_unactive {
+    height: 48px;
+    font-size: 30px;
+    color: #FFFFFF;
+    line-height: 26px;
+    width: auto;
+    text-align: center;
+    cursor: pointer;
+}
+
+.tab_active {
+    border-bottom: 5px solid #00C9FC;
+}
+
+.tab_unactive {
+    color: rgba(166, 201, 241, 0.7);
+}
+
+.reply-comment-list-items {
+    justify-content: space-between;
+}
+
+.reply-comment-list-items p {
+    font-size: 28px;
+    color: #FFFFFF;
+    height: 28px;
+    width: 100%;
+    margin-top: 0;
+    line-height: 28px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.reply-comment-list-items .detail-items {
+    color: rgba(166, 201, 241, 0.7);
+    font-size: 22px;
+}
+
+.res_basic_icon {
+    height: 28px;
+    display: inline-block;
+    width: 33px;
+    margin-right: 9px;
+    background: url(../../images/communication/icon_xinxi.svg) no-repeat center;
+}
+
+.reply-items {
+    font-size: 24px;
+    color: #FFFFFF;
+    padding: 36px 0;
+    border-bottom: 2px dashed #023778;
+}
+
+.reply-items>span:first-child {
+    display: inline-block;
+    width: 120px;
+    height: 24px;
+}
+
+.reply-items>span:nth-child(2) {
+    color: #A6C9F1;
+    display: inline-block;
+    height: 24px;
+}
+
+.reply-items ul li {
+    color: #A6C9F1;
+    margin-bottom: 22px;
+}
+
+.reply-items ul li:last-child {
+    margin-bottom: 0;
+}
+
+.list_container {
+    margin-top: 15px;
+}
+
+.reply-detail-content {
+    font-size: 24px;
+    height: calc(100% - 70px);
+    overflow: hidden;
+}
+
+.reply-detail-content p {
+    color: #fff!important;
+    background: none!important;
+}

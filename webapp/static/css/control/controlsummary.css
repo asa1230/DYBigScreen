@@ -40,13 +40,12 @@ html,body{
     height:178px;
     padding:0;
 }
-.summaryContainer .tab-content .itemForList .containerForItem{
-  width:100%;
-  height:100%;
-  padding:6px 6px 0 6px;
-
-  background: #F5F8FF;
-    border: 1px solid #CDD6E7;
+.summaryContainer .tab-content .itemForList .containerForItem {
+ width: 100%;
+ height: 100%;
+ padding: 6px 6px 0 6px;
+ background: #ffffff;
+ box-shadow: 0px 1px 3px 0px rgba(51, 51, 51, 0.2);
 }
 .summaryContainer .tab-content .itemForList{
     padding-left:16px ;
@@ -95,6 +94,5 @@ html,body{
     line-height: 40px;
     flex:none;
     cursor: pointer;
-   cursor: pointer;
 
 }

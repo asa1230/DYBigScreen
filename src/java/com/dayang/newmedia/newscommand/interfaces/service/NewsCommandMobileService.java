@@ -9,6 +9,8 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.nio.charset.UnsupportedCharsetException;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -25,6 +27,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import com.dayang.newmedia.newscommand.db.model.LoginUser;
 import com.dayang.newmedia.newscommand.interfaces.db.model.NewsCommandMobileSelectListQueryCondition;
 import com.dayang.newmedia.newscommand.interfaces.db.model.NewsCommandMobileSelectQueryCondition;
 import com.sun.org.apache.xerces.internal.impl.dv.util.Base64;
@@ -87,7 +90,8 @@ public class NewsCommandMobileService {
 	private String tvnewsitemlistqueryUrl;	
 	@Value(value="${DYNewsCommandMobile.tvnewsitemdetailqueryUrl}")
 	private String tvnewsitemDtailqueryUrl;
-	
+	@Value(value="${switch}")
+	private String switchValue;
 	
 	
 	
@@ -99,7 +103,7 @@ public class NewsCommandMobileService {
 	}
 	
 	
-	public String selectProgressList(NewsCommandMobileSelectListQueryCondition nc) {
+	public String selectProgressList(NewsCommandMobileSelectListQueryCondition nc,HttpServletRequest request) {
 		log.debug("--进入方法selectProgressList中--");
 		CloseableHttpClient client = HttpClients.createDefault();
 		log.debug("调用接口指挥调度选题列表接口为："+xuantiUrl);
@@ -135,7 +139,15 @@ public class NewsCommandMobileService {
 			stringEntity.setContentEncoding("UTF-8");
 			stringEntity.setContentType("application/json");
 			
-			post.setHeader("tenantId", tenantId);
+			
+			if(switchValue.equals("0")) {
+				post.setHeader("tenantId", tenantId);
+			}else {
+				HttpSession session = request.getSession();
+				LoginUser userInfo = (LoginUser) session.getAttribute("UserInfo");
+				post.setHeader("tenantId", userInfo.getTenantid());
+			}
+			
 			post.setHeader("userId", userId);
 			post.setEntity(stringEntity);
 			try {
@@ -166,7 +178,7 @@ public class NewsCommandMobileService {
 		return null;
 	}
 	
-	public String selectProgressMapList(NewsCommandMobileSelectListQueryCondition nc) {
+	public String selectProgressMapList(NewsCommandMobileSelectListQueryCondition nc,HttpServletRequest request) {
 		log.debug("--进入方法selectProgressMapList中--");
 		CloseableHttpClient client = HttpClients.createDefault();
 		log.debug("调用接口指挥调度选题地图列表接口为："+xuantiMapUrl);
@@ -192,7 +204,16 @@ public class NewsCommandMobileService {
 		try {
 			StringEntity stringEntity = new StringEntity(jsonObject.toString());
 			stringEntity.setContentType("application/json;charset=utf-8");
-			post.setHeader("tenantId", tenantId);
+			
+			if(switchValue.equals("0")) {
+				post.setHeader("tenantId", tenantId);
+			}else {
+				HttpSession session = request.getSession();
+				LoginUser userInfo = (LoginUser) session.getAttribute("UserInfo");
+				post.setHeader("tenantId", userInfo.getTenantid());
+			}
+			
+			
 			post.setHeader("userId", userId);
 			post.setEntity(stringEntity);
 			try {
@@ -222,7 +243,7 @@ public class NewsCommandMobileService {
 	
 	@Value(value="${DYNewsCommandMobile.xuantiDetail}")
 	private String xuantiDetail;
-	public String selectProgressByIdAndType(NewsCommandMobileSelectQueryCondition nc) {
+	public String selectProgressByIdAndType(NewsCommandMobileSelectQueryCondition nc,HttpServletRequest request) {
 			log.debug("进入方法selectProgressByIdAndType中");
 			log.debug("本次调用方法所带参数:"+nc.toString());
 			CloseableHttpClient client = HttpClients.createDefault();
@@ -231,7 +252,15 @@ public class NewsCommandMobileService {
 			//sb.append("/"+nc.getType());
 			log.debug("指挥调度 选题详情接口请求全路径："+sb.toString());
 	      	HttpGet httpGet = new HttpGet(sb.toString());
-	      	httpGet.setHeader("tenantId", tenantId);
+	      	
+	      	if(switchValue.equals("0")) {
+	      		httpGet.setHeader("tenantId", tenantId);
+			}else {
+				HttpSession session = request.getSession();
+				LoginUser userInfo = (LoginUser) session.getAttribute("UserInfo");
+				httpGet.setHeader("tenantId", userInfo.getTenantid());
+			}
+	      	
 	      	httpGet.setHeader("userId", userId);
 	      	try {
 	      		CloseableHttpResponse response = client.execute(httpGet);
@@ -258,7 +287,7 @@ public class NewsCommandMobileService {
 	
 	
 
-	public String MapGpsInfoList(NewsCommandMobileSelectListQueryCondition nc) {
+	public String MapGpsInfoList(NewsCommandMobileSelectListQueryCondition nc,HttpServletRequest request) {
 		log.debug("--进入方法MapGpsInfoList中--");
 		int querymodel = nc.getQueryModel();
 		CloseableHttpClient client = HttpClients.createDefault();
@@ -276,7 +305,15 @@ public class NewsCommandMobileService {
 		try {
 			StringEntity stringEntity = new StringEntity(jsonObject.toString());
 			stringEntity.setContentType("application/json;charset=utf-8");
-			post.setHeader("tenantId", tenantId);
+			
+			if(switchValue.equals("0")) {
+				post.setHeader("tenantId", tenantId);
+			}else {
+				HttpSession session = request.getSession();
+				LoginUser userInfo = (LoginUser) session.getAttribute("UserInfo");
+				post.setHeader("tenantId", userInfo.getTenantid());
+			}
+			
 			post.setHeader("userId", userId);
 			post.setEntity(stringEntity);
 			try {
@@ -391,24 +428,37 @@ public class NewsCommandMobileService {
 	}
 	
 	
-	public String onLineGo(NewsCommandMobileSelectListQueryCondition nc) {
+	public String onLineGo(NewsCommandMobileSelectListQueryCondition nc,HttpServletRequest request) {
 		log.debug("--进入方法onLineGo中--");
 		CloseableHttpClient client = HttpClients.createDefault();
 		log.debug("调用全时会议接口为："+onLineUrl);
+		String tendid = "";
+		if(switchValue.equals("0")) {
+			tendid = tenantId;
+		}else {
+			HttpSession session = request.getSession();
+			LoginUser userInfo = (LoginUser) session.getAttribute("UserInfo");
+			tendid = userInfo.getTenantid();
+		}
+		
 		HttpPost post = new HttpPost(onLineUrl);
 		JSONObject jsonObject = new JSONObject();
 		
 		jsonObject.put("changerName", nc.getUserId());
 		jsonObject.put("memberName", nc.getChargeman());
 		jsonObject.put("onlineType", nc.getQueryModel());
-		jsonObject.put("tenantId", tenantId);
+		jsonObject.put("tenantId", tendid);
+		
+		
+		
+		
 		
 		log.info("调用全时会议接口条件------"+jsonObject.toString());
 		
 		try {
 			StringEntity stringEntity = new StringEntity(jsonObject.toString());
 			stringEntity.setContentType("application/json;charset=utf-8");
-			post.setHeader("tenantId", tenantId);
+			post.setHeader("tenantId", tendid);
 			post.setHeader("userId", userId);
 			post.setEntity(stringEntity);
 			try {
@@ -431,12 +481,21 @@ public class NewsCommandMobileService {
 	}
 	
 	
-	public String allUserList(NewsCommandMobileSelectListQueryCondition nc) {
+	public String allUserList(NewsCommandMobileSelectListQueryCondition nc,HttpServletRequest request) {
 		log.debug("--进入方法allUserList中--");
 		log.debug("调用获取全部人员接口为："+userListUrl);
 		CloseableHttpClient client = HttpClients.createDefault();
       	HttpGet httpGet = new HttpGet(userListUrl);
-      	httpGet.setHeader("tenantId", tenantId);
+      	
+      	
+      	if(switchValue.equals("0")) {
+      		httpGet.setHeader("tenantId", tenantId);
+		}else {
+			HttpSession session = request.getSession();
+			LoginUser userInfo = (LoginUser) session.getAttribute("UserInfo");
+			httpGet.setHeader("tenantId", userInfo.getTenantid());
+		}
+      	
       	httpGet.setHeader("userId", userId);
       	try {
       		CloseableHttpResponse response = client.execute(httpGet);
@@ -460,12 +519,21 @@ public class NewsCommandMobileService {
 		return null;
 	}
 	
-	public String allColumnrList(NewsCommandMobileSelectListQueryCondition nc) {
+	public String allColumnrList(NewsCommandMobileSelectListQueryCondition nc,HttpServletRequest request) {
 		log.debug("--进入方法allColumnrList中--");
 		CloseableHttpClient client = HttpClients.createDefault();
 		log.debug("调用获取全部人员接口为："+columnListUrl);
       	HttpGet httpGet = new HttpGet(columnListUrl);
-      	httpGet.setHeader("tenantId", tenantId);
+      	
+      	
+      	if(switchValue.equals("0")) {
+      		httpGet.setHeader("tenantId", tenantId);
+		}else {
+			HttpSession session = request.getSession();
+			LoginUser userInfo = (LoginUser) session.getAttribute("UserInfo");
+			httpGet.setHeader("tenantId", userInfo.getTenantid());
+		}
+      	
       	httpGet.setHeader("userId", userId);
       	try {
       		CloseableHttpResponse response = client.execute(httpGet);
@@ -574,7 +642,7 @@ public class NewsCommandMobileService {
 		//return null;
 	}
 	
-	public String ManuscriptsProgressDetail(NewsCommandMobileSelectListQueryCondition ncnewsprolist) {
+	public String ManuscriptsProgressDetail(NewsCommandMobileSelectListQueryCondition ncnewsprolist,HttpServletRequest request) {
 		log.debug("--进入方法ManuscriptsProgressDetail中--");
 		CloseableHttpClient client = HttpClients.createDefault();
 		
@@ -615,7 +683,15 @@ public class NewsCommandMobileService {
 			stringEntity.setContentEncoding("UTF-8");
 			stringEntity.setContentType("application/json");
 			
-			post.setHeader("tenantId"  , tenantId);
+			
+			if(switchValue.equals("0")) {
+				post.setHeader("tenantId"  , tenantId);
+			}else {
+				HttpSession session = request.getSession();
+				LoginUser userInfo = (LoginUser) session.getAttribute("UserInfo");
+				post.setHeader("tenantId", userInfo.getTenantid());
+			}
+			
 			post.setEntity(stringEntity);
 			
 			try {
@@ -825,31 +901,42 @@ public class NewsCommandMobileService {
 	private String DUCPMissionQueryorgCode;
 	@Value(value="${DYNewsCommandMobile.DUCPMissionQuerytenantId}")
 	private String DUCPMissionQuerytenantId;
-	public String getXuantiMissionByselectId(NewsCommandMobileSelectQueryCondition nc) {
+	public String getXuantiMissionByselectId(NewsCommandMobileSelectQueryCondition nc,HttpServletRequest request) {
 			log.debug("进入方法getXuantiMissionByselectId中");
 			log.debug("本次调用方法所带参数:"+nc.toString());
+			
 			
 			CloseableHttpClient client = HttpClients.createDefault();
 			
 			StringBuffer sb = new StringBuffer(DUCPMissionQueryUrl);
-			sb.append("?userType=" + DUCPMissionQueryuserType);
-			sb.append("&userId=" + DUCPMissionQueryuserId);
-			if( "INSIDE".equals(DUCPMissionQueryuserType) )			
-				sb.append("&orgCode="+DUCPMissionQueryorgCode);			
-			else
-				sb.append("&tenantId="+DUCPMissionQuerytenantId);	
+//			sb.append("?userType=" + DUCPMissionQueryuserType);
+//			sb.append("&userId=" + DUCPMissionQueryuserId);
+//			if( "INSIDE".equals(DUCPMissionQueryuserType) )			
+//				sb.append("&orgCode="+DUCPMissionQueryorgCode);			
+//			else
+//				sb.append("&tenantId="+DUCPMissionQuerytenantId);	
+//			
+//			sb.append("&type=4");
+//			sb.append("&otherType=1");
+//			
+//			String topicparam ="{topicId:'" + nc.getId() + "'}";
+//			try {
+//				String encodetopicparam = URLEncoder.encode(topicparam,"UTF-8");
+//				sb.append("&otherParam=" + encodetopicparam);
+//			} catch (UnsupportedEncodingException e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}			
 			
-			sb.append("&type=4");
-			sb.append("&otherType=1");
+			sb.append("?topicId=" + nc.getId());
+			if(switchValue.equals("0")) {
+				sb.append("&tenantId=" + DUCPMissionQuerytenantId);
+			}else {
+				HttpSession session = request.getSession();
+				LoginUser userInfo = (LoginUser) session.getAttribute("UserInfo");
+				sb.append("&tenantId=" + userInfo.getTenantid());
+			}
 			
-			String topicparam ="{topicId:'" + nc.getId() + "'}";
-			try {
-				String encodetopicparam = URLEncoder.encode(topicparam,"UTF-8");
-				sb.append("&otherParam=" + encodetopicparam);
-			} catch (UnsupportedEncodingException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}			
 			
 			log.debug("DUCP选题任务接口请求全路径："+sb.toString());
 			
@@ -888,8 +975,17 @@ public class NewsCommandMobileService {
 	@Value(value="${DYNewsCommandMobile.resourceClientSecret}")
 	private String resourceClientSecret;
 	
-	public String gottoken() {
+	public String gottoken(HttpServletRequest request) {
 		try {
+			
+			String tenantid="";
+			
+			if(switchValue.equals("0")) {
+				tenantid = resourceTenantId;
+			}else {
+				
+			}
+			
 			String resourceTokenUrl = resourceUrl + "/oauth/token";
 			log.debug("获取token的url："+resourceTokenUrl);
 			StringBuffer sb = new StringBuffer();
@@ -897,7 +993,7 @@ public class NewsCommandMobileService {
 			String requesrparams1="grant_type";
 			String requesrparams2="tenantId";
 			String requesrparams3="userId";
-			String requestUrl=requesturl+"?"+requesrparams1+"="+resourceGrant_type+"&"+requesrparams2+"="+resourceTenantId+"&"+requesrparams3+"="+resourceClientUserId;
+			String requestUrl=requesturl+"?"+requesrparams1+"="+resourceGrant_type+"&"+requesrparams2+"="+tenantid+"&"+requesrparams3+"="+resourceClientUserId;
 			//base64加密处理clientId 和 clientSecret
 			String beforeEncode=resourceClientId+":"+resourceClientSecret;
 			String afterEncode=Base64.encode(beforeEncode.getBytes());

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dayang.newmedia.newscommand.db.dao.BigScreenForUserMapper" >
+  <resultMap id="BaseResultMap" type="com.dayang.newmedia.newscommand.db.model.BigScreenForUser" >
+    <id column="Guid" property="guid" jdbcType="VARCHAR" />
+    <result column="ScreenGuid" property="screenguid" jdbcType="VARCHAR" />
+    <result column="TenantID" property="tenantid" jdbcType="VARCHAR" />
+    <result column="TenantOrgName" property="tenantorgname" jdbcType="VARCHAR" />
+    <result column="CreateTime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Guid, ScreenGuid, TenantID, TenantOrgName, CreateTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from bigscreenforuser
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bigscreenforuser
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.dayang.newmedia.newscommand.db.model.BigScreenForUser" >
+    insert into bigscreenforuser (Guid, ScreenGuid, TenantID, 
+      TenantOrgName, CreateTime)
+    values (#{guid,jdbcType=VARCHAR}, #{screenguid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, 
+      #{tenantorgname,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dayang.newmedia.newscommand.db.model.BigScreenForUser" >
+    insert into bigscreenforuser
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        Guid,
+      </if>
+      <if test="screenguid != null" >
+        ScreenGuid,
+      </if>
+      <if test="tenantid != null" >
+        TenantID,
+      </if>
+      <if test="tenantorgname != null" >
+        TenantOrgName,
+      </if>
+      <if test="createtime != null" >
+        CreateTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="screenguid != null" >
+        #{screenguid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantorgname != null" >
+        #{tenantorgname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dayang.newmedia.newscommand.db.model.BigScreenForUser" >
+    update bigscreenforuser
+    <set >
+      <if test="screenguid != null" >
+        ScreenGuid = #{screenguid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        TenantID = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantorgname != null" >
+        TenantOrgName = #{tenantorgname,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CreateTime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dayang.newmedia.newscommand.db.model.BigScreenForUser" >
+    update bigscreenforuser
+    set ScreenGuid = #{screenguid,jdbcType=VARCHAR},
+      TenantID = #{tenantid,jdbcType=VARCHAR},
+      TenantOrgName = #{tenantorgname,jdbcType=VARCHAR},
+      CreateTime = #{createtime,jdbcType=TIMESTAMP}
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="queryByTenantID" resultMap="BaseResultMap"  parameterType="java.lang.String" >
+    	select * from bigscreenforuser where tenantid = #{tenantid,jdbcType=VARCHAR} 
+  </select>  
+  
+</mapper>

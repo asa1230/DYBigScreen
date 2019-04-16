@@ -1,0 +1,235 @@
+{   "list": [{
+		"date": "2019-03-7",
+	    "commit": 5,
+	    "reply": 2
+	},{
+		"date": "2019-03-8",
+	    "commit": 6,
+	    "reply": 4
+	},{
+		"date": "2019-03-9",
+	    "commit": 8,
+	    "reply": 7
+	},{
+	"date": "2019-03-10",
+	    "commit": 9,
+	    "reply": 10
+	},{
+	"date": "2019-03-11",
+	    "commit": 7,
+	    "reply": 6
+	},{
+	"date": "2019-03-12",
+	    "commit": 5,
+	    "reply": 3
+	},{
+	"date": "2019-03-13",
+	    "commit": 4,
+	    "reply": 2
+	}],
+	"calcTime":"03-13 15:10",
+	"commitTotal":"98,656",
+	"replyTotal":"56,656",
+	"ratio": {
+        "average": "98%",
+        "averagecompare": "flat",
+        "month": "90%"
+    },
+    "reply": {
+    	"total": "56,656",
+        "average": 70,
+        "averagecompare": "rise",
+        "month": 20
+    },
+    "commit": {
+        "total": "98,656",
+        "average": 50,
+        "averagecompare": "fall",
+        "month": 32
+    },
+    "propaganda":{
+    	"today": {
+    		"total": "124,560",
+    		"ratio": "92.6%",
+    		"num": "124,565"
+    	},
+    	"week": {
+    		"report": {
+	    		"num": "198,656",
+	    		"riseorfall": "fall",
+	    		"ratio": "10%"
+    		},
+    		"result": {
+    			"num": "43,200",
+	    		"riseorfall": "rise",
+	    		"ratio": "10%"
+    		}
+    	},
+    	"list": [
+    		{
+    			"date": "2019-03-14 00:00",
+    			"chat": "4808",
+    			"micro": "2108",
+    			"page": "600",
+    			"tv": "1230",
+    			"toutiao": "3810"
+    		},
+    		{
+    			"date": "2019-03-14 04:00",
+    			"chat": "2808",
+    			"micro": "1980",
+    			"page": "715",
+    			"tv": "3310",
+    			"toutiao": "3310"
+    		},
+    		{
+    			"date": "2019-03-14 08:00",
+    			"chat": "2908",
+    			"micro": "2908",
+    			"page": "1310",
+    			"tv": "4310",
+    			"toutiao": "3310"
+    		},
+    		{
+    			"date": "2019-03-14 12:00",
+    			"chat": "2208",
+    			"micro": "3608",
+    			"page": "290",
+    			"tv": "1900",
+    			"toutiao": "1810"
+    		},
+    		{
+    			"date": "2019-03-14 16:00",
+    			"chat": "2708",
+    			"micro": "2208",
+    			"page": "2800",
+    			"tv": "1710",
+    			"toutiao": "1830"
+    		},
+    		{
+    			"date": "2019-03-14 20:00",
+    			"chat": "4508",
+    			"micro": "2868",
+    			"page": "4302",
+    			"tv": "3120",
+    			"toutiao": "2110"
+    		},
+    		{
+    			"date": "2019-03-14 24:00",
+    			"chat": "2878",
+    			"micro": "3108",
+    			"page": "1320",
+    			"tv": "1130",
+    			"toutiao": "4220"
+    		},
+    		{
+    			"date": "2019-03-15 04:00",
+    			"chat": "1878",
+    			"micro": "3008",
+    			"page": "1120",
+    			"tv": "1230",
+    			"toutiao": "4820"
+    		},
+    		{
+    			"date": "2019-03-15 08:00",
+    			"chat": "2678",
+    			"micro": "3101",
+    			"page": "1310",
+    			"tv": "1280",
+    			"toutiao": "3220"
+    		},
+    		{
+    			"date": "2019-03-15 12:00",
+    			"chat": "1878",
+    			"micro": "3008",
+    			"page": "1120",
+    			"tv": "1230",
+    			"toutiao": "4820"
+    		},
+    		{
+    			"date": "2019-03-15 16:00",
+    			"chat": "2678",
+    			"micro": "3101",
+    			"page": "1310",
+    			"tv": "1280",
+    			"toutiao": "3220"
+    		},
+    		{
+    			"date": "2019-03-15 20:00",
+    			"chat": "1878",
+    			"micro": "3008",
+    			"page": "1120",
+    			"tv": "1230",
+    			"toutiao": "4820"
+    		},
+    		{
+    			"date": "2019-03-15 24:00",
+    			"chat": "2678",
+    			"micro": "3101",
+    			"page": "1310",
+    			"tv": "1280",
+    			"toutiao": "3220"
+    		}
+    	],
+    	"rank":{
+    		"topic_report_dept":{
+				"msg": "统计结果查询成功！",
+				"data": [{
+					"fieldName": "湖北台",
+					"count": "2303"
+					}, {
+					"fieldName":"襄阳台",
+					"count":"1310"
+					}, {
+					"fieldName":"宜昌台",
+					"count":"1021"
+					}, {
+					"fieldName":"恩施台",
+					"count":"982"
+					}, {
+					"fieldName":"孝感台",
+					"count":"792"
+					}, {
+					"fieldName":"沙市台（区县）",
+					"count":"642"
+					}, {
+					"fieldName":"荆州台",
+					"count":"452"
+					}, {
+					"fieldName":"十堰台",
+					"count":"442"
+				}],
+				"status": true
+			},
+			"topic_news_class":{
+				"msg": "统计结果查询成功！",
+				"data": [{
+						"fieldName": "生活类",
+						"count": "2303"
+					}, {
+						"fieldName": "旅游类",
+						"count": "1310"
+					}, {
+						"fieldName": "房产类",
+						"count": "1021"
+					}, {
+						"fieldName": "时政类",
+						"count": "982"
+					}, {
+						"fieldName": "母婴类",
+						"count": "792"
+					}, {
+						"fieldName": "政务类",
+						"count": "642"
+					}, {
+						"fieldName": "地方类",
+						"count": "452"
+					}, {
+						"fieldName": "军事类",
+						"count": "442"
+				}],
+				"status": true
+			}
+    	} 	
+    }
+}

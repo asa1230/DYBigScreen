@@ -1,182 +1,166 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>选题进展</title>
-<link href="../../css/css.css" type="text/css" rel="stylesheet" />
-<link href="../../css/jquery.jqflip.css" rel="stylesheet" type="text/css" />
 
-<script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="../../js/jquery.jqflip.js"></script>
-<style type="text/css">
-body{ background:url(../../img/bg_02.jpg);}
-</style>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>选题进展</title>
+    <link href="../../css/css.css" type="text/css" rel="stylesheet" />
+    <link href="../../css/jquery.jqflip.css" rel="stylesheet" type="text/css" />
+
+    <script type="text/javascript" src="../../js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery.jqflip.js"></script>
+    <style type="text/css">
+        body {
+            background: url(../../img/bg_02.jpg);
+        }
+    </style>
 </head>
 
 <body style="overflow-y: hidden">
-	<div class="content">
-		<div>
-			<img src="../../img/logo3.png" />
-		</div>
-		<div id="select1" ></div>
-		<div id="select2" style="margin-top:500px"></div>
-	</div>
+    <div class="content">
+        <div>
+            <img src="../../img/logo3.png" />
+        </div>
+        <div id="select1"></div>
+        <div id="select2" style="margin-top:500px"></div>
+    </div>
 </body>
 <script src="../../plugin/aui-artTemplate/template.js"></script>
 <!-- 选题列表 -->
 <script id="select1-list-item" type="text/html">
-{{each records as record i}}
-<div class="jqflip-parent " id="one_{{i}}">
-   <div class="jqflip-front jqflip-item" >
-	<div class="jinzhanstyle">
-          <table width="100%">
-                 <tr>
-                       <td width="171" rowspan="3" align="center">
-						<!-- 显示选题状态 -->
-						{{if record.status == 8}}
-							<div class="jinzhancolor-b">保存</div>
-						{{else if record.status == 104}} 
-							<div class="jinzhancolor-b">未指派</div>
-						{{else if record.status == 0}}
-							<div class="jinzhancolor-y">进行中</div>
-						{{else if record.status == 1}}
-							<div class="jinzhancolor-g">已完成</div>
-						{{else if record.status == 2}}
-							<div class="jinzhancolor-r">终止</div>
-				 		{{/if}}
-					   </td>
-                       <td height="56" class="font-style2" valign="top" nowrap="nowrap">{{record.title}}</td>
-                       <td rowspan="3" width="180" align="center">
-							<div id="container{{record.taskGuid}}" style="width:180px;height:180px"></div>
-					   </td>
-                       <td rowspan="3" width="460">
-						<!-- 显示资源选用类型 -->
-						<!-- 1、电视类型 -->
-						{{if record.ziyuan01 == 1}} 
-							<img src="../../img/icon25.png" />
-						{{else}}
-							<img src="../../img/icon25-2.png" />
-						{{/if}}
-						<!-- 2、网页类型 -->
-						{{if record.ziyuan02 == 1}} 
-							<img src="../../img/icon26.png" />
-						{{else}}
-							<img src="../../img/icon26-2.png" />
-						{{/if}}
-						<!-- 3、微博类型 -->
-						{{if record.ziyuan03 == 1}} 
-							<img src="../../img/icon27.png" />
-						{{else}}
-							<img src="../../img/icon27-2.png" />
-						{{/if}}	
-						<!-- 4、微信类型 -->
-						{{if record.ziyuan04 == 1}} 
-							<img src="../../img/icon28.png" />
-						{{else}}
-							<img src="../../img/icon28-2.png" />
-						{{/if}}	
-						<!-- 5、其他类型 -->
-						{{if record.ziyuan05 == 1}} 
-							<img src="../../img/icon29.png" />
-						{{else}}
-							<img src="../../img/icon29-2.png" />
-						{{/if}}				
-                       </td>
-                 </tr>
-                 <tr>
-                   <td height="82" class="font-style3 font-color-style font-style33" valign="top">{{record.content}}</td>
-                 </tr>
-                 <tr>
-                   <td height="50" class="font-style6 jinzhanstyle2 font-color-style">
-                   		<img src="../../img/icon21.png" style="margin-left:-5px;" />{{record.chargeMan}}
-                   		<img src="../../img/icon22.png" />{{record.ownColumn}}
-                   		<img src="../../img/icon23.png" />{{record.createTime}}
-                   </td>
-                 </tr>
-          </table>
-		</div>
-   </div>
-</div>
-{{/each}}
+    {{each records as record i}}
+    <div class="jqflip-parent " id="one_{{i}}">
+        <div class="jqflip-front jqflip-item">
+            <div class="jinzhanstyle">
+                <table width="100%">
+                    <tr>
+                        <td width="171" rowspan="3" align="center">
+                            <!-- 显示选题状态 -->
+                            {{if record.status == 8}}
+                            <div class="jinzhancolor-b">保存</div>
+                            {{else if record.status == 104}}
+                            <div class="jinzhancolor-b">未指派</div>
+                            {{else if record.status == 0}}
+                            <div class="jinzhancolor-y">进行中</div>
+                            {{else if record.status == 1}}
+                            <div class="jinzhancolor-g">已完成</div>
+                            {{else if record.status == 2}}
+                            <div class="jinzhancolor-r">终止</div>
+                            {{/if}}
+                        </td>
+                        <td height="56" class="font-style2" valign="top" nowrap="nowrap">{{record.title}}</td>
+                        <td rowspan="3" width="180" align="center">
+                            <div id="container{{record.taskGuid}}" style="width:180px;height:180px"></div>
+                        </td>
+                        <td rowspan="3" width="460">
+                            <!-- 显示资源选用类型 -->
+                            <!-- 1、电视类型 -->
+                            {{if record.ziyuan01 == 1}}
+                            <img src="../../img/icon25.png" /> {{else}}
+                            <img src="../../img/icon25-2.png" /> {{/if}}
+                            <!-- 2、网页类型 -->
+                            {{if record.ziyuan02 == 1}}
+                            <img src="../../img/icon26.png" /> {{else}}
+                            <img src="../../img/icon26-2.png" /> {{/if}}
+                            <!-- 3、微博类型 -->
+                            {{if record.ziyuan03 == 1}}
+                            <img src="../../img/icon27.png" /> {{else}}
+                            <img src="../../img/icon27-2.png" /> {{/if}}
+                            <!-- 4、微信类型 -->
+                            {{if record.ziyuan04 == 1}}
+                            <img src="../../img/icon28.png" /> {{else}}
+                            <img src="../../img/icon28-2.png" /> {{/if}}
+                            <!-- 5、其他类型 -->
+                            {{if record.ziyuan05 == 1}}
+                            <img src="../../img/icon29.png" /> {{else}}
+                            <img src="../../img/icon29-2.png" /> {{/if}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="82" class="font-style3 font-color-style font-style33" valign="top">{{record.content}}</td>
+                    </tr>
+                    <tr>
+                        <td height="50" class="font-style6 jinzhanstyle2 font-color-style">
+                            <img src="../../img/icon21.png" style="margin-left:-5px;" />{{record.chargeMan}}
+                            <img src="../../img/icon22.png" />{{record.ownColumn}}
+                            <img src="../../img/icon23.png" />{{record.createTime}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    {{/each}}
 </script>
 <script id="select2-list-item" type="text/html">
-{{each records as record i}}
-<div class="jqflip-parent" id="two_{{i}}">
-   <div class="jqflip-back jqflip-item">
-	<div class="jinzhanstyle">
-          <table width="100%">
-                 <tr>
-                       <td width="171" rowspan="3" align="center" name="{{record.status}}">
-						<!-- 显示选题状态 -->
-						{{if record.status == 8}}
-							<div class="jinzhancolor-b">保存</div>
-						{{else if record.status == 104}} 
-							<div class="jinzhancolor-b">未指派</div>
-						{{else if record.status == 0}}
-							<div class="jinzhancolor-y">进行中</div>
-						{{else if record.status == 1}}
-							<div class="jinzhancolor-g">已完成</div>
-						{{else if record.status == 2}}
-							<div class="jinzhancolor-r">终止</div>
-				 		{{/if}}
-					   </td>
-                       <td height="56" class="font-style2" valign="top" nowrap="nowrap">{{record.title}}</td>
-                       <td rowspan="3" width="180" align="center">
-								<div id="container{{record.taskGuid}}" style="width:180px;height:180px"></div>
-					   </td>
-                       <td rowspan="3" width="460">
-						<!-- 显示资源选用类型 -->
-						<!-- 1、电视类型 -->
-						{{if record.ziyuan01 == 1}} 
-							<img src="../../img/icon25.png" />
-						{{else}}
-							<img src="../../img/icon25-2.png" />
-						{{/if}}
-						<!-- 2、网页类型 -->
-						{{if record.ziyuan02 == 1}} 
-							<img src="../../img/icon26.png" />
-						{{else}}
-							<img src="../../img/icon26-2.png" />
-						{{/if}}
-						<!-- 3、微博类型 -->
-						{{if record.ziyuan03 == 1}} 
-							<img src="../../img/icon27.png" />
-						{{else}}
-							<img src="../../img/icon27-2.png" />
-						{{/if}}	
-						<!-- 4、微信类型 -->
-						{{if record.ziyuan04 == 1}} 
-							<img src="../../img/icon28.png" />
-						{{else}}
-							<img src="../../img/icon28-2.png" />
-						{{/if}}	
-						<!-- 5、其他类型 -->
-						{{if record.ziyuan05 == 1}} 
-							<img src="../../img/icon29.png" />
-						{{else}}
-							<img src="../../img/icon29-2.png" />
-						{{/if}}				
-                       </td>
-                 </tr>
-                 <tr>
-                   <td height="82" class="font-style3 font-color-style font-style33" valign="top">{{record.content}}</td>
-                 </tr>
-                 <tr>
-                   <td height="50" class="font-style6 jinzhanstyle2 font-color-style">
-                   		<img src="../../img/icon21.png" style="margin-left:-5px;" />{{record.chargeMan}}
-                   		<img src="../../img/icon22.png" />{{record.ownColumn}}
-                   		<img src="../../img/icon23.png" />{{record.createTime}}
-                   		<!--  <img src="../../img/icon24.png" />-->
-                   </td>
-                 </tr>
-          </table>
-		 </div>
-   </div>
-</div>
-{{/each}}
+    {{each records as record i}}
+    <div class="jqflip-parent" id="two_{{i}}">
+        <div class="jqflip-back jqflip-item">
+            <div class="jinzhanstyle">
+                <table width="100%">
+                    <tr>
+                        <td width="171" rowspan="3" align="center" name="{{record.status}}">
+                            <!-- 显示选题状态 -->
+                            {{if record.status == 8}}
+                            <div class="jinzhancolor-b">保存</div>
+                            {{else if record.status == 104}}
+                            <div class="jinzhancolor-b">未指派</div>
+                            {{else if record.status == 0}}
+                            <div class="jinzhancolor-y">进行中</div>
+                            {{else if record.status == 1}}
+                            <div class="jinzhancolor-g">已完成</div>
+                            {{else if record.status == 2}}
+                            <div class="jinzhancolor-r">终止</div>
+                            {{/if}}
+                        </td>
+                        <td height="56" class="font-style2" valign="top" nowrap="nowrap">{{record.title}}</td>
+                        <td rowspan="3" width="180" align="center">
+                            <div id="container{{record.taskGuid}}" style="width:180px;height:180px"></div>
+                        </td>
+                        <td rowspan="3" width="460">
+                            <!-- 显示资源选用类型 -->
+                            <!-- 1、电视类型 -->
+                            {{if record.ziyuan01 == 1}}
+                            <img src="../../img/icon25.png" /> {{else}}
+                            <img src="../../img/icon25-2.png" /> {{/if}}
+                            <!-- 2、网页类型 -->
+                            {{if record.ziyuan02 == 1}}
+                            <img src="../../img/icon26.png" /> {{else}}
+                            <img src="../../img/icon26-2.png" /> {{/if}}
+                            <!-- 3、微博类型 -->
+                            {{if record.ziyuan03 == 1}}
+                            <img src="../../img/icon27.png" /> {{else}}
+                            <img src="../../img/icon27-2.png" /> {{/if}}
+                            <!-- 4、微信类型 -->
+                            {{if record.ziyuan04 == 1}}
+                            <img src="../../img/icon28.png" /> {{else}}
+                            <img src="../../img/icon28-2.png" /> {{/if}}
+                            <!-- 5、其他类型 -->
+                            {{if record.ziyuan05 == 1}}
+                            <img src="../../img/icon29.png" /> {{else}}
+                            <img src="../../img/icon29-2.png" /> {{/if}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="82" class="font-style3 font-color-style font-style33" valign="top">{{record.content}}</td>
+                    </tr>
+                    <tr>
+                        <td height="50" class="font-style6 jinzhanstyle2 font-color-style">
+                            <img src="../../img/icon21.png" style="margin-left:-5px;" />{{record.chargeMan}}
+                            <img src="../../img/icon22.png" />{{record.ownColumn}}
+                            <img src="../../img/icon23.png" />{{record.createTime}}
+                            <!--  <img src="../../img/icon24.png" />-->
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    {{/each}}
 </script>
 <script src="../../js/echarts.js" type="text/javascript"></script>
 <script type="text/javascript" src="../../static/scripts/util/utils.js"></script>
 <!-- <script type="text/javascript" src="../../static/scripts/show/selectProgress.js"></script> -->
 <script type="text/javascript" src="../../static/scripts/show/selectProgress.js"></script>
+
 </html>

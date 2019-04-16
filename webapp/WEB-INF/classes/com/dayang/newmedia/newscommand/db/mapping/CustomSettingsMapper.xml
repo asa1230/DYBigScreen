@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dayang.newmedia.newscommand.db.dao.CustomSettingsMapper" >
+  <resultMap id="BaseResultMap" type="com.dayang.newmedia.newscommand.db.model.CustomSettings" >
+    <id column="cuguid" property="cuguid" jdbcType="NVARCHAR" />
+    <result column="cutype" property="cutype" jdbcType="NVARCHAR" />
+    <result column="cuvalue" property="cuvalue" jdbcType="NVARCHAR" />
+    <result column="cuname" property="cuname" jdbcType="NVARCHAR" />
+    <result column="cutime" property="cutime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    cuguid, cutype, cuvalue, cuname, cutime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dayang.newmedia.newscommand.db.model.CustomSettingsQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from customSettings
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from customSettings
+    where cuguid = #{cuguid,jdbcType=NVARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from customSettings
+    where cuguid = #{cuguid,jdbcType=NVARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dayang.newmedia.newscommand.db.model.CustomSettingsQuery" >
+    delete from customSettings
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dayang.newmedia.newscommand.db.model.CustomSettings" >
+    insert into customSettings (cuguid, cutype, cuvalue, 
+      cuname, cutime)
+    values (#{cuguid,jdbcType=NVARCHAR}, #{cutype,jdbcType=NVARCHAR}, #{cuvalue,jdbcType=NVARCHAR}, 
+      #{cuname,jdbcType=NVARCHAR}, #{cutime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dayang.newmedia.newscommand.db.model.CustomSettings" >
+    insert into customSettings
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="cuguid != null" >
+        cuguid,
+      </if>
+      <if test="cutype != null" >
+        cutype,
+      </if>
+      <if test="cuvalue != null" >
+        cuvalue,
+      </if>
+      <if test="cuname != null" >
+        cuname,
+      </if>
+      <if test="cutime != null" >
+        cutime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="cuguid != null" >
+        #{cuguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="cutype != null" >
+        #{cutype,jdbcType=NVARCHAR},
+      </if>
+      <if test="cuvalue != null" >
+        #{cuvalue,jdbcType=NVARCHAR},
+      </if>
+      <if test="cuname != null" >
+        #{cuname,jdbcType=NVARCHAR},
+      </if>
+      <if test="cutime != null" >
+        #{cutime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update customSettings
+    <set >
+      <if test="record.cuguid != null" >
+        cuguid = #{record.cuguid,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.cutype != null" >
+        cutype = #{record.cutype,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.cuvalue != null" >
+        cuvalue = #{record.cuvalue,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.cuname != null" >
+        cuname = #{record.cuname,jdbcType=NVARCHAR},
+      </if>
+      <if test="record.cutime != null" >
+        cutime = #{record.cutime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update customSettings
+    set cuguid = #{record.cuguid,jdbcType=NVARCHAR},
+      cutype = #{record.cutype,jdbcType=NVARCHAR},
+      cuvalue = #{record.cuvalue,jdbcType=NVARCHAR},
+      cuname = #{record.cuname,jdbcType=NVARCHAR},
+      cutime = #{record.cutime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dayang.newmedia.newscommand.db.model.CustomSettings" >
+    update customSettings
+    <set >
+      <if test="cutype != null" >
+        cutype = #{cutype,jdbcType=NVARCHAR},
+      </if>
+      <if test="cuvalue != null" >
+        cuvalue = #{cuvalue,jdbcType=NVARCHAR},
+      </if>
+      <if test="cuname != null" >
+        cuname = #{cuname,jdbcType=NVARCHAR},
+      </if>
+      <if test="cutime != null" >
+        cutime = #{cutime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where cuguid = #{cuguid,jdbcType=NVARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dayang.newmedia.newscommand.db.model.CustomSettings" >
+    update customSettings
+    set cutype = #{cutype,jdbcType=NVARCHAR},
+      cuvalue = #{cuvalue,jdbcType=NVARCHAR},
+      cuname = #{cuname,jdbcType=NVARCHAR},
+      cutime = #{cutime,jdbcType=TIMESTAMP}
+    where cuguid = #{cuguid,jdbcType=NVARCHAR}
+  </update>
+</mapper>

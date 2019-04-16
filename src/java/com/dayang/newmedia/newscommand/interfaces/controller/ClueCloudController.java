@@ -2,6 +2,9 @@ package com.dayang.newmedia.newscommand.interfaces.controller;
 
 import java.io.UnsupportedEncodingException;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.eclipse.jetty.server.Request;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +26,7 @@ import antlr.StringUtils;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
+
 @Controller
 @RequestMapping("/clueCloudInterface")
 public class ClueCloudController {
@@ -30,6 +34,8 @@ public class ClueCloudController {
 	
 	@Autowired
 	private ClueCloudService clueCloudService;
+	@Autowired  
+	 HttpServletRequest request; 
 	
 	/**
 	 * 线索云调用调用线索云的接口用来查询 网页 微博 微信 资源的方法 
@@ -40,8 +46,9 @@ public class ClueCloudController {
 	public String getClueList(@RequestBody ClueCloudIterfaceQueryCondition paramss) {
 		log.debug("进入方法getClueList.do中...");
 		log.debug("本次调用getClueList方法所携带的参数"+paramss.toString());
+		
 			//在service层调用  线索云 接口获取数据
-			String result = clueCloudService.getClueList(paramss);
+			String result = clueCloudService.getClueList(paramss,request);
 			//创建object对象封装接口传出的结果
 			JSONObject finalResult = new JSONObject();
 			//将从线索云获取的数据转化成未处理(uncooked)的json对象

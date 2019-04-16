@@ -44,8 +44,8 @@ html,body{
 .icon-logout{
     color:#9eafc9;
 }
-/*----------------------- 左侧导航开始------------------ */
-/*添加背景色和滚动条*/
+/*----------------------- 宸︿晶瀵艰埅寮�濮�------------------ */
+/*娣诲姞鑳屾櫙鑹插拰婊氬姩鏉�*/
 .navMenuBox {
     background-color: #334155;
     overflow: auto;
@@ -56,7 +56,7 @@ html,body{
 
 }
 
-/*去掉默认样式*/
+/*鍘绘帀榛樿鏍峰紡*/
 .navMenuBox ul,
 .navMenuBox li {
     list-style: none;
@@ -117,9 +117,9 @@ ul.subMenu {
 .subMenu>li>a {
     padding-left: 10px;
 }
-/* ----------------箭头--------------------- */
+/* ----------------绠ご--------------------- */
 
-/* 所有a */
+/* 鎵�鏈塧 */
 a.arrow:after {
     display: block;
     float: right;
@@ -131,7 +131,7 @@ a.arrow:after {
     text-shadow: none;
     padding-right:12px;
 }
-/* 所有li.active的子元素*/
+/* 鎵�鏈塴i.active鐨勫瓙鍏冪礌*/
 li.active>a.arrow:after {
     display: block;
     float: right;
@@ -142,7 +142,7 @@ li.active>a.arrow:after {
     font-weight: 300;
     text-shadow: none;
 }
-/* 汇总列表 去掉箭头*/
+/* 姹囨�诲垪琛� 鍘绘帀绠ご*/
 li#summary>a.arrow:after {
     display: block;
     float: right;
@@ -153,7 +153,7 @@ li#summary>a.arrow:after {
     font-weight: 300;
     text-shadow: none;
 }
-/* 其它大屏 去掉箭头*/
+/* 鍏跺畠澶у睆 鍘绘帀绠ご*/
 li#others>a.arrow:after {
     display: block;
     float: right;
@@ -164,7 +164,7 @@ li#others>a.arrow:after {
     font-weight: 300;
     text-shadow: none;
 }
-/* 运营管理 去掉箭头*/
+/* 杩愯惀绠＄悊 鍘绘帀绠ご*/
 li#operationManage>a.arrow:after {
     display: block;
     float: right;
@@ -176,7 +176,7 @@ li#operationManage>a.arrow:after {
     text-shadow: none;
 }
 
-/* 全局设置 去掉箭头*/
+/* 鍏ㄥ眬璁剧疆 鍘绘帀绠ご*/
 li#globalSetting>a.arrow:after {
     display: block;
     float: right;
@@ -194,7 +194,7 @@ li#globalSetting>a.arrow:after {
 
 /* ------------------------------------- */
 
-/* 第一级li 前面有图标*/
+/* 绗竴绾i 鍓嶉潰鏈夊浘鏍�*/
 .navMenu>li>a:before {
     display: block;
     float: left;
@@ -286,19 +286,20 @@ li#globalSetting>a.arrow:after {
     
 }
 li#operationManage{
-    /* 定位到下面 */
+    /* 瀹氫綅鍒颁笅闈� */
     position: absolute;
-    bottom:49px;
+    /*bottom:49px;*/
+    bottom:0px;
     width:100%;
 }
 li#globalSetting{
-      /* 定位到下面 */
+      /* 瀹氫綅鍒颁笅闈� */
       position: absolute;
       bottom:0px;
       width:100%;  
 }
 
-/*------------------------- 左侧导航结束----------------- */
+/*------------------------- 宸︿晶瀵艰埅缁撴潫----------------- */
 
 ::-webkit-scrollbar {
     width: 5px;
@@ -306,11 +307,11 @@ li#globalSetting{
     background-color: #000;
     border-radius: 5px;
 }
-/*定义滚动条轨道 内阴影+圆角*/
+/*瀹氫箟婊氬姩鏉¤建閬� 鍐呴槾褰�+鍦嗚*/
 ::-webkit-scrollbar-track {
     background-color: #324154;
 }
-/*定义滑块 内阴影+圆角*/
+/*瀹氫箟婊戝潡 鍐呴槾褰�+鍦嗚*/
 
 ::-webkit-scrollbar-thumb {
     background: #000;
@@ -322,7 +323,7 @@ li#globalSetting{
     height:100%;
     padding-left:255px;
     padding-top: 46px;
-    background:rebeccapurple;
+    background:#eef2fa;
 }
 .rightContentForIframe iframe{
     width:100%;
@@ -330,8 +331,8 @@ li#globalSetting{
     vertical-align:top 
 } 
 
-/* 模态框 */
-/*删除 模态框 */
+/* 妯℃�佹 */
+/*鍒犻櫎 妯℃�佹 */
 #deleteModal.modal .modal-dialog{
     color:#354151;
     width:410px;
@@ -396,7 +397,7 @@ li#globalSetting{
     width: 60px;
 
 }
-/* 机构配置模态框 */
+/* 鏈烘瀯閰嶇疆妯℃�佹 */
 
 #organizationConfigModal.modal .modal-dialog{
     color:#354151;
@@ -445,11 +446,11 @@ li#globalSetting{
         padding: 10px 0;
         
 }
-/* 新建大屏模态框 */
+/* 鏂板缓澶у睆妯℃�佹 */
 
 #ceateBigScreenModal.modal .modal-dialog{
     color:#354151;
-    /* 此处应该是偶数 */
+    /* 姝ゅ搴旇鏄伓鏁� */
     width:526px;
     height:326px;
     position: absolute;
@@ -459,7 +460,7 @@ li#globalSetting{
 }
 #ceateBigScreenModal.modal .modal-content{
     width:525px;
-    height:325px;
+    height:450px;
     padding:0 8px;
     font-size: 14px;
 
@@ -495,7 +496,7 @@ li#globalSetting{
 }
 #ceateBigScreenModal .organizationName{
     display:inline-block;
-    width:270px;
+    width:330px;
     margin-right:50px;
 }
 #ceateBigScreenModal .div2{
@@ -512,7 +513,7 @@ color: #B4B4B4;
 }
 #ceateBigScreenModal .div2 textarea{
     width:370px;
-    height:130px;
+    height:60px;
     border: 1px solid #C3CAD6;
     border-radius: 4px;
     resize: none;
@@ -524,7 +525,87 @@ color: #B4B4B4;
     color: #B4B4B4;
 }
 
-/* 弹框按钮 */
+
+#editBigScreenModal.modal .modal-dialog{
+    color:#354151;
+    /* 姝ゅ搴旇鏄伓鏁� */
+    width:526px;
+    height:326px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#editBigScreenModal.modal .modal-content{
+    width:525px;
+    height:450px;
+    padding:0 8px;
+    font-size: 14px;
+
+}
+#editBigScreenModal.modal .modal-header {
+    height:45px;
+    padding:15px 0 0 0;
+    line-height: 45px;
+}
+#editBigScreenModal.modal  .modal-header h4{
+    font-size: 14px;
+    padding-left:10px;
+}
+#editBigScreenModal.modal  h4{
+    font-size: 14px;
+}
+#editBigScreenModal.modal .close{
+    font-weight: normal;
+    font-size: 30px;
+    height: 25px;
+    line-height: 25px;
+}
+#editBigScreenModal.modal .modal-body {
+    border-bottom: none;
+    padding:19px;
+}
+#editBigScreenModal.modal .modal-footer {
+    border-top: 1px solid #E2E2E2;
+        display:flex;
+        justify-content: center;
+        padding: 10px 0;
+        
+}
+#editBigScreenModal .organizationName{
+    display:inline-block;
+    width:330px;
+    margin-right:50px;
+}
+#editBigScreenModal .div2{
+    margin-top:22px;
+    display: flex;
+    align-items: flex-start;
+}
+#editBigScreenModal .div1 input{
+    padding:0 10px;
+}
+#editBigScreenModal .div1 input::-webkit-input-placeholder {
+    font-size: 14px;
+color: #B4B4B4;
+}
+#editBigScreenModal .div2 textarea{
+    width:370px;
+    height:60px;
+    border: 1px solid #C3CAD6;
+    border-radius: 4px;
+    resize: none;
+    padding:10px;
+
+}
+#editBigScreenModal .div2 textarea::-webkit-input-placeholder {
+    font-size: 14px;
+    color: #B4B4B4;
+}
+
+
+
+/* 寮规鎸夐挳 */
 button.btn-cancle:hover{
     background: #F0F6FF;
     border: 1px solid #5576AD;
@@ -587,7 +668,7 @@ button.btn-cancle{
 
 
 
-/* --------------------------------修改checkbox样式start--将input隐藏，label:before做为边框，label:after:作为勾选的对勾--------------------- */
+/* --------------------------------淇敼checkbox鏍峰紡start--灏唅nput闅愯棌锛宭abel:before鍋氫负杈规锛宭abel:after:浣滀负鍕鹃�夌殑瀵瑰嬀--------------------- */
 .checkbox-lyy {
     position: relative;
     padding: 0 15px 0 2px;
@@ -596,7 +677,7 @@ button.btn-cancle{
     width:25px;
 }
 /*
-将初始的checkbox的样式改变
+灏嗗垵濮嬬殑checkbox鐨勬牱寮忔敼鍙�
 */
 .checkbox-lyy input[type="checkbox"] {
     opacity: 0;
@@ -607,7 +688,7 @@ button.btn-cancle{
     z-index: 2;
 }
 /*
-设计新的checkbox，位置  选框的样式
+璁捐鏂扮殑checkbox锛屼綅缃�  閫夋鐨勬牱寮�
 */
 .checkbox-lyy label:before {
     content: '';
@@ -629,7 +710,7 @@ button.btn-cancle{
     background: #5576AD;
 }
 /*
-点击初始的checkbox，将新的checkbox关联起来 选中时候的样式
+鐐瑰嚮鍒濆鐨刢heckbox锛屽皢鏂扮殑checkbox鍏宠仈璧锋潵 閫変腑鏃跺�欑殑鏍峰紡
 */
 .checkbox-lyy input[type="checkbox"]:checked +label:after {
     position: absolute;
@@ -643,7 +724,7 @@ button.btn-cancle{
     height: 16px;
     color: #fff;
 }
-/*左侧 未选择状态特殊处理 */
+/*宸︿晶 鏈�夋嫨鐘舵�佺壒娈婂鐞� */
 .left .checkbox-lyy  input[type="checkbox"] +label:before {
     border: none;
     background: #5576AD;

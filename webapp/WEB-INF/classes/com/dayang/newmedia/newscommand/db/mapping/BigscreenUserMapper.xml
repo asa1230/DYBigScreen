@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dayang.newmedia.newscommand.db.dao.BigscreenUserMapper" >
+  <resultMap id="BaseResultMap" type="com.dayang.newmedia.newscommand.db.model.BigscreenUser" >
+    <id column="Guid" property="guid" jdbcType="VARCHAR" />
+    <result column="TenantID" property="tenantid" jdbcType="VARCHAR" />
+    <result column="TenantOrgName" property="tenantorgname" jdbcType="VARCHAR" />
+    <result column="TenantNote" property="tenantnote" jdbcType="VARCHAR" />
+    <result column="Editor" property="editor" jdbcType="VARCHAR" />
+    <result column="EditTime" property="edittime" jdbcType="TIMESTAMP" />
+    <result column="ModifyTime" property="modifytime" jdbcType="TIMESTAMP" />
+    <result column="ISuse" property="isuse" jdbcType="INTEGER" />
+    <result column="ScreenNum" property="screennum" jdbcType="INTEGER" />
+    <result column="ScreenTheme" property="screentheme" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    Guid, TenantID, TenantOrgName, TenantNote, Editor, EditTime, ModifyTime, ISuse, ScreenNum, 
+    ScreenTheme
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * from bigscreenuser
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from bigscreenuser
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.dayang.newmedia.newscommand.db.model.BigscreenUser" >
+    insert into bigscreenuser (Guid, TenantID, TenantOrgName, 
+      TenantNote, Editor, EditTime, 
+      ModifyTime, ISuse, ScreenNum, 
+      ScreenTheme)
+    values (#{guid,jdbcType=VARCHAR}, #{tenantid,jdbcType=VARCHAR}, #{tenantorgname,jdbcType=VARCHAR}, 
+      #{tenantnote,jdbcType=VARCHAR}, #{editor,jdbcType=VARCHAR}, #{edittime,jdbcType=TIMESTAMP}, 
+      #{modifytime,jdbcType=TIMESTAMP}, #{isuse,jdbcType=INTEGER}, #{screennum,jdbcType=INTEGER}, 
+      #{screentheme,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dayang.newmedia.newscommand.db.model.BigscreenUser" >
+    insert into bigscreenuser
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        Guid,
+      </if>
+      <if test="tenantid != null" >
+        TenantID,
+      </if>
+      <if test="tenantorgname != null" >
+        TenantOrgName,
+      </if>
+      <if test="tenantnote != null" >
+        TenantNote,
+      </if>
+      <if test="editor != null" >
+        Editor,
+      </if>
+      <if test="edittime != null" >
+        EditTime,
+      </if>
+      <if test="modifytime != null" >
+        ModifyTime,
+      </if>
+      <if test="isuse != null" >
+        ISuse,
+      </if>
+      <if test="screennum != null" >
+        ScreenNum,
+      </if>
+      <if test="screentheme != null" >
+        ScreenTheme,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="guid != null" >
+        #{guid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantid != null" >
+        #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantorgname != null" >
+        #{tenantorgname,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantnote != null" >
+        #{tenantnote,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null" >
+        #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="edittime != null" >
+        #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null" >
+        #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isuse != null" >
+        #{isuse,jdbcType=INTEGER},
+      </if>
+      <if test="screennum != null" >
+        #{screennum,jdbcType=INTEGER},
+      </if>
+      <if test="screentheme != null" >
+        #{screentheme,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dayang.newmedia.newscommand.db.model.BigscreenUser" >
+    update bigscreenuser
+    <set >
+      <if test="tenantid != null" >
+        TenantID = #{tenantid,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantorgname != null" >
+        TenantOrgName = #{tenantorgname,jdbcType=VARCHAR},
+      </if>
+      <if test="tenantnote != null" >
+        TenantNote = #{tenantnote,jdbcType=VARCHAR},
+      </if>
+      <if test="editor != null" >
+        Editor = #{editor,jdbcType=VARCHAR},
+      </if>
+      <if test="edittime != null" >
+        EditTime = #{edittime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifytime != null" >
+        ModifyTime = #{modifytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isuse != null" >
+        ISuse = #{isuse,jdbcType=INTEGER},
+      </if>
+      <if test="screennum != null" >
+        ScreenNum = #{screennum,jdbcType=INTEGER},
+      </if>
+      <if test="screentheme != null" >
+        ScreenTheme = #{screentheme,jdbcType=INTEGER},
+      </if>
+    </set>
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dayang.newmedia.newscommand.db.model.BigscreenUser" >
+    update bigscreenuser
+    set TenantID = #{tenantid,jdbcType=VARCHAR},
+      TenantOrgName = #{tenantorgname,jdbcType=VARCHAR},
+      TenantNote = #{tenantnote,jdbcType=VARCHAR},
+      Editor = #{editor,jdbcType=VARCHAR},
+      EditTime = #{edittime,jdbcType=TIMESTAMP},
+      ModifyTime = #{modifytime,jdbcType=TIMESTAMP},
+      ISuse = #{isuse,jdbcType=INTEGER},
+      ScreenNum = #{screennum,jdbcType=INTEGER},
+      ScreenTheme = #{screentheme,jdbcType=INTEGER}
+    where Guid = #{guid,jdbcType=VARCHAR}
+  </update>
+  
+  <!-- 查询所有机构 -->
+  <select id="getBigScreenUser"  resultMap="BaseResultMap">
+  	select * from bigscreenuser order by modifytime desc
+  </select>
+  
+  <!-- 按条件查询 -->
+  <select id="selectByName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select * from bigscreenuser
+    where TenantOrgName like #{tenantorgname}
+  </select>
+  
+  
+</mapper>

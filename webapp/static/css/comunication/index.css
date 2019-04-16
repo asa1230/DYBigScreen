@@ -1,0 +1,188 @@
+.flex-box {
+    display: flex;
+    align-items: center;
+}
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+/* common class end */
+
+.screen_container {
+    width: 100%;
+    height: 100%;
+    background: url(../../../img/bg_07.png) no-repeat;
+    background-size: cover;
+    padding: 40px 60px;
+}
+
+@font-face {
+    font-family: "newFont";
+    src: url('../digifacewide(1).ttf');
+    /*src: url('../SingleMalta.ttf');*/
+}
+
+.screen_header {
+    height: 98px;
+    width: 100%;
+    background: url(../../images/headerbg1.png) no-repeat;
+    background-size: contain;
+    padding: 20px 40px;
+    line-height: 48px;
+}
+
+.screen_header .iconfont {
+    position: absolute;
+    color: #70E7EF;
+    height: 16px;
+    line-height: 16px;
+}
+
+.screen_header .iconimg_upleft {
+    top: -1px;
+    left: -1px;
+}
+
+.screen_header .iconimg_downleft {
+    bottom: -1px;
+    left: -1px;
+}
+
+.screen_header .iconimg_upright {
+    top: -1px;
+    right: -1px;
+}
+
+.screen_header .iconimg_downright {
+    bottom: -1px;
+    right: -1px;
+}
+
+.header_icon {
+    vertical-align: middle;
+    width: 58px;
+    height: 100%;
+    display: inline-block;
+    float: left;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.header_title {
+    height: 52px;
+    /* line-height: 52px; */
+    display: inline-block;
+    font-family: PingFangSC-Medium;
+    font-size: 54px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #fefefe;
+    padding-left: 25px;
+    /* border-left: 2px solid #fff; */
+}
+
+.header_eng {
+    height: 52px;
+    font-family: Helvetica;
+    font-size: 36px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 52px;
+    letter-spacing: 0px;
+    color: rgba(0, 201, 252, 0.5);
+    float: right;
+}
+
+
+/* hearder end */
+
+.screen_content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 178px 60px 40px;
+}
+
+.rise-icon,
+.fall-icon,
+.flat-icon {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.fall-icon {
+    background: url(../../images/propaganda/arrow_down.svg) no-repeat center;
+}
+
+.rise-icon {
+    background: url(../../images/propaganda/arrow_up.svg) no-repeat center;
+}
+
+.flat-icon {
+    background: url(../../images/propaganda/arrow_yellow.svg) no-repeat center;
+}
+
+.tab_active,
+.tab_unactive {
+    height: 48px;
+    font-size: 32px;
+    color: #FFFFFF;
+    line-height: 26px;
+    width: auto;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.tab_active {
+    border-bottom: 5px solid #00C9FC;
+}
+
+.tab_unactive {
+    color: rgba(0, 201, 252, 0.5);
+}
+
+.reply-comment-list-items {
+    height: 120px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.38);
+    padding: 15px 0;
+}
+
+.reply-comment-list-items p {
+    font-size: 32px;
+    color: #FFFFFF;
+    /* height: 26px; */
+    width: 100%;
+    margin-top: 0;
+    /* line-height: 26px; */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.reply-comment-list-items>div {
+    justify-content: space-between;
+}
+
+.reply-comment-list-items .detail-items {
+    color: rgba(166, 201, 241, 0.7);
+    font-size: 22px;
+}
+
+.reply-comment-list-items .detail-items:first-child {
+    width: 484px;
+}
+
+.reply-comment-list-items .detail-items:nth-child(2) {
+    width: 160px;
+}

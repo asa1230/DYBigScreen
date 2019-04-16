@@ -10,6 +10,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -34,7 +36,7 @@ public class ClueCloudService {
 	//从配置文件中获取线索云的接口url
 	@Value(value="${clueCloudUrl.xuanti}")
 	private String xuantiUrl;
-	public String getClueList(ClueCloudIterfaceQueryCondition paramss){
+	public String getClueList(ClueCloudIterfaceQueryCondition paramss,HttpServletRequest request){
 		log.debug(clientSecret+"getClueList+com.dayang.newmedia.newscommand.service.ClueCloudService.getClueList()");
 		log.debug("get query conditions as ClueCloudIterfaceQueryCondition from web ,they are:"+paramss.toString());
 		log.debug("获取线索的url："+xuantiUrl);

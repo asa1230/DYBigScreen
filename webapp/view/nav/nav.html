@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -58,6 +59,7 @@
                     <!-- END USER LOGIN DROPDOWN -->
                     <!-- BEGIN QUICK SIDEBAR TOGGLER -->
                     <!-- DOC: Apply "dropdown-dark" class after below "dropdown-extended" to change the dropdown styte -->
+                    <li><div style="color:#c6cfda;line-height:45px;">欢迎:<label id="loginName" ></label>&nbsp&nbsp&nbsp&nbsp</div></li>
                     <li class="">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
                             style="line-height:inherit">
@@ -71,10 +73,10 @@
             <!-- END TOP NAVIGATION MENU -->
         </div>
         <!-- END HEADER INNER -->
-    </div <!--包裹层-->
+    </div ><!--包裹层-->
     <div class="navMenuBox">
         <!--一级菜单-->
-        <ul class="navMenu navMenuTop">
+        <ul class="navMenu navMenuTop" id="navMenuBOX">
             <!--菜单项-->
             <li id="summary">
                 <a href="#/summary" class="arrow">汇总列表</a>
@@ -126,9 +128,9 @@
             <li id="operationManage">
                 <a href="#/operationManage" class="arrow">运营管理</a>
             </li>
-            <li id="globalSetting">
+            <!-- <li id="globalSetting">
                 <a href="#/globalSetting" class="arrow">全局设置</a>
-            </li>
+            </li> -->
         </ul>
         <!-- <ul class="navMenu navMenuBottom">
             <li id="operationManage">
@@ -551,6 +553,7 @@
     <script src="../../assets/layouts/layout/scripts/layout.min.js" type="text/javascript"></script>
     <script src="../../assets/layouts/layout/scripts/demo.min.js" type="text/javascript"></script>
     <script src="../../assets/layouts/global/scripts/quick-sidebar.min.js" type="text/javascript"></script>
+    <script src="../../static/scripts/util/utils.js" type="text/javascript" ></script>
     <script src="../../static/scripts/nav/router.js"></script>
     <script src="../../static/scripts/nav/nav.js"></script>
     <script>

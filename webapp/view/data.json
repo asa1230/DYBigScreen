@@ -1,0 +1,214 @@
+{
+  "list": [
+    {
+      "date": "2019-03-14",
+      "commit": 35,
+      "reply": 26
+    },
+    {
+      "date": "2019-03-15",
+      "commit": 66,
+      "reply": 48
+    },
+    {
+      "date": "2019-03-16",
+      "commit": 38,
+      "reply": 67
+    },
+    {
+      "date": "2019-03-17",
+      "commit": 29,
+      "reply": 96
+    },
+    {
+      "date": "2019-03-18",
+      "commit": 17,
+      "reply": 56
+    },
+    {
+      "date": "2019-03-19",
+      "commit": 106,
+      "reply": 128
+    },
+    {
+      "date": "2019-03-20",
+      "commit": 128,
+      "reply": 142
+    }
+  ],
+  "calcTime": "03-21 00:00",
+  "commitTotal": "1,756",
+  "replyTotal": "2,656",
+  "ratio": {
+    "average": "82%",
+    "averagecompare": "flat",
+    "month": "90%"
+  },
+  "reply": {
+    "total": "2,656",
+    "average": "1,520",
+    "averagecompare": "rise",
+    "month": "1,586"
+  },
+  "commit": {
+    "total": "1,624",
+    "average": "1,224",
+    "averagecompare": "fall",
+    "month": "1,123"
+  },
+  "propaganda": {
+    "today": {
+      "total": "146",
+      "ratio": "81.6%",
+      "num": "204"
+    },
+    "week": {
+      "report": {
+        "num": "817",
+        "riseorfall": "fall",
+        "ratio": "10%"
+      },
+      "result": {
+        "num": "1,031",
+        "riseorfall": "rise",
+        "ratio": "10%"
+      }
+    },
+    "list": [
+      {
+        "date": "2019-03-21 00:00",
+        "chat": "1",
+        "micro": "2",
+        "page": "0",
+        "tv": "0",
+        "toutiao": "1"
+      },
+      {
+        "date": "2019-03-21 04:00",
+        "chat": "0",
+        "micro": "0",
+        "page": "0",
+        "tv": "0",
+        "toutiao": "0"
+      },
+      {
+        "date": "2019-03-21 08:00",
+        "chat": "36",
+        "micro": "64",
+        "page": "20",
+        "tv": "19",
+        "toutiao": "32"
+      },
+      {
+        "date": "2019-03-21 12:00",
+        "chat": "24",
+        "micro": "20",
+        "page": "18",
+        "tv": "2",
+        "toutiao": "18"
+      },
+      {
+        "date": "2019-03-21 16:00",
+        "chat": "39",
+        "micro": "71",
+        "page": "40",
+        "tv": "23",
+        "toutiao": "22"
+      },
+      {
+        "date": "2019-03-21 20:00",
+        "chat": "60",
+        "micro": "82",
+        "page": "56",
+        "tv": "24",
+        "toutiao": "54"
+      },
+      {
+        "date": "2019-03-21 24:00",
+        "chat": "3",
+        "micro": "6",
+        "page": "1",
+        "tv": "2",
+        "toutiao": "4"
+      }
+    ],
+    "rank": {
+      "topic_report_dept": {
+        "msg": "统计结果查询成功！",
+        "data": [
+          {
+            "fieldName": "石家庄台",
+            "count": "2303"
+          },
+          {
+            "fieldName": "秦皇岛台",
+            "count": "1310"
+          },
+          {
+            "fieldName": "张家口台",
+            "count": "1021"
+          },
+          {
+            "fieldName": "保定台",
+            "count": "982"
+          },
+          {
+            "fieldName": "廊坊台",
+            "count": "792"
+          },
+          {
+            "fieldName": "张家口台",
+            "count": "642"
+          },
+          {
+            "fieldName": "衡水台",
+            "count": "452"
+          },
+          {
+            "fieldName": "邯郸台",
+            "count": "442"
+          }
+        ],
+        "status": true
+      },
+      "topic_news_class": {
+        "msg": "统计结果查询成功！",
+        "data": [
+          {
+            "fieldName": "生活类",
+            "count": "2303"
+          },
+          {
+            "fieldName": "旅游类",
+            "count": "1310"
+          },
+          {
+            "fieldName": "房产类",
+            "count": "1021"
+          },
+          {
+            "fieldName": "时政类",
+            "count": "982"
+          },
+          {
+            "fieldName": "母婴类",
+            "count": "792"
+          },
+          {
+            "fieldName": "政务类",
+            "count": "642"
+          },
+          {
+            "fieldName": "地方类",
+            "count": "452"
+          },
+          {
+            "fieldName": "军事类",
+            "count": "442"
+          }
+        ],
+        "status": true
+      }
+    }
+  }
+}

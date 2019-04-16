@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dayang.newmedia.newscommand.db.dao.UserLogInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.dayang.newmedia.newscommand.db.model.UserLogInfo" >
+    <id column="LOGGUID" property="logguid" jdbcType="VARCHAR" />
+    <result column="LOGUSERNAME" property="logusername" jdbcType="VARCHAR" />
+    <result column="LOGUSERID" property="loguserid" jdbcType="VARCHAR" />
+    <result column="LOGSTATE" property="logstate" jdbcType="NUMERIC" />
+    <result column="LOGINTIME" property="logintime" jdbcType="TIMESTAMP" />
+    <result column="LOGOUTTIME" property="logouttime" jdbcType="TIMESTAMP" />
+    <result column="LIVINGTIME" property="livingtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    LOGGUID, LOGUSERNAME, LOGUSERID, LOGSTATE, LOGINTIME, LOGOUTTIME, LIVINGTIME
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.dayang.newmedia.newscommand.db.model.UserLogInfoQuery" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    'false' as QUERYID,
+    <include refid="Base_Column_List" />
+    from UserLogInfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from UserLogInfo
+    where LOGGUID = #{logguid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from UserLogInfo
+    where LOGGUID = #{logguid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dayang.newmedia.newscommand.db.model.UserLogInfoQuery" >
+    delete from UserLogInfo
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dayang.newmedia.newscommand.db.model.UserLogInfo" >
+    insert into UserLogInfo (LOGGUID, LOGUSERNAME, LOGUSERID, 
+      LOGSTATE, LOGINTIME, LOGOUTTIME, 
+      LIVINGTIME)
+    values (#{logguid,jdbcType=VARCHAR}, #{logusername,jdbcType=VARCHAR}, #{loguserid,jdbcType=VARCHAR}, 
+      #{logstate,jdbcType=NUMERIC}, #{logintime,jdbcType=TIMESTAMP}, #{logouttime,jdbcType=TIMESTAMP}, 
+      #{livingtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dayang.newmedia.newscommand.db.model.UserLogInfo" >
+    insert into UserLogInfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="logguid != null" >
+        LOGGUID,
+      </if>
+      <if test="logusername != null" >
+        LOGUSERNAME,
+      </if>
+      <if test="loguserid != null" >
+        LOGUSERID,
+      </if>
+      <if test="logstate != null" >
+        LOGSTATE,
+      </if>
+      <if test="logintime != null" >
+        LOGINTIME,
+      </if>
+      <if test="logouttime != null" >
+        LOGOUTTIME,
+      </if>
+      <if test="livingtime != null" >
+        LIVINGTIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="logguid != null" >
+        #{logguid,jdbcType=VARCHAR},
+      </if>
+      <if test="logusername != null" >
+        #{logusername,jdbcType=VARCHAR},
+      </if>
+      <if test="loguserid != null" >
+        #{loguserid,jdbcType=VARCHAR},
+      </if>
+      <if test="logstate != null" >
+        #{logstate,jdbcType=NUMERIC},
+      </if>
+      <if test="logintime != null" >
+        #{logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logouttime != null" >
+        #{logouttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="livingtime != null" >
+        #{livingtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update UserLogInfo
+    <set >
+      <if test="record.logguid != null" >
+        LOGGUID = #{record.logguid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logusername != null" >
+        LOGUSERNAME = #{record.logusername,jdbcType=VARCHAR},
+      </if>
+      <if test="record.loguserid != null" >
+        LOGUSERID = #{record.loguserid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logstate != null" >
+        LOGSTATE = #{record.logstate,jdbcType=NUMERIC},
+      </if>
+      <if test="record.logintime != null" >
+        LOGINTIME = #{record.logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.logouttime != null" >
+        LOGOUTTIME = #{record.logouttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.livingtime != null" >
+        LIVINGTIME = #{record.livingtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update UserLogInfo
+    set LOGGUID = #{record.logguid,jdbcType=VARCHAR},
+      LOGUSERNAME = #{record.logusername,jdbcType=VARCHAR},
+      LOGUSERID = #{record.loguserid,jdbcType=VARCHAR},
+      LOGSTATE = #{record.logstate,jdbcType=NUMERIC},
+      LOGINTIME = #{record.logintime,jdbcType=TIMESTAMP},
+      LOGOUTTIME = #{record.logouttime,jdbcType=TIMESTAMP},
+      LIVINGTIME = #{record.livingtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dayang.newmedia.newscommand.db.model.UserLogInfo" >
+    update UserLogInfo
+    <set >
+      <if test="logusername != null" >
+        LOGUSERNAME = #{logusername,jdbcType=VARCHAR},
+      </if>
+      <if test="loguserid != null" >
+        LOGUSERID = #{loguserid,jdbcType=VARCHAR},
+      </if>
+      <if test="logstate != null" >
+        LOGSTATE = #{logstate,jdbcType=NUMERIC},
+      </if>
+      <if test="logintime != null" >
+        LOGINTIME = #{logintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="logouttime != null" >
+        LOGOUTTIME = #{logouttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="livingtime != null" >
+        LIVINGTIME = #{livingtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where LOGGUID = #{logguid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dayang.newmedia.newscommand.db.model.UserLogInfo" >
+    update UserLogInfo
+    set LOGUSERNAME = #{logusername,jdbcType=VARCHAR},
+      LOGUSERID = #{loguserid,jdbcType=VARCHAR},
+      LOGSTATE = #{logstate,jdbcType=NUMERIC},
+      LOGINTIME = #{logintime,jdbcType=TIMESTAMP},
+      LOGOUTTIME = #{logouttime,jdbcType=TIMESTAMP},
+      LIVINGTIME = #{livingtime,jdbcType=TIMESTAMP}
+    where LOGGUID = #{logguid,jdbcType=VARCHAR}
+  </update>
+</mapper>

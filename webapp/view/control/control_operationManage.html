@@ -28,6 +28,9 @@
     <link href="../../assets/layouts/layout/css/layout.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/layouts/layout/css/themes/darkblue.min.css" rel="stylesheet" type="text/css" id="style_color" />
     <link href="../../assets/layouts/layout/css/custom.min.css" rel="stylesheet" type="text/css" />
+    
+    <link rel="stylesheet" href="../../static/css/nav/navIcon/iconfont.css">
+    <link rel="stylesheet" href="../../static/css/nav/nav.css">
 
     <!-- ios -->
     <meta name="viewport" content="width=device-width, initial-scale=1, minium-scale=1, user-scalable=no">
@@ -65,20 +68,20 @@
             <div>
                 <div class="input-group leftSearch" style="float:left;width:390px;">
                     <input id="searchContent" type="txt" class="form-control" placeholder="搜索内容">
-                    <span onclick="loadSelectApiList();" class="input-group-addon"> <i class="fa fa-search"></i></span>
+                    <span onclick="loadSelectApiList();" class="input-group-addon" style="cursor:pointer;"> <i class="fa fa-search"></i></span>
                 </div>
                 <div class="buttonContainer" style="float:right;">
                     <button type="button" class="btn btn-default" id="createBigScreen">新增</button>
-                    <button type="button" class="btn btn-default">删除</button>
-                    <button type="button" class="btn btn-default">启用</button>
-                    <button type="button" class="btn btn-default">禁用</button>
+                    <button type="button" class="btn btn-default" id="deleteBigScreen">删除</button>
+                    <button type="button" class="btn btn-default" id="changeOpen">启用</button>
+                    <button type="button" class="btn btn-default" id="changeClose">禁用</button>
                 </div>
                 <div style="clear:both;"></div>
                 <div class="infoForList">
                     <span class="iconfont icon-xinxi"></span>
-                    <span class=""> 已选择<label>4</label>项</span>
-                    <span class=""> 服务调用总计：<label>36.4</label>万</span>
-                    <span class="clear"><label>清空</label></span>
+                    <span class=""> 已选择<label id="selectNum">0</label>项</span>
+                    <!-- <span class=""> 服务调用总计：<label>36.4</label>万</span>
+                    <span class="clear"><label>清空</label></span> -->
                 </div>
                 <div class="table-scrollable">
                     <table class="table table-striped table-hover" style=" width: 100%;table-layout: fixed;">
@@ -86,7 +89,7 @@
                             <tr>
                                 <th width="40px">
                                     <div class="checkbox-lyy checkbox-default">
-                                        <input type="checkbox">
+                                        <input type="checkbox" id="tableBox" onchange="changeTableBox();">
                                         <label></label>
                                     </div>
                                 </th>
@@ -98,8 +101,8 @@
                                 <th width="150px;" style="text-align:center;">操作</th>
                             </tr>
                         </thead>
-                        <tbody id="select">
-                            <tr class="list-item">
+                        <tbody id="screenBody">
+                            <!-- <tr class="list-item">
                                 <td>
                                     <div class="checkbox-lyy checkbox-default">
                                         <input type="checkbox">
@@ -131,18 +134,21 @@
                                     10:17:43</td>
                                 <td style="cursor:pointer;display:flex;align-items:center;" class="operation"><span
                                         class="forbidden">禁用</span><span class="config">配置</span><span class="delete">删除</span></td>
-                            </tr>
+                            </tr> -->
 
                         </tbody>
                     </table>
                 </div>
-                <div align="right">
+                
+                <!-- <div align="right">
                     <ul id="pagination" style="visibility: visible;" class="pagination">
                         <li class="prev"><a href="#" onclick="toPage('4','1','prev');" title="Prev"><i class="fa fa-angle-left"></i>上一页</a></li>
                         <li><a href="#">1/4</a></li>
                         <li class="next"><a href="#" onclick="toPage('4','1','next');" title="Next">下一页<i class="fa fa-angle-right"></i></a></li>
                     </ul>
-                </div>
+                </div> -->
+                
+                
                 <!-- BEGIN PAGE BAR -->
             </div>
             <!-- END CONTENT BODY -->
@@ -153,6 +159,194 @@
     </div>
 
 
+	<!-- 机构配置 -->
+    <div class="modal fade" id="organizationConfigModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" onclick="modelClose()" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <input type="hidden" id="hideTenantID" value="" />
+                    <input type="hidden" id="hidetoDelete" value="" />
+                    <h4 class="modal-title" id="">机构配置</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="div1">
+                        机构名称：
+                        <input type="text" id="tenantorgName" placeholder="" class="form-control organizationName">
+                        <div class="checkbox-lyy checkbox-default">
+                            <input type="checkbox" id="isuser">
+                            <label></label>
+                        </div>
+                        <span>启用</span>
+                    </div>
+                    <div class="div2">
+                        <h4>大屏选择：</h4>
+                        <div class="first">
+                            <div class="left">
+                                <div class="checkboxItem">
+                                    <!-- <div class="checkbox-lyy checkbox-default">
+                                        <input type="checkbox">
+                                        <label></label>
+                                    </div> -->
+                                    指挥大屏：
+                                </div>
+                            </div>
+                            <div class="right" id="commandScreenDIV">
+                            </div>
+                        </div>
+                        <div class="second">
+                            <div class="left">
+                                <div class="checkboxItem">
+                                    <!-- <div class="checkbox-lyy checkbox-default">
+                                        <input type="checkbox">
+                                        <label></label>
+                                    </div> -->
+                                    稿件大屏：
+                                </div>
+                            </div>
+                            <div class="right" id="newsScreenDIV">
+                            </div>
+                        </div>
+                        <div class="third">
+                            <div class="left">
+                                <div class="checkboxItem">
+                                    <!-- <div class="checkbox-lyy checkbox-default">
+                                        <input type="checkbox">
+                                        <label></label>
+                                    </div> -->
+                                    融云大屏：
+                                </div>
+                            </div>
+                            <div class="right" id="rongyunScreenDIV">
+                            </div>
+                        </div>
+                        <div class="fourth">
+                            <div class="left">
+                                <div class="checkboxItem">
+                                    <!-- <div class="checkbox-lyy checkbox-default">
+                                        <input type="checkbox">
+                                        <label></label>
+                                    </div> -->
+                                    其他大屏：
+                                </div>
+                            </div>
+                            <div class="right" id="otherScreenDIV">
+                                <!-- <div class="checkboxItem">
+                                    <div class="checkbox-lyy checkbox-default">
+                                        <input type="checkbox">
+                                        <label></label>
+                                    </div>
+                                    大屏44
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="toSave()">确定</button>
+                    <button type="button" class="btn btn-cancle" data-dismiss="modal">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+
+
+	<!-- 新建大屏 -->
+    <div class="modal fade" id="ceateBigScreenModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="">新建大屏</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="div1">
+                        大屏名称：
+                        <input type="text" id="" placeholder="最多10个字符，不含特殊符号" class="form-control organizationName">
+                        <div class="checkbox-lyy checkbox-default">
+                            <input type="checkbox">
+                            <label></label>
+                        </div>
+                        <span>启用</span>
+                    </div>
+                    <!--  -->
+                    <div class="div2">
+                        链接地址：
+                        <textarea placeholder="请输入ftp://、http://、https://类型地址"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">确定</button>
+                    <button type="button" class="btn btn-cancle" data-dismiss="modal">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    
+    <!-- 删除 -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="div1">
+                        确定要删除所选的大屏吗？
+                    </div>
+                    <div class="div2">
+                        <span class="iconfont icon-warning"></span>删除后将无法还原
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="todelete()">确定</button>
+                    <button type="button" class="btn btn-cancle" data-dismiss="modal">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    
+    <!-- 改变状态 -->
+    <div class="modal fade" id="changeOpenModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="div1">
+                        确定要改变状态吗？
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="tochangeOpen()">确定</button>
+                    <button type="button" class="btn btn-cancle" data-dismiss="modal">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+    
+    <div class="modal fade" id="changeCloseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="div1">
+                        确定要改变状态吗？
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="tochangeClose()">确定</button>
+                    <button type="button" class="btn btn-cancle" data-dismiss="modal">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
 
     <!-- END CONTAINER -->
     <!-- BEGIN FOOTER -->
